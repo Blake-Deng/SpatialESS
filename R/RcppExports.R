@@ -33,14 +33,6 @@ aggregate_simple_lr_csr_cpp <- function(offsets, neighbors, weights, ligand_expr
     .Call(`_SpatialESS_aggregate_simple_lr_csr_cpp`, offsets, neighbors, weights, ligand_expression, receptor_expression, group, group_count, Kh, n_power, min_expression, max_group_pairs)
 }
 
-graph_field_cg_cpp <- function(sender, receiver, weight, n_cells, source, receptor, diffusion, decay, uptake, production_rate, tolerance, max_iterations) {
-    .Call(`_SpatialESS_graph_field_cg_cpp`, sender, receiver, weight, n_cells, source, receptor, diffusion, decay, uptake, production_rate, tolerance, max_iterations)
-}
-
-graph_field_csr_cg_cpp <- function(offsets, neighbors, weights, degree, source, receptor, diffusion, decay, uptake, production_rate, tolerance, max_iterations) {
-    .Call(`_SpatialESS_graph_field_csr_cg_cpp`, offsets, neighbors, weights, degree, source, receptor, diffusion, decay, uptake, production_rate, tolerance, max_iterations)
-}
-
 score_simple_lr_edge_cpp <- function(sender, receiver, distance, spatial_weight, ligand_expression, receptor_expression, Kh, n_power, min_expression, max_output_edges) {
     .Call(`_SpatialESS_score_simple_lr_edge_cpp`, sender, receiver, distance, spatial_weight, ligand_expression, receptor_expression, Kh, n_power, min_expression, max_output_edges)
 }
@@ -65,8 +57,8 @@ score_cellchat_group_matrix_cpp <- function(average, sender_group, receiver_grou
     .Call(`_SpatialESS_score_cellchat_group_matrix_cpp`, average, sender_group, receiver_group, ligand_indices, receptor_indices, co_a_indices, co_i_indices, agonist_indices, antagonist_indices, has_agonist, has_antagonist, Kh, n_power)
 }
 
-spatial_v3_compatible_stream_cpp <- function(cell_by_gene, offsets, neighbors, distances, group, group_count, ligand_indices, receptor_indices, co_a_indices, co_i_indices, agonist_indices, antagonist_indices, has_agonist, has_antagonist, contact_lr, permutations, Kh, n_power, scale_distance, contact_threshold, min_percent, min_cells_sr, use_agan, max_output_records, max_active_edges_per_lr) {
-    .Call(`_SpatialESS_spatial_v3_compatible_stream_cpp`, cell_by_gene, offsets, neighbors, distances, group, group_count, ligand_indices, receptor_indices, co_a_indices, co_i_indices, agonist_indices, antagonist_indices, has_agonist, has_antagonist, contact_lr, permutations, Kh, n_power, scale_distance, contact_threshold, min_percent, min_cells_sr, use_agan, max_output_records, max_active_edges_per_lr)
+spatialess_stream_cpp <- function(cell_by_gene, offsets, neighbors, distances, group, group_count, ligand_indices, receptor_indices, co_a_indices, co_i_indices, agonist_indices, antagonist_indices, has_agonist, has_antagonist, contact_lr, permutations, Kh, n_power, scale_distance, contact_threshold, min_percent, min_cells_sr, use_agan, max_output_records, max_active_edges_per_lr) {
+    .Call(`_SpatialESS_spatialess_stream_cpp`, cell_by_gene, offsets, neighbors, distances, group, group_count, ligand_indices, receptor_indices, co_a_indices, co_i_indices, agonist_indices, antagonist_indices, has_agonist, has_antagonist, contact_lr, permutations, Kh, n_power, scale_distance, contact_threshold, min_percent, min_cells_sr, use_agan, max_output_records, max_active_edges_per_lr)
 }
 
 benchmark_sparse_type7_cpp <- function(positive_values, total_count, iterations) {

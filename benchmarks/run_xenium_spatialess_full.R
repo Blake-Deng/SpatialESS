@@ -12,7 +12,7 @@ prepared_path <- "/data/dzf/Xenium_Prime_Human_Ovary_FF/benchmark/prepared_xeniu
 coords_path <- "/data/dzf/Xenium_Prime_Human_Ovary_FF/Xenium_Prime_Human_Ovary_FF_cells.csv.gz"
 nboot <- as.integer(Sys.getenv("XENIUM_V3_COMPAT_NBOOT", "0"))
 out_dir <- file.path(
-  root, "benchmarks", "results", "xenium_v3_compat_20260801",
+  root, "benchmarks", "results", "xenium_spatialess_20260801",
   sprintf("full_full_perm%05d", nboot)
 )
 dir.create(out_dir, recursive = TRUE, showWarnings = FALSE)
@@ -33,7 +33,7 @@ rownames(coordinates) <- cell_ids
 group <- droplevels(object@idents)
 
 core_start <- proc.time()[["elapsed"]]
-result <- spatial_v3_compatible(
+result <- spatialess(
   expression = expression,
   coordinates = coordinates,
   group = group,
@@ -56,7 +56,7 @@ saveRDS(records, file.path(out_dir, "records.rds"), compress = FALSE)
 write.table(records, gzfile(file.path(out_dir, "records.tsv.gz")),
             sep = "\t", quote = FALSE, row.names = FALSE)
 summary <- data.frame(
-  method = "SpatialESS_v3_compatible",
+  method = "SpatialESS",
   cells = ncol(expression), genes = nrow(expression),
   groups = nlevels(group), lr = nrow(result$lr), nboot = nboot,
   graph_edges = length(result$graph$neighbors),

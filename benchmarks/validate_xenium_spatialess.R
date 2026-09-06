@@ -19,7 +19,7 @@ reference_path <- file.path(
   paste0(base_label, "_spatialcellchat_v3"), "records.rds"
 )
 out_dir <- file.path(
-  root, "benchmarks", "results", "xenium_v3_compat_20260801", base_label
+  root, "benchmarks", "results", "xenium_spatialess_20260801", base_label
 )
 dir.create(out_dir, recursive = TRUE, showWarnings = FALSE)
 
@@ -50,7 +50,7 @@ if (panel == "small") {
 }
 
 start <- proc.time()[["elapsed"]]
-result <- spatial_v3_compatible(
+result <- spatialess(
   expression = expression,
   coordinates = coordinates,
   group = group,
@@ -97,7 +97,7 @@ summary <- data.frame(
   pvalue_exact_fraction = if (length(common)) mean(pvalue_difference == 0) else NA_real_,
   elapsed_seconds = elapsed
 )
-saveRDS(result, file.path(out_dir, "spatialess_v3_compatible.rds"), compress = FALSE)
+saveRDS(result, file.path(out_dir, "spatialess.rds"), compress = FALSE)
 write.table(summary, file.path(out_dir, "comparison_summary.tsv"),
             sep = "\t", quote = FALSE, row.names = FALSE)
 writeLines(capture.output(sessionInfo()), file.path(out_dir, "sessionInfo.txt"))

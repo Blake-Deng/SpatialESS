@@ -3,4 +3,4 @@ CosMx Cancerous Liver	paired nested-cell ladder	full panel; 373 LR	250-443515 ne
 GSE250346	primary patient cohort	37 computable LR	45 samples; 35 patients	44-47 groups	35 unique patient IDs; 9 control and 26 disease patients; sample-to-patient mapping retained	/data/dzf/GSE250346/benchmarks/multisample_v3_exact
 GSE306130	independent fidelity pilot	33 LR	4 samples; 1000 cells/sample	sample-specific	identical nested cells, groups, genes, seed and 20 permutations per method	/data/dzf/GSE306130/benchmarks
 GSE313006	independent fidelity fixture	133 LR	1000 cells	shared fixture	identical inputs tested at 20 and 100 permutations	/data/dzf/GSE313006/benchmarks/spatial_v3_headtohead
-Xenium ovarian	million-cell stress test	627 LR; 648 relevant genes	1156091 cells	2357 groups	CSR graph dimensions and stored-edge counts recorded; integrated run marked stress test	/home/dzf/cellchat_acceleration/SpatialESS/benchmarks/results
+Xenium ovarian	million-cell stress test	627 LR; 648 relevant genes	1156091 cells	2357 groups	CSR graph dimensions and stored-edge counts recorded; SpatialESS stress-test run	/home/dzf/cellchat_acceleration/SpatialESS/benchmarks/results

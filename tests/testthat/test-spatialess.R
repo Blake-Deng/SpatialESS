@@ -1,4 +1,4 @@
-test_that("v3-compatible streaming matches a direct edge reference", {
+test_that("SpatialESS streaming matches a direct edge reference", {
   expression <- Matrix::Matrix(
     matrix(
       c(1, 0.5, 0,
@@ -22,7 +22,7 @@ test_that("v3-compatible streaming matches a direct edge reference", {
   complex <- data.frame(subunit_1 = character(), row.names = character())
   cofactor <- data.frame(cofactor1 = character(), row.names = character())
 
-  result <- spatial_v3_compatible(
+  result <- spatialess(
     expression, coordinates, group, lr, complex, cofactor,
     ratio = 1, tol = 0, interaction.range = 3,
     scale.distance = 1, contact.range = 1,

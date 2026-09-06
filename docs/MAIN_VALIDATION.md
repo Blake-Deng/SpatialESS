@@ -60,7 +60,7 @@ The paired CosMx ladder is the primary runtime/RSS figure source. At 50,000
 cells, the recorded values were 23,919 seconds and 60.78 GiB for official
 SpatialCellChat V3 versus 10.48 seconds and 0.802 GiB for SpatialESS. The official comparator did not complete at 100,000 cells and above. Failure modes are retained in results/tables/cosmx_paired_scaling.tsv: signal 11 at 100,000 cells, followed by explicit vector-allocation failures at 200,000 and 443,515 cells. SpatialESS completed all three larger fixtures with exit status 0. These scales are therefore SpatialESS scalability results, not paired numerical-fidelity comparisons.
 
-The Xenium stress test is separate: it demonstrates that the integrated engine
+The Xenium stress test is separate: it demonstrates that the SpatialESS engine
 can operate on 1.156 million cells and 2,357 spatial groups. It should not be
 used as a direct official comparison unless the current release commit and
 parameters are re-audited against the historical source filenames.

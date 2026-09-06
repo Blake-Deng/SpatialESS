@@ -19,12 +19,12 @@ release should replace them with user-supplied paths or archived Zenodo files.
 
 For exact comparisons, use the same nested cells, gene panel, LR table, group
 labels, distance settings, permutation count, seed and single-thread setting
-for both methods. The principal integrated settings are:
+for both methods. The principal SpatialESS settings are:
 
-    contact radius: 15 um
-    diffusion radius: 35 um
-    spatial block size: 100 um
-    inference: fixed permutation
+    interaction range: 30 um
+    contact range: 10 um
+    tolerance: 5 um
+    inference: label permutation
     same seed within a pair
     native threads: 1
     BLAS threads: 1

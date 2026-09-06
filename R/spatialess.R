@@ -1,7 +1,7 @@
-#' SpatialCellChat v3-compatible streamed spatial communication
+#' SpatialESS streamed spatial communication
 #'
 #' Reproduces the individual-cell probability and group-average ordering used
-#' by SpatialCellChat v3 while streaming over a compact CSR radius graph.
+#' by SpatialCellChat V3 while streaming over a compact CSR radius graph.
 #'
 #' @param expression Non-negative gene-by-cell matrix.
 #' @param coordinates Cell-by-2/3 coordinate matrix.
@@ -19,7 +19,7 @@
 #' @param nboot,seed.use Global label-permutation settings.
 #' @param max_edges,max_output_records,max_active_edges_per_lr Memory guards.
 #' @export
-spatial_v3_compatible <- function(
+spatialess <- function(
     expression, coordinates, group, lr, complex, cofactor,
     ratio = 1, tol = 5, interaction.range = 250,
     scale.distance = 0.01, contact.range = 10,
@@ -112,7 +112,7 @@ spatial_v3_compatible <- function(
     storage.mode(permutations) <- "integer"
   }
 
-  result <- spatial_v3_compatible_stream_cpp(
+  result <- spatialess_stream_cpp(
     cell_by_gene, graph$offsets, graph$neighbors, graph$distances,
     info$code, info$count,
     indices$ligand, indices$receptor, indices$co_a, indices$co_i,
@@ -147,7 +147,7 @@ spatial_v3_compatible <- function(
         self_spatial_weight = result$self_spatial_weight
       ),
       parameters = list(
-        engine = "SpatialCellChat_v3_compatible_CSR_stream",
+        engine = "SpatialESS_CSR_stream",
         ratio = ratio, tol = tol, interaction.range = interaction.range,
         scale.distance = scale.distance, contact.range = contact.range,
         Kh = Kh, n = n, use.AGAN = isTRUE(use.AGAN),
@@ -155,6 +155,6 @@ spatial_v3_compatible <- function(
         nboot = nboot, seed.use = seed.use
       )
     ),
-    class = "SpatialESSV3Compatible"
+    class = "SpatialESSResult"
   )
 }

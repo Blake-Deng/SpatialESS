@@ -4,5 +4,5 @@ GSE306130	independent fidelity pilot	4 samples	1000 per sample	33	20	SpatialESS;
 GSE313006	independent fidelity fixture	2 permutation settings	1000	133	20 and 100	SpatialESS; official V3	complete	active Jaccard 1; p-value exact fraction 1; zero significance disagreements
 CosMx Cancerous Liver	paired scalability benchmark	250,1000,5000,10000,25000,50000	paired nested cells	373	20	SpatialESS; official V3	complete	paired through 50000; exact paired agreement
 CosMx Cancerous Liver	large-scale continuation	100000,200000,443515	SpatialESS completed at all three scales; official failed at all three scales	373	20	SpatialESS; official V3	reconciled	SpatialESS exit 0 at all scales; official exit 139 at 100000 and exit 1 at 200000/443515; no paired fidelity claim beyond 50000
-Xenium ovarian	million-cell stress test	50-grid	1156091 cells / 2357 groups	627	20	SpatialESS integrated engine	complete engineering run	current release/version provenance audit required before direct paper claim
+Xenium ovarian	million-cell stress test	50-grid	1156091 cells / 2357 groups	627	20	SpatialESS engine	complete engineering run	current release/version provenance audit required before direct paper claim
 

@@ -1,35 +1,23 @@
 # SpatialESS
 
-SpatialESS is an independent, high-performance implementation for scalable
-spatial cell-cell communication analysis. Its main paper evidence has three
-parts:
+SpatialESS is an independent, high-performance implementation of the tested
+SpatialCellChat V3 spatial communication workflow. It keeps the published
+probability, distance, Hill-function, triMean and permutation definitions,
+while replacing dense intermediate objects with sparse, streamed operations.
+The package also provides a downstream patient-level communication GLM layer.
 
-Release snapshot: see docs/RELEASE_0.1.0.md for frozen parameters, environment, and final benchmark status.
+The public method is a single function:
 
-1. Numerical fidelity: spatial_v3_compatible() preserves the documented
-   SpatialCellChat V3 probability and permutation definitions while replacing
-   full cell-by-cell intermediate matrices with streamed sparse operations.
-2. Scalability: spatialess() uses compact CSR radius graphs, expression
-   support pruning, exact sparse type-7 summaries, and streamed permutation
-   inference to reduce runtime and peak memory.
-3. Patient-level biology: sample-level communication records are aggregated
-   with the patient as the statistical unit and analyzed with FDR-controlled
-   GLMs for conserved and disease-associated programs.
+```r
+SpatialESS::spatialess()
+```
 
-The package does not claim that official agreement is biological ground truth.
-Official agreement is reported as numerical fidelity; biological support is
-assessed separately at the patient and pathway levels.
+SpatialESS is the validated single-sample inference engine.
+The package exposes one validated single-sample engine and a downstream patient-level analysis layer.
 
-The package has two deliberately separate entry points:
-
-- `spatial_v3_compatible()` preserves the SpatialCellChat V3 probability and
-  permutation definitions and is the numerical-fidelity benchmark path.
-- `spatialess()` is the integrated single-sample workflow with separate
-  contact/diffusion graphs and spatial block-permutation inference.
-
-The integrated workflow reports only fixed permutation inference or a guarded
-hybrid mode in which every significant result is confirmed by fixed
-permutation. Direct analytic and adaptive p-values remain experimental.
+Agreement with official SpatialCellChat is reported as numerical fidelity, not
+as biological ground truth. Biological support is assessed separately at the
+patient and pathway levels.
 
 ## Install
 
@@ -51,12 +39,10 @@ result <- spatialess(
   lr = CellChatDB.human$interaction,
   complex = CellChatDB.human$complex,
   cofactor = CellChatDB.human$cofactor,
-  contact_radius = 15,
-  diffusion_radius = 35,
-  block_size = 100,
-  inference = "permutation",
-  nperm = 100,
-  seed = 1
+  tol = 5, interaction.range = 30,
+  contact.range = 10,
+  nboot = 100,
+  seed.use = 1
 )
 
 head(result$records)
@@ -91,13 +77,36 @@ reported, and no significance threshold calls differed.
 The primary biological dataset is GSE250346. The prepared metadata contains 45
 sample records from 35 patients, with 9 controls and 26 disease patients.
 Communication is first summarized within sample and then analyzed with the
-patient as the unit of inference. The current outputs include:
+patient as the unit of inference. The GLM layer is explicit and reproducible:
+
+```r
+prepared <- prepare_multisample_communication(
+  results = sample_results,
+  sample_metadata = sample_metadata,
+  unit = "patient",
+  replicate_aggregation = "mean"
+)
+
+glm_result <- fit_multisample_communication_glm(
+  prepared = prepared,
+  design = ~ condition + region + cell_count,
+  coefficient = "conditiondisease",
+  family = "gaussian_log1p",
+  min_units = 6,
+  min_nonzero = 2,
+  adjust_method = "BH"
+)
+```
+
+The rows supplied to the model are patients, not cells. Multiple slices from
+one patient are aggregated before modelling. The current analysis outputs
+include:
 
 - disease-associated LR, sender-receiver and pathway summaries;
 - FDR-adjusted conserved and disease-associated programs;
 - leave-one-patient-out analysis;
 - mean, median and cell-weighted aggregation sensitivity;
-- minimum-cell and mixed-model sensitivity analyses.
+- minimum-cell and minimum-cell and aggregation sensitivity analyses.
 
 These results support robustness of the patient-level communication programs;
 they do not turn an inferred communication score into experimental truth.
@@ -105,7 +114,7 @@ they do not turn an inferred communication score into experimental truth.
 ### Scale and resource evidence
 
 The CosMx ladder provides paired runtime and peak-RSS measurements. The
-million-cell Xenium run is retained as a stress test for the current integrated
+million-cell Xenium run is retained as a stress test for the current SpatialESS
 engine. Large source objects and raw matrices are deliberately excluded from
 Git; their paths, checksums and regeneration commands belong in a local
 provenance manifest.
@@ -127,24 +136,18 @@ SpatialCellChat V3 required 23,919 s and 60.78 GiB. The official comparator did
 not complete at 100,000 cells or above; SpatialESS completed 443,515 cells in
 101.75 s with 1.97 GiB peak RSS.
 
-The integrated workflow completed:
+Large Xenium and CosMx runs are treated as scalability stress tests. Their
+permutation counts, minimum attainable p-values and resource limits are
+reported in the accompanying provenance tables rather than being presented as
+independent biological truth.
 
-- 443,515 CosMx cells, 373 LR and 100 spatial permutations in 46.60 s with
-  1.95 GiB peak RSS;
-- 1,156,091 Xenium cells, 627 LR, 2,357 groups and 20 permutations in 79.78 s
-  with 5.61 GiB peak RSS.
-
-The Xenium run is a scalability stress test: with 20 permutations the minimum
-finite-corrected p-value is `1/21`, so it is not presented as a definitive
-high-resolution biological analysis.
-
-See [the Stage 2 report](docs/STAGE2_INTEGRATED_RELEASE_20260804.md) and
-[the publication validation protocol](docs/PUBLICATION_VALIDATION_20260804.md)
+See [the main validation report](docs/MAIN_VALIDATION.md) and
+[the reproduction notes](docs/REPRODUCE_MAIN.md)
 for exact parameters, interpretation boundaries, and evidence paths.
 
 ## Repository layout
 
-R/                  R interfaces and workflows
+R/                  R interfaces, SpatialESS engine and patient-level GLM
 src/                C++17 kernels
 tests/              unit and numerical regression tests
 benchmarks/         reproducible benchmark drivers

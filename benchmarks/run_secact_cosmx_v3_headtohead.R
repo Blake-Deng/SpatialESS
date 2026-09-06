@@ -91,7 +91,7 @@ if (method == "spatialcellchat_v3") {
   suppressPackageStartupMessages(library(SpatialESS))
   preparation_seconds <- 0
   individual_start <- proc.time()[["elapsed"]]
-  result <- spatial_v3_compatible(
+  result <- spatialess(
     expression = expression,
     coordinates = coordinates,
     group = group,

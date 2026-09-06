@@ -160,7 +160,7 @@ void add_edge(std::unordered_map<std::uint64_t, Aggregate>& aggregate,
 }  // namespace
 
 // [[Rcpp::export]]
-List spatial_v3_compatible_stream_cpp(
+List spatialess_stream_cpp(
     const S4& cell_by_gene,
     const NumericVector& offsets,
     const IntegerVector& neighbors,

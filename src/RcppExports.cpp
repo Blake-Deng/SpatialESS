@@ -148,50 +148,6 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
-// graph_field_cg_cpp
-List graph_field_cg_cpp(const IntegerVector& sender, const IntegerVector& receiver, const NumericVector& weight, int n_cells, const NumericVector& source, const NumericVector& receptor, double diffusion, double decay, double uptake, double production_rate, double tolerance, int max_iterations);
-RcppExport SEXP _SpatialESS_graph_field_cg_cpp(SEXP senderSEXP, SEXP receiverSEXP, SEXP weightSEXP, SEXP n_cellsSEXP, SEXP sourceSEXP, SEXP receptorSEXP, SEXP diffusionSEXP, SEXP decaySEXP, SEXP uptakeSEXP, SEXP production_rateSEXP, SEXP toleranceSEXP, SEXP max_iterationsSEXP) {
-BEGIN_RCPP
-    Rcpp::RObject rcpp_result_gen;
-    Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< const IntegerVector& >::type sender(senderSEXP);
-    Rcpp::traits::input_parameter< const IntegerVector& >::type receiver(receiverSEXP);
-    Rcpp::traits::input_parameter< const NumericVector& >::type weight(weightSEXP);
-    Rcpp::traits::input_parameter< int >::type n_cells(n_cellsSEXP);
-    Rcpp::traits::input_parameter< const NumericVector& >::type source(sourceSEXP);
-    Rcpp::traits::input_parameter< const NumericVector& >::type receptor(receptorSEXP);
-    Rcpp::traits::input_parameter< double >::type diffusion(diffusionSEXP);
-    Rcpp::traits::input_parameter< double >::type decay(decaySEXP);
-    Rcpp::traits::input_parameter< double >::type uptake(uptakeSEXP);
-    Rcpp::traits::input_parameter< double >::type production_rate(production_rateSEXP);
-    Rcpp::traits::input_parameter< double >::type tolerance(toleranceSEXP);
-    Rcpp::traits::input_parameter< int >::type max_iterations(max_iterationsSEXP);
-    rcpp_result_gen = Rcpp::wrap(graph_field_cg_cpp(sender, receiver, weight, n_cells, source, receptor, diffusion, decay, uptake, production_rate, tolerance, max_iterations));
-    return rcpp_result_gen;
-END_RCPP
-}
-// graph_field_csr_cg_cpp
-List graph_field_csr_cg_cpp(const NumericVector& offsets, const IntegerVector& neighbors, const NumericVector& weights, const NumericVector& degree, const NumericVector& source, const NumericVector& receptor, double diffusion, double decay, double uptake, double production_rate, double tolerance, int max_iterations);
-RcppExport SEXP _SpatialESS_graph_field_csr_cg_cpp(SEXP offsetsSEXP, SEXP neighborsSEXP, SEXP weightsSEXP, SEXP degreeSEXP, SEXP sourceSEXP, SEXP receptorSEXP, SEXP diffusionSEXP, SEXP decaySEXP, SEXP uptakeSEXP, SEXP production_rateSEXP, SEXP toleranceSEXP, SEXP max_iterationsSEXP) {
-BEGIN_RCPP
-    Rcpp::RObject rcpp_result_gen;
-    Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< const NumericVector& >::type offsets(offsetsSEXP);
-    Rcpp::traits::input_parameter< const IntegerVector& >::type neighbors(neighborsSEXP);
-    Rcpp::traits::input_parameter< const NumericVector& >::type weights(weightsSEXP);
-    Rcpp::traits::input_parameter< const NumericVector& >::type degree(degreeSEXP);
-    Rcpp::traits::input_parameter< const NumericVector& >::type source(sourceSEXP);
-    Rcpp::traits::input_parameter< const NumericVector& >::type receptor(receptorSEXP);
-    Rcpp::traits::input_parameter< double >::type diffusion(diffusionSEXP);
-    Rcpp::traits::input_parameter< double >::type decay(decaySEXP);
-    Rcpp::traits::input_parameter< double >::type uptake(uptakeSEXP);
-    Rcpp::traits::input_parameter< double >::type production_rate(production_rateSEXP);
-    Rcpp::traits::input_parameter< double >::type tolerance(toleranceSEXP);
-    Rcpp::traits::input_parameter< int >::type max_iterations(max_iterationsSEXP);
-    rcpp_result_gen = Rcpp::wrap(graph_field_csr_cg_cpp(offsets, neighbors, weights, degree, source, receptor, diffusion, decay, uptake, production_rate, tolerance, max_iterations));
-    return rcpp_result_gen;
-END_RCPP
-}
 // score_simple_lr_edge_cpp
 List score_simple_lr_edge_cpp(const IntegerVector& sender, const IntegerVector& receiver, const NumericVector& distance, const NumericVector& spatial_weight, const NumericVector& ligand_expression, const NumericVector& receptor_expression, double Kh, double n_power, double min_expression, double max_output_edges);
 RcppExport SEXP _SpatialESS_score_simple_lr_edge_cpp(SEXP senderSEXP, SEXP receiverSEXP, SEXP distanceSEXP, SEXP spatial_weightSEXP, SEXP ligand_expressionSEXP, SEXP receptor_expressionSEXP, SEXP KhSEXP, SEXP n_powerSEXP, SEXP min_expressionSEXP, SEXP max_output_edgesSEXP) {
@@ -303,9 +259,9 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
-// spatial_v3_compatible_stream_cpp
-List spatial_v3_compatible_stream_cpp(const S4& cell_by_gene, const NumericVector& offsets, const IntegerVector& neighbors, const NumericVector& distances, const IntegerVector& group, int group_count, const IntegerMatrix& ligand_indices, const IntegerMatrix& receptor_indices, const IntegerMatrix& co_a_indices, const IntegerMatrix& co_i_indices, const IntegerMatrix& agonist_indices, const IntegerMatrix& antagonist_indices, const LogicalVector& has_agonist, const LogicalVector& has_antagonist, const LogicalVector& contact_lr, const IntegerMatrix& permutations, double Kh, double n_power, double scale_distance, double contact_threshold, double min_percent, int min_cells_sr, bool use_agan, double max_output_records, double max_active_edges_per_lr);
-RcppExport SEXP _SpatialESS_spatial_v3_compatible_stream_cpp(SEXP cell_by_geneSEXP, SEXP offsetsSEXP, SEXP neighborsSEXP, SEXP distancesSEXP, SEXP groupSEXP, SEXP group_countSEXP, SEXP ligand_indicesSEXP, SEXP receptor_indicesSEXP, SEXP co_a_indicesSEXP, SEXP co_i_indicesSEXP, SEXP agonist_indicesSEXP, SEXP antagonist_indicesSEXP, SEXP has_agonistSEXP, SEXP has_antagonistSEXP, SEXP contact_lrSEXP, SEXP permutationsSEXP, SEXP KhSEXP, SEXP n_powerSEXP, SEXP scale_distanceSEXP, SEXP contact_thresholdSEXP, SEXP min_percentSEXP, SEXP min_cells_srSEXP, SEXP use_aganSEXP, SEXP max_output_recordsSEXP, SEXP max_active_edges_per_lrSEXP) {
+// spatialess_stream_cpp
+List spatialess_stream_cpp(const S4& cell_by_gene, const NumericVector& offsets, const IntegerVector& neighbors, const NumericVector& distances, const IntegerVector& group, int group_count, const IntegerMatrix& ligand_indices, const IntegerMatrix& receptor_indices, const IntegerMatrix& co_a_indices, const IntegerMatrix& co_i_indices, const IntegerMatrix& agonist_indices, const IntegerMatrix& antagonist_indices, const LogicalVector& has_agonist, const LogicalVector& has_antagonist, const LogicalVector& contact_lr, const IntegerMatrix& permutations, double Kh, double n_power, double scale_distance, double contact_threshold, double min_percent, int min_cells_sr, bool use_agan, double max_output_records, double max_active_edges_per_lr);
+RcppExport SEXP _SpatialESS_spatialess_stream_cpp(SEXP cell_by_geneSEXP, SEXP offsetsSEXP, SEXP neighborsSEXP, SEXP distancesSEXP, SEXP groupSEXP, SEXP group_countSEXP, SEXP ligand_indicesSEXP, SEXP receptor_indicesSEXP, SEXP co_a_indicesSEXP, SEXP co_i_indicesSEXP, SEXP agonist_indicesSEXP, SEXP antagonist_indicesSEXP, SEXP has_agonistSEXP, SEXP has_antagonistSEXP, SEXP contact_lrSEXP, SEXP permutationsSEXP, SEXP KhSEXP, SEXP n_powerSEXP, SEXP scale_distanceSEXP, SEXP contact_thresholdSEXP, SEXP min_percentSEXP, SEXP min_cells_srSEXP, SEXP use_aganSEXP, SEXP max_output_recordsSEXP, SEXP max_active_edges_per_lrSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -334,7 +290,7 @@ BEGIN_RCPP
     Rcpp::traits::input_parameter< bool >::type use_agan(use_aganSEXP);
     Rcpp::traits::input_parameter< double >::type max_output_records(max_output_recordsSEXP);
     Rcpp::traits::input_parameter< double >::type max_active_edges_per_lr(max_active_edges_per_lrSEXP);
-    rcpp_result_gen = Rcpp::wrap(spatial_v3_compatible_stream_cpp(cell_by_gene, offsets, neighbors, distances, group, group_count, ligand_indices, receptor_indices, co_a_indices, co_i_indices, agonist_indices, antagonist_indices, has_agonist, has_antagonist, contact_lr, permutations, Kh, n_power, scale_distance, contact_threshold, min_percent, min_cells_sr, use_agan, max_output_records, max_active_edges_per_lr));
+    rcpp_result_gen = Rcpp::wrap(spatialess_stream_cpp(cell_by_gene, offsets, neighbors, distances, group, group_count, ligand_indices, receptor_indices, co_a_indices, co_i_indices, agonist_indices, antagonist_indices, has_agonist, has_antagonist, contact_lr, permutations, Kh, n_power, scale_distance, contact_threshold, min_percent, min_cells_sr, use_agan, max_output_records, max_active_edges_per_lr));
     return rcpp_result_gen;
 END_RCPP
 }
@@ -361,15 +317,13 @@ static const R_CallMethodDef CallEntries[] = {
     {"_SpatialESS_materialize_csr_edges_cpp", (DL_FUNC) &_SpatialESS_materialize_csr_edges_cpp, 4},
     {"_SpatialESS_csr_weighted_degree_cpp", (DL_FUNC) &_SpatialESS_csr_weighted_degree_cpp, 2},
     {"_SpatialESS_aggregate_simple_lr_csr_cpp", (DL_FUNC) &_SpatialESS_aggregate_simple_lr_csr_cpp, 11},
-    {"_SpatialESS_graph_field_cg_cpp", (DL_FUNC) &_SpatialESS_graph_field_cg_cpp, 12},
-    {"_SpatialESS_graph_field_csr_cg_cpp", (DL_FUNC) &_SpatialESS_graph_field_csr_cg_cpp, 12},
     {"_SpatialESS_score_simple_lr_edge_cpp", (DL_FUNC) &_SpatialESS_score_simple_lr_edge_cpp, 10},
     {"_SpatialESS_score_cellchat_group_records_cpp", (DL_FUNC) &_SpatialESS_score_cellchat_group_records_cpp, 14},
     {"_SpatialESS_radius_graph_cpp", (DL_FUNC) &_SpatialESS_radius_graph_cpp, 8},
     {"_SpatialESS_permute_within_strata_cpp", (DL_FUNC) &_SpatialESS_permute_within_strata_cpp, 2},
     {"_SpatialESS_group_tri_mean_dgc_permuted_cpp", (DL_FUNC) &_SpatialESS_group_tri_mean_dgc_permuted_cpp, 4},
     {"_SpatialESS_score_cellchat_group_matrix_cpp", (DL_FUNC) &_SpatialESS_score_cellchat_group_matrix_cpp, 13},
-    {"_SpatialESS_spatial_v3_compatible_stream_cpp", (DL_FUNC) &_SpatialESS_spatial_v3_compatible_stream_cpp, 25},
+    {"_SpatialESS_spatialess_stream_cpp", (DL_FUNC) &_SpatialESS_spatialess_stream_cpp, 25},
     {"_SpatialESS_benchmark_sparse_type7_cpp", (DL_FUNC) &_SpatialESS_benchmark_sparse_type7_cpp, 3},
     {NULL, NULL, 0}
 };
