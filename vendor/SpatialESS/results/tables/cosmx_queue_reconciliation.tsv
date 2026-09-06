@@ -1,0 +1,19 @@
+cells	method	final_status	final_exit_status	output_evidence	queue_evidence	publication_interpretation
+250	spatialess	completed	0	summary.tsv, records.rds, time_verbose.txt	ladder end rc=0	SpatialESS completed
+1000	spatialess	completed	0	summary.tsv, records.rds, time_verbose.txt	ladder skip_completed rc=0	SpatialESS completed
+5000	spatialess	completed	0	summary.tsv, records.rds, time_verbose.txt	ladder end rc=0	SpatialESS completed
+10000	spatialess	completed	0	summary.tsv, records.rds, time_verbose.txt	ladder end rc=0	SpatialESS completed
+25000	spatialess	completed	0	summary.tsv, records.rds, time_verbose.txt	ladder end rc=0	SpatialESS completed
+50000	spatialess	completed	0	summary.tsv, records.rds, time_verbose.txt	parallel ladder end rc=0	SpatialESS completed
+100000	spatialess	completed	0	summary.tsv, records.rds, time_verbose.txt	parallel ladder end rc=0	SpatialESS completed
+200000	spatialess	completed	0	summary.tsv, records.rds, time_verbose.txt	parallel ladder end rc=0; duplicate start records from retry	SpatialESS completed
+443515	spatialess	completed	0	summary.tsv, records.rds, time_verbose.txt	parallel ladder end rc=0; duplicate start records from retry	SpatialESS completed
+250	spatialcellchat_v3	completed	0	summary.tsv, records.rds, time_verbose.txt	ladder end rc=0	Paired numerical comparison available
+1000	spatialcellchat_v3	completed	0	summary.tsv, records.rds, time_verbose.txt	ladder end rc=0	Paired numerical comparison available
+5000	spatialcellchat_v3	completed	0	summary.tsv, records.rds, time_verbose.txt	parallel ladder end rc=0	Paired numerical comparison available
+10000	spatialcellchat_v3	completed	0	summary.tsv, records.rds, time_verbose.txt	parallel ladder end rc=0	Paired numerical comparison available
+25000	spatialcellchat_v3	completed	0	summary.tsv, records.rds, time_verbose.txt	parallel ladder end rc=0	Paired numerical comparison available
+50000	spatialcellchat_v3	completed	0	summary.tsv, records.rds, time_verbose.txt	parallel ladder end rc=0	Paired numerical comparison available
+100000	spatialcellchat_v3	failed_signal_11	139	time_verbose.txt, stderr.log	parallel ladder end rc=139	Official run failed before producing communication output
+200000	spatialcellchat_v3	failed_allocation	1	time_verbose.txt, stderr.log	parallel ladder end rc=1	Official run failed before producing communication output
+443515	spatialcellchat_v3	failed_allocation	1	time_verbose.txt, stderr.log	parallel ladder end rc=1	Official run failed before producing communication output

@@ -1,0 +1,15 @@
+^\.git$
+^\.github$
+^benchmark$
+^docs$
+^examples$
+^figures$
+^scripts$
+^vendor$
+^README\.md$
+^CHANGELOG\.md$
+^CITATION\.cff$
+^requirements\.txt$
+^environment\.yml$
+^SpatialESSSPARKLE_.*\.tar\.gz$
+^LICENSE$

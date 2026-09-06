@@ -1,0 +1,15 @@
+metric	value
+raw_active_records	41294
+sparkle_active_records	37808
+active_jaccard	0.9155809560711
+shared_probability_spearman	0.889520539990674
+shared_probability_pearson	0.931211982247468
+raw_significant_records	10942
+sparkle_significant_records	8417
+significant_jaccard	0.595697329376855
+significant_gained	1190
+significant_lost	3715
+top20_lr_overlap	16
+top50_lr_overlap	41
+top100_lr_overlap	85
+lr_aggregate_spearman	0.986363480024859

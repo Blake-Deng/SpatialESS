@@ -1,0 +1,3 @@
+method	core_seconds	process_wall_seconds	peak_rss_gib	active_records	significant_records
+Official SpatialCellChat V3	6541.848	6549	4.00801467895508	37808	8417
+SpatialESS	35.765	40.6	0.590160369873047	37808	8417

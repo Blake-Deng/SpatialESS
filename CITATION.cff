@@ -1,0 +1,26 @@
+cff-version: 1.2.0
+message: >-
+  If you use this integration, cite SpatialESS and also cite SPARKLE when the
+  leakage-correction step is enabled.
+title: "SpatialESS + SPARKLE: scalable spatial communication inference from leakage-corrected expression"
+type: software
+version: 0.1.1
+date-released: 2026-09-06
+license: GPL-3.0-only
+repository-code: "https://github.com/Blake-Deng/SpatialESS-SPARKLE"
+authors:
+  - family-names: Deng
+    given-names: Zifeng
+    email: zifengd8@gmail.com
+keywords:
+  - spatial transcriptomics
+  - cell-cell communication
+  - SpatialCellChat
+  - sparse matrix
+  - RNA leakage
+  - SPARKLE
+references:
+  - type: software
+    title: SPARKLE
+    repository-code: "https://github.com/WangShuai-3/SPARKLE"
+    version: 0.1.2

@@ -1,0 +1,5 @@
+export(export_spatialess_h5ad_bundle)
+export(read_spatialess_bundle)
+export(spatialess_from_h5ad)
+importFrom(Matrix,readMM)
+importFrom(methods,as)

@@ -1,0 +1,9 @@
+*.Rcheck/
+*.tar.gz
+*.zip
+.Rhistory
+.RData
+__pycache__/
+*.py[cod]
+examples/minimal/output/
+examples/minimal/*.h5ad

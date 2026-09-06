@@ -1,0 +1,29 @@
+Package: SpatialESSSPARKLE
+Type: Package
+Title: SPARKLE-to-SpatialESS Integration Workflow
+Version: 0.1.1
+Authors@R: person("DENG", "Zifeng", role = c("aut", "cre"), email = "zifengd8@gmail.com")
+Author: Zifeng DENG [aut, cre]
+Maintainer: Zifeng DENG <zifengd8@gmail.com>
+Description: Provides a reproducible bridge from SPARKLE-corrected AnnData
+    files to the exact, memory-efficient SpatialESS implementation of the
+    tested SpatialCellChat V3 probability and permutation workflow. The bridge
+    preserves sparse expression, cell order, spatial coordinates and group
+    labels, and can normalize selected signaling genes using library sizes
+    computed over the complete expression matrix.
+License: GPL-3
+Encoding: UTF-8
+Depends:
+    R (>= 4.1.0)
+Imports:
+    Matrix,
+    methods,
+    SpatialESS (>= 0.1.1),
+    utils
+Suggests:
+    CellChat,
+    testthat (>= 3.0.0)
+URL: https://github.com/Blake-Deng/SpatialESS-SPARKLE
+BugReports: https://github.com/Blake-Deng/SpatialESS-SPARKLE/issues
+SystemRequirements: Python (>= 3.9), anndata, numpy, pandas, scipy
+Config/testthat/edition: 3
