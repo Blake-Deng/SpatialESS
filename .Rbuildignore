@@ -1,0 +1,8 @@
+^\.Rlib$
+^benchmarks/results$
+^.*\.orig$
+^\.git$
+^SpatialESS\.Rcheck$
+^SpatialESS_[0-9].*\.tar\.gz$
+^benchmarks/.*\.(html|json|rds|RDS)$
+^figures/__pycache__$

@@ -1,0 +1,5 @@
+sample_id	cells	original_official_status	original_exit_status	first_limiting_stage	trigger	estimated_nonzero_outer_product	repair_or_failure	numerical_comparison_status
+TILD117LA	36707	failed	1	computeCommunProb	sparseMatrix automatic dimension inference	NA	minimal official repair dims=c(NC,NC)	exact comparison passed; 21998 records; active Jaccard=1; max probability difference=7.81e-18; exact p-value fraction=1; significance disagreements=0
+VUILD106MA	124717	failed	139	computeCommunProb	FN1-CD44 full sparse outer product	4955880084	no repair applied; exceeds 32-bit dgCMatrix index limit	official boundary; signal 11 in Matrix::crossprod()
+VUILD110LA	122815	failed	139	computeCommunProb	FN1-CD44 full sparse outer product	4386914951	no repair applied; exceeds 32-bit dgCMatrix index limit	official boundary; signal 11 in Matrix::crossprod()
+VUILD115MA	94540	failed	139	computeCommunProb	FN1-CD44 full sparse outer product	2617359480	no repair applied; exceeds 32-bit dgCMatrix index limit	official boundary; signal 11 in Matrix::crossprod()

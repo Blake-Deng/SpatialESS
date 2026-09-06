@@ -1,0 +1,3 @@
+cohort	samples	patients	control_patients	disease_patients	unit	model	fdr	robustness
+GSE250346	45	35	9	26	patient	sample aggregation followed by GLM	Benjamini-Hochberg	LOO; aggregation; min.cells.sr; mixed-model sensitivity
+

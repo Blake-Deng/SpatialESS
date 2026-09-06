@@ -1,0 +1,32 @@
+Package: SpatialESS
+Type: Package
+Title: Efficient Edge-First Spatial Cell-Cell Communication
+Version: 0.1.0
+Authors@R: person("DENG", "Zifeng", role = c("aut", "cre"), email = "zifengd8@gmail.com")
+Author: Zifeng DENG [aut, cre]
+Maintainer: Zifeng DENG <zifengd8@gmail.com>
+Description: Provides an independent high-performance implementation
+    compatible with the SpatialCellChat V3 statistical framework, together
+    with an integrated single-sample spatial cell-cell communication workflow.
+    Compact contact and diffusion graphs, exact sparse type-7 triMean
+    summaries, streamed CellChat-compatible molecular scoring, and spatial
+    block permutation reduce runtime and memory while preserving explicit
+    numerical validation boundaries.
+License: GPL-3
+Encoding: UTF-8
+Depends:
+    R (>= 4.1.0)
+Imports:
+    Matrix,
+    methods,
+    Rcpp
+Suggests:
+    data.table,
+    future.apply,
+    RANN,
+    testthat (>= 3.0.0)
+LinkingTo:
+    Rcpp
+Config/testthat/edition: 3
+SystemRequirements: C++17
+RoxygenNote: 8.0.0
