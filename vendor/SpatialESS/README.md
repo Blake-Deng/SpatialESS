@@ -4,16 +4,16 @@ SpatialESS is an independent, high-performance implementation of the tested
 SpatialCellChat V3 spatial communication workflow. It keeps the published
 probability, distance, Hill-function, triMean and permutation definitions,
 while replacing dense intermediate objects with sparse, streamed operations.
-The package also provides a downstream patient-level communication GLM layer.
+The package also provides downstream multi-patient communication models, including a patient-random-intercept linear mixed model.
 
-The public method is a single function:
+The validated single-sample inference entry point is:
 
 ```r
 SpatialESS::spatialess()
 ```
 
 SpatialESS is the validated single-sample inference engine.
-The package exposes one validated single-sample engine and a downstream patient-level analysis layer.
+The package exposes one validated single-sample engine and a downstream multi-patient analysis layer.
 
 Agreement with official SpatialCellChat is reported as numerical fidelity, not
 as biological ground truth. Biological support is assessed separately at the
@@ -72,44 +72,58 @@ Across completed paired comparisons, active-record Jaccard was 1, probability
 differences were at floating-point scale, p-values agreed exactly where
 reported, and no significance threshold calls differed.
 
-### Patient-level GLM
+### Multi-patient linear mixed model
 
-The primary biological dataset is GSE250346. The prepared metadata contains 45
-sample records from 35 patients, with 9 controls and 26 disease patients.
-Communication is first summarized within sample and then analyzed with the
-patient as the unit of inference. The GLM layer is explicit and reproducible:
+The primary biological dataset is GSE250346: 45 spatial slices from 35 patients (9 controls and 26 pulmonary fibrosis patients). SpatialESS first infers communication independently within each slice. The primary cohort model then retains all slices and accounts for repeated slices from the same patient:
+
+```text
+log1p(score) ~ condition + (1 | patient)
+```
 
 ```r
 prepared <- prepare_multisample_communication(
   results = sample_results,
   sample_metadata = sample_metadata,
-  unit = "patient",
-  replicate_aggregation = "mean"
+  unit = "sample"
 )
 
-glm_result <- fit_multisample_communication_glm(
+lmm_result <- fit_multisample_communication_lmm(
   prepared = prepared,
-  design = ~ condition + region + cell_count,
+  design = ~ condition,
   coefficient = "conditiondisease",
-  family = "gaussian_log1p",
+  patient_col = "patient_id",
   min_units = 6,
   min_nonzero = 2,
-  adjust_method = "BH"
+  REML = FALSE
 )
 ```
 
-The rows supplied to the model are patients, not cells. Multiple slices from
-one patient are aggregated before modelling. The current analysis outputs
-include:
+`fit_multisample_communication_lmm()` uses `lme4::lmer()`. It checks fixed-effect design rank, records zero-score fraction and response variation, standardizes each feature response for numerical conditioning, and returns estimates on the original log1p-score scale. It tries `bobyqa`, `nloptwrap` and `Nelder_Mead`, preferring a warning-free fit, and records optimizer, random-effect variance, residual variance, maximum gradient and diagnostic messages. Wald normal-approximation p-values are used and BH correction is applied only to fits with `status = "ok"`.
 
-- disease-associated LR, sender-receiver and pathway summaries;
-- FDR-adjusted conserved and disease-associated programs;
-- leave-one-patient-out analysis;
-- mean, median and cell-weighted aggregation sensitivity;
-- minimum-cell and minimum-cell and aggregation sensitivity analyses.
+The simple slice-level model is retained as a comparator:
 
-These results support robustness of the patient-level communication programs;
-they do not turn an inferred communication score into experimental truth.
+```r
+slice_glm <- fit_multisample_communication_glm(
+  prepared = prepared,
+  design = ~ condition,
+  coefficient = "conditiondisease"
+)
+```
+
+The returned LMM status fields are interpreted as follows:
+
+- `ok`, `singular = FALSE`: converged mixed model with nonzero patient variance;
+- `ok`, `singular = TRUE`: converged boundary model with patient variance estimated as zero;
+- `convergence_warning`: coefficients are retained for diagnosis but excluded from FDR;
+- `insufficient_zero_support`: zero-score fraction exceeded the configured support threshold;
+- `insufficient_variation`: response variation was below the configured threshold;
+- `numerical_failure`: all configured optimizers failed with a recognized numerical error;
+- `fit_failed`: both optimizers failed and no inferential result is reported;
+- `insufficient_nonzero`: too few slices express the communication feature.
+
+A singular fit is not a software failure. It means that the data do not support a nonzero patient random-intercept variance for that feature. The archived baseline GSE250346 run had 39,242 features with status `ok` (21,934 non-singular and 17,308 singular), 2,299 convergence warnings, 305 numerical failures and 8,194 features below the nonzero-slice threshold. The robust implementation adds support screens and a third optimizer; its final cohort counts must be regenerated with the release script before being used as confirmatory manuscript numbers. The archived LMM identified 5,158 FDR-significant features versus 4,172 for the slice-level GLM; 4,109 overlapped (Jaccard 0.787), and effect estimates had Spearman rho 0.9967 across valid fits. Full status counts and the GLM-versus-LMM comparison are stored in `results/tables/`. A reviewer-oriented explanation of model diagnostics versus software failures is in [`docs/REVIEWER_GUIDE.md`](docs/REVIEWER_GUIDE.md).
+
+The existing patient-aggregated GLM, leave-one-patient-out analysis, aggregation choices and minimum-cell thresholds remain sensitivity analyses. These results assess cohort-level robustness; they do not turn inferred communication into experimental truth.
 
 ### Scale and resource evidence
 
@@ -147,7 +161,7 @@ for exact parameters, interpretation boundaries, and evidence paths.
 
 ## Repository layout
 
-R/                  R interfaces, SpatialESS engine and patient-level GLM
+R/                  R interfaces, SpatialESS engine and multi-patient LMM
 src/                C++17 kernels
 tests/              unit and numerical regression tests
 benchmarks/         reproducible benchmark drivers

@@ -156,7 +156,7 @@ prepare_multisample_communication <- function(
   rownames(feature_metadata) <- feature_metadata$feature_id
 
   retained_metadata <- unique(c(
-    if (unit == "patient") patient_col else sample_col,
+    if (unit == "patient") patient_col else c(sample_col, patient_col),
     condition_col,
     covariates
   ))
@@ -351,6 +351,304 @@ fit_multisample_communication_glm <- function(
     }
   }
   result$q_value <- stats::p.adjust(result$p_value, method = adjust_method)
+  result <- merge(
+    prepared$feature_metadata,
+    result,
+    by = "feature_id",
+    all.y = TRUE,
+    sort = FALSE
+  )
+  result[match(colnames(score), result$feature_id), , drop = FALSE]
+}
+
+#' Fit patient-random-intercept linear mixed models
+#'
+#' Fits one linear mixed model per communication feature while retaining one
+#' row per spatial slice. The response is log1p(probability), the fixed
+#' effects are supplied by `design`, and `patient_col` defines a random
+#' intercept for patient-level correlation among slices.
+#'
+#' The returned p-values are Wald normal-approximation p-values. They are
+#' intended for a transparent, lightweight screening analysis; confirmatory
+#' analyses may use lmerTest or parametric bootstrap degrees of freedom.
+#'
+#' @param prepared A result from prepare_multisample_communication(...,
+#'   unit = "sample").
+#' @param design A right-hand-side fixed-effect formula, for example
+#'   `~ condition + tma`.
+#' @param coefficient Name or index of the fixed-effect coefficient to test.
+#' @param patient_col Patient identifier column in prepared$unit_metadata.
+#' @param min_units Minimum number of slice-level units.
+#' @param min_nonzero Minimum units with positive communication score.
+#' @param max_zero_fraction Maximum allowed fraction of zero scores. Set to 1
+#'   to disable this support screen while still recording zero_fraction.
+#' @param min_response_sd Minimum standard deviation on the log1p-score scale.
+#'   Features below this threshold are marked insufficient_variation.
+#' @param rank_tolerance Tolerance passed to the fixed-effect design rank check.
+#' @param adjust_method Multiple-testing correction method.
+#' @param REML Whether to use restricted maximum likelihood. Fixed-effect
+#'   comparisons generally use `FALSE`.
+#' @param standardize_response Whether to standardize each feature response
+#'   before fitting. Estimates and standard errors are returned on the original
+#'   log1p-score scale; this can improve conditioning for very small scores.
+#' @param optimizer lme4 optimizer used for each feature.
+#' @param optimizer_fallbacks Additional optimizers tried after `optimizer`.
+#'   A successful warning-free fit is preferred; otherwise the successful fit
+#'   with the first available optimizer is retained and flagged.
+#' @return Feature-level mixed-model estimates, standard errors, Wald
+#'   statistics and p-values, plus optimizer, variance-component,
+#'   convergence, singular-fit and failure diagnostics, including the attempted
+#'   optimizer sequence. BH-adjusted p-values are reported only for fits with
+#'   status equal to ok.
+#' @export
+fit_multisample_communication_lmm <- function(
+    prepared,
+    design,
+    coefficient,
+    patient_col = NULL,
+    min_units = 6L,
+    min_nonzero = 2L,
+    max_zero_fraction = 0.98,
+    min_response_sd = 1e-12,
+    rank_tolerance = 1e-10,
+    adjust_method = "BH",
+    REML = FALSE,
+    standardize_response = TRUE,
+    optimizer = "bobyqa",
+    optimizer_fallbacks = c("nloptwrap", "Nelder_Mead")) {
+  if (!requireNamespace("lme4", quietly = TRUE)) {
+    stop("Package 'lme4' is required for the mixed model.", call. = FALSE)
+  }
+  if (!inherits(prepared, "SpatialESSMultiSample") ||
+      !identical(prepared$parameters$unit, "sample")) {
+    stop("prepared must be a sample-level SpatialESSMultiSample object.",
+         call. = FALSE)
+  }
+  if (!inherits(design, "formula") || length(design) != 2L) {
+    stop("design must be a right-hand-side formula.", call. = FALSE)
+  }
+  if (is.null(patient_col)) patient_col <- prepared$parameters$patient_col
+  if (!is.character(patient_col) || length(patient_col) != 1L ||
+      !patient_col %in% colnames(prepared$unit_metadata)) {
+    stop("patient_col is absent from sample metadata.", call. = FALSE)
+  }
+  min_units <- as.integer(min_units)
+  min_nonzero <- as.integer(min_nonzero)
+  if (is.na(min_units) || min_units < 3L ||
+      is.na(min_nonzero) || min_nonzero < 0L) {
+    stop("min_units or min_nonzero is invalid.", call. = FALSE)
+  }
+  if (!is.numeric(max_zero_fraction) || length(max_zero_fraction) != 1L ||
+      !is.finite(max_zero_fraction) || max_zero_fraction < 0 ||
+      max_zero_fraction > 1) {
+    stop("max_zero_fraction must be a number between 0 and 1.",
+         call. = FALSE)
+  }
+  if (!is.numeric(min_response_sd) || length(min_response_sd) != 1L ||
+      !is.finite(min_response_sd) || min_response_sd < 0) {
+    stop("min_response_sd must be a non-negative finite number.",
+         call. = FALSE)
+  }
+  if (!is.numeric(rank_tolerance) || length(rank_tolerance) != 1L ||
+      !is.finite(rank_tolerance) || rank_tolerance <= 0) {
+    stop("rank_tolerance must be a positive finite number.", call. = FALSE)
+  }
+  if (!is.logical(standardize_response) || length(standardize_response) != 1L ||
+      is.na(standardize_response)) {
+    stop("standardize_response must be TRUE or FALSE.", call. = FALSE)
+  }
+  if (!is.character(optimizer) || length(optimizer) != 1L ||
+      !nzchar(optimizer)) {
+    stop("optimizer must be a non-empty character scalar.", call. = FALSE)
+  }
+  if (!is.character(optimizer_fallbacks) ||
+      any(!nzchar(optimizer_fallbacks))) {
+    stop("optimizer_fallbacks must contain non-empty names.", call. = FALSE)
+  }
+
+  data <- prepared$unit_metadata
+  data$.patient_random_effect <- factor(data[[patient_col]])
+  model_frame <- stats::model.frame(
+    design, data = data, na.action = stats::na.fail
+  )
+  fixed_matrix <- stats::model.matrix(design, data = model_frame)
+  fixed_rank <- qr(fixed_matrix, tol = rank_tolerance)$rank
+  coefficient_index <- if (is.character(coefficient)) {
+    match(coefficient, colnames(fixed_matrix))
+  } else {
+    as.integer(coefficient)
+  }
+  if (length(coefficient_index) != 1L || is.na(coefficient_index) ||
+      coefficient_index < 1L || coefficient_index > ncol(fixed_matrix)) {
+    stop("coefficient is absent from the fixed-effect design.", call. = FALSE)
+  }
+  coefficient_name <- colnames(fixed_matrix)[coefficient_index]
+
+  score <- prepared$score
+  result <- data.frame(
+    feature_id = colnames(score),
+    coefficient = coefficient_name,
+    estimate = NA_real_,
+    std_error = NA_real_,
+    statistic = NA_real_,
+    p_value = NA_real_,
+    nonzero_units = colSums(score > 0),
+    total_units = nrow(score),
+    patient_count = length(unique(data$.patient_random_effect)),
+    zero_fraction = colMeans(score <= 0),
+    response_sd = NA_real_,
+    singular = NA,
+    response_scale = NA_real_,
+    random_effect_variance = NA_real_,
+    residual_variance = NA_real_,
+    max_gradient = NA_real_,
+    optimizer = NA_character_,
+    optimizer_attempts = NA_character_,
+    convergence_message = NA_character_,
+    fit_error = NA_character_,
+    status = "not_fitted",
+    stringsAsFactors = FALSE
+  )
+  if (fixed_rank < ncol(fixed_matrix)) {
+    result$status <- "rank_deficient"
+  } else if (nrow(score) < min_units) {
+    result$status <- "insufficient_units"
+  } else {
+    fixed_terms <- paste(deparse(design[[2L]]), collapse = "")
+    model_formula <- stats::as.formula(paste(
+      "response ~", fixed_terms, "+ (1 | .patient_random_effect)"
+    ))
+    for (feature in seq_len(ncol(score))) {
+      if (result$nonzero_units[feature] < min_nonzero) {
+        result$status[feature] <- "insufficient_nonzero"
+        next
+      }
+      model_data <- data
+      response <- log1p(score[, feature])
+      response_mean <- mean(response)
+      response_scale <- stats::sd(response)
+      result$response_sd[feature] <- response_scale
+      if (result$zero_fraction[feature] > max_zero_fraction) {
+        result$status[feature] <- "insufficient_zero_support"
+        next
+      }
+      if (!is.finite(response_scale) || response_scale <= min_response_sd) {
+        result$status[feature] <- "insufficient_variation"
+        next
+      }
+      model_data$response <- if (standardize_response) {
+        (response - response_mean) / response_scale
+      } else {
+        response
+      }
+      fit_scale <- if (standardize_response) response_scale else 1
+      result$response_scale[feature] <- fit_scale
+      fit_with_optimizer <- function(name) {
+        tryCatch(
+          suppressWarnings(
+            lme4::lmer(
+              model_formula,
+              data = model_data,
+              REML = REML,
+              control = lme4::lmerControl(
+                optimizer = name,
+                optCtrl = list(maxfun = 2e5),
+                check.conv.singular = "ignore"
+              )
+            )
+          ),
+          error = function(error) error
+        )
+      }
+      optimizer_sequence <- unique(c(optimizer, optimizer_fallbacks))
+      errors <- character()
+      attempted_optimizers <- character()
+      selected_fit <- NULL
+      selected_optimizer <- NA_character_
+      selected_message <- NULL
+      for (candidate_optimizer in optimizer_sequence) {
+        attempted_optimizers <- c(attempted_optimizers, candidate_optimizer)
+        candidate <- fit_with_optimizer(candidate_optimizer)
+        if (inherits(candidate, "error")) {
+          errors <- c(
+            errors,
+            paste0(candidate_optimizer, ": ", conditionMessage(candidate))
+          )
+          next
+        }
+        candidate_message <- candidate@optinfo$conv$lme4$messages
+        if (!length(candidate_message)) {
+          selected_fit <- candidate
+          selected_optimizer <- candidate_optimizer
+          selected_message <- NULL
+          break
+        }
+        if (is.null(selected_fit)) {
+          selected_fit <- candidate
+          selected_optimizer <- candidate_optimizer
+          selected_message <- candidate_message
+        }
+      }
+      if (is.null(selected_fit)) {
+        result$optimizer_attempts[feature] <- paste(
+          attempted_optimizers, collapse = ","
+        )
+        result$fit_error[feature] <- paste(errors, collapse = "; ")
+        numerical_error <- grepl(
+          "Downdated VtV is not positive definite|not positive definite",
+          result$fit_error[feature], ignore.case = TRUE
+        )
+        result$status[feature] <- if (numerical_error) {
+          "numerical_failure"
+        } else {
+          "fit_failed"
+        }
+        next
+      }
+      fit <- selected_fit
+      fit_optimizer <- selected_optimizer
+      result$optimizer_attempts[feature] <- paste(
+        attempted_optimizers, collapse = ","
+      )
+      coefficients <- tryCatch(
+        summary(fit)$coefficients,
+        error = function(error) NULL
+      )
+      if (is.null(coefficients) || !coefficient_name %in% rownames(coefficients) ||
+          anyNA(coefficients[coefficient_name, seq_len(3L)])) {
+        result$status[feature] <- "rank_deficient"
+        next
+      }
+      estimate <- coefficients[coefficient_name, 1L] * fit_scale
+      std_error <- coefficients[coefficient_name, 2L] * fit_scale
+      statistic <- coefficients[coefficient_name, 3L]
+      result$estimate[feature] <- estimate
+      result$std_error[feature] <- std_error
+      result$statistic[feature] <- statistic
+      result$p_value[feature] <- 2 * stats::pnorm(-abs(statistic))
+      result$singular[feature] <- lme4::isSingular(fit, tol = 1e-4)
+      random_sd <- as.numeric(attr(lme4::VarCorr(fit)[[1L]], "stddev"))[1L]
+      result$random_effect_variance[feature] <- (random_sd * fit_scale)^2
+      result$residual_variance[feature] <- (stats::sigma(fit) * fit_scale)^2
+      gradient <- fit@optinfo$derivs$gradient
+      if (!is.null(gradient)) {
+        result$max_gradient[feature] <- max(abs(gradient))
+      }
+      result$optimizer[feature] <- fit_optimizer
+      convergence_message <- selected_message
+      if (length(convergence_message)) {
+        result$convergence_message[feature] <- paste(
+          convergence_message, collapse = "; "
+        )
+        result$status[feature] <- "convergence_warning"
+      } else {
+        result$status[feature] <- "ok"
+      }
+    }
+  }
+  fdr_p_value <- result$p_value
+  fdr_p_value[result$status != "ok"] <- NA_real_
+  result$q_value <- stats::p.adjust(fdr_p_value, method = adjust_method)
   result <- merge(
     prepared$feature_metadata,
     result,

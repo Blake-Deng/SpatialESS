@@ -8,6 +8,7 @@ dependencies:
   - r-matrix
   - r-rcpp
   - r-future.apply
+  - r-lme4
   - r-testthat
   - pip
   - pip:

@@ -10,7 +10,7 @@ Description: Provides a reproducible bridge from SPARKLE-corrected AnnData
     tested SpatialCellChat V3 probability and permutation workflow. The bridge
     preserves sparse expression, cell order, spatial coordinates and group
     labels, and can normalize selected signaling genes using library sizes
-    computed over the complete expression matrix.
+    computed over the complete expression matrix. The bundled SpatialESS engine also provides sample-level multi-patient modelling with a patient random intercept.
 License: GPL-3
 Encoding: UTF-8
 Depends:

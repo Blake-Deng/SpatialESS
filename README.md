@@ -15,7 +15,7 @@ correction model as a SpatialESS contribution.
 - Cell labels and coordinates from H5AD `obs` or an external metadata TSV.
 - CP10K library-size calculation over all H5AD genes before signaling-gene
   selection.
-- The SpatialESS engine is bundled in this repository and installed locally before the bridge package.
+- The SpatialESS engine, including the multi-patient LMM layer, is bundled in this repository and installed locally before the bridge package.
 - A 24-cell executable example and regression tests.
 - Compact source tables and scripts for two publication figures.
 
@@ -163,6 +163,30 @@ coordinates or unresolved matrix dimensions.
   evidence. Follow the upstream SPARKLE documentation before running this
   bridge.
 
+## Multi-patient analysis
+
+SPARKLE correction is performed independently for each spatial sample. After RAW or corrected H5AD inputs have been analyzed with `spatialess_from_h5ad()`, the same downstream SpatialESS cohort model can be used without installing a separate repository:
+
+```r
+prepared <- SpatialESS::prepare_multisample_communication(
+  results = sample_results,
+  sample_metadata = sample_metadata,
+  unit = "sample"
+)
+
+lmm_result <- SpatialESS::fit_multisample_communication_lmm(
+  prepared = prepared,
+  design = ~ condition,
+  coefficient = "conditiondisease",
+  patient_col = "patient_id",
+  REML = FALSE
+)
+```
+
+The model is `log1p(score) ~ condition + (1 | patient)`. It retains multiple slices per patient and accounts for within-patient correlation. A simple slice-level GLM is included as a comparator. Status values distinguish valid fits, singular boundary fits, convergence warnings, numerical failures and features with too few nonzero slices. Convergence-warning and failed fits are excluded from FDR.
+
+The bundled engine contains the frozen GSE250346 validation: 45 slices from 35 patients, 39,242 valid LMM fits, 5,158 FDR-significant features, and Spearman rho 0.9967 between valid LMM and slice-level GLM effect estimates. These cohort results validate the downstream SpatialESS engine; they are not evidence that SPARKLE correction itself improves biological truth. See `docs/MULTISAMPLE_LMM.md` and [`docs/REVIEWER_GUIDE.md`](docs/REVIEWER_GUIDE.md) for the distinction between model diagnostics and software failures.
+
 ## Validation
 
 The recorded ovarian Visium HD analysis used one SPARKLE-corrected input,
@@ -208,7 +232,7 @@ not include the large ovarian H5AD or raw 10x files.
 ```text
 R/                         R bridge API
 inst/python/               backed H5AD converter
-SpatialESS                  separately installed inference engine
+vendor/SpatialESS/          bundled inference and multi-patient engine
 examples/minimal/          executable small example
 benchmark/                 compact validation source tables
 figures/                   PDF, SVG and 450-dpi PNG outputs

@@ -27,7 +27,7 @@ jobs:
 
       - name: Install R dependencies
         run: |
-          Rscript -e 'install.packages(c("Rcpp", "Matrix", "testthat"))'
+          Rscript -e 'install.packages(c("Rcpp", "Matrix", "testthat", "lme4"))'
           R CMD INSTALL vendor/SpatialESS
           R CMD INSTALL .
 
@@ -36,6 +36,7 @@ jobs:
 
       - name: Test R packages
         run: |
+          Rscript -e 'testthat::test_local("vendor/SpatialESS")'
           Rscript -e 'testthat::test_local(".")'
 
       - name: Run minimal example
