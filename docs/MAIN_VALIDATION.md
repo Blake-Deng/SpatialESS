@@ -7,7 +7,7 @@ biological interpretation.
 
 | Dataset | Role | Comparison scope | Status |
 |---|---|---|---|
-| GSE250346 | Primary patient-level biology | 45 samples, 35 patients, 37 computable LR, sample-level records and patient GLM | Complete |
+| GSE250346 | Primary multi-patient biology | 45 slices, 35 patients, 37 computable LR, patient-random-intercept LMM and slice-level GLM comparator | Complete with fit diagnostics |
 | GSE306130 | Independent fidelity pilot | 4 samples, 1,000 cells/sample, 33 LR, 20 permutations | Complete pilot |
 | GSE313006 | Independent fidelity fixture | 1,000 cells, 133 LR, 20 and 100 permutations | Complete fixture |
 | CosMx Cancerous Liver | Paired scalability benchmark | 250, 1,000, 5,000, 10,000, 25,000 and 50,000 cells | Complete paired ladder |
@@ -65,33 +65,31 @@ can operate on 1.156 million cells and 2,357 spatial groups. It should not be
 used as a direct official comparison unless the current release commit and
 parameters are re-audited against the historical source filenames.
 
-## Patient-level GLM
+## Multi-patient linear mixed model
 
-The primary GSE250346 analysis uses the patient, not the cell, as the unit of
-inference:
+The primary GSE250346 cohort analysis keeps one communication profile per spatial slice and uses patient as a random intercept:
 
-    sample communication records
-        -> patient-level aggregation
-        -> condition and covariate model
-        -> FDR correction across communication features
-        -> conserved / disease-associated programs
+    log1p(score) ~ condition + (1 | patient)
 
-The prepared cohort contains 45 samples, 35 patients, 9 controls and 26
-disease patients. Covariate-aware and aggregation sensitivity outputs are
-kept under the benchmark result root and summarized in
-results/tables/patient_glm_design.tsv and
-results/tables/patient_glm_top_programs.tsv.
+This model is fitted feature by feature with `lme4::lmer()`. It retains multiple slices from one patient while accounting for within-patient correlation. The simple slice-level model, `log1p(score) ~ condition`, is retained as a comparator. A patient-aggregated GLM remains an additional sensitivity analysis. Cells are never treated as independent cohort replicates.
 
-The main biological summaries include collagen and matrix-associated programs
-such as COL1A1-CD44, COL1A2-CD44, FN1-CD44, and additional VEGF, CCL, SPP1 and
-MHC-II programs. These are biologically plausible disease-associated programs,
-not experimental validation.
+The implementation standardizes each feature response before fitting and transforms estimates and standard errors back to the original log1p-score scale. It first uses `bobyqa`, retries numerical failures with `nloptwrap`, and records random-effect variance, residual variance, maximum gradient, optimizer, convergence messages and fit errors. Wald normal-approximation p-values are explicit; BH correction is restricted to `status = "ok"`.
+
+Fit states are interpreted as follows:
+
+- `ok` with `singular = FALSE`: converged model with nonzero patient variance;
+- `ok` with `singular = TRUE`: converged boundary model with patient variance estimated as zero;
+- `convergence_warning`: retained for diagnosis and excluded from FDR;
+- `fit_failed`: both optimizers failed;
+- `insufficient_nonzero`: not fitted because the feature occurs in too few slices.
+
+Singular fits are not counted as software failures. The frozen run contained 39,242 `ok` fits (21,934 non-singular and 17,308 singular), 2,299 convergence warnings, 305 failures after both optimizers and 8,194 features below the nonzero-slice threshold. The LMM identified 5,158 FDR-significant features, compared with 4,172 for the slice-level GLM; 4,109 were shared (Jaccard 0.787). Valid-fit effect estimates had Spearman rho 0.9967 and 99.28% direction agreement. Formal result counts are frozen in `results/tables/gse250346_lmm_model_summary.tsv`, with status and diagnostic tables beside it.
+
+The main biological summaries include collagen and matrix-associated programs such as COL1A1-CD44, COL1A2-CD44, FN1-CD44, and additional VEGF, CCL, SPP1 and MHC-II programs. These are biologically plausible disease-associated programs, not experimental validation.
 
 ## Robustness already available
 
-The GSE250346 robustness outputs include leave-one-patient-out fits, patient
-mean, median and cell-weighted aggregation, min.cells.sr values 5, 10 and 20,
-and mixed-model sensitivity fits with singular-fit diagnostics.
+The GSE250346 robustness outputs include the patient-random-intercept LMM, its slice-level GLM comparator, leave-one-patient-out fits, patient mean, median and cell-weighted aggregation, and min.cells.sr values 5, 10 and 20.
 
 The central stability result is direction concordance: all primary significant
 effects retained their direction in the leave-one-patient-out fits. Exact

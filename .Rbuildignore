@@ -2,6 +2,7 @@
 ^benchmarks/results$
 ^.*\.orig$
 ^\.git$
+^\.github$
 ^SpatialESS\.Rcheck$
 ^SpatialESS_[0-9].*\.tar\.gz$
 ^benchmarks/.*\.(html|json|rds|RDS)$

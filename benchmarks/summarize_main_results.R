@@ -34,6 +34,10 @@ gse250346 <- Sys.getenv(
   "SPATIALESS_GSE250346_ROOT",
   "/data/dzf/GSE250346/benchmarks/multisample_v3_exact"
 )
+gse250346_lmm <- Sys.getenv(
+  "SPATIALESS_GSE250346_LMM_ROOT",
+  "/data/dzf/GSE250346/benchmarks/multisample/slice_glm_vs_patient_lmm"
+)
 gse313006 <- Sys.getenv(
   "SPATIALESS_GSE313006_ROOT",
   "/data/dzf/GSE313006/benchmarks/spatial_v3_headtohead"
@@ -45,6 +49,15 @@ cosmx <- Sys.getenv(
 
 copy_table("gse250346_exact_comparison.tsv", c(
   file.path(gse250346, "exact_comparison_summary.tsv")
+))
+copy_table("gse250346_lmm_model_summary.tsv", c(
+  file.path(gse250346_lmm, "model_summary.tsv")
+))
+copy_table("gse250346_lmm_fit_status.tsv", c(
+  file.path(gse250346_lmm, "lmm_status_summary.tsv")
+))
+copy_table("gse250346_lmm_failure_summary.tsv", c(
+  file.path(gse250346_lmm, "lmm_failure_summary.tsv")
 ))
 copy_table("gse250346_patient_robustness.tsv", c(
   file.path(gse250346, "patient_biology_robustness_20260904",

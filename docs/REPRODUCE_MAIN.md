@@ -6,7 +6,8 @@ regenerate the compact tables.
 
 ## Source roots
 
-    GSE250346: /data/dzf/GSE250346/benchmarks/multisample_v3_exact
+    GSE250346 fidelity: /data/dzf/GSE250346/benchmarks/multisample_v3_exact
+    GSE250346 LMM: /data/dzf/GSE250346/benchmarks/multisample/slice_glm_vs_patient_lmm
     GSE306130: /data/dzf/GSE306130/benchmarks
     GSE313006: /data/dzf/GSE313006/benchmarks/spatial_v3_headtohead
     CosMx: /data/dzf/SecAct_2026/results/spatialcellchat_v3_headtohead
@@ -37,6 +38,12 @@ The script reads small TSV summaries and does not load million-cell matrices.
 Full reruns use dataset-specific drivers under benchmarks/ and should use one
 independent process at a time when peak RSS is being measured.
 
+
+Run the patient-aware model and its slice-level comparator with:
+
+    Rscript benchmarks/run_gse250346_lmm_comparison.R
+
+The LMM output records `status`, `singular`, optimizer, variance components, maximum gradient, convergence messages and fit errors. Only `status = "ok"` fits receive BH-adjusted q-values.
 
 The final CosMx status reconciliation is recorded in
 results/tables/cosmx_queue_reconciliation.tsv. The paired comparison table

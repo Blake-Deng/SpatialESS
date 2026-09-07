@@ -2,7 +2,7 @@
 % Please edit documentation in R/spatialess.R
 \name{spatialess}
 \alias{spatialess}
-\title{Exact, streamed SpatialCellChat V3 probability computation}
+\title{SpatialESS streamed spatial communication}
 \usage{
 spatialess(
   expression,
@@ -61,12 +61,7 @@ spatialess(
 
 \item{max_edges, max_output_records, max_active_edges_per_lr}{Memory guards.}
 }
-\value{
-A \code{SpatialESSResult} containing sparse LR-group records,
-  the CSR graph, diagnostics and parameters.
-}
 \description{
-Reproduces the tested individual-cell probability, group averaging,
-filtering and label-permutation ordering of SpatialCellChat V3 while
-streaming over a compact CSR radius graph.
+Reproduces the individual-cell probability and group-average ordering used
+by SpatialCellChat V3 while streaming over a compact CSR radius graph.
 }
