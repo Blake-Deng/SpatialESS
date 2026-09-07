@@ -1,0 +1,9 @@
+"check"	"passed"
+"complete_50040_unique_features"	TRUE
+"all_45_slices_35_patients"	TRUE
+"global_BH_matches"	TRUE
+"non_ok_excluded_from_BH"	TRUE
+"failed_have_no_p_value"	TRUE
+"failed_keep_three_optimizer_attempts"	TRUE
+"glm_status_matches_baseline"	TRUE
+"glm_estimates_match_baseline"	TRUE

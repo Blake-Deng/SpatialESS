@@ -1,5 +1,5 @@
-status	features
-convergence_warning	2299
-fit_failed	305
-insufficient_nonzero	8194
-ok	39242
+"status"	"features"
+"convergence_warning"	1984
+"insufficient_nonzero"	8194
+"numerical_failure"	292
+"ok"	39570

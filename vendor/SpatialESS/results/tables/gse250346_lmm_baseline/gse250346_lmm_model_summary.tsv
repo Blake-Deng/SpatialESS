@@ -1,0 +1,2 @@
+cohort	samples	patients	control_samples	disease_samples	model_glm	model_lmm	coefficient	elapsed_seconds	glm_ok	lmm_ok	lmm_convergence_warning	lmm_fit_failed	lmm_rank_deficient	lmm_singular	lmm_non_singular
+GSE250346	45	35	10	35	log1p(score) ~ condition	log1p(score) ~ condition + (1 | patient)	conditionDisease	746.597	41846	39242	2299	305	0	17308	21934

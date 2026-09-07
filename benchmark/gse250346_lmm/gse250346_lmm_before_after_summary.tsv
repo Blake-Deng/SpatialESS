@@ -1,0 +1,2 @@
+"baseline_valid"	"robust_valid"	"baseline_warning"	"robust_warning"	"baseline_failed"	"robust_failed"	"old_failed_now_ok"	"old_warning_now_ok"	"baseline_significant"	"robust_significant"	"overlap_significant"	"significant_jaccard"	"common_valid"	"estimate_spearman_common_valid"	"max_abs_estimate_difference_common_valid"	"direction_agreement_common_valid"
+39242	39570	2299	1984	305	292	0	328	5158	5147	5140	0.995159728944821	39242	1	0	1

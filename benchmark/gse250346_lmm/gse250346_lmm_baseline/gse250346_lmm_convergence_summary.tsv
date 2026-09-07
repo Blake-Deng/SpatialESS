@@ -1,0 +1,5 @@
+convergence_class	features
+gradient_warning	1447
+negative_hessian_eigenvalue	543
+scale_warning	241
+numerically_singular_hessian	68

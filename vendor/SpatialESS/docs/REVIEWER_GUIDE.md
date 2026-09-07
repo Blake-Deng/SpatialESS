@@ -1,117 +1,113 @@
-# Reviewer guide: patient-level model diagnostics
+# Reviewer guide: patient-aware LMM results
 
-This page explains how to read the patient-aware multi-sample analysis without
-confusing a statistical boundary case with a software failure.
+## Analysis unit and inference
 
-## Analysis unit and model
-
-SpatialESS first computes one communication profile for each spatial slice.
-The cohort analysis uses slices as rows and patient as the clustering variable:
+The GSE250346 analysis contains 45 spatial slices from 35 patients (9 Control,
+26 PF), not 45 independent patients. Each sender-receiver-LR feature uses:
 
 ```text
-log1p(score) ~ condition + (1 | patient)
+LMM: log1p(score) ~ condition + (1 | patient)
+GLM comparator: log1p(score) ~ condition
 ```
 
-Cells are never treated as independent patient replicates. Multiple slices
-from the same patient remain in the model, while `(1 | patient)` accounts for
-their shared baseline. The slice-level model
-`log1p(score) ~ condition` is reported as a transparent comparator.
+Multiple slices remain as rows; the LMM includes a patient random intercept.
+Cells are not independent patient replicates. The models use the same score
+inputs and a PF-versus-Control coefficient. The main model does not adjust
+for TMA, run or affected region; retaining these metadata does not mean they
+were fitted as covariates.
 
-## Frozen GSE250346 status table
+P-values use a Wald normal approximation, followed by BH among valid fits.
+These are screening associations. Model convergence and numerical checks do
+not establish finite-sample calibration, remove possible condition/batch
+confounding, or validate a biological mechanism. Small-sample inference may
+require Satterthwaite/Kenward-Roger methods or a suitable bootstrap.
 
-The counts below are the previously frozen baseline run, before the additional
-`Nelder_Mead` retry and the new support-screen fields were added. The robust
-release keeps this baseline for traceability, but a manuscript using the new
-implementation must regenerate the table and report the new status counts.
+## Completed robust rerun
 
-The frozen run contains 50,040 sender-receiver-LR features from 45 slices and
-35 patients. The status counts are:
+All 50,040 features were rerun using the distributed robust source. The
+table below partitions the entire feature set; categories do not overlap.
 
-| Status | Features | How it is used |
+| Status | Features | Treatment |
 |---|---:|---|
-| `ok`, non-singular | 21,934 | Primary valid fit; included in BH correction |
-| `ok`, singular | 17,308 | Valid boundary fit; included in BH correction and reported separately |
-| `convergence_warning` | 2,299 | Coefficients retained for diagnosis; excluded from BH correction |
-| `numerical_failure` | 305 | All configured optimizers failed; no inferential result |
-| `insufficient_nonzero` | 8,194 | Not fitted because the feature was present in too few slices |
+| `ok`, non-singular | 22,262 | Included in primary BH |
+| `ok`, singular | 17,308 | Included in primary BH; boundary flag retained |
+| `convergence_warning` | 1,984 | Diagnostic estimates only; q-value is NA |
+| `numerical_failure` | 292 | No p-value or q-value |
+| `insufficient_nonzero` | 8,194 | Not fitted; fewer than two nonzero slices |
 
-The primary LMM result therefore contains 39,242 fits with `status = "ok"`.
-The complete counts are in
-`results/tables/gse250346_lmm_fit_status.tsv`.
+There are no additional `insufficient_variation`, `insufficient_zero_support`,
+`rank_deficient` or unclassified `fit_failed` records in this rerun. Support
+screens were present, but recovery in this cohort must not be attributed to
+their excluding extra features.
 
-## What `singular` means
+## Change from the original run
 
-`singular = TRUE` means that the estimated patient random-intercept variance
-is on the boundary, usually zero. In practical terms, that feature does not
-provide evidence that patients need an additional random-intercept variance
-component after the fixed effects are included. The fixed-effect estimate is
-still estimable, so this is a successful boundary fit, not a crash and not a
-claim that patients are identical. The non-singular subset is reported as a
-sensitivity analysis.
+Original statuses are preserved under `results/tables/gse250346_lmm_baseline/`.
+In that run, 305 features had the actual status `fit_failed`, not a retroactive
+`numerical_failure` label. With the robust implementation:
 
-## What `convergence_warning` means
+- 328 previous convergence warnings became valid `ok` fits.
+- 13 previous failures returned estimates with warnings, not valid fits.
+- 292 previous failures remain numerical failures after all three optimizers.
+- All 39,242 previously valid effect estimates are exactly unchanged.
 
-The optimizer returned coefficient estimates, but `lme4` reported a numerical
-diagnostic such as a large gradient, a non-positive Hessian eigenvalue, a
-scale warning or a numerically singular Hessian. These warnings indicate that
-the uncertainty calculation for that feature is not sufficiently reliable for
-confirmatory FDR reporting. The estimates are preserved in the output so the
-diagnostic is auditable, but the feature is conservatively excluded from
-multiple-testing correction.
+Thus valid fits increased to 39,570. BH-significant features changed from
+5,158 to 5,147; 5,140 are shared. BH uses the new valid-fit universe, so
+unchanged coefficients need not imply unchanged q-values or discovery counts.
+No previous `fit_failed` feature became an `ok` fit.
 
-The 2,299 warnings were classified as:
+## Singular fits and convergence warnings
 
-| Diagnostic | Features |
+`isSingular(tol = 1e-4)` flags a patient variance component at or near the
+boundary. This is not a software crash, proof that its variance is exactly
+zero, or proof that patients are interchangeable. Among valid nonsingular
+fits, 3,266 are significant using primary global BH; recomputing BH within
+only the 22,262 nonsingular fits gives 3,476. These are distinct sensitivity
+analyses with different testing universes.
+
+Warnings are classified once per feature, using the precedence negative
+Hessian eigenvalue, numerically singular Hessian, combined gradient/scale,
+gradient alone, then scale alone:
+
+| Diagnostic class | Features |
 |---|---:|
-| Gradient warning | 1,447 |
-| Negative Hessian eigenvalue | 543 |
-| Scale warning | 241 |
-| Numerically singular Hessian | 68 |
+| Negative Hessian eigenvalue | 468 |
+| Numerically singular Hessian | 59 |
+| Gradient and scale warning | 1,227 |
+| Gradient warning | 19 |
+| Scale warning | 211 |
 
-These categories are diagnostic labels, not additional biological findings.
-The detailed table is
-`results/tables/gse250346_lmm_convergence_summary.tsv`.
+This classification differs from the baseline summary, so class-by-class
+counts are not directly comparable. Full messages and optimizer attempts are
+retained in the quoted feature TSV, not discarded or called successes.
 
-## What `numerical_failure` means
+## Residual numerical failures
 
-For 305 features, both the primary `bobyqa` fit and the `nloptwrap` fallback
-failed with:
+All 292 residual failures returned the following factorization error for
+`bobyqa`, `nloptwrap` and `Nelder_Mead`:
 
 ```text
 Downdated VtV is not positive definite
 ```
 
-This is a numerical failure for an individual mixed-model design, typically
-caused by near-zero or highly redundant feature variation in the slice-level
-response. The robust implementation now also tries `Nelder_Mead` and records
-all optimizer attempts. If all configured optimizers fail, the feature is
-marked `numerical_failure`. It is not an assertion that the input dataset or
-SpatialESS engine failed. No p-value is reported for these features. The exact
-message is retained in
-`results/tables/gse250346_lmm_failure_summary.tsv`.
+The recorded error identifies a numerical factorization failure, not its
+ultimate cause for each feature. We have not established that all failures
+are caused by low variation. They remain excluded from inference; they are
+not silently replaced by slice-level GLM results. These are feature-specific
+model failures, not a failure of the upstream SpatialESS communication run.
 
-`fit_failed` is reserved for an unrecognized error after all configured
-optimizers fail.
+## GLM comparison and audit
 
-## Multiple-testing rule and comparison
+The slice GLM has 4,172 BH-significant features; the LMM has 5,147, including
+4,108 shared (Jaccard 0.788332). Across 39,570 paired valid fits, estimate
+Spearman rho is 0.996623 and direction agreement is 99.2823%. This assesses
+sensitivity to the dependence model; neither model is experimental truth.
 
-BH-adjusted values are calculated only for `status = "ok"` fits. This prevents
-uncertain numerical fits from being presented as confirmatory discoveries.
-The primary LMM found 5,158 FDR-significant features; the slice-level GLM
-found 4,172. Of these, 4,109 were shared (significant Jaccard 0.787), effect
-estimates had Spearman rho 0.9967 and directions agreed for 99.28% of valid
-comparisons. This comparison is a robustness and dependence-structure check,
-not a claim that either model is experimental ground truth.
+The audit verifies 50,040 unique features, 45 slices/35 patients, global BH
+recomputation, excluded q-values, failed p-values, retention of all optimizer
+attempts and unchanged slice-GLM estimates/statuses. All eight checks passed.
 
-## Reproduce and audit
-
-Run the cohort driver after supplying the prepared sample-level inputs:
-
-```bash
-Rscript benchmarks/run_gse250346_lmm_comparison.R
-```
-
-The driver records the model formula, feature-level status, optimizer,
-variance components, maximum gradient, convergence messages and fit errors.
-The exact input locations and parameter locks are listed in
-`docs/REPRODUCE_MAIN.md`.
+See [LMM_RESULTS_20260907.md](LMM_RESULTS_20260907.md) for the table index,
+source hash, exact parameters and reproduction commands. This cohort did not
+undergo SPARKLE correction; copies in the SPARKLE repository validate only
+its bundled downstream engine.

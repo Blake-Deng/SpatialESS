@@ -6,3 +6,7 @@
 ^SpatialESS_[0-9].*\.tar\.gz$
 ^benchmarks/.*\.(html|json|rds|RDS)$
 ^figures/__pycache__$
+^benchmarks/results(/|$)
+^results(/|$)
+^.*\.Rcheck$
+^src/.*\.(o|so)$

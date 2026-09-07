@@ -1,2 +1,2 @@
-fit_error	features
-Downdated VtV is not positive definite; fallback nloptwrap: Downdated VtV is not positive definite	305
+"fit_error"	"features"
+"bobyqa: Downdated VtV is not positive definite; nloptwrap: Downdated VtV is not positive definite; Nelder_Mead: Downdated VtV is not positive definite"	292
