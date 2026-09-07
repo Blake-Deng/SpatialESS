@@ -113,15 +113,15 @@ slice_glm <- fit_multisample_communication_glm(
 The returned LMM status fields are interpreted as follows:
 
 - `ok`, `singular = FALSE`: converged mixed model with nonzero patient variance;
-- `ok`, `singular = TRUE`: converged boundary model with patient variance estimated as zero;
+- `ok`, `singular = TRUE`: converged boundary model with patient variance at or near zero;
 - `convergence_warning`: coefficients are retained for diagnosis but excluded from FDR;
 - `insufficient_zero_support`: zero-score fraction exceeded the configured support threshold;
 - `insufficient_variation`: response variation was below the configured threshold;
 - `numerical_failure`: all configured optimizers failed with a recognized numerical error;
-- `fit_failed`: both optimizers failed and no inferential result is reported;
+- `fit_failed`: all configured optimizers failed with an unrecognized error;
 - `insufficient_nonzero`: too few slices express the communication feature.
 
-A singular fit is not a software failure. It means that the data do not support a nonzero patient random-intercept variance for that feature. The archived baseline GSE250346 run had 39,242 features with status `ok` (21,934 non-singular and 17,308 singular), 2,299 convergence warnings, 305 numerical failures and 8,194 features below the nonzero-slice threshold. The robust implementation adds support screens and a third optimizer; its final cohort counts must be regenerated with the release script before being used as confirmatory manuscript numbers. The archived LMM identified 5,158 FDR-significant features versus 4,172 for the slice-level GLM; 4,109 overlapped (Jaccard 0.787), and effect estimates had Spearman rho 0.9967 across valid fits. Full status counts and the GLM-versus-LMM comparison are stored in `results/tables/`. A reviewer-oriented explanation of model diagnostics versus software failures is in [`docs/REVIEWER_GUIDE.md`](docs/REVIEWER_GUIDE.md).
+A singular fit is a boundary diagnostic, not a software failure. The completed 2026-09-07 robust GSE250346 rerun includes 45 slices from 35 patients (9 Control, 26 PF): 39,570 valid LMM fits (22,262 non-singular, 17,308 singular), 1,984 convergence warnings, 292 numerical failures and 8,194 features below the nonzero-slice threshold. The LMM identified 5,147 BH-significant features versus 4,172 for the slice-level GLM; 4,108 overlapped (Jaccard 0.7883), with effect-estimate Spearman rho 0.9966 across valid comparisons. These are Wald-normal screening results, not experimentally established disease mechanisms. All 39,242 previously valid effect estimates are unchanged. Full tables, audits, source and input checksums are indexed in [`docs/LMM_RESULTS_20260907.md`](docs/LMM_RESULTS_20260907.md); the old summaries remain in `results/tables/gse250346_lmm_baseline/`. See [`docs/REVIEWER_GUIDE.md`](docs/REVIEWER_GUIDE.md) for model diagnostics and inference limitations.
 
 The existing patient-aggregated GLM, leave-one-patient-out analysis, aggregation choices and minimum-cell thresholds remain sensitivity analyses. These results assess cohort-level robustness; they do not turn inferred communication into experimental truth.
 

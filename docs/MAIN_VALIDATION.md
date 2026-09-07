@@ -78,12 +78,13 @@ The implementation standardizes each feature response before fitting and transfo
 Fit states are interpreted as follows:
 
 - `ok` with `singular = FALSE`: converged model with nonzero patient variance;
-- `ok` with `singular = TRUE`: converged boundary model with patient variance estimated as zero;
+- `ok` with `singular = TRUE`: converged boundary model with patient variance at or near zero;
 - `convergence_warning`: retained for diagnosis and excluded from FDR;
-- `fit_failed`: both optimizers failed;
+- `numerical_failure`: all three configured optimizers failed with a recognized numerical error;
+- `fit_failed`: all configured optimizers failed with an unrecognized error;
 - `insufficient_nonzero`: not fitted because the feature occurs in too few slices.
 
-Singular fits are not counted as software failures. The frozen run contained 39,242 `ok` fits (21,934 non-singular and 17,308 singular), 2,299 convergence warnings, 305 failures after both optimizers and 8,194 features below the nonzero-slice threshold. The LMM identified 5,158 FDR-significant features, compared with 4,172 for the slice-level GLM; 4,109 were shared (Jaccard 0.787). Valid-fit effect estimates had Spearman rho 0.9967 and 99.28% direction agreement. Formal result counts are frozen in `results/tables/gse250346_lmm_model_summary.tsv`, with status and diagnostic tables beside it.
+Singular fits are not counted as software failures. The completed robust rerun contains 39,570 `ok` fits (22,262 non-singular and 17,308 singular), 1,984 convergence warnings, 292 numerical failures after all three optimizers and 8,194 features below the nonzero-slice threshold. The LMM identifies 5,147 BH-significant features, compared with 4,172 for the slice-level GLM; 4,108 are shared (Jaccard 0.7883). Valid-fit effect estimates have Spearman rho 0.9966 and 99.28% direction agreement. These use a Wald-normal approximation and are screening associations. Counts are in `results/tables/gse250346_lmm_model_summary.tsv`; the result index and limitations are in [LMM_RESULTS_20260907.md](LMM_RESULTS_20260907.md). Original baseline tables are preserved separately and must not be mixed with the robust counts.
 
 The main biological summaries include collagen and matrix-associated programs such as COL1A1-CD44, COL1A2-CD44, FN1-CD44, and additional VEGF, CCL, SPP1 and MHC-II programs. These are biologically plausible disease-associated programs, not experimental validation.
 
@@ -102,4 +103,3 @@ retention and overlap values remain in the original TSV files.
 - A four-sample GLM pilot is not a patient-cohort disease conclusion.
 - The Xenium stress test is not a leakage-correction validation.
 - Official signal 11 is not described as a biological or input-data error.
-

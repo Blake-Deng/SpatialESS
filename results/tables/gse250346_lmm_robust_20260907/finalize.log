@@ -1,0 +1,26 @@
+[1] TRUE
+2026-09-07T21:34:30+0800 Loading 45 sample profiles 
+2026-09-07T21:34:33+0800 Features 50040 pending chunks 0 workers 32 
+     cohort samples patients control_samples disease_samples
+1 GSE250346      45       35              10              35
+                 model_glm                                model_lmm
+1 log1p(score) ~ condition log1p(score) ~ condition + (1 | patient)
+       coefficient features elapsed_seconds invocation_elapsed_seconds
+1 conditionDisease    50040              NA                      2.091
+  chunks_fitted_this_invocation total_chunks
+1                             0         1001
+                                                       elapsed_scope workers
+1 Excludes input loading; elapsed_seconds is NA on checkpoint resume      32
+  native_threads_per_worker glm_ok lmm_ok lmm_convergence_warning
+1                         1  41846  39570                    1984
+  lmm_numerical_failure lmm_fit_failed lmm_rank_deficient
+1                   292              0                  0
+  lmm_insufficient_nonzero lmm_insufficient_zero_support
+1                     8194                             0
+  lmm_insufficient_variation lmm_singular lmm_non_singular max_zero_fraction
+1                          0        17308            22262              0.98
+  min_response_sd rank_tolerance           optimizer_sequence    p_method
+1           1e-12          1e-10 bobyqa,nloptwrap,Nelder_Mead Wald_normal
+             fdr_method                       source_md5
+1 BH_over_all_status_ok 5bffbc01532d1b8c1f0ee49cbfbcf449
+2026-09-07T21:34:36+0800 COMPLETE: all features present; global BH recalculated; no excluded fit has q-value 

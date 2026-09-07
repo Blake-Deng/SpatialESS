@@ -1,0 +1,7 @@
+"baseline_status"	"robust_status"	"features"
+"convergence_warning"	"convergence_warning"	1971
+"fit_failed"	"convergence_warning"	13
+"insufficient_nonzero"	"insufficient_nonzero"	8194
+"fit_failed"	"numerical_failure"	292
+"convergence_warning"	"ok"	328
+"ok"	"ok"	39242

@@ -28,7 +28,7 @@ This is implemented by
 ## Status interpretation
 
 - `ok`, `singular = FALSE`: converged model with nonzero patient variance.
-- `ok`, `singular = TRUE`: converged boundary model; patient variance is estimated as zero.
+- `ok`, `singular = TRUE`: converged boundary model; patient variance is at or near zero.
 - `convergence_warning`: diagnostic coefficients are retained, but the feature is excluded from FDR.
 - `insufficient_zero_support`: zero-score fraction exceeded `max_zero_fraction`.
 - `insufficient_variation`: response standard deviation was below `min_response_sd`.
@@ -40,9 +40,11 @@ This is implemented by
 Singular fits are successful fits, not software failures. Features rejected by
 the support screens are also not treated as model failures. Numerical failures
 are retained with their complete optimizer messages and never receive p-values
-or q-values. The frozen GSE250346 result tables should be regenerated after
-changing the optimizer or support parameters; the release records the exact
-parameters used for each result.
+or q-values. The 2026-09-07 robust cohort rerun is complete: 39,570 valid fits,
+1,984 convergence warnings, 292 numerical failures and 8,194 unsupported
+features. See [LMM_RESULTS_20260907.md](LMM_RESULTS_20260907.md) for the
+complete tables, input hashes and checkpointed reproduction command. Further
+parameter changes require a new rerun, not relabeling these tables.
 
 The reviewer-oriented explanation of these distinctions is in
 `docs/REVIEWER_GUIDE.md`.
