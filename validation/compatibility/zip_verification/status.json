@@ -1,0 +1,34 @@
+[
+  {
+    "check": "main_install",
+    "exit_code": 0
+  },
+  {
+    "check": "main_mini",
+    "exit_code": 0
+  },
+  {
+    "check": "main_tests",
+    "exit_code": 0
+  },
+  {
+    "check": "standalone_install",
+    "exit_code": 0
+  },
+  {
+    "check": "standalone_mini",
+    "exit_code": 0
+  },
+  {
+    "check": "standalone_tests",
+    "exit_code": 0
+  },
+  {
+    "check": "standalone_python",
+    "exit_code": 0
+  },
+  {
+    "check": "all_R_syntax",
+    "exit_code": 0
+  }
+]

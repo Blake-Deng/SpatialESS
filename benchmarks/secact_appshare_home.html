@@ -1,0 +1,1943 @@
+<!DOCTYPE html>
+<html>
+<head>
+<base href="_w_7a902826cb6d45b99c7b89adcc416d3d/">
+    <script type="text/javascript">
+(function() {
+  var workerId = '_w_7a902826cb6d45b99c7b89adcc416d3d';
+  // remove base href if worker ID is in url
+  if (window.location.href.indexOf(workerId) > 0) {
+    document.querySelector('base').removeAttribute('href');
+  }
+})();
+</script>
+
+      <script type="text/javascript">
+      var __connect = {
+        shinyPre101: false
+      }
+      </script>
+      
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <script type="application/shiny-singletons">add739c82ab207ed2c80be4b7e4b181525eb7a75</script>
+  <script type="application/html-dependencies">jquery[3.7.1];shiny-css[1.11.1];shiny-busy-indicators[1.11.1];shiny-javascript[1.11.1];font-awesome[6.5.2];selectize[0.15.2];htmltools-fill[0.5.8.1];htmlwidgets[1.6.4];plotly-binding[4.11.0];shinycssloaders-binding[1.1.0];datatables-css[0.0.0];datatables-binding[0.34.0];crosstalk[1.2.2];ionrangeslider-javascript[2.3.1];strftime[0.9.2];ionrangeslider-css[2.3.1];bootstrap[3.4.1]</script>
+<script src="jquery-3.7.1/jquery.min.js"></script>
+<link href="shiny-css-1.11.1/shiny.min.css" rel="stylesheet" />
+<link href="shiny-busy-indicators-1.11.1/busy-indicators.css" rel="stylesheet" />
+<script src="shiny-javascript-1.11.1/shiny.min.js"></script>
+<link href="font-awesome-6.5.2/css/all.min.css" rel="stylesheet" />
+<link href="font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet" />
+<link href="selectize-0.15.2/css/selectize.bootstrap3.css" rel="stylesheet" />
+<script src="selectize-0.15.2/js/selectize.min.js"></script>
+<script src="selectize-0.15.2/accessibility/js/selectize-plugin-a11y.min.js"></script>
+<link href="htmltools-fill-0.5.8.1/fill.css" rel="stylesheet" />
+<script src="htmlwidgets-1.6.4/htmlwidgets.js"></script>
+<script src="plotly-binding-4.11.0/plotly.js"></script>
+<link href="shinycssloaders-binding-1.1.0/spinner.css" rel="stylesheet" />
+<script src="shinycssloaders-binding-1.1.0/spinner.js"></script>
+<link href="datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="datatables-binding-0.34.0/datatables.js"></script>
+<link href="crosstalk-1.2.2/css/crosstalk.min.css" rel="stylesheet" />
+<script src="crosstalk-1.2.2/js/crosstalk.min.js"></script>
+<script src="ionrangeslider-javascript-2.3.1/js/ion.rangeSlider.min.js"></script>
+<script src="strftime-0.9.2/strftime-min.js"></script>
+<link href="ionrangeslider-css-2.3.1/css/ion.rangeSlider.css" rel="stylesheet" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="bootstrap-3.4.1/css/bootstrap.min.css" rel="stylesheet" />
+<link href="bootstrap-3.4.1/accessibility/css/bootstrap-accessibility.min.css" rel="stylesheet" />
+<script src="bootstrap-3.4.1/js/bootstrap.min.js"></script>
+<script src="bootstrap-3.4.1/accessibility/js/bootstrap-accessibility.min.js"></script>  <style>.shinyjs-hide { display: none !important; }</style>
+  <script>Shiny.addCustomMessageHandler('shinyjs-show', function(params) { shinyjs.debugMessage('shinyjs: calling function "show" with parameters:'); shinyjs.debugMessage(params); shinyjs.show(params);});
+Shiny.addCustomMessageHandler('shinyjs-hide', function(params) { shinyjs.debugMessage('shinyjs: calling function "hide" with parameters:'); shinyjs.debugMessage(params); shinyjs.hide(params);});
+Shiny.addCustomMessageHandler('shinyjs-toggle', function(params) { shinyjs.debugMessage('shinyjs: calling function "toggle" with parameters:'); shinyjs.debugMessage(params); shinyjs.toggle(params);});
+Shiny.addCustomMessageHandler('shinyjs-enable', function(params) { shinyjs.debugMessage('shinyjs: calling function "enable" with parameters:'); shinyjs.debugMessage(params); shinyjs.enable(params);});
+Shiny.addCustomMessageHandler('shinyjs-disable', function(params) { shinyjs.debugMessage('shinyjs: calling function "disable" with parameters:'); shinyjs.debugMessage(params); shinyjs.disable(params);});
+Shiny.addCustomMessageHandler('shinyjs-toggleState', function(params) { shinyjs.debugMessage('shinyjs: calling function "toggleState" with parameters:'); shinyjs.debugMessage(params); shinyjs.toggleState(params);});
+Shiny.addCustomMessageHandler('shinyjs-addClass', function(params) { shinyjs.debugMessage('shinyjs: calling function "addClass" with parameters:'); shinyjs.debugMessage(params); shinyjs.addClass(params);});
+Shiny.addCustomMessageHandler('shinyjs-removeClass', function(params) { shinyjs.debugMessage('shinyjs: calling function "removeClass" with parameters:'); shinyjs.debugMessage(params); shinyjs.removeClass(params);});
+Shiny.addCustomMessageHandler('shinyjs-toggleClass', function(params) { shinyjs.debugMessage('shinyjs: calling function "toggleClass" with parameters:'); shinyjs.debugMessage(params); shinyjs.toggleClass(params);});
+Shiny.addCustomMessageHandler('shinyjs-html', function(params) { shinyjs.debugMessage('shinyjs: calling function "html" with parameters:'); shinyjs.debugMessage(params); shinyjs.html(params);});
+Shiny.addCustomMessageHandler('shinyjs-onevent', function(params) { shinyjs.debugMessage('shinyjs: calling function "onevent" with parameters:'); shinyjs.debugMessage(params); shinyjs.onevent(params);});
+Shiny.addCustomMessageHandler('shinyjs-removeEvent', function(params) { shinyjs.debugMessage('shinyjs: calling function "removeEvent" with parameters:'); shinyjs.debugMessage(params); shinyjs.removeEvent(params);});
+Shiny.addCustomMessageHandler('shinyjs-alert', function(params) { shinyjs.debugMessage('shinyjs: calling function "alert" with parameters:'); shinyjs.debugMessage(params); shinyjs.alert(params);});
+Shiny.addCustomMessageHandler('shinyjs-logjs', function(params) { shinyjs.debugMessage('shinyjs: calling function "logjs" with parameters:'); shinyjs.debugMessage(params); shinyjs.logjs(params);});
+Shiny.addCustomMessageHandler('shinyjs-runjs', function(params) { shinyjs.debugMessage('shinyjs: calling function "runjs" with parameters:'); shinyjs.debugMessage(params); shinyjs.runjs(params);});
+Shiny.addCustomMessageHandler('shinyjs-reset', function(params) { shinyjs.debugMessage('shinyjs: calling function "reset" with parameters:'); shinyjs.debugMessage(params); shinyjs.reset(params);});
+Shiny.addCustomMessageHandler('shinyjs-delay', function(params) { shinyjs.debugMessage('shinyjs: calling function "delay" with parameters:'); shinyjs.debugMessage(params); shinyjs.delay(params);});
+Shiny.addCustomMessageHandler('shinyjs-click', function(params) { shinyjs.debugMessage('shinyjs: calling function "click" with parameters:'); shinyjs.debugMessage(params); shinyjs.click(params);});
+Shiny.addCustomMessageHandler('shinyjs-refresh', function(params) { shinyjs.debugMessage('shinyjs: calling function "refresh" with parameters:'); shinyjs.debugMessage(params); shinyjs.refresh(params);});</script>
+  <script src="shinyjs/shinyjs-default-funcs.js"></script>
+  <script>shinyjs.debug = false;</script>
+  <script>
+          $(document).ready(function() {
+          $('.navbar .container-fluid').removeClass('container-fluid').addClass('container');
+           });
+        </script>
+  <title></title>
+  <link rel="stylesheet" type="text/css" href="shinythemes/css/cerulean.min.css"/>
+  <style>
+                /* Add shadow effect to wellPanel */
+                .shadow-well {
+                  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2); /* Adjust shadow strength */
+                  border-radius: 10px; /* Optional: Rounded corners */
+                  padding: 15px;
+                  background-color: white; /* Ensure background visibility */
+                }
+
+                .home-card-title {
+                  color: #1c1b1b;
+                  font-size: 16px;
+                  font-weight: 700;
+                  text-align: center;
+                  margin: 0 0 8px 0;
+                }
+
+              </style>
+  <style>
+               /* this will affect all the pre elements
+               pre {
+                 color: red;
+                 background-color: #5ef4fb;
+               } */
+
+               .nav-tabs > li > a {
+                 font-size: 16px;
+                 font-family: Helvetica;
+               }
+
+               /* this will affect only the pre elements under the class myclass */
+               .stageclass pre {
+                 color: black;
+                 background-color: lavender;
+                 white-space: pre-wrap;
+                 word-break: normal;
+                 font-size: 16px;
+                 font-family: Helvetica;
+                 /* font-weight: bolder; */
+               }
+              </style>
+  <style>#spinner-17e865424dfdc36d65a6fcac4b073252, #spinner-17e865424dfdc36d65a6fcac4b073252:before, #spinner-17e865424dfdc36d65a6fcac4b073252:after {   background: #0dc5c1; } #spinner-17e865424dfdc36d65a6fcac4b073252 {   color: #0dc5c1; } #spinner-17e865424dfdc36d65a6fcac4b073252 { font-size: 8px; }</style>
+  <style>#spinner-286b80341a13bddc6a44c3b81dd3cc09, #spinner-286b80341a13bddc6a44c3b81dd3cc09:before, #spinner-286b80341a13bddc6a44c3b81dd3cc09:after {   background: #0dc5c1; } #spinner-286b80341a13bddc6a44c3b81dd3cc09 {   color: #0dc5c1; } #spinner-286b80341a13bddc6a44c3b81dd3cc09 { font-size: 8px; }</style>
+  <style>#spinner-fd043b92d50ffe83efe10722be6372ca, #spinner-fd043b92d50ffe83efe10722be6372ca:before, #spinner-fd043b92d50ffe83efe10722be6372ca:after {   background: #0dc5c1; } #spinner-fd043b92d50ffe83efe10722be6372ca {   color: #0dc5c1; } #spinner-fd043b92d50ffe83efe10722be6372ca { font-size: 8px; }</style>
+  <style>#spinner-589c31dbd2852d6641526b6c82afa9b4, #spinner-589c31dbd2852d6641526b6c82afa9b4:before, #spinner-589c31dbd2852d6641526b6c82afa9b4:after {   background: #0dc5c1; } #spinner-589c31dbd2852d6641526b6c82afa9b4 {   color: #0dc5c1; } #spinner-589c31dbd2852d6641526b6c82afa9b4 { font-size: 8px; }</style>
+  <style>#spinner-1bcadd38a7fcd51c6646716861e887e9, #spinner-1bcadd38a7fcd51c6646716861e887e9:before, #spinner-1bcadd38a7fcd51c6646716861e887e9:after {   background: #0dc5c1; } #spinner-1bcadd38a7fcd51c6646716861e887e9 {   color: #0dc5c1; } #spinner-1bcadd38a7fcd51c6646716861e887e9 { font-size: 8px; }</style>
+  <style>#spinner-bf21b2b7817b3becc792b1f36da175ef, #spinner-bf21b2b7817b3becc792b1f36da175ef:before, #spinner-bf21b2b7817b3becc792b1f36da175ef:after {   background: #0dc5c1; } #spinner-bf21b2b7817b3becc792b1f36da175ef {   color: #0dc5c1; } #spinner-bf21b2b7817b3becc792b1f36da175ef { font-size: 8px; }</style>
+  <style>#spinner-d9806b3f3c439a04397bb15424008c9d, #spinner-d9806b3f3c439a04397bb15424008c9d:before, #spinner-d9806b3f3c439a04397bb15424008c9d:after {   background: #0dc5c1; } #spinner-d9806b3f3c439a04397bb15424008c9d {   color: #0dc5c1; } #spinner-d9806b3f3c439a04397bb15424008c9d { font-size: 8px; }</style>
+  <style>#spinner-0ded8f9fbf89de846f5d43dad2f430c6, #spinner-0ded8f9fbf89de846f5d43dad2f430c6:before, #spinner-0ded8f9fbf89de846f5d43dad2f430c6:after {   background: #0dc5c1; } #spinner-0ded8f9fbf89de846f5d43dad2f430c6 {   color: #0dc5c1; } #spinner-0ded8f9fbf89de846f5d43dad2f430c6 { font-size: 8px; }</style>
+  <style>#spinner-fac54a74667a2cb199f2bc05f6da029e, #spinner-fac54a74667a2cb199f2bc05f6da029e:before, #spinner-fac54a74667a2cb199f2bc05f6da029e:after {   background: #0dc5c1; } #spinner-fac54a74667a2cb199f2bc05f6da029e {   color: #0dc5c1; } #spinner-fac54a74667a2cb199f2bc05f6da029e { font-size: 8px; }</style>
+  <style>#spinner-0bd2ced4afdc5abf980fa574b0ff037d, #spinner-0bd2ced4afdc5abf980fa574b0ff037d:before, #spinner-0bd2ced4afdc5abf980fa574b0ff037d:after {   background: #0dc5c1; } #spinner-0bd2ced4afdc5abf980fa574b0ff037d {   color: #0dc5c1; } #spinner-0bd2ced4afdc5abf980fa574b0ff037d { font-size: 8px; }</style>
+  <style>#spinner-a20deaa9c01e339f31d1652a2e8f49c8, #spinner-a20deaa9c01e339f31d1652a2e8f49c8:before, #spinner-a20deaa9c01e339f31d1652a2e8f49c8:after {   background: #0dc5c1; } #spinner-a20deaa9c01e339f31d1652a2e8f49c8 {   color: #0dc5c1; } #spinner-a20deaa9c01e339f31d1652a2e8f49c8 { font-size: 8px; }</style>
+  <style>#spinner-042227cbe6998c84c7ae4ae21cef9a0d, #spinner-042227cbe6998c84c7ae4ae21cef9a0d:before, #spinner-042227cbe6998c84c7ae4ae21cef9a0d:after {   background: #0dc5c1; } #spinner-042227cbe6998c84c7ae4ae21cef9a0d {   color: #0dc5c1; } #spinner-042227cbe6998c84c7ae4ae21cef9a0d { font-size: 8px; }</style>
+  <style>#spinner-166b3b88a515a32e5398e49745f999b3, #spinner-166b3b88a515a32e5398e49745f999b3:before, #spinner-166b3b88a515a32e5398e49745f999b3:after {   background: #0dc5c1; } #spinner-166b3b88a515a32e5398e49745f999b3 {   color: #0dc5c1; } #spinner-166b3b88a515a32e5398e49745f999b3 { font-size: 8px; }</style>
+  <style>#spinner-8f6b697a2deaa478a620cf8b3b56d9ef, #spinner-8f6b697a2deaa478a620cf8b3b56d9ef:before, #spinner-8f6b697a2deaa478a620cf8b3b56d9ef:after {   background: #0dc5c1; } #spinner-8f6b697a2deaa478a620cf8b3b56d9ef {   color: #0dc5c1; } #spinner-8f6b697a2deaa478a620cf8b3b56d9ef { font-size: 8px; }</style>
+  <style>#spinner-10c1b5f19bd77dd67b3b6434ff57be01, #spinner-10c1b5f19bd77dd67b3b6434ff57be01:before, #spinner-10c1b5f19bd77dd67b3b6434ff57be01:after {   background: #0dc5c1; } #spinner-10c1b5f19bd77dd67b3b6434ff57be01 {   color: #0dc5c1; } #spinner-10c1b5f19bd77dd67b3b6434ff57be01 { font-size: 8px; }</style>
+  <style>#spinner-d12394ecbf1710edf03ad8d3610c8346, #spinner-d12394ecbf1710edf03ad8d3610c8346:before, #spinner-d12394ecbf1710edf03ad8d3610c8346:after {   background: #0dc5c1; } #spinner-d12394ecbf1710edf03ad8d3610c8346 {   color: #0dc5c1; } #spinner-d12394ecbf1710edf03ad8d3610c8346 { font-size: 8px; }</style>
+  <style>#spinner-f2155fe67311e990ba36daee6b581b22, #spinner-f2155fe67311e990ba36daee6b581b22:before, #spinner-f2155fe67311e990ba36daee6b581b22:after {   background: #0dc5c1; } #spinner-f2155fe67311e990ba36daee6b581b22 {   color: #0dc5c1; } #spinner-f2155fe67311e990ba36daee6b581b22 { font-size: 8px; }</style>
+  <style>#spinner-dcddce9a3b6ddbd08590bac2fb38042a, #spinner-dcddce9a3b6ddbd08590bac2fb38042a:before, #spinner-dcddce9a3b6ddbd08590bac2fb38042a:after {   background: #0dc5c1; } #spinner-dcddce9a3b6ddbd08590bac2fb38042a {   color: #0dc5c1; } #spinner-dcddce9a3b6ddbd08590bac2fb38042a { font-size: 8px; }</style>
+  <style>#spinner-4eab840b21fbfa3f29ec3a3fe64fe535, #spinner-4eab840b21fbfa3f29ec3a3fe64fe535:before, #spinner-4eab840b21fbfa3f29ec3a3fe64fe535:after {   background: #0dc5c1; } #spinner-4eab840b21fbfa3f29ec3a3fe64fe535 {   color: #0dc5c1; } #spinner-4eab840b21fbfa3f29ec3a3fe64fe535 { font-size: 8px; }</style>
+  <style>#spinner-be34f5c66deb60fee0ca209a01921c7f, #spinner-be34f5c66deb60fee0ca209a01921c7f:before, #spinner-be34f5c66deb60fee0ca209a01921c7f:after {   background: #0dc5c1; } #spinner-be34f5c66deb60fee0ca209a01921c7f {   color: #0dc5c1; } #spinner-be34f5c66deb60fee0ca209a01921c7f { font-size: 8px; }</style>
+  <style>#spinner-8432c87163379459ee24c34443f23b2a, #spinner-8432c87163379459ee24c34443f23b2a:before, #spinner-8432c87163379459ee24c34443f23b2a:after {   background: #0dc5c1; } #spinner-8432c87163379459ee24c34443f23b2a {   color: #0dc5c1; } #spinner-8432c87163379459ee24c34443f23b2a { font-size: 8px; }</style>
+  <style>#spinner-8b03159cca63f84c95d60f5257b1c00a, #spinner-8b03159cca63f84c95d60f5257b1c00a:before, #spinner-8b03159cca63f84c95d60f5257b1c00a:after {   background: #0dc5c1; } #spinner-8b03159cca63f84c95d60f5257b1c00a {   color: #0dc5c1; } #spinner-8b03159cca63f84c95d60f5257b1c00a { font-size: 8px; }</style>
+  <style>#spinner-c9be5bcb8d662056990aa0ec432363fe, #spinner-c9be5bcb8d662056990aa0ec432363fe:before, #spinner-c9be5bcb8d662056990aa0ec432363fe:after {   background: #0dc5c1; } #spinner-c9be5bcb8d662056990aa0ec432363fe {   color: #0dc5c1; } #spinner-c9be5bcb8d662056990aa0ec432363fe { font-size: 8px; }</style>
+  <style>#spinner-58758709978cec4caa93282bbc5b7a36, #spinner-58758709978cec4caa93282bbc5b7a36:before, #spinner-58758709978cec4caa93282bbc5b7a36:after {   background: #0dc5c1; } #spinner-58758709978cec4caa93282bbc5b7a36 {   color: #0dc5c1; } #spinner-58758709978cec4caa93282bbc5b7a36 { font-size: 8px; }</style>
+  <style>#spinner-c35038436c4bdddbd211d112703bd57e, #spinner-c35038436c4bdddbd211d112703bd57e:before, #spinner-c35038436c4bdddbd211d112703bd57e:after {   background: #0dc5c1; } #spinner-c35038436c4bdddbd211d112703bd57e {   color: #0dc5c1; } #spinner-c35038436c4bdddbd211d112703bd57e { font-size: 8px; }</style>
+  <style>#spinner-5f853306df475694075f5142bcf38af9, #spinner-5f853306df475694075f5142bcf38af9:before, #spinner-5f853306df475694075f5142bcf38af9:after {   background: #0dc5c1; } #spinner-5f853306df475694075f5142bcf38af9 {   color: #0dc5c1; } #spinner-5f853306df475694075f5142bcf38af9 { font-size: 8px; }</style>
+  <style>#spinner-a6c6a6b420f2a1b109fee650a7d61d20, #spinner-a6c6a6b420f2a1b109fee650a7d61d20:before, #spinner-a6c6a6b420f2a1b109fee650a7d61d20:after {   background: #0dc5c1; } #spinner-a6c6a6b420f2a1b109fee650a7d61d20 {   color: #0dc5c1; } #spinner-a6c6a6b420f2a1b109fee650a7d61d20 { font-size: 8px; }</style>
+  <style>#spinner-3d32c6d0d7795d2974106386b4f5b2ba, #spinner-3d32c6d0d7795d2974106386b4f5b2ba:before, #spinner-3d32c6d0d7795d2974106386b4f5b2ba:after {   background: #0dc5c1; } #spinner-3d32c6d0d7795d2974106386b4f5b2ba {   color: #0dc5c1; } #spinner-3d32c6d0d7795d2974106386b4f5b2ba { font-size: 8px; }</style>
+  <style>#spinner-b965e2928bb614d7f8ac028e3cc1f0a0, #spinner-b965e2928bb614d7f8ac028e3cc1f0a0:before, #spinner-b965e2928bb614d7f8ac028e3cc1f0a0:after {   background: #0dc5c1; } #spinner-b965e2928bb614d7f8ac028e3cc1f0a0 {   color: #0dc5c1; } #spinner-b965e2928bb614d7f8ac028e3cc1f0a0 { font-size: 8px; }</style>
+  <style>#spinner-bf586d152faee8abd9a98bd1081360c4, #spinner-bf586d152faee8abd9a98bd1081360c4:before, #spinner-bf586d152faee8abd9a98bd1081360c4:after {   background: #0dc5c1; } #spinner-bf586d152faee8abd9a98bd1081360c4 {   color: #0dc5c1; } #spinner-bf586d152faee8abd9a98bd1081360c4 { font-size: 8px; }</style>
+  <style>#spinner-f498a85a31756c9092106ccd0dcb704b, #spinner-f498a85a31756c9092106ccd0dcb704b:before, #spinner-f498a85a31756c9092106ccd0dcb704b:after {   background: #0dc5c1; } #spinner-f498a85a31756c9092106ccd0dcb704b {   color: #0dc5c1; } #spinner-f498a85a31756c9092106ccd0dcb704b { font-size: 8px; }</style>
+  <style>#spinner-499b62af7e14beea83e27233616526b2, #spinner-499b62af7e14beea83e27233616526b2:before, #spinner-499b62af7e14beea83e27233616526b2:after {   background: #0dc5c1; } #spinner-499b62af7e14beea83e27233616526b2 {   color: #0dc5c1; } #spinner-499b62af7e14beea83e27233616526b2 { font-size: 8px; }</style>
+  <style>#spinner-afce6bf33f5f49d5ee3c5d4041b0dfb3, #spinner-afce6bf33f5f49d5ee3c5d4041b0dfb3:before, #spinner-afce6bf33f5f49d5ee3c5d4041b0dfb3:after {   background: #0dc5c1; } #spinner-afce6bf33f5f49d5ee3c5d4041b0dfb3 {   color: #0dc5c1; } #spinner-afce6bf33f5f49d5ee3c5d4041b0dfb3 { font-size: 8px; }</style>
+  <style>#spinner-7b21e37cbdff6c389edda6be737c5268, #spinner-7b21e37cbdff6c389edda6be737c5268:before, #spinner-7b21e37cbdff6c389edda6be737c5268:after {   background: #0dc5c1; } #spinner-7b21e37cbdff6c389edda6be737c5268 {   color: #0dc5c1; } #spinner-7b21e37cbdff6c389edda6be737c5268 { font-size: 8px; }</style>
+  <style>#spinner-1502cda046b8b938c361b278977fcbe2, #spinner-1502cda046b8b938c361b278977fcbe2:before, #spinner-1502cda046b8b938c361b278977fcbe2:after {   background: #0dc5c1; } #spinner-1502cda046b8b938c361b278977fcbe2 {   color: #0dc5c1; } #spinner-1502cda046b8b938c361b278977fcbe2 { font-size: 8px; }</style>
+  <style>#spinner-b83db78966fa50b71c61b510ce992975, #spinner-b83db78966fa50b71c61b510ce992975:before, #spinner-b83db78966fa50b71c61b510ce992975:after {   background: #0dc5c1; } #spinner-b83db78966fa50b71c61b510ce992975 {   color: #0dc5c1; } #spinner-b83db78966fa50b71c61b510ce992975 { font-size: 8px; }</style>
+  <style>#spinner-3bade194448a81fab500d87147ad9625, #spinner-3bade194448a81fab500d87147ad9625:before, #spinner-3bade194448a81fab500d87147ad9625:after {   background: #0dc5c1; } #spinner-3bade194448a81fab500d87147ad9625 {   color: #0dc5c1; } #spinner-3bade194448a81fab500d87147ad9625 { font-size: 8px; }</style>
+  <style>#spinner-9750b0551960a604c7c96503c8730f95, #spinner-9750b0551960a604c7c96503c8730f95:before, #spinner-9750b0551960a604c7c96503c8730f95:after {   background: #0dc5c1; } #spinner-9750b0551960a604c7c96503c8730f95 {   color: #0dc5c1; } #spinner-9750b0551960a604c7c96503c8730f95 { font-size: 8px; }</style>
+  <style>#spinner-db5aaf0273f93bed0451402fe3ffe871, #spinner-db5aaf0273f93bed0451402fe3ffe871:before, #spinner-db5aaf0273f93bed0451402fe3ffe871:after {   background: #0dc5c1; } #spinner-db5aaf0273f93bed0451402fe3ffe871 {   color: #0dc5c1; } #spinner-db5aaf0273f93bed0451402fe3ffe871 { font-size: 8px; }</style>
+  <style>#spinner-95ab08243da940f4021315f6e67bc4a9, #spinner-95ab08243da940f4021315f6e67bc4a9:before, #spinner-95ab08243da940f4021315f6e67bc4a9:after {   background: #0dc5c1; } #spinner-95ab08243da940f4021315f6e67bc4a9 {   color: #0dc5c1; } #spinner-95ab08243da940f4021315f6e67bc4a9 { font-size: 8px; }</style>
+  <style>#spinner-1a8bf93453dace4a43c7dc357aa6ced2, #spinner-1a8bf93453dace4a43c7dc357aa6ced2:before, #spinner-1a8bf93453dace4a43c7dc357aa6ced2:after {   background: #0dc5c1; } #spinner-1a8bf93453dace4a43c7dc357aa6ced2 {   color: #0dc5c1; } #spinner-1a8bf93453dace4a43c7dc357aa6ced2 { font-size: 8px; }</style>
+  <style>#spinner-84e21ab21d37178eb70370307cc11792, #spinner-84e21ab21d37178eb70370307cc11792:before, #spinner-84e21ab21d37178eb70370307cc11792:after {   background: #0dc5c1; } #spinner-84e21ab21d37178eb70370307cc11792 {   color: #0dc5c1; } #spinner-84e21ab21d37178eb70370307cc11792 { font-size: 8px; }</style>
+  <style>#spinner-21913063d9f2bdfb97c489d99bcbf51f, #spinner-21913063d9f2bdfb97c489d99bcbf51f:before, #spinner-21913063d9f2bdfb97c489d99bcbf51f:after {   background: #0dc5c1; } #spinner-21913063d9f2bdfb97c489d99bcbf51f {   color: #0dc5c1; } #spinner-21913063d9f2bdfb97c489d99bcbf51f { font-size: 8px; }</style>
+  <style>
+               /* this will affect all the pre elements
+               pre {
+                 color: red;
+                 background-color: #5ef4fb;
+               } */
+
+               /* this will affect only the pre elements under the class myclass */
+               .stageclass pre {
+                 color: black;
+                 background-color: lavender;
+                 font-size: 16px;
+                 font-family: Helvetica;
+                 /* font-weight: bolder; */
+               }</style>
+  <style>#spinner-40dd2a7ca111b668c3760f1e9c496fdb, #spinner-40dd2a7ca111b668c3760f1e9c496fdb:before, #spinner-40dd2a7ca111b668c3760f1e9c496fdb:after {   background: #0dc5c1; } #spinner-40dd2a7ca111b668c3760f1e9c496fdb {   color: #0dc5c1; } #spinner-40dd2a7ca111b668c3760f1e9c496fdb { font-size: 8px; }</style>
+  <style>#spinner-3470beba79e151acfd33d7a037f0016a, #spinner-3470beba79e151acfd33d7a037f0016a:before, #spinner-3470beba79e151acfd33d7a037f0016a:after {   background: #0dc5c1; } #spinner-3470beba79e151acfd33d7a037f0016a {   color: #0dc5c1; } #spinner-3470beba79e151acfd33d7a037f0016a { font-size: 8px; }</style>
+  <style>#spinner-d6608272b0612513700f6f47eeaba530, #spinner-d6608272b0612513700f6f47eeaba530:before, #spinner-d6608272b0612513700f6f47eeaba530:after {   background: #0dc5c1; } #spinner-d6608272b0612513700f6f47eeaba530 {   color: #0dc5c1; } #spinner-d6608272b0612513700f6f47eeaba530 { font-size: 8px; }</style>
+  <style>#spinner-3db47c4be7522cd40f4e3803964b0047, #spinner-3db47c4be7522cd40f4e3803964b0047:before, #spinner-3db47c4be7522cd40f4e3803964b0047:after {   background: #0dc5c1; } #spinner-3db47c4be7522cd40f4e3803964b0047 {   color: #0dc5c1; } #spinner-3db47c4be7522cd40f4e3803964b0047 { font-size: 8px; }</style>
+  <style>#spinner-533db2b17a1723b357dfa8193d941f52, #spinner-533db2b17a1723b357dfa8193d941f52:before, #spinner-533db2b17a1723b357dfa8193d941f52:after {   background: #0dc5c1; } #spinner-533db2b17a1723b357dfa8193d941f52 {   color: #0dc5c1; } #spinner-533db2b17a1723b357dfa8193d941f52 { font-size: 8px; }</style>
+  <style>#spinner-0b5ab38a01270a0070b8389cc06ff905, #spinner-0b5ab38a01270a0070b8389cc06ff905:before, #spinner-0b5ab38a01270a0070b8389cc06ff905:after {   background: #0dc5c1; } #spinner-0b5ab38a01270a0070b8389cc06ff905 {   color: #0dc5c1; } #spinner-0b5ab38a01270a0070b8389cc06ff905 { font-size: 8px; }</style>
+<script src="__assets__/sockjs.min.js"></script>
+<script src="__assets__/shiny-server-client.min.js"></script>
+<script>preShinyInit({reconnect:true,reconnectTimeout:15000,disableProtocols:["htmlfile","xdr-streaming","xdr-polling"],token:true,workerId:true,subappTag:true,extendSession:true,fixupInternalLinks:true});</script>
+<link rel="stylesheet" type="text/css" href="__assets__/rstudio-connect.css"/>
+</head>
+<body>
+  <div class="container-fluid">
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z21ZRTESYD"></script>
+  <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-Z21ZRTESYD'); </script>
+
+  <title>SecAct</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
+
+
+  <style>
+
+
+
+body { padding: 0; }
+
+
+.container-fluid {
+    margin-right: 0;
+    margin-left: 0;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+
+.flag-text {
+  display: flex;
+  font-size: 1.3rem;
+  font-weight: 300;
+  color: #000000;
+  line-height: 1.2em;
+  justify-content: center;
+  padding: 8px 0 8px 0;
+  width: 100%;
+  /* margin: 0 .75rem 0 0;
+  padding: 20px 0 20px 0; */
+}
+
+.flag-text::before {
+  background-image: url(images/flag.png);
+  background-size: 21px 14px;
+  content: "";
+  display: block;
+  height: 14px;
+  margin-left: 1rem;
+  margin-right: 0.75rem;
+  max-width: 21px;
+  width: 100%;
+}
+
+.flag-header {
+  position: relative;
+  color: #1c1c1c;
+  background-color: #f0f0f0;
+  margin: 0 0 30px 0;
+  line-height: 60px;
+  display: block;
+}
+
+.header-logo {
+  margin: 0px 0px 20px 1.5rem;
+  width: 366px;
+  /* width: 22%; */
+}
+
+.header-logo2 {
+  margin: 6px 1.5rem 25px 0px;
+  float: right;
+  width: 398px;
+  /* width: 22%; */
+}
+
+.navibar-text {
+  font-size: 1.6rem;
+}
+
+.row {
+  margin: 0px 0px 0px 15px;
+}
+
+.page-footer {
+  margin: 30px 0px 0px 0px;
+}
+
+.bg-theme-blue {
+  background-color: #1d406c;
+}
+
+.bg-theme-white {
+  color: #fff;
+}
+
+.big-text {
+  font-size: 50px;
+  color: #fff;
+}
+
+.content-title {
+  display: flex;
+  font-size: 1.2em;
+  margin: 20px 0 20px 0;
+  width: 100%;
+  padding: 10px 0 10px 0;
+  position: relative;
+  color: #fff;
+  background-color: #003266;
+}
+
+hr {
+  border-bottom: 20px solid #173053;
+}
+p {
+  font-size: 15px; /* Change paragraph font size */
+}
+
+.footer {
+  margin: 0;
+}
+
+/* Footer */
+
+.col-md-4, .col-md-8 {
+  margin-top: 20px;
+}
+
+.eventsreg-footer {
+  position: relative;
+  color: #fff;
+  background-color: #173053;
+}
+
+.eventsreg-footer .container {
+  position: relative;
+  padding: 0px;
+}
+
+.nci-large {
+    font-size: 1.6rem;
+}
+
+.fa-brands {
+  padding: 20px;
+  font-size: 30px;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 10px 0 0;
+  border-radius: 50%;
+  background: #facd02;
+}
+
+.eventsreg-footer .social li {
+    display: inline-block;
+}
+
+.fa-twitter, .fa-x-twitter, .fa-github, .fa-linkedin-in{
+    font-size: 2.8rem;
+    padding: 6px;
+    color: #03314b;
+}
+
+.eventsreg-footer .links li a {
+  color: #fff;
+  padding-right: 10px;
+  font-size: 1.5rem;
+}
+
+.eventsreg-footer .links li a:hover {
+  color: #fff;
+}
+
+.eventsreg-footer .copyright, .copyright a {
+  text-align: center;
+  color: #fff;
+  font-size: 1rem
+}
+
+/* Footer Media Query */
+
+@media only screen and (max-width: 600px) {
+.eventsreg-footer .links li {
+  margin-bottom: 10px;
+  line-height: 1.5;
+  display: block;
+}
+
+.eventsreg-footer {
+  text-align: center;
+}
+}
+</style>
+
+</head>
+
+
+
+<body>
+<div>
+
+
+<!-- Flag Header -->
+<div class="flag-header">
+    <div class="flag-text">An official website of the United States government</div>
+</div>
+<!-- End Flag Header -->
+
+
+<!-- LOGO -->
+<div class="container">
+<div>
+  <img src="img/logo-SecAct.png" class="header-logo" alt="SecAct">
+  <img src="img/logo-ccr.svg" class="header-logo2" alt="NCI">
+</div>
+</div>
+<!-- End Logo -->
+
+
+<!-- Main Content THIS MUST BE LEFT HERE TO KEEP THE LAYOUT WORKING CORRECTLY-->
+<div>
+    <body class="bslib-page-navbar">
+      <nav class="navbar navbar-default navbar-static-top" role="navigation" data-bs-theme="light">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <span class="navbar-brand"></span>
+          </div>
+          <ul class="nav navbar-nav nav-underline shiny-tab-input" id="main_nav" data-tabsetid="1158">
+            <li class="active">
+              <a href="#tab-1158-1" data-toggle="tab" data-bs-toggle="tab" data-value="&lt;div class=&quot;navibar-text&quot;&gt;&#10;  &lt;i class=&quot;fas fa-house&quot; role=&quot;presentation&quot; aria-label=&quot;house icon&quot;&gt;&lt;/i&gt;&#10;  Home&#10;&lt;/div&gt;">
+                <div class="navibar-text">
+                  <i class="fas fa-house" role="presentation" aria-label="house icon"></i>
+                  Home
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#tab-1158-2" data-toggle="tab" data-bs-toggle="tab" data-value="atlas_tab">
+                <div class="navibar-text">
+                  <i class="fas fa-table" role="presentation" aria-label="table icon"></i>
+                  Explore Tumor ST Atlas
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#tab-1158-3" data-toggle="tab" data-bs-toggle="tab" data-value="db_tab">
+                <div class="navibar-text">
+                  <i class="fas fa-database" role="presentation" aria-label="database icon"></i>
+                  Browse SecActDB
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#tab-1158-4" data-toggle="tab" data-bs-toggle="tab" data-value="package_tab">
+                <div class="navibar-text">
+                  <i class="fas fa-gear" role="presentation" aria-label="gear icon"></i>
+                  Run SecAct Package
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#tab-1158-5" data-toggle="tab" data-bs-toggle="tab" data-value="&lt;div class=&quot;navibar-text&quot;&gt;&#10;  &lt;i class=&quot;far fa-circle-question&quot; role=&quot;presentation&quot; aria-label=&quot;circle-question icon&quot;&gt;&lt;/i&gt;&#10;  FAQ&#10;&lt;/div&gt;">
+                <div class="navibar-text">
+                  <i class="far fa-circle-question" role="presentation" aria-label="circle-question icon"></i>
+                  FAQ
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#tab-1158-6" data-toggle="tab" data-bs-toggle="tab" data-value="&lt;div class=&quot;navibar-text&quot;&gt;&#10;  &lt;i class=&quot;fas fa-download&quot; role=&quot;presentation&quot; aria-label=&quot;download icon&quot;&gt;&lt;/i&gt;&#10;  Download&#10;&lt;/div&gt;">
+                <div class="navibar-text">
+                  <i class="fas fa-download" role="presentation" aria-label="download icon"></i>
+                  Download
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#tab-1158-7" data-toggle="tab" data-bs-toggle="tab" data-value="&lt;div class=&quot;navibar-text&quot;&gt;&#10;  &lt;i class=&quot;far fa-file-lines&quot; role=&quot;presentation&quot; aria-label=&quot;file-lines icon&quot;&gt;&lt;/i&gt;&#10;  Citation&#10;&lt;/div&gt;">
+                <div class="navibar-text">
+                  <i class="far fa-file-lines" role="presentation" aria-label="file-lines icon"></i>
+                  Citation
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#tab-1158-8" data-toggle="tab" data-bs-toggle="tab" data-value="&lt;div class=&quot;navibar-text&quot;&gt;&#10;  &lt;i class=&quot;far fa-envelope&quot; role=&quot;presentation&quot; aria-label=&quot;envelope icon&quot;&gt;&lt;/i&gt;&#10;  Contact&#10;&lt;/div&gt;">
+                <div class="navibar-text">
+                  <i class="far fa-envelope" role="presentation" aria-label="envelope icon"></i>
+                  Contact
+                </div>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <div class="container-fluid">
+        <div class="tab-content" data-tabsetid="1158">
+          <div class="tab-pane active" data-value="&lt;div class=&quot;navibar-text&quot;&gt;&#10;  &lt;i class=&quot;fas fa-house&quot; role=&quot;presentation&quot; aria-label=&quot;house icon&quot;&gt;&lt;/i&gt;&#10;  Home&#10;&lt;/div&gt;" id="tab-1158-1">
+            <div class="container">
+              <div class="col-sm-12">
+                <h4 style="color:black">Overview</h4>
+                <p style="text-align:justify; margin-bottom:20px; color:black; font-size:16px">
+                  The SecAct platform helps researchers investigate intercellular signaling mediated by 
+                  <span style="color:#7B1FA2">secreted proteins</span>
+                   (e.g., cytokines, growth factors, and secreted enzymes). In addition, users can query the spatial landscape of 
+                  <span style="color:#7B1FA2">any human gene</span>
+                   across a large collection of tumor spatial transcriptomics (ST) datasets.
+                </p>
+                <div class="col-sm-4" style="margin-left: 0px; padding-left: 0px;">
+                  <div class="well shadow-well" style="background-color:white;border-top:9px solid lavender;">
+                    <p>
+                      <div class="home-card-title">Tumor ST Atlas</div>
+                      <div style="text-align:left;padding:0px;margin:0px">
+                        <p style="color:black">Explore the spatial landscape of any gene across 1,258 tumor ST samples and compare spatial variability, cell types, and pathways.</p>
+                      </div>
+                      <br/>
+                      <div style="text-align: center"><img src="img/shiny1.png" height="255px"></div>
+                      <br/>
+                      <div style="text-align: center">
+                        <a class="action-button btn btn-primary" href="#" id="home_atlas_link" style="width:75px;">Explore</a>
+                      </div>
+                    </p>
+                  </div>
+                </div>
+                <div class="col-sm-4" style="margin-left: 0px; padding-left: 0px; margin-right: 0px; padding-right: 0px;">
+                  <div class="well shadow-well" style="background-color:white;border-top:9px solid lavender;">
+                    <p>
+                      <div class="home-card-title">SecAct Database</div>
+                      <div style="text-align:left;padding:0px;margin:0px">
+                        <p style="color:black">Browse spatial relationships between secreted proteins and their potential signaling targets or mediators across the Tumor ST Atlas.</p>
+                      </div>
+                      <br/>
+                      <div style="text-align: center"><img src="img/shiny2.png" height="255px"></div>
+                      <br/>
+                      <div style="text-align: center">
+                        <a class="action-button btn btn-primary" href="#" id="home_db_link" style="width:75px;">Browse</a>
+                      </div>
+                    </p>
+                  </div>
+                </div>
+                <div class="col-sm-4" style="margin-right: 0px; padding-right: 0px;">
+                  <div class="well shadow-well" style="background-color:white;border-top:9px solid lavender;">
+                    <p>
+                      <div class="home-card-title">SecAct R Package</div>
+                      <div style="text-align:left;padding:0;margin:0;">
+                        <p style="color:black">
+                          Run SecAct online to infer secreted protein activity from your own gene expression data, or install it from 
+                          <a href="https://github.com/data2intelligence/SecAct" target="_blank">GitHub</a>
+                          
+                        for local analysis.
+                        </p>
+                      </div>
+                      <br/>
+                      <div style="text-align: center"><img src="img/shiny3.png" height="255px"></div>
+                      <br/>
+                      <div style="text-align: center">
+                        <a class="action-button btn btn-primary" href="#" id="home_package_link" style="width:75px;">Run</a>
+                      </div>
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-12">
+                <br/>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane" data-value="atlas_tab" id="tab-1158-2">
+            <div class="row">
+              <div class="col-sm-3">
+                <form class="well" role="complementary">
+                  <p style="font-size:18px; font-family: Helvetica; color:black; margin-bottom:20px">Input a gene symbol: </p>
+                  <div class="form-group shiny-input-container">
+                    <label class="control-label" id="gene-label" for="gene">
+                      <p> </p>
+                    </label>
+                    <div>
+                      <select class="shiny-input-select form-control" id="gene"></select>
+                      <script type="application/json" data-for="gene">{"maxOptions":2000,"create":false,"placeholder":"Enter an official symbol or select it from the list.","plugins":["selectize-plugin-a11y"]}</script>
+                    </div>
+                  </div>
+                  <button class="btn btn-default action-button btn btn-primary" id="goButton_atlas" type="button">Submit</button>
+                </form>
+              </div>
+              <div class="col-sm-9" role="main">
+                <div class="tabbable">
+                  <ul class="nav nav-tabs shiny-tab-input" id="atlas_tabs" data-tabsetid="5799">
+                    <li class="active">
+                      <a href="#tab-5799-1" data-toggle="tab" data-bs-toggle="tab" data-value="Spatial Variability">Spatial Variability</a>
+                    </li>
+                    <li>
+                      <a href="#tab-5799-2" data-toggle="tab" data-bs-toggle="tab" data-value="Spatial Co-Variability">Spatial Co-Variability</a>
+                    </li>
+                    <li>
+                      <a href="#tab-5799-3" data-toggle="tab" data-bs-toggle="tab" data-value="Cell Type">Cell Type</a>
+                    </li>
+                    <li>
+                      <a href="#tab-5799-4" data-toggle="tab" data-bs-toggle="tab" data-value="Hallmark">Hallmark</a>
+                    </li>
+                    <li>
+                      <a href="#tab-5799-5" data-toggle="tab" data-bs-toggle="tab" data-value="KEGG Pathway">KEGG Pathway</a>
+                    </li>
+                    <li>
+                      <a href="#tab-5799-6" data-toggle="tab" data-bs-toggle="tab" data-value="GO Biological Process">GO Biological Process</a>
+                    </li>
+                  </ul>
+                  <div class="tab-content" data-tabsetid="5799">
+                    <div class="tab-pane active" data-value="Spatial Variability" id="tab-5799-1">
+                      <div class="col-sm-12">
+                        <br/>
+                      </div>
+                      <div class="stageclass">
+                        <pre class="shiny-text-output noplaceholder" id="step1_SV"></pre>
+                      </div>
+                      <div class="col-sm-12">
+                        <br/>
+                      </div>
+                      <div class="col-sm-12">
+                        <div class="col-sm-10">
+                          <div data-spinner-id="spinner-17e865424dfdc36d65a6fcac4b073252" class="shiny-spinner-output-container shiny-spinner-hideui">
+                            <div class="load-container shiny-spinner-hidden load1">
+                              <div id="spinner-17e865424dfdc36d65a6fcac4b073252" class="loader">Loading...</div>
+                            </div>
+                            <div class="plotly html-widget html-widget-output shiny-report-size shiny-report-theme html-fill-item" id="barchart_SV" style="width:100%;height:700px;"></div>
+                          </div>
+                        </div>
+                        <div class="col-sm-2">
+                          <div class="col-sm-12">
+                            <br/>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-12">
+                        <br/>
+                      </div>
+                      <div class="col-sm-12">
+                        <br/>
+                      </div>
+                      <div class="stageclass">
+                        <pre class="shiny-text-output noplaceholder" id="step2_SV"></pre>
+                      </div>
+                      <div class="col-sm-12">
+                        <br/>
+                      </div>
+                      <div class="col-sm-12">
+                        <div class="col-sm-9">
+                          <div data-spinner-id="spinner-286b80341a13bddc6a44c3b81dd3cc09" class="shiny-spinner-output-container shiny-spinner-hideui">
+                            <div class="load-container shiny-spinner-hidden load1">
+                              <div id="spinner-286b80341a13bddc6a44c3b81dd3cc09" class="loader">Loading...</div>
+                            </div>
+                            <div style="height:400px" class="shiny-spinner-placeholder"></div>
+                            <div class="datatables html-widget html-widget-output shiny-report-size html-fill-item" id="boxplot_table_SV" style="width:100%;height:auto;"></div>
+                          </div>
+                        </div>
+                        <div class="col-sm-3">
+                          <div data-spinner-id="spinner-fd043b92d50ffe83efe10722be6372ca" class="shiny-spinner-output-container shiny-spinner-hideui">
+                            <div class="load-container shiny-spinner-hidden load1">
+                              <div id="spinner-fd043b92d50ffe83efe10722be6372ca" class="loader">Loading...</div>
+                            </div>
+                            <div class="plotly html-widget html-widget-output shiny-report-size shiny-report-theme html-fill-item" id="boxplot_SV" style="width:100%;height:400px;"></div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-12">
+                        <br/>
+                      </div>
+                      <div class="col-sm-12">
+                        <br/>
+                      </div>
+                      <div class="stageclass">
+                        <pre class="shiny-text-output noplaceholder" id="step3_SV"></pre>
+                      </div>
+                      <div class="col-sm-12">
+                        <br/>
+                      </div>
+                      <div class="col-sm-12">
+                        <div class="col-sm-4">
+                          <div data-spinner-id="spinner-589c31dbd2852d6641526b6c82afa9b4" class="shiny-spinner-output-container shiny-spinner-hideui">
+                            <div class="load-container shiny-spinner-hidden load1">
+                              <div id="spinner-589c31dbd2852d6641526b6c82afa9b4" class="loader">Loading...</div>
+                            </div>
+                            <div class="plotly html-widget html-widget-output shiny-report-size shiny-report-theme html-fill-item" id="overlay_SV" style="width:100%;height:400px;"></div>
+                          </div>
+                        </div>
+                        <div class="col-sm-4">
+                          <div class="col-sm-12">
+                            <br/>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-12">
+                        <br/>
+                      </div>
+                      <div class="col-sm-12">
+                        <div class="shiny-panel-conditional" data-display-if="input.boxplot_SV_clicked != null" data-ns-prefix="">
+                          <div class="form-group shiny-input-container">
+                            <label class="control-label" id="pointSize_SV-label" for="pointSize_SV">Spot Size:</label>
+                            <input class="js-range-slider" id="pointSize_SV" data-skin="shiny" data-min="0.1" data-max="2" data-from="1" data-step="0.1" data-grid="true" data-grid-num="9.5" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-12">
+                        <br/>
+                      </div>
+                      <div class="col-sm-12">
+                        <br/>
+                      </div>
+                    </div>
+                    <div class="tab-pane" data-value="Spatial Co-Variability" id="tab-5799-2">
+                      <div class="col-sm-12">
+                        <br/>
+                      </div>
+                      <div class="stageclass">
+                        <pre class="shiny-text-output noplaceholder" id="step0_gene2"></pre>
+                      </div>
+                      <div class="col-sm-12">
+                        <br/>
+                      </div>
+                      <div class="col-sm-12">
+                        <div class="col-sm-9">
+                          <div data-spinner-id="spinner-1bcadd38a7fcd51c6646716861e887e9" class="shiny-spinner-output-container shiny-spinner-hideui">
+                            <div class="load-container shiny-spinner-hidden load1">
+                              <div id="spinner-1bcadd38a7fcd51c6646716861e887e9" class="loader">Loading...</div>
+                            </div>
+                            <div style="height:400px" class="shiny-spinner-placeholder"></div>
+                            <div class="datatables html-widget html-widget-output shiny-report-size html-fill-item" id="table_gene2" style="width:100%;height:auto;"></div>
+                          </div>
+                        </div>
+                        <div class="col-sm-2">
+                          <div class="col-sm-12">
+                            <br/>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-12">
+                        <br/>
+                      </div>
+                      <div class="col-sm-12">
+                        <br/>
+                      </div>
+                      <div class="stageclass">
+                        <pre class="shiny-text-output noplaceholder" id="step1_gene2"></pre>
+                      </div>
+                      <div class="col-sm-12">
+                        <br/>
+                      </div>
+                      <div class="col-sm-12">
+                        <div class="col-sm-10">
+                          <div data-spinner-id="spinner-bf21b2b7817b3becc792b1f36da175ef" class="shiny-spinner-output-container shiny-spinner-hideui">
+                            <div class="load-container shiny-spinner-hidden load1">
+                              <div id="spinner-bf21b2b7817b3becc792b1f36da175ef" class="loader">Loading...</div>
+                            </div>
+                            <div class="plotly html-widget html-widget-output shiny-report-size shiny-report-theme html-fill-item" id="barchart_gene2" style="width:100%;height:666px;"></div>
+                          </div>
+                        </div>
+                        <div class="col-sm-2">
+                          <div class="col-sm-12">
+                            <br/>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-12">
+                        <br/>
+                      </div>
+                      <div class="col-sm-12">
+                        <br/>
+                      </div>
+                      <div class="stageclass">
+                        <pre class="shiny-text-output noplaceholder" id="step2_gene2"></pre>
+                      </div>
+                      <div class="col-sm-12">
+                        <br/>
+                      </div>
+                      <div class="col-sm-12">
+                        <div class="col-sm-9">
+                          <div data-spinner-id="spinner-d9806b3f3c439a04397bb15424008c9d" class="shiny-spinner-output-container shiny-spinner-hideui">
+                            <div class="load-container shiny-spinner-hidden load1">
+                              <div id="spinner-d9806b3f3c439a04397bb15424008c9d" class="loader">Loading...</div>
+                            </div>
+                            <div style="height:400px" class="shiny-spinner-placeholder"></div>
+                            <div class="datatables html-widget html-widget-output shiny-report-size html-fill-item" id="boxplot_table_gene2" style="width:100%;height:auto;"></div>
+                          </div>
+                        </div>
+                        <div class="col-sm-3">
+                          <div data-spinner-id="spinner-0ded8f9fbf89de846f5d43dad2f430c6" class="shiny-spinner-output-container shiny-spinner-hideui">
+                            <div class="load-container shiny-spinner-hidden load1">
+                              <div id="spinner-0ded8f9fbf89de846f5d43dad2f430c6" class="loader">Loading...</div>
+                            </div>
+                            <div class="plotly html-widget html-widget-output shiny-report-size shiny-report-theme html-fill-item" id="boxplot_gene2" style="width:100%;height:400px;"></div>
+                          </div>
+                        </div>
+                        <div class="col-sm-8">
+                          <div class="col-sm-12">
+                            <br/>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-12">
+                        <br/>
+                      </div>
+                      <div class="col-sm-12">
+                        <br/>
+                      </div>
+                      <div class="stageclass">
+                        <pre class="shiny-text-output noplaceholder" id="step3_gene2"></pre>
+                      </div>
+                      <div class="col-sm-12">
+                        <br/>
+                      </div>
+                      <div class="col-sm-12">
+                        <div class="col-sm-4">
+                          <div data-spinner-id="spinner-fac54a74667a2cb199f2bc05f6da029e" class="shiny-spinner-output-container shiny-spinner-hideui">
+                            <div class="load-container shiny-spinner-hidden load1">
+                              <div id="spinner-fac54a74667a2cb199f2bc05f6da029e" class="loader">Loading...</div>
+                            </div>
+                            <div class="plotly html-widget html-widget-output shiny-report-size shiny-report-theme html-fill-item" id="overlay_gene2_1" style="width:100%;height:400px;"></div>
+                          </div>
+                        </div>
+                        <div class="col-sm-4">
+                          <div data-spinner-id="spinner-0bd2ced4afdc5abf980fa574b0ff037d" class="shiny-spinner-output-container shiny-spinner-hideui">
+                            <div class="load-container shiny-spinner-hidden load1">
+                              <div id="spinner-0bd2ced4afdc5abf980fa574b0ff037d" class="loader">Loading...</div>
+                            </div>
+                            <div class="plotly html-widget html-widget-output shiny-report-size shiny-report-theme html-fill-item" id="overlay_gene2_2" style="width:100%;height:400px;"></div>
+                          </div>
+                        </div>
+                        <div class="col-sm-4">
+                          <div data-spinner-id="spinner-a20deaa9c01e339f31d1652a2e8f49c8" class="shiny-spinner-output-container shiny-spinner-hideui">
+                            <div class="load-container shiny-spinner-hidden load1">
+                              <div id="spinner-a20deaa9c01e339f31d1652a2e8f49c8" class="loader">Loading...</div>
+                            </div>
+                            <div class="plotly html-widget html-widget-output shiny-report-size shiny-report-theme html-fill-item" id="overlay_gene2_3" style="width:100%;height:400px;"></div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-12">
+                        <br/>
+                      </div>
+                      <div class="col-sm-12">
+                        <div class="shiny-panel-conditional" data-display-if="input.boxplot_gene2_clicked != null" data-ns-prefix="">
+                          <div class="form-group shiny-input-container">
+                            <label class="control-label" id="pointSize_gene2-label" for="pointSize_gene2">Spot Size:</label>
+                            <input class="js-range-slider" id="pointSize_gene2" data-skin="shiny" data-min="0.1" data-max="2" data-from="1" data-step="0.1" data-grid="true" data-grid-num="9.5" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-12">
+                        <br/>
+                      </div>
+                      <div class="col-sm-12">
+                        <br/>
+                      </div>
+                    </div>
+                    <div class="tab-pane" data-value="Cell Type" id="tab-5799-3">
+                      <div class="col-sm-12">
+                        <br/>
+                      </div>
+                      <div class="stageclass">
+                        <pre class="shiny-text-output noplaceholder" id="step1_cellType"></pre>
+                      </div>
+                      <div class="col-sm-12">
+                        <br/>
+                      </div>
+                      <div class="col-sm-12">
+                        <div class="col-sm-10">
+                          <div data-spinner-id="spinner-042227cbe6998c84c7ae4ae21cef9a0d" class="shiny-spinner-output-container shiny-spinner-hideui">
+                            <div class="load-container shiny-spinner-hidden load1">
+                              <div id="spinner-042227cbe6998c84c7ae4ae21cef9a0d" class="loader">Loading...</div>
+                            </div>
+                            <div class="plotly html-widget html-widget-output shiny-report-size shiny-report-theme html-fill-item" id="heatmap_cellType" style="width:100%;height:888px;"></div>
+                          </div>
+                        </div>
+                        <div class="col-sm-2">
+                          <div class="col-sm-12">
+                            <br/>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-12">
+                        <br/>
+                      </div>
+                      <div class="col-sm-12">
+                        <br/>
+                      </div>
+                      <div class="stageclass">
+                        <pre class="shiny-text-output noplaceholder" id="step2_cellType"></pre>
+                      </div>
+                      <div class="col-sm-12">
+                        <br/>
+                      </div>
+                      <div class="col-sm-12">
+                        <div class="col-sm-9">
+                          <div data-spinner-id="spinner-166b3b88a515a32e5398e49745f999b3" class="shiny-spinner-output-container shiny-spinner-hideui">
+                            <div class="load-container shiny-spinner-hidden load1">
+                              <div id="spinner-166b3b88a515a32e5398e49745f999b3" class="loader">Loading...</div>
+                            </div>
+                            <div style="height:400px" class="shiny-spinner-placeholder"></div>
+                            <div class="datatables html-widget html-widget-output shiny-report-size html-fill-item" id="boxplot_table_cellType" style="width:100%;height:auto;"></div>
+                          </div>
+                        </div>
+                        <div class="col-sm-3">
+                          <div data-spinner-id="spinner-8f6b697a2deaa478a620cf8b3b56d9ef" class="shiny-spinner-output-container shiny-spinner-hideui">
+                            <div class="load-container shiny-spinner-hidden load1">
+                              <div id="spinner-8f6b697a2deaa478a620cf8b3b56d9ef" class="loader">Loading...</div>
+                            </div>
+                            <div class="plotly html-widget html-widget-output shiny-report-size shiny-report-theme html-fill-item" id="boxplot_cellType" style="width:100%;height:400px;"></div>
+                          </div>
+                        </div>
+                        <div class="col-sm-8">
+                          <div class="col-sm-12">
+                            <br/>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-12">
+                        <br/>
+                      </div>
+                      <div class="col-sm-12">
+                        <br/>
+                      </div>
+                      <div class="stageclass">
+                        <pre class="shiny-text-output noplaceholder" id="step3_cellType"></pre>
+                      </div>
+                      <div class="col-sm-12">
+                        <br/>
+                      </div>
+                      <div class="col-sm-12">
+                        <div class="col-sm-4">
+                          <div data-spinner-id="spinner-10c1b5f19bd77dd67b3b6434ff57be01" class="shiny-spinner-output-container shiny-spinner-hideui">
+                            <div class="load-container shiny-spinner-hidden load1">
+                              <div id="spinner-10c1b5f19bd77dd67b3b6434ff57be01" class="loader">Loading...</div>
+                            </div>
+                            <div class="plotly html-widget html-widget-output shiny-report-size shiny-report-theme html-fill-item" id="overlay_cellType_1" style="width:100%;height:400px;"></div>
+                          </div>
+                        </div>
+                        <div class="col-sm-4">
+                          <div data-spinner-id="spinner-d12394ecbf1710edf03ad8d3610c8346" class="shiny-spinner-output-container shiny-spinner-hideui">
+                            <div class="load-container shiny-spinner-hidden load1">
+                              <div id="spinner-d12394ecbf1710edf03ad8d3610c8346" class="loader">Loading...</div>
+                            </div>
+                            <div class="plotly html-widget html-widget-output shiny-report-size shiny-report-theme html-fill-item" id="overlay_cellType_2" style="width:100%;height:400px;"></div>
+                          </div>
+                        </div>
+                        <div class="col-sm-4">
+                          <div data-spinner-id="spinner-f2155fe67311e990ba36daee6b581b22" class="shiny-spinner-output-container shiny-spinner-hideui">
+                            <div class="load-container shiny-spinner-hidden load1">
+                              <div id="spinner-f2155fe67311e990ba36daee6b581b22" class="loader">Loading...</div>
+                            </div>
+                            <div class="plotly html-widget html-widget-output shiny-report-size shiny-report-theme html-fill-item" id="overlay_cellType_3" style="width:100%;height:400px;"></div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-12">
+                        <br/>
+                      </div>
+                      <div class="col-sm-12">
+                        <div class="shiny-panel-conditional" data-display-if="input.boxplot_cellType_clicked != null" data-ns-prefix="">
+                          <div class="form-group shiny-input-container">
+                            <label class="control-label" id="pointSize_cellType-label" for="pointSize_cellType">Spot Size:</label>
+                            <input class="js-range-slider" id="pointSize_cellType" data-skin="shiny" data-min="0.1" data-max="2" data-from="1" data-step="0.1" data-grid="true" data-grid-num="9.5" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-12">
+                        <br/>
+                      </div>
+                      <div class="col-sm-12">
+                        <br/>
+                      </div>
+                    </div>
+                    <div class="tab-pane" data-value="Hallmark" id="tab-5799-4">
+                      <div class="col-sm-12">
+                        <br/>
+                      </div>
+                      <div class="stageclass">
+                        <pre class="shiny-text-output noplaceholder" id="step1_hallmark"></pre>
+                      </div>
+                      <div class="col-sm-12">
+                        <br/>
+                      </div>
+                      <div class="col-sm-12">
+                        <div class="col-sm-10">
+                          <div data-spinner-id="spinner-dcddce9a3b6ddbd08590bac2fb38042a" class="shiny-spinner-output-container shiny-spinner-hideui">
+                            <div class="load-container shiny-spinner-hidden load1">
+                              <div id="spinner-dcddce9a3b6ddbd08590bac2fb38042a" class="loader">Loading...</div>
+                            </div>
+                            <div class="plotly html-widget html-widget-output shiny-report-size shiny-report-theme html-fill-item" id="heatmap_hallmark" style="width:100%;height:1111px;"></div>
+                          </div>
+                        </div>
+                        <div class="col-sm-2">
+                          <div class="col-sm-12">
+                            <br/>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-12">
+                        <br/>
+                      </div>
+                      <div class="col-sm-12">
+                        <br/>
+                      </div>
+                      <div class="stageclass">
+                        <pre class="shiny-text-output noplaceholder" id="step2_hallmark"></pre>
+                      </div>
+                      <div class="col-sm-12">
+                        <br/>
+                      </div>
+                      <div class="col-sm-12">
+                        <div class="col-sm-9">
+                          <div data-spinner-id="spinner-4eab840b21fbfa3f29ec3a3fe64fe535" class="shiny-spinner-output-container shiny-spinner-hideui">
+                            <div class="load-container shiny-spinner-hidden load1">
+                              <div id="spinner-4eab840b21fbfa3f29ec3a3fe64fe535" class="loader">Loading...</div>
+                            </div>
+                            <div style="height:400px" class="shiny-spinner-placeholder"></div>
+                            <div class="datatables html-widget html-widget-output shiny-report-size html-fill-item" id="boxplot_table_hallmark" style="width:100%;height:auto;"></div>
+                          </div>
+                        </div>
+                        <div class="col-sm-3">
+                          <div data-spinner-id="spinner-be34f5c66deb60fee0ca209a01921c7f" class="shiny-spinner-output-container shiny-spinner-hideui">
+                            <div class="load-container shiny-spinner-hidden load1">
+                              <div id="spinner-be34f5c66deb60fee0ca209a01921c7f" class="loader">Loading...</div>
+                            </div>
+                            <div class="plotly html-widget html-widget-output shiny-report-size shiny-report-theme html-fill-item" id="boxplot_hallmark" style="width:100%;height:400px;"></div>
+                          </div>
+                        </div>
+                        <div class="col-sm-8">
+                          <div class="col-sm-12">
+                            <br/>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-12">
+                        <br/>
+                      </div>
+                      <div class="col-sm-12">
+                        <br/>
+                      </div>
+                      <div class="stageclass">
+                        <pre class="shiny-text-output noplaceholder" id="step3_hallmark"></pre>
+                      </div>
+                      <div class="col-sm-12">
+                        <br/>
+                      </div>
+                      <div class="col-sm-12">
+                        <div class="col-sm-4">
+                          <div data-spinner-id="spinner-8432c87163379459ee24c34443f23b2a" class="shiny-spinner-output-container shiny-spinner-hideui">
+                            <div class="load-container shiny-spinner-hidden load1">
+                              <div id="spinner-8432c87163379459ee24c34443f23b2a" class="loader">Loading...</div>
+                            </div>
+                            <div class="plotly html-widget html-widget-output shiny-report-size shiny-report-theme html-fill-item" id="overlay_hallmark_1" style="width:100%;height:400px;"></div>
+                          </div>
+                        </div>
+                        <div class="col-sm-4">
+                          <div data-spinner-id="spinner-8b03159cca63f84c95d60f5257b1c00a" class="shiny-spinner-output-container shiny-spinner-hideui">
+                            <div class="load-container shiny-spinner-hidden load1">
+                              <div id="spinner-8b03159cca63f84c95d60f5257b1c00a" class="loader">Loading...</div>
+                            </div>
+                            <div class="plotly html-widget html-widget-output shiny-report-size shiny-report-theme html-fill-item" id="overlay_hallmark_2" style="width:100%;height:400px;"></div>
+                          </div>
+                        </div>
+                        <div class="col-sm-4">
+                          <div data-spinner-id="spinner-c9be5bcb8d662056990aa0ec432363fe" class="shiny-spinner-output-container shiny-spinner-hideui">
+                            <div class="load-container shiny-spinner-hidden load1">
+                              <div id="spinner-c9be5bcb8d662056990aa0ec432363fe" class="loader">Loading...</div>
+                            </div>
+                            <div class="plotly html-widget html-widget-output shiny-report-size shiny-report-theme html-fill-item" id="overlay_hallmark_3" style="width:100%;height:400px;"></div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-12">
+                        <br/>
+                      </div>
+                      <div class="col-sm-12">
+                        <div class="shiny-panel-conditional" data-display-if="input.boxplot_hallmark_clicked != null" data-ns-prefix="">
+                          <div class="form-group shiny-input-container">
+                            <label class="control-label" id="pointSize_hallmark-label" for="pointSize_hallmark">Spot Size:</label>
+                            <input class="js-range-slider" id="pointSize_hallmark" data-skin="shiny" data-min="0.1" data-max="2" data-from="1" data-step="0.1" data-grid="true" data-grid-num="9.5" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-12">
+                        <br/>
+                      </div>
+                      <div class="stageclass">
+                        <pre class="shiny-text-output noplaceholder" id="step4_hallmark"></pre>
+                      </div>
+                      <div class="col-sm-12">
+                        <br/>
+                      </div>
+                      <div class="col-sm-12">
+                        <div class="col-sm-8">
+                          <div data-spinner-id="spinner-58758709978cec4caa93282bbc5b7a36" class="shiny-spinner-output-container shiny-spinner-hideui">
+                            <div class="load-container shiny-spinner-hidden load1">
+                              <div id="spinner-58758709978cec4caa93282bbc5b7a36" class="loader">Loading...</div>
+                            </div>
+                            <div style="height:400px" class="shiny-spinner-placeholder"></div>
+                            <div class="datatables html-widget html-widget-output shiny-report-size html-fill-item" id="overlay_hallmark_4" style="width:100%;height:auto;"></div>
+                          </div>
+                        </div>
+                        <div class="col-sm-4">
+                          <div data-spinner-id="spinner-c35038436c4bdddbd211d112703bd57e" class="shiny-spinner-output-container shiny-spinner-hideui">
+                            <div class="load-container shiny-spinner-hidden load1">
+                              <div id="spinner-c35038436c4bdddbd211d112703bd57e" class="loader">Loading...</div>
+                            </div>
+                            <div class="plotly html-widget html-widget-output shiny-report-size shiny-report-theme html-fill-item" id="overlay_hallmark_5" style="width:100%;height:400px;"></div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-12">
+                        <br/>
+                      </div>
+                      <div class="col-sm-12">
+                        <br/>
+                      </div>
+                    </div>
+                    <div class="tab-pane" data-value="KEGG Pathway" id="tab-5799-5">
+                      <div class="col-sm-12">
+                        <br/>
+                      </div>
+                      <div class="stageclass">
+                        <pre class="shiny-text-output noplaceholder" id="step0_KEGG"></pre>
+                      </div>
+                      <div class="col-sm-12">
+                        <br/>
+                      </div>
+                      <div class="col-sm-12">
+                        <div class="col-sm-12">
+                          <div data-spinner-id="spinner-5f853306df475694075f5142bcf38af9" class="shiny-spinner-output-container shiny-spinner-hideui">
+                            <div class="load-container shiny-spinner-hidden load1">
+                              <div id="spinner-5f853306df475694075f5142bcf38af9" class="loader">Loading...</div>
+                            </div>
+                            <div style="height:400px" class="shiny-spinner-placeholder"></div>
+                            <div class="datatables html-widget html-widget-output shiny-report-size html-fill-item" id="table_KEGG" style="width:100%;height:auto;"></div>
+                          </div>
+                        </div>
+                        <div class="col-sm-2">
+                          <div class="col-sm-12">
+                            <br/>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-12">
+                        <br/>
+                      </div>
+                      <div class="col-sm-12">
+                        <br/>
+                      </div>
+                      <div class="stageclass">
+                        <pre class="shiny-text-output noplaceholder" id="step1_KEGG"></pre>
+                      </div>
+                      <div class="col-sm-12">
+                        <br/>
+                      </div>
+                      <div class="col-sm-12">
+                        <div class="col-sm-10">
+                          <div data-spinner-id="spinner-a6c6a6b420f2a1b109fee650a7d61d20" class="shiny-spinner-output-container shiny-spinner-hideui">
+                            <div class="load-container shiny-spinner-hidden load1">
+                              <div id="spinner-a6c6a6b420f2a1b109fee650a7d61d20" class="loader">Loading...</div>
+                            </div>
+                            <div class="plotly html-widget html-widget-output shiny-report-size shiny-report-theme html-fill-item" id="barchart_KEGG" style="width:100%;height:666px;"></div>
+                          </div>
+                        </div>
+                        <div class="col-sm-2">
+                          <div class="col-sm-12">
+                            <br/>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-12">
+                        <br/>
+                      </div>
+                      <div class="col-sm-12">
+                        <br/>
+                      </div>
+                      <div class="stageclass">
+                        <pre class="shiny-text-output noplaceholder" id="step2_KEGG"></pre>
+                      </div>
+                      <div class="col-sm-12">
+                        <br/>
+                      </div>
+                      <div class="col-sm-12">
+                        <div class="col-sm-9">
+                          <div data-spinner-id="spinner-3d32c6d0d7795d2974106386b4f5b2ba" class="shiny-spinner-output-container shiny-spinner-hideui">
+                            <div class="load-container shiny-spinner-hidden load1">
+                              <div id="spinner-3d32c6d0d7795d2974106386b4f5b2ba" class="loader">Loading...</div>
+                            </div>
+                            <div style="height:400px" class="shiny-spinner-placeholder"></div>
+                            <div class="datatables html-widget html-widget-output shiny-report-size html-fill-item" id="boxplot_table_KEGG" style="width:100%;height:auto;"></div>
+                          </div>
+                        </div>
+                        <div class="col-sm-3">
+                          <div data-spinner-id="spinner-b965e2928bb614d7f8ac028e3cc1f0a0" class="shiny-spinner-output-container shiny-spinner-hideui">
+                            <div class="load-container shiny-spinner-hidden load1">
+                              <div id="spinner-b965e2928bb614d7f8ac028e3cc1f0a0" class="loader">Loading...</div>
+                            </div>
+                            <div class="plotly html-widget html-widget-output shiny-report-size shiny-report-theme html-fill-item" id="boxplot_KEGG" style="width:100%;height:400px;"></div>
+                          </div>
+                        </div>
+                        <div class="col-sm-8">
+                          <div class="col-sm-12">
+                            <br/>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-12">
+                        <br/>
+                      </div>
+                      <div class="col-sm-12">
+                        <br/>
+                      </div>
+                      <div class="stageclass">
+                        <pre class="shiny-text-output noplaceholder" id="step3_KEGG"></pre>
+                      </div>
+                      <div class="col-sm-12">
+                        <br/>
+                      </div>
+                      <div class="col-sm-12">
+                        <div class="col-sm-4">
+                          <div data-spinner-id="spinner-bf586d152faee8abd9a98bd1081360c4" class="shiny-spinner-output-container shiny-spinner-hideui">
+                            <div class="load-container shiny-spinner-hidden load1">
+                              <div id="spinner-bf586d152faee8abd9a98bd1081360c4" class="loader">Loading...</div>
+                            </div>
+                            <div class="plotly html-widget html-widget-output shiny-report-size shiny-report-theme html-fill-item" id="overlay_KEGG_1" style="width:100%;height:400px;"></div>
+                          </div>
+                        </div>
+                        <div class="col-sm-4">
+                          <div data-spinner-id="spinner-f498a85a31756c9092106ccd0dcb704b" class="shiny-spinner-output-container shiny-spinner-hideui">
+                            <div class="load-container shiny-spinner-hidden load1">
+                              <div id="spinner-f498a85a31756c9092106ccd0dcb704b" class="loader">Loading...</div>
+                            </div>
+                            <div class="plotly html-widget html-widget-output shiny-report-size shiny-report-theme html-fill-item" id="overlay_KEGG_2" style="width:100%;height:400px;"></div>
+                          </div>
+                        </div>
+                        <div class="col-sm-4">
+                          <div data-spinner-id="spinner-499b62af7e14beea83e27233616526b2" class="shiny-spinner-output-container shiny-spinner-hideui">
+                            <div class="load-container shiny-spinner-hidden load1">
+                              <div id="spinner-499b62af7e14beea83e27233616526b2" class="loader">Loading...</div>
+                            </div>
+                            <div class="plotly html-widget html-widget-output shiny-report-size shiny-report-theme html-fill-item" id="overlay_KEGG_3" style="width:100%;height:400px;"></div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-12">
+                        <br/>
+                      </div>
+                      <div class="col-sm-12">
+                        <div class="shiny-panel-conditional" data-display-if="input.boxplot_KEGG_clicked != null" data-ns-prefix="">
+                          <div class="form-group shiny-input-container">
+                            <label class="control-label" id="pointSize_KEGG-label" for="pointSize_KEGG">Spot Size:</label>
+                            <input class="js-range-slider" id="pointSize_KEGG" data-skin="shiny" data-min="0.1" data-max="2" data-from="1" data-step="0.1" data-grid="true" data-grid-num="9.5" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-12">
+                        <br/>
+                      </div>
+                      <div class="stageclass">
+                        <pre class="shiny-text-output noplaceholder" id="step4_KEGG"></pre>
+                      </div>
+                      <div class="col-sm-12">
+                        <br/>
+                      </div>
+                      <div class="col-sm-12">
+                        <div class="col-sm-8">
+                          <div data-spinner-id="spinner-afce6bf33f5f49d5ee3c5d4041b0dfb3" class="shiny-spinner-output-container shiny-spinner-hideui">
+                            <div class="load-container shiny-spinner-hidden load1">
+                              <div id="spinner-afce6bf33f5f49d5ee3c5d4041b0dfb3" class="loader">Loading...</div>
+                            </div>
+                            <div style="height:400px" class="shiny-spinner-placeholder"></div>
+                            <div class="datatables html-widget html-widget-output shiny-report-size html-fill-item" id="overlay_KEGG_4" style="width:100%;height:auto;"></div>
+                          </div>
+                        </div>
+                        <div class="col-sm-4">
+                          <div data-spinner-id="spinner-7b21e37cbdff6c389edda6be737c5268" class="shiny-spinner-output-container shiny-spinner-hideui">
+                            <div class="load-container shiny-spinner-hidden load1">
+                              <div id="spinner-7b21e37cbdff6c389edda6be737c5268" class="loader">Loading...</div>
+                            </div>
+                            <div class="plotly html-widget html-widget-output shiny-report-size shiny-report-theme html-fill-item" id="overlay_KEGG_5" style="width:100%;height:400px;"></div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-12">
+                        <br/>
+                      </div>
+                      <div class="col-sm-12">
+                        <br/>
+                      </div>
+                    </div>
+                    <div class="tab-pane" data-value="GO Biological Process" id="tab-5799-6">
+                      <div class="col-sm-12">
+                        <br/>
+                      </div>
+                      <div class="stageclass">
+                        <pre class="shiny-text-output noplaceholder" id="step0_GOBP"></pre>
+                      </div>
+                      <div class="col-sm-12">
+                        <br/>
+                      </div>
+                      <div class="col-sm-12">
+                        <div class="col-sm-12">
+                          <div data-spinner-id="spinner-1502cda046b8b938c361b278977fcbe2" class="shiny-spinner-output-container shiny-spinner-hideui">
+                            <div class="load-container shiny-spinner-hidden load1">
+                              <div id="spinner-1502cda046b8b938c361b278977fcbe2" class="loader">Loading...</div>
+                            </div>
+                            <div style="height:400px" class="shiny-spinner-placeholder"></div>
+                            <div class="datatables html-widget html-widget-output shiny-report-size html-fill-item" id="table_GOBP" style="width:100%;height:auto;"></div>
+                          </div>
+                        </div>
+                        <div class="col-sm-2">
+                          <div class="col-sm-12">
+                            <br/>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-12">
+                        <br/>
+                      </div>
+                      <div class="col-sm-12">
+                        <br/>
+                      </div>
+                      <div class="stageclass">
+                        <pre class="shiny-text-output noplaceholder" id="step1_GOBP"></pre>
+                      </div>
+                      <div class="col-sm-12">
+                        <br/>
+                      </div>
+                      <div class="col-sm-12">
+                        <div class="col-sm-10">
+                          <div data-spinner-id="spinner-b83db78966fa50b71c61b510ce992975" class="shiny-spinner-output-container shiny-spinner-hideui">
+                            <div class="load-container shiny-spinner-hidden load1">
+                              <div id="spinner-b83db78966fa50b71c61b510ce992975" class="loader">Loading...</div>
+                            </div>
+                            <div class="plotly html-widget html-widget-output shiny-report-size shiny-report-theme html-fill-item" id="barchart_GOBP" style="width:100%;height:666px;"></div>
+                          </div>
+                        </div>
+                        <div class="col-sm-2">
+                          <div class="col-sm-12">
+                            <br/>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-12">
+                        <br/>
+                      </div>
+                      <div class="col-sm-12">
+                        <br/>
+                      </div>
+                      <div class="stageclass">
+                        <pre class="shiny-text-output noplaceholder" id="step2_GOBP"></pre>
+                      </div>
+                      <div class="col-sm-12">
+                        <br/>
+                      </div>
+                      <div class="col-sm-12">
+                        <div class="col-sm-9">
+                          <div data-spinner-id="spinner-3bade194448a81fab500d87147ad9625" class="shiny-spinner-output-container shiny-spinner-hideui">
+                            <div class="load-container shiny-spinner-hidden load1">
+                              <div id="spinner-3bade194448a81fab500d87147ad9625" class="loader">Loading...</div>
+                            </div>
+                            <div style="height:400px" class="shiny-spinner-placeholder"></div>
+                            <div class="datatables html-widget html-widget-output shiny-report-size html-fill-item" id="boxplot_table_GOBP" style="width:100%;height:auto;"></div>
+                          </div>
+                        </div>
+                        <div class="col-sm-3">
+                          <div data-spinner-id="spinner-9750b0551960a604c7c96503c8730f95" class="shiny-spinner-output-container shiny-spinner-hideui">
+                            <div class="load-container shiny-spinner-hidden load1">
+                              <div id="spinner-9750b0551960a604c7c96503c8730f95" class="loader">Loading...</div>
+                            </div>
+                            <div class="plotly html-widget html-widget-output shiny-report-size shiny-report-theme html-fill-item" id="boxplot_GOBP" style="width:100%;height:400px;"></div>
+                          </div>
+                        </div>
+                        <div class="col-sm-8">
+                          <div class="col-sm-12">
+                            <br/>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-12">
+                        <br/>
+                      </div>
+                      <div class="col-sm-12">
+                        <br/>
+                      </div>
+                      <div class="stageclass">
+                        <pre class="shiny-text-output noplaceholder" id="step3_GOBP"></pre>
+                      </div>
+                      <div class="col-sm-12">
+                        <br/>
+                      </div>
+                      <div class="col-sm-12">
+                        <div class="col-sm-4">
+                          <div data-spinner-id="spinner-db5aaf0273f93bed0451402fe3ffe871" class="shiny-spinner-output-container shiny-spinner-hideui">
+                            <div class="load-container shiny-spinner-hidden load1">
+                              <div id="spinner-db5aaf0273f93bed0451402fe3ffe871" class="loader">Loading...</div>
+                            </div>
+                            <div class="plotly html-widget html-widget-output shiny-report-size shiny-report-theme html-fill-item" id="overlay_GOBP_1" style="width:100%;height:400px;"></div>
+                          </div>
+                        </div>
+                        <div class="col-sm-4">
+                          <div data-spinner-id="spinner-95ab08243da940f4021315f6e67bc4a9" class="shiny-spinner-output-container shiny-spinner-hideui">
+                            <div class="load-container shiny-spinner-hidden load1">
+                              <div id="spinner-95ab08243da940f4021315f6e67bc4a9" class="loader">Loading...</div>
+                            </div>
+                            <div class="plotly html-widget html-widget-output shiny-report-size shiny-report-theme html-fill-item" id="overlay_GOBP_2" style="width:100%;height:400px;"></div>
+                          </div>
+                        </div>
+                        <div class="col-sm-4">
+                          <div data-spinner-id="spinner-1a8bf93453dace4a43c7dc357aa6ced2" class="shiny-spinner-output-container shiny-spinner-hideui">
+                            <div class="load-container shiny-spinner-hidden load1">
+                              <div id="spinner-1a8bf93453dace4a43c7dc357aa6ced2" class="loader">Loading...</div>
+                            </div>
+                            <div class="plotly html-widget html-widget-output shiny-report-size shiny-report-theme html-fill-item" id="overlay_GOBP_3" style="width:100%;height:400px;"></div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-12">
+                        <br/>
+                      </div>
+                      <div class="col-sm-12">
+                        <div class="shiny-panel-conditional" data-display-if="input.boxplot_GOBP_clicked != null" data-ns-prefix="">
+                          <div class="form-group shiny-input-container">
+                            <label class="control-label" id="pointSize_GOBP-label" for="pointSize_GOBP">Spot Size:</label>
+                            <input class="js-range-slider" id="pointSize_GOBP" data-skin="shiny" data-min="0.1" data-max="2" data-from="1" data-step="0.1" data-grid="true" data-grid-num="9.5" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-12">
+                        <br/>
+                      </div>
+                      <div class="stageclass">
+                        <pre class="shiny-text-output noplaceholder" id="step4_GOBP"></pre>
+                      </div>
+                      <div class="col-sm-12">
+                        <br/>
+                      </div>
+                      <div class="col-sm-12">
+                        <div class="col-sm-8">
+                          <div data-spinner-id="spinner-84e21ab21d37178eb70370307cc11792" class="shiny-spinner-output-container shiny-spinner-hideui">
+                            <div class="load-container shiny-spinner-hidden load1">
+                              <div id="spinner-84e21ab21d37178eb70370307cc11792" class="loader">Loading...</div>
+                            </div>
+                            <div style="height:400px" class="shiny-spinner-placeholder"></div>
+                            <div class="datatables html-widget html-widget-output shiny-report-size html-fill-item" id="overlay_GOBP_4" style="width:100%;height:auto;"></div>
+                          </div>
+                        </div>
+                        <div class="col-sm-4">
+                          <div data-spinner-id="spinner-21913063d9f2bdfb97c489d99bcbf51f" class="shiny-spinner-output-container shiny-spinner-hideui">
+                            <div class="load-container shiny-spinner-hidden load1">
+                              <div id="spinner-21913063d9f2bdfb97c489d99bcbf51f" class="loader">Loading...</div>
+                            </div>
+                            <div class="plotly html-widget html-widget-output shiny-report-size shiny-report-theme html-fill-item" id="overlay_GOBP_5" style="width:100%;height:400px;"></div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-12">
+                        <br/>
+                      </div>
+                      <div class="col-sm-12">
+                        <br/>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane" data-value="db_tab" id="tab-1158-3">
+            <div class="row">
+              <div class="col-sm-3">
+                <form class="well" role="complementary">
+                  <p style="font-size:18px; font-family: Helvetica; color:black; margin-bottom:20px">Input a secreted protein-coding gene: </p>
+                  <div class="form-group shiny-input-container">
+                    <label class="control-label" id="gene_sp-label" for="gene_sp">
+                      <p> </p>
+                    </label>
+                    <div>
+                      <select class="shiny-input-select form-control" id="gene_sp"></select>
+                      <script type="application/json" data-for="gene_sp">{"maxOptions":2000,"create":false,"placeholder":"Enter an official symbol or select it from the list.","plugins":["selectize-plugin-a11y"]}</script>
+                    </div>
+                  </div>
+                  <button class="btn btn-default action-button btn btn-primary" id="goButton_db" type="button">Submit</button>
+                </form>
+              </div>
+              <div class="col-sm-9" role="main">
+                <div class="stageclass">
+                  <pre class="shiny-text-output noplaceholder" id="txtout1"></pre>
+                </div>
+                <div class="col-sm-12">
+                  <br/>
+                </div>
+                <div class="col-sm-12">
+                  <div class="col-sm-8">
+                    <div data-spinner-id="spinner-40dd2a7ca111b668c3760f1e9c496fdb" class="shiny-spinner-output-container shiny-spinner-hideui">
+                      <div class="load-container shiny-spinner-hidden load1">
+                        <div id="spinner-40dd2a7ca111b668c3760f1e9c496fdb" class="loader">Loading...</div>
+                      </div>
+                      <div style="height:400px" class="shiny-spinner-placeholder"></div>
+                      <div class="datatables html-widget html-widget-output shiny-report-size html-fill-item" id="table1" style="width:100%;height:auto;"></div>
+                    </div>
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="plotly html-widget html-widget-output shiny-report-size shiny-report-theme html-fill-item" id="dotplot" style="width:100%;height:400px;"></div>
+                    <div class="col-sm-12">
+                      <br/>
+                    </div>
+                    <div id="legend1_p1" class="shiny-text-output"></div>
+                    <div class="col-sm-12">
+                      <br/>
+                    </div>
+                    <div id="legend1_p2" class="shiny-text-output"></div>
+                  </div>
+                </div>
+                <div class="col-sm-12">
+                  <br/>
+                </div>
+                <div class="col-sm-12">
+                  <br/>
+                </div>
+                <div class="stageclass">
+                  <pre class="shiny-text-output noplaceholder" id="txtout2"></pre>
+                </div>
+                <div class="col-sm-12">
+                  <br/>
+                </div>
+                <div class="col-sm-12">
+                  <div class="col-sm-8">
+                    <div data-spinner-id="spinner-3470beba79e151acfd33d7a037f0016a" class="shiny-spinner-output-container shiny-spinner-hideui">
+                      <div class="load-container shiny-spinner-hidden load1">
+                        <div id="spinner-3470beba79e151acfd33d7a037f0016a" class="loader">Loading...</div>
+                      </div>
+                      <div style="height:400px" class="shiny-spinner-placeholder"></div>
+                      <div class="datatables html-widget html-widget-output shiny-report-size html-fill-item" id="table2" style="width:100%;height:auto;"></div>
+                    </div>
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="plotly html-widget html-widget-output shiny-report-size shiny-report-theme html-fill-item" id="boxplot" style="width:100%;height:400px;"></div>
+                    <div class="col-sm-12">
+                      <br/>
+                    </div>
+                    <div id="legend2_p1" class="shiny-text-output"></div>
+                    <div class="col-sm-12">
+                      <br/>
+                    </div>
+                    <div id="legend2_p2" class="shiny-text-output"></div>
+                  </div>
+                </div>
+                <div class="col-sm-12">
+                  <br/>
+                </div>
+                <div class="col-sm-12">
+                  <br/>
+                </div>
+                <div class="stageclass">
+                  <pre class="shiny-text-output noplaceholder" id="txtout3"></pre>
+                </div>
+                <div class="col-sm-12">
+                  <br/>
+                </div>
+                <div class="col-sm-12">
+                  <div class="col-sm-4">
+                    <div data-spinner-id="spinner-d6608272b0612513700f6f47eeaba530" class="shiny-spinner-output-container shiny-spinner-hideui">
+                      <div class="load-container shiny-spinner-hidden load1">
+                        <div id="spinner-d6608272b0612513700f6f47eeaba530" class="loader">Loading...</div>
+                      </div>
+                      <div class="plotly html-widget html-widget-output shiny-report-size shiny-report-theme html-fill-item" id="overlay1" style="width:100%;height:400px;"></div>
+                    </div>
+                    <div class="col-sm-12">
+                      <br/>
+                    </div>
+                    <div id="legend3_p1" class="shiny-text-output"></div>
+                    <div class="col-sm-12">
+                      <br/>
+                    </div>
+                  </div>
+                  <div class="col-sm-4">
+                    <div data-spinner-id="spinner-3db47c4be7522cd40f4e3803964b0047" class="shiny-spinner-output-container shiny-spinner-hideui">
+                      <div class="load-container shiny-spinner-hidden load1">
+                        <div id="spinner-3db47c4be7522cd40f4e3803964b0047" class="loader">Loading...</div>
+                      </div>
+                      <div class="plotly html-widget html-widget-output shiny-report-size shiny-report-theme html-fill-item" id="overlay2" style="width:100%;height:400px;"></div>
+                    </div>
+                    <div class="col-sm-12">
+                      <br/>
+                    </div>
+                    <div id="legend3_p2" class="shiny-text-output"></div>
+                    <div class="col-sm-12">
+                      <br/>
+                    </div>
+                  </div>
+                  <div class="col-sm-4">
+                    <div data-spinner-id="spinner-533db2b17a1723b357dfa8193d941f52" class="shiny-spinner-output-container shiny-spinner-hideui">
+                      <div class="load-container shiny-spinner-hidden load1">
+                        <div id="spinner-533db2b17a1723b357dfa8193d941f52" class="loader">Loading...</div>
+                      </div>
+                      <div class="plotly html-widget html-widget-output shiny-report-size shiny-report-theme html-fill-item" id="overlay3" style="width:100%;height:400px;"></div>
+                    </div>
+                    <div class="col-sm-12">
+                      <br/>
+                    </div>
+                    <div id="legend3_p3" class="shiny-text-output"></div>
+                    <div class="col-sm-12">
+                      <br/>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-12">
+                  <br/>
+                </div>
+                <div class="col-sm-12">
+                  <div class="shiny-panel-conditional" data-display-if="input.btn2_open != null" data-ns-prefix="">
+                    <div class="form-group shiny-input-container">
+                      <label class="control-label" id="pointSize_db-label" for="pointSize_db">Spot Size:</label>
+                      <input class="js-range-slider" id="pointSize_db" data-skin="shiny" data-min="0.1" data-max="2" data-from="1" data-step="0.1" data-grid="true" data-grid-num="9.5" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number"/>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-12">
+                  <br/>
+                </div>
+                <div class="col-sm-12">
+                  <br/>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane" data-value="package_tab" id="tab-1158-4">
+            <div class="row">
+              <div class="col-sm-3">
+                <form class="well" role="complementary">
+                  <div class="form-group shiny-input-container">
+                    <label class="control-label" id="file1-label" for="file1">Upload your expression matrix: </label>
+                    <div class="input-group">
+                      <label class="input-group-btn input-group-prepend">
+                        <span class="btn btn-default btn-file">
+                          Browse...
+                          <input id="file1" class="shiny-input-file" name="file1" type="file" style="position: absolute !important; top: -99999px !important; left: -99999px !important;" accept="text/csv,text/comma-separated-values,text/plain,text/tab-separated-values,application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,.csv,.txt,.tsv,.xls,.xlsx"/>
+                        </span>
+                      </label>
+                      <input type="text" class="form-control" placeholder="No file selected" readonly="readonly"/>
+                    </div>
+                    <div id="file1_progress" class="progress active shiny-file-input-progress">
+                      <div class="progress-bar"></div>
+                    </div>
+                  </div>
+                  <button class="btn btn-default action-button btn btn-primary" id="go" type="button">Submit</button>
+                  <br/>
+                  <br/>
+                  <br/>
+                  <p style="text-align:justify">
+                    <strong>Note 1:</strong>
+                    the expression values, from either RNASeq or MicroArray, should be transformed by log2(x+1). x could be FPKM, RPKM, or TPM for RNASeq. We recommend input differential profiles between the two conditions (
+                    <a href="Ly86-Fc_vs_Vehicle_logFC.txt" download target="_blank">example</a>
+                    ). 
+                    If data is from a sample collection without pairs, please mean-centralize the value of each gene across all samples. The input should have rows as genes and columns as samples. Supported formats include Excel files (.xls and .xlsx) and plain text files with tab-, space-, or comma-delimited values. The number of expression profiles should not be more than 10.
+                  </p>
+                  <p style="text-align:justify">
+                    <strong>Note 2:</strong>
+                    if you need to analyze more than 10 samples, please install SecAct locally from
+                    <a href="https://github.com/data2intelligence/SecAct" target="_blank">GitHub</a>
+                    . 
+                    The local version supports multiple data modalities, including spatial, single-cell, and bulk transcriptomics, and provides a wide range of downstream analysis modules (e.g., signaling velocity, signaling network, and clinical relevance) and visualization functions.
+                  </p>
+                </form>
+              </div>
+              <div class="col-sm-9" role="main">
+                <div class="stageclass">
+                  <pre class="shiny-text-output noplaceholder" id="runSecAct"></pre>
+                </div>
+                <div class="col-sm-12">
+                  <br/>
+                </div>
+                <div class="shiny-panel-conditional" data-display-if="input.go == 0" data-ns-prefix="">
+                  <div style="text-align: center"><img src="img/workflow_alt.png" height="450px"></div>
+                </div>
+                <div class="shiny-panel-conditional" data-display-if="input.go &gt; 0" data-ns-prefix="">
+                  <div class="col-sm-12">
+                    <div data-spinner-id="spinner-0b5ab38a01270a0070b8389cc06ff905" class="shiny-spinner-output-container shiny-spinner-hideui">
+                      <div class="load-container shiny-spinner-hidden load1">
+                        <div id="spinner-0b5ab38a01270a0070b8389cc06ff905" class="loader">Loading...</div>
+                      </div>
+                      <div style="height:400px" class="shiny-spinner-placeholder"></div>
+                      <div class="datatables html-widget html-widget-output shiny-report-size html-fill-item" id="contents" style="width:100%;height:auto;"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-12">
+                  <br/>
+                </div>
+                <div class="col-sm-12">
+                  <br/>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane" data-value="&lt;div class=&quot;navibar-text&quot;&gt;&#10;  &lt;i class=&quot;far fa-circle-question&quot; role=&quot;presentation&quot; aria-label=&quot;circle-question icon&quot;&gt;&lt;/i&gt;&#10;  FAQ&#10;&lt;/div&gt;" id="tab-1158-5">
+            <div class="container">
+              <div class="col-sm-12">
+                <h4 style="color:black">Frequently Asked Questions</h4>
+                <br/>
+                <p>
+                  <strong style="color:black">1. How are spatial variability, cell type fractions, and hallmark/pathway/biological process gene set scores inferred in the "Explore ST Atlas" tab?</strong>
+                </p>
+                <p style="color:black">
+                  A: These analyses were computed using our previously developed R package SpaCET (
+                  <a href="https://github.com/data2intelligence/SpaCET" target="_blank">https://github.com/data2intelligence/SpaCET</a>
+                  ).
+                </p>
+                <br/>
+                <p>
+                  <strong style="color:black">2. What does Moran’s I represent?</strong>
+                </p>
+                <p style="color:black">A: Moran’s I is a measure of spatial autocorrelation, ranging from −1 to 1.
+                A higher positive value indicates stronger spatial clustering,
+                a value near 0 suggests a random spatial pattern,
+                and a negative value indicates spatial dispersion.
+                It is commonly used to quantify the spatial variability of individual genes.</p>
+                <p style="color:black">
+                  In addition, bivariate Moran’s I is used to assess the spatial co-variability of a pair of genes.
+                A higher positive value indicates stronger spatial co-localization or co-variability,
+                whereas a negative value suggests spatial mutual exclusivity between the two genes.
+                More details about the equation can be found
+                  <a href="https://data2intelligence.github.io/SpaCET/articles/SpatialCorrelation.html" target="_blank">here</a>
+                  .
+                </p>
+                <br/>
+                <p>
+                  <strong style="color:black">3. What are the normalized Moran’s I values in the "Browse SecActDB" tab?</strong>
+                </p>
+                <p style="color:black">A: In “Explore ST Atlas”, the displayed Moran’s I values are raw values.
+                In contrast, “Browse SecActDB” shows normalized Moran’s I values from our final secreted protein signatures used in SecAct activity inference model.
+                Therefore, the values for the same gene pair may differ slightly between the two tabs.</p>
+                <p style="color:black">During secreted protein signature construction, we normalized bivariate Moran’s I values across genes to make them comparable across spatial transcriptomics (ST) profiles using two steps.
+                (1) Within each ST sample, Moran’s I values for all secreted proteins were mean-centered before constructing composite signatures.
+                (2) When combining signatures for the same secreted protein across ST samples, low-confidence signatures were removed.</p>
+                <br/>
+                <p>
+                  <strong style="color:black">4. Why can't I find my secreted protein or gene of interest in "Browse SecActDB"?</strong>
+                </p>
+                <p style="color:black">
+                  A: The Browse SecActDB module includes only high-confidence relationships between secreted proteins and their downstream targets identified after the filtering steps described in the SecAct 
+                  <a href="https://doi.org/10.1038/s41592-026-03172-0" target="_blank">paper</a>
+                  . If your secreted protein or gene of interest is not available, you can use the "Explore ST Atlas" module to examine its spatial expression patterns across tumor spatial transcriptomics datasets.
+                </p>
+                <br/>
+                <p>
+                  <strong style="color:black">5. Why do I not see a boxplot or spatial landscape for a cancer type in "Explore ST Atlas"?</strong>
+                </p>
+                <p style="color:black">A: Click a bar or heatmap tile to display the corresponding boxplot;
+                then click a dot in the boxplot to visualize the spatial landscape of that feature.</p>
+                <br/>
+                <p>
+                  <strong style="color:black">6. How to infer secreted protein activities for large-scale datasets?</strong>
+                </p>
+                <p style="color:black">
+                  A: Install R package SecAct (
+                  <a href="https://github.com/data2intelligence/SecAct" target="_blank">https://github.com/data2intelligence/SecAct</a>
+                  ) locally and run it on your own data.
+                The package supports large-scale analyses and provides a variety of downstream analysis and visualization modules.
+                </p>
+                <br/>
+                <br/>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane" data-value="&lt;div class=&quot;navibar-text&quot;&gt;&#10;  &lt;i class=&quot;fas fa-download&quot; role=&quot;presentation&quot; aria-label=&quot;download icon&quot;&gt;&lt;/i&gt;&#10;  Download&#10;&lt;/div&gt;" id="tab-1158-6">
+            <div class="container">
+              <div class="col-sm-12">
+                <h4 style="color:black">Data Availability</h4>
+                <br/>
+                <p style="color:black">
+                  The tumor ST atlas comprises 1,258 Visium samples spanning 37 cancer types and is publicly available on Zenodo (
+                  <a href="https://doi.org/10.5281/zenodo.17664022" target="_blank">https://doi.org/10.5281/zenodo.17664022</a>
+                  ).
+                </p>
+                <div class="plotly html-widget html-widget-output shiny-report-size shiny-report-theme html-fill-item" id="bar" style="width:100%;height:400px;"></div>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane" data-value="&lt;div class=&quot;navibar-text&quot;&gt;&#10;  &lt;i class=&quot;far fa-file-lines&quot; role=&quot;presentation&quot; aria-label=&quot;file-lines icon&quot;&gt;&lt;/i&gt;&#10;  Citation&#10;&lt;/div&gt;" id="tab-1158-7">
+            <div class="container">
+              <div class="col-sm-12">
+                <h4 style="color:black">Cite Our Papers</h4>
+                <br/>
+                <p style="color:black; margin-bottom:16px;">
+                  <strong>If you use SecAct in your research, please cite:</strong>
+                </p>
+                <p style="color:black">
+                  <strong>
+                    <a href="https://doi.org/10.1038/s41592-026-03172-0" target="_blank">Inference of secreted protein activities in intercellular communication</a>
+                  </strong>
+                </p>
+                <p style="color:black">Beibei Ru*, Lanqi Gong*, Emily Yang*, Seongyong Park*, George Zaki, Kenneth Aldape, Lalage Wakefield, Peng Jiang</p>
+                <p style="color:black"><u><i>Nature Methods</i></u> (2026)</p>
+                <br/>
+                <br/>
+                <p style="color:black; margin-bottom:16px;">
+                  <strong>If you use spatial variable genes, cell type fractions, or hallmark, pathway or biological process gene set scores generated by SpaCET, please also cite:</strong>
+                </p>
+                <p style="color:black">
+                  <strong>
+                    <a href="https://doi.org/10.1038/s41467-023-36062-6" target="_blank">Estimation of cell lineages in tumors from spatial transcriptomics data</a>
+                  </strong>
+                </p>
+                <p style="color:black">Beibei Ru*, Jinlin Huang*, Yu Zhang, Kenneth Aldape, Peng Jiang</p>
+                <p style="color:black"><u><i>Nature Communications</i></u> (2023)</p>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane" data-value="&lt;div class=&quot;navibar-text&quot;&gt;&#10;  &lt;i class=&quot;far fa-envelope&quot; role=&quot;presentation&quot; aria-label=&quot;envelope icon&quot;&gt;&lt;/i&gt;&#10;  Contact&#10;&lt;/div&gt;" id="tab-1158-8">
+            <div class="container">
+              <div class="col-sm-12">
+                <h4 style="color:black">Scientific Problems</h4>
+                <br/>
+                <p style="color:black">We welcome any suggestions and comments on how to improve our server, please do not hesitate to contact Dr. Peng Jiang: peng.jiang at nih.gov</p>
+                <br/>
+                <br/>
+                <h4 style="color:black">Technical Problems</h4>
+                <br/>
+                <p style="color:black">If you have any questions regarding the usage of our server and the interpretation of results, please contact Dr. Beibei Ru: beibei.ru at nih.gov</p>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </body>
+    
+</div>
+<!-- End Main Content -->
+
+<!-- Footer -->
+
+   <footer class="eventsreg-footer" style="background-color: #336699; ">
+
+        <div class="container">
+           <div class="row">
+
+            <div class="col-md-8">
+              <h3 style="color:#ffffff">About</h3>
+              <ul class="list-unstyled links">
+                <li><a target="_blank" href="https://ccr.cancer.gov/staff-directory/peng-jiang">Peng Jiang's Group</a></li>
+                <li><a target="_blank" href="https://ccr.cancer.gov/cancer-data-science-laboratory">Cancer Data Science Laboratory</a></li>
+                <li><a target="_blank" href="https://ccr.cancer.gov">Center for Cancer Research</a></li>
+              </ul>
+            </div>
+
+            <div class="col-md-4">
+              <h3 style="color:#ffffff">Policies</h3>
+              <ul class="list-unstyled links">
+                <li><a target="_blank" href="https://www.cancer.gov/policies/accessibility">Accessibility</a></li>
+                <li><a target="_blank" href="https://www.cancer.gov/policies/foia">FOIA</a></li>
+                <li><a target="_blank" href="https://www.cancer.gov/policies/privacy-security">Privacy & Security</a></li>
+                <li><a target="_blank" href="https://www.cancer.gov/policies/disclaimer">Disclaimers</a></li>
+                <li><a target="_blank" href="https://www.hhs.gov/vulnerability-disclosure-policy/index.html">Vulnerability Disclosure</a></li>
+              </ul>
+            </div>
+
+          </div>
+        </div>
+   </footer>
+
+   <footer class="eventsreg-footer">
+        <div class="container">
+           <div class="row">
+
+            <div class="col-md-8">
+                <div class="nci-large">National Cancer Institute</div>
+                <div class="nci-small">at the National Institutes of Health</div>
+
+                <h3 style="color:#ffffff">Follow us</h3>
+                <ul class="list-unstyled social">
+                    <li>
+                     <a target="_blank" href="https://www.linkedin.com/company/nationalcancerinstitute" title="Linkedin">
+                         <div class="icon-container">
+                         <i class="fa-brands fa-linkedin-in"></i>
+                         </div>
+                    </a>
+                    </li>
+                    <li>
+                     <a target="_blank" href="https://x.com/theNCI" title="X">
+                         <div class="icon-container">
+                         <i class="fa-brands fa-x-twitter"></i>
+                         </div>
+                    </a>
+                    </li>
+                </ul>
+            </div>
+
+
+            <div class="col-md-4">
+              <h3 style="color:#ffffff">Organization</h3>
+              <ul class="list-unstyled links">
+
+                <li><a href="https://www.hhs.gov/" title="HHS" target="_blank">U.S. Department of Health and Human Services</a></li>
+                <li><a href="https://www.nih.gov/" title="NIH" target="_blank">National Institutes of Health</a></li>
+                <li><a href="https://www.cancer.gov/" title="NCI" target="_blank">National Cancer Institute</a></li>
+                <li><a href="https://www.usa.gov/" title="USA" target="_blank">USA.gov</a></li>
+                <li>&nbsp;</li>
+              </ul>
+            </div>
+          </div>
+
+
+        </div>
+   </footer>
+
+<!-- End Footer -->
+
+
+
+</div>
+</body>
+</html>
+
+
+
+
+
+  </div>
+</body>
+</html>

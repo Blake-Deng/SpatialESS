@@ -1,0 +1,39 @@
+Wrote /home/dzf/cellchat_acceleration/releases/SpatialESS_compatibility_20260911/work/SpatialESS-SPARKLE/examples/minimal/demo_sparkle.h5ad: (24, 4)
+$source_h5ad
+[1] "/home/dzf/cellchat_acceleration/releases/SpatialESS_compatibility_20260911/work/SpatialESS-SPARKLE/examples/minimal/demo_sparkle.h5ad"
+
+$normalization
+[1] "log1p_cp10k"
+
+$exported_genes
+[1] 2
+
+$cells
+[1] 24
+
+$groups
+[1] 2
+
+$computable_lr
+[1] 1
+
+$excluded_lr
+[1] 0
+
+$lr_missing
+[1] "filter"
+
+$bundle
+[1] "/home/dzf/cellchat_acceleration/releases/SpatialESS_compatibility_20260911/work/SpatialESS-SPARKLE/examples/minimal/output/bundle"
+
+  lr_index sender_group receiver_group probability pvalue active_edges
+1        1            1              1  0.04305197    0.0           27
+2        1            1              2  0.03375059    0.9            6
+3        1            2              1  0.03211244    1.0           70
+4        1            2              2  0.04260231    0.0           24
+  interaction_name ligand receptor sender_group_name receiver_group_name
+1              L_R      L        R          Receiver            Receiver
+2              L_R      L        R          Receiver              Sender
+3              L_R      L        R            Sender            Receiver
+4              L_R      L        R            Sender              Sender
+Demo completed: /home/dzf/cellchat_acceleration/releases/SpatialESS_compatibility_20260911/work/SpatialESS-SPARKLE/examples/minimal/output/demo_records.tsv

@@ -32,13 +32,28 @@ remotes::install_github("Blake-Deng/SpatialESS")
 library(Matrix)
 library(SpatialESS)
 
+# Load the database from the package used in the V3 comparison.
+# If a database is already loaded, use that SAME object for all three tables.
+db_env <- new.env()
+data("CellChatDB.human", package = "SpatialCellChat", envir = db_env)
+db <- db_env$CellChatDB.human
+
+# expression: normalized signaling-gene x cell dgCMatrix, with gene symbols.
+# Keep the complete signaling matrix; do not subset it to selected LR genes.
+coverage <- filter_cellchat_lr(
+  lr = db$interaction, genes = rownames(expression),
+  complex = db$complex, cofactor = db$cofactor
+)
+write.csv(coverage$audit, "lr_coverage.csv", row.names = FALSE)
+write.csv(coverage$missing_genes, "lr_missing_genes.csv", row.names = FALSE)
+
 result <- spatialess(
   expression = expression,
   coordinates = coordinates,
   group = cell_type,
-  lr = CellChatDB.human$interaction,
-  complex = CellChatDB.human$complex,
-  cofactor = CellChatDB.human$cofactor,
+  lr = coverage$lr,
+  complex = db$complex,
+  cofactor = db$cofactor,
   tol = 5, interaction.range = 30,
   contact.range = 10,
   nboot = 100,
@@ -47,6 +62,45 @@ result <- spatialess(
 
 head(result$records)
 ```
+
+Targeted Xenium/CosMx panels do not measure every gene in CellChatDB. Missing
+ligand/receptor genes or any required complex subunit must be reported before
+inference. The filter preserves LR order and checks gene presence; it does not
+test overexpression, spatial variability, or significance. Cofactors retain
+the existing available-gene handling and are reported separately when missing.
+Zero-expression gene rows remain measured genes. Do not fill unmeasured genes
+with invented expression values. A runnable, database-free example is in
+[`examples/lr_panel_example.R`](examples/lr_panel_example.R).
+
+Alternatively, pass the full interaction table and explicitly set
+`lr_missing = "filter"` in `spatialess()`. Exclusions produce a warning; the
+report is saved in `result$lr_filter$audit`, `$excluded`, and `$missing_genes`.
+The default `lr_missing = "error"` retains strict behavior, with an actionable
+diagnostic. Calling the filter alone does not modify the original database:
+you must pass `coverage$lr` into inference.
+
+For official numerical fidelity comparisons, use the same prepared signaling
+expression matrix, selected LR, complex/cofactor tables, coordinates, group
+order, seed and parameters in both engines. Official V3 can additionally
+select spatially variable LR; its selected `chat@LR$LRsig` can be used directly.
+Coverage-filtered candidates are not equivalent to this additional selection.
+V3 refers to the workflow generation; the benchmark SpatialCellChat package
+reports version 0.1.0. This does not certify every CellChat 2.x database version.
+
+Version 0.1.3 retains the panel-coverage interface and fixes the official V3
+percentage-filter boundary in both observed scores and permutations. It uses
+the official `format(..., digits = 1)` comparison on the small group-level
+fraction table, rather than comparing unrounded fractions. This can intentionally
+change results from 0.1.2 when `min.percent > 0`. See
+[`RELEASE_STATUS.md`](RELEASE_STATUS.md) for local checks and regression evidence.
+
+`spatialess()` does not run ALRA or MERINGUE internally. Official
+`preProcessing()` performs ALRA and overwrites `chat@data.signaling`; if used,
+pass that same resulting matrix and selected `chat@LR$LRsig` to SpatialESS.
+Official `computeCommunProb()` produces cell-level results; run
+`computeAvgCommunProb()` before comparing group-level probabilities and p-values.
+Missing output stages must not be counted as valid zero results. See
+[`docs/V3_COMPATIBILITY.md`](docs/V3_COMPATIBILITY.md).
 
 ## Main validation evidence
 
@@ -68,9 +122,13 @@ provenance are in docs/MAIN_VALIDATION.md.
 - CosMx Cancerous Liver: paired official/SpatialESS comparisons from 250
   through 50,000 cells, with SpatialESS-only continuation to larger scales.
 
-Across completed paired comparisons, active-record Jaccard was 1, probability
+Across the historical completed paired comparisons at their recorded settings,
+active-record Jaccard was 1, probability
 differences were at floating-point scale, p-values agreed exactly where
-reported, and no significance threshold calls differed.
+reported, and no significance threshold calls differed. These historical
+results do not certify every parameter combination: the subsequent cervical
+external test exposed a default percentage-filter mismatch in 0.1.2. Its
+failure evidence is retained separately from the 0.1.3 acceptance tests.
 
 ### Multi-patient linear mixed model
 

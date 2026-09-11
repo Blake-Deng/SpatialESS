@@ -1,0 +1,9 @@
+ℹ Create a SpatialCellChat object from a data matrixCreate a SpatialCellChat object from spatial imaging data... 
+Set cell identities for the new SpatialCellChat object 
+The cell groups used for SpatialCellChat analysis are  B Cholangiocyte Endothelial Erythrocyte Fibroblast Hepatocyte Macrophage NK T.alpha.beta T.gamma.delta Tumor_boundary Tumor_core 
+>>>  Analyzing spatial transcriptomic data and preferring to infer interactions between individual cells...
+>>>  Apply a predefined spatial distance threshold based on the interaction length(=30um)...
+>>> Contact range is set as 10um, to restrict the contact-dependent signaling.
+>>> Run CellChat on spatial transcriptomic data using distances as constraints <<< [2026-09-06 22:32:47.00314]
+>>>  The input L-R pairs have both secreted signaling and contact-dependent signaling. Run CellChat in a contact-dependent manner for `Cell-Cell Contact` signaling, and in a diffusion manner based on the `interaction.range` for other L-R pairs. 
+ℹ Future strategy in use: `sequential`

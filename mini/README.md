@@ -8,15 +8,17 @@ public dataset.
 
 ## Run
 
-Install the main package from the sibling repository first:
+From this mini directory, install the parent package first:
 
 ```bash
-R CMD INSTALL ../SpatialESS
+R CMD INSTALL ..
 ./run.sh
 ```
 
-The script checks the sparse triMean and LR probability against a direct
-CellChat reference. It exits non-zero if either maximum difference exceeds
+The script requires the official SpatialCellChat package. It checks sparse
+triMean and group molecular scoring against its corresponding helper functions
+(not a fresh full official SpatialCellChat inference run).
+It exits non-zero if either maximum difference exceeds
 1e-14 and writes `spatialess_mini_records.tsv` on success.
 
 ## What is demonstrated
@@ -32,9 +34,22 @@ The full patient-level workflow is available in the main package:
 
 ```r
 prepared <- prepare_multisample_communication(
-  sample_results, sample_metadata, unit = "patient"
+  sample_results, sample_metadata, unit = "sample"
 )
-glm_result <- fit_multisample_communication_glm(
-  prepared, design = ~ condition, coefficient = "conditiondisease"
+lmm_result <- fit_multisample_communication_lmm(
+  prepared, design = ~ condition,
+  coefficient = "conditiondisease", patient_col = "patient_id"
 )
 ```
+
+For the real-data LR interface regression, run from the repository root:
+
+```bash
+Rscript benchmarks/verify_lr_interface_mini.R .
+```
+
+This uses the bundled cervical 1k fixture and full-precision expected RDS
+from dimension-patched official V3 (percentage filtering unmodified), not
+an ESS-generated expected result. It covers the 8/82 percentage boundary.
+This real-data mini does not require the SpatialCellChat package: its database
+is embedded in the fixture.

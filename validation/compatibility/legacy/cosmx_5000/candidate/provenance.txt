@@ -1,0 +1,3 @@
+fixture /data/dzf/SecAct_2026/results/spatialcellchat_v3_headtohead/secact_cosmx_v3_common_fixture.rds
+library /home/dzf/cellchat_acceleration/releases/SpatialESS_compatibility_20260911/lib_new/SpatialESS
+version 0.1.3

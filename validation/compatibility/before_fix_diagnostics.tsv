@@ -1,0 +1,6 @@
+condition	execution	official_formula_unchanged_except_dimensions	reference_active	ess_active	reference_significant_lt_005	ess_significant_lt_005	active_jaccard	max_abs_probability_difference	pvalue_exact_fraction	significance_disagreements	status
+official_normalized	completed	True	57	56	31	32	0.982456140350877	1.38777878078145e-17	NA	3	fidelity_fail
+official_alra_meringue	completed	True	232	230	123	125	0.991379310344828	2.08166817117217e-17	NA	2	fidelity_fail
+numeric_normalized	completed	False	56	56	32	32	1	1.38777878078145e-17	1	0	diagnostic_only_match
+numeric_alra_meringue	completed	False	230	230	125	125	1	2.08166817117217e-17	1	0	diagnostic_only_match
+relaxed_normalized	completed	True	364	364	150	150	1	2.77555756156289e-17	1	0	fidelity_pass

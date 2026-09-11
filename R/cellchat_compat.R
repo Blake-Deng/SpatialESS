@@ -67,6 +67,9 @@ prepare_cellchat_lr_components <- function(lr, genes, complex, cofactor,
                                            ligand_col = "ligand",
                                            receptor_col = "receptor") {
   required <- c(ligand_col, receptor_col)
+  if (nrow(lr) == 0L) {
+    stop("No LR records supplied; filter_cellchat_lr() can diagnose measured gene coverage.", call. = FALSE)
+  }
   if (!all(required %in% colnames(lr))) {
     stop("lr is missing ligand or receptor columns.", call. = FALSE)
   }
@@ -93,9 +96,9 @@ prepare_cellchat_lr_components <- function(lr, genes, complex, cofactor,
   receptor <- lapply(lr[[receptor_col]], resolve_complex)
   valid <- lengths(ligand) > 0L & lengths(receptor) > 0L
   if (any(!valid)) {
-    bad <- which(!valid)
-    stop(sprintf("%d LR records have unresolved ligand/receptor components (first row: %d).",
-                 length(bad), bad[[1L]]), call. = FALSE)
+    .spatialess_lr_error(.spatialess_lr_audit(
+      lr, genes, complex, cofactor, ligand_col, receptor_col
+    ))
   }
 
   get_column <- function(name) {

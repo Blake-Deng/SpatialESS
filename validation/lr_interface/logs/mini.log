@@ -1,0 +1,6 @@
+Warning message:
+Excluded 2158 of 3234 LR records with incomplete ligand/receptor components; retained 1076. See $audit and $missing_genes (or result$lr_filter when lr_missing = 'filter'). 
+Warning message:
+Excluded 2158 of 3234 LR records with incomplete ligand/receptor components; retained 1076. See $audit and $missing_genes (or result$lr_filter when lr_missing = 'filter'). 
+Error: max(abs(expected$probability - r$probability)) <= 1e-15 is not TRUE
+Execution halted

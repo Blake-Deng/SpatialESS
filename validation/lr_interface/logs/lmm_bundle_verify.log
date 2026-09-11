@@ -1,0 +1,6 @@
+
+ convergence_warning insufficient_nonzero    numerical_failure 
+                1984                 8194                  292 
+                  ok 
+               39570 
+PASS: 50,040 features; complete cohort; global BH; exclusions; baseline agreement.

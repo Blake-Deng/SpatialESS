@@ -7,7 +7,10 @@
 ^SpatialESS_[0-9].*\.tar\.gz$
 ^benchmarks/.*\.(html|json|rds|RDS)$
 ^figures/__pycache__$
-^benchmarks/results(/|$)
+^validation(/|$)
 ^results(/|$)
-^.*\.Rcheck$
-^src/.*\.(o|so)$
+^SHA256SUMS\.txt$
+^RELEASE_STATUS\.md$
+^examples$
+^mini$
+^LMM_RESULTS_20260907_SHA256SUMS\.txt$

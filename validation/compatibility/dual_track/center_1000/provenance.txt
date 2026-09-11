@@ -1,0 +1,5 @@
+Official V3 commit be88f300464cf970b36a6165ea7d2e41a47a7511
+Only official source patch: dims=c(NC,NC)
+SpatialESS /home/dzf/cellchat_acceleration/releases/SpatialESS_compatibility_20260911/lib_new/SpatialESS
+Cell stage 8 workers, group stage sequential, BLAS/OMP 1; shared-server timing
+Group labels are public clusters, not collaborator biological annotations

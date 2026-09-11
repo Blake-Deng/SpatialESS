@@ -1,0 +1,5 @@
+case	cells	original_rows	original_cols	patched_rows	distance_entries_identical	original_complete_shape	patched_complete_shape
+center_1000	1000	1000	1000	1000	TRUE	TRUE	TRUE
+center_5000	5000	5000	5000	5000	TRUE	TRUE	TRUE
+stratified_1000	1000	927	927	1000	TRUE	FALSE	TRUE
+stratified_5000	5000	5000	5000	5000	TRUE	TRUE	TRUE

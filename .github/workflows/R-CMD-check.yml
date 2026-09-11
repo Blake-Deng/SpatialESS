@@ -10,6 +10,9 @@ jobs:
     runs-on: ubuntu-latest
     env:
       _R_CHECK_FORCE_SUGGESTS_: "false"
+      OMP_NUM_THREADS: "1"
+      OPENBLAS_NUM_THREADS: "1"
+      MKL_NUM_THREADS: "1"
     steps:
       - uses: actions/checkout@v4
 
@@ -27,3 +30,11 @@ jobs:
       - uses: r-lib/actions/check-r-package@v2
         with:
           args: 'c("--no-manual", "--no-build-vignettes")'
+          error-on: '"warning"'
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: R-check-logs
+          path: check
+          if-no-files-found: ignore

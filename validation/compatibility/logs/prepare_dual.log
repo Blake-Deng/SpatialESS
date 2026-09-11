@@ -1,0 +1,4 @@
+{'case': 'center_1000', 'cells': 1000, 'groups': 13, 'edges_directed': 23654, 'isolated_cells': 0, 'original_inferred_dimension': 1000, 'min_distance_um': 3.609987050136259, 'nested': True, 'order': 'original matrix index'}
+{'case': 'center_5000', 'cells': 5000, 'groups': 14, 'edges_directed': 149990, 'isolated_cells': 0, 'original_inferred_dimension': 5000, 'min_distance_um': 2.329210936979191, 'nested': True, 'order': 'original matrix index'}
+{'case': 'stratified_1000', 'cells': 1000, 'groups': 23, 'edges_directed': 46, 'isolated_cells': 954, 'original_inferred_dimension': 927, 'min_distance_um': 5.44908891201865, 'nested': True, 'order': 'submitted barcode order'}
+{'case': 'stratified_5000', 'cells': 5000, 'groups': 23, 'edges_directed': 1142, 'isolated_cells': 3985, 'original_inferred_dimension': 5000, 'min_distance_um': 3.832832517563853, 'nested': True, 'order': 'submitted barcode order'}

@@ -157,6 +157,27 @@ void add_edge(std::unordered_map<std::uint64_t, Aggregate>& aggregate,
   item.count += 1.0;
 }
 
+LogicalMatrix v3_percent_mask(const std::vector<int>& ligand_positive,
+                             const std::vector<int>& receptor_positive,
+                             const std::vector<int>& group_sizes,
+                             double min_percent,
+                             const Function& filter) {
+  const int groups = static_cast<int>(group_sizes.size());
+  LogicalMatrix mask(groups, 2);
+  // All formatted non-negative fractions pass the zero threshold in V3.
+  if (min_percent == 0.0) {
+    std::fill(mask.begin(), mask.end(), true);
+    return mask;
+  }
+  NumericMatrix positive(groups, 2);
+  for (int g = 0; g < groups; ++g) {
+    positive(g, 0) = ligand_positive[static_cast<std::size_t>(g)];
+    positive(g, 1) = receptor_positive[static_cast<std::size_t>(g)];
+  }
+  // Format only the small group-level table, never a cell-by-cell matrix.
+  return filter(positive, wrap(group_sizes), min_percent);
+}
+
 }  // namespace
 
 // [[Rcpp::export]]
@@ -225,6 +246,8 @@ List spatialess_stream_cpp(
   const double self_spatial_weight = 1.0 / (minimum_distance * scale_distance);
   const double Kh_n = std::pow(Kh, n_power);
   const int nboot = permutations.ncol();
+  const Environment package = Environment::namespace_env("SpatialESS");
+  const Function percent_filter = package[".spatialess_v3_percent_mask"];
 
   std::vector<int> lr_out, sender_group_out, receiver_group_out;
   std::vector<double> probability_out, pvalue_out, edge_count_out;
@@ -356,14 +379,16 @@ List spatialess_stream_cpp(
 
     std::vector<std::uint64_t> keys;
     keys.reserve(observed.size());
+    LogicalMatrix observed_percent(group_count, 2);
+    if (!observed.empty()) {
+      observed_percent = v3_percent_mask(ligand_positive, receptor_positive,
+                                        group_sizes, min_percent, percent_filter);
+    }
     for (const auto& item : observed) {
       const int sender_group = key_sender(item.first);
       const int receiver_group = key_receiver(item.first);
-      const bool percent_ok =
-        static_cast<double>(ligand_positive[static_cast<std::size_t>(sender_group)]) /
-          group_sizes[static_cast<std::size_t>(sender_group)] >= min_percent &&
-        static_cast<double>(receptor_positive[static_cast<std::size_t>(receiver_group)]) /
-          group_sizes[static_cast<std::size_t>(receiver_group)] >= min_percent;
+      const bool percent_ok = observed_percent(sender_group, 0) &&
+        observed_percent(receiver_group, 1);
       const bool cells_ok =
         sender_group_links[static_cast<std::size_t>(sender_group)] >= min_cells_sr &&
         receiver_group_links[static_cast<std::size_t>(receiver_group)] >= min_cells_sr;
@@ -403,15 +428,17 @@ List spatialess_stream_cpp(
                  boot_group[static_cast<std::size_t>(edge.receiver)],
                  edge.probability);
       }
+      LogicalMatrix boot_percent(group_count, 2);
+      if (!keys.empty()) {
+        boot_percent = v3_percent_mask(boot_ligand_positive, boot_receptor_positive,
+                                      boot_group_sizes, min_percent, percent_filter);
+      }
       for (std::size_t index = 0; index < keys.size(); ++index) {
         const std::uint64_t key = keys[index];
         const int sender_group = key_sender(key);
         const int receiver_group = key_receiver(key);
-        const bool percent_ok =
-          static_cast<double>(boot_ligand_positive[static_cast<std::size_t>(sender_group)]) /
-            boot_group_sizes[static_cast<std::size_t>(sender_group)] >= min_percent &&
-          static_cast<double>(boot_receptor_positive[static_cast<std::size_t>(receiver_group)]) /
-            boot_group_sizes[static_cast<std::size_t>(receiver_group)] >= min_percent;
+        const bool percent_ok = boot_percent(sender_group, 0) &&
+          boot_percent(receiver_group, 1);
         const bool cells_ok =
           boot_sender_links[static_cast<std::size_t>(sender_group)] >= min_cells_sr &&
           boot_receiver_links[static_cast<std::size_t>(receiver_group)] >= min_cells_sr;

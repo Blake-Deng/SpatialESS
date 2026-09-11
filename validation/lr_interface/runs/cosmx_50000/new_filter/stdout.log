@@ -1,0 +1,7 @@
+           used  (Mb) gc trigger  (Mb) max used  (Mb)
+Ncells  2111638 112.8    3534554 188.8  3534554 188.8
+Vcells 63657374 485.7   99616122 760.1 72305245 551.7
+   case cells       mode version genes groups  lr nboot     seed
+1 cosmx 50000 new_filter   0.1.2   419     12 373    20 20260803
+  inference_and_filter_seconds graph_edges active significant    status
+1                       13.264      904992  18484       14217 completed

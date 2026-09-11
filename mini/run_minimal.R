@@ -1,7 +1,7 @@
 #!/usr/bin/env Rscript
 
 suppressPackageStartupMessages({
-  library(CellChat)
+  library(SpatialCellChat)
   library(SpatialESS)
 })
 
@@ -59,28 +59,28 @@ observed <- score_cellchat_group_support(
 
 normalized <- expression / max(expression@x)
 reference_average <- aggregate(
-  t(as.matrix(normalized)), list(group), FUN = CellChat::triMean
+  t(as.matrix(normalized)), list(group), FUN = SpatialCellChat::triMean
 )
 reference_average <- t(reference_average[, -1, drop = FALSE])
 colnames(reference_average) <- levels(group)
 rownames(reference_average) <- rownames(expression)
 
-ligand <- CellChat::computeExpr_LR(lr$ligand, reference_average, complex)
-receptor <- CellChat::computeExpr_LR(lr$receptor, reference_average, complex)
-co_a <- CellChat::computeExpr_coreceptor(
+ligand <- SpatialCellChat::computeExpr_LR(lr$ligand, reference_average, complex)
+receptor <- SpatialCellChat::computeExpr_LR(lr$receptor, reference_average, complex)
+co_a <- SpatialCellChat::computeExpr_coreceptor(
   cofactor, reference_average, lr, type = "A"
 )
-co_i <- CellChat::computeExpr_coreceptor(
+co_i <- SpatialCellChat::computeExpr_coreceptor(
   cofactor, reference_average, lr, type = "I"
 )
 receptor <- receptor * co_a / co_i
 product <- Matrix::crossprod(matrix(ligand, nrow = 1),
                              matrix(receptor, nrow = 1))
 p1 <- product / (0.5 + product)
-agonist <- CellChat::computeExpr_agonist(
+agonist <- SpatialCellChat::computeExpr_agonist(
   reference_average, lr, cofactor, index.agonist = 1, Kh = 0.5, n = 1
 )
-antagonist <- CellChat::computeExpr_antagonist(
+antagonist <- SpatialCellChat::computeExpr_antagonist(
   reference_average, lr, cofactor, index.antagonist = 1, Kh = 0.5, n = 1
 )
 reference_probability <- p1 *

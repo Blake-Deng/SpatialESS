@@ -1,0 +1,2 @@
+method	dataset	cells	signaling_genes	groups	lr	panel	nperm	radius_um	tol_um	contact_um	scale_distance	minimum_nonzero_distance_um	preparation_seconds	individual_or_stream_seconds	group_permutation_seconds	end_to_end_seconds	graph_edges	stored_active_links	active_group_lr_records	significant_p_0_05
+spatialcellchat_v3	Bruker/NanoString CosMx SMI CancerousLiver	10000	419	12	373	full	20	30	5	10	20	4.24094329129717	0.0920000000000005	1509.367	788.215	2305.848	NA	174758	3911	2069

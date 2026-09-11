@@ -27,7 +27,8 @@ spatialess(
   seed.use = 1L,
   max_edges = 5e+08,
   max_output_records = 1e+08,
-  max_active_edges_per_lr = 5e+08
+  max_active_edges_per_lr = 5e+08,
+  lr_missing = c("error", "filter")
 )
 }
 \arguments{
@@ -60,6 +61,15 @@ spatialess(
 \item{nboot, seed.use}{Global label-permutation settings.}
 
 \item{max_edges, max_output_records, max_active_edges_per_lr}{Memory guards.}
+
+\item{lr_missing}{How to handle incomplete mandatory LR genes: `"error"`
+(default) preserves strict checking; `"filter"` explicitly excludes
+incomplete LR with a warning and stores the full audit in `$lr_filter`.}
+}
+\value{
+A SpatialESSResult with records, LR table, CSR graph, diagnostics
+  and parameters. When `lr_missing = "filter"`, `lr_filter` contains the
+  original-order coverage audit, excluded rows and missing-gene table.
 }
 \description{
 Reproduces the individual-cell probability and group-average ordering used

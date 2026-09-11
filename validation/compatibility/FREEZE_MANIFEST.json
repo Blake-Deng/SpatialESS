@@ -1,0 +1,19 @@
+{
+  "frozen_release": "0.1.2",
+  "candidate_version": "0.1.3",
+  "official_commit": "be88f300464cf970b36a6165ea7d2e41a47a7511",
+  "reference_policy": "Original official retained; dimensions-only patch separately identified",
+  "existing_worktree_policy": "User worktrees untouched; edits only in extracted candidate",
+  "artifacts": [
+    {
+      "source": "/home/dzf/cellchat_acceleration/releases/SpatialESS_main_SPARKLE_20260910/SpatialESS-main-v0.1.2-github.zip",
+      "frozen": "/home/dzf/cellchat_acceleration/releases/SpatialESS_compatibility_20260911/baseline/SpatialESS-main-v0.1.2-github.zip",
+      "sha256": "06c8193f076a27efd30ed8b301448188a9c9ecf1b68b5c2d9876606016105732"
+    },
+    {
+      "source": "/home/dzf/cellchat_acceleration/releases/SpatialESS_main_SPARKLE_20260910/SpatialESS-SPARKLE-v0.1.2-github.zip",
+      "frozen": "/home/dzf/cellchat_acceleration/releases/SpatialESS_compatibility_20260911/baseline/SpatialESS-SPARKLE-v0.1.2-github.zip",
+      "sha256": "506e124dc3908514ce419b8cc59b29c4f8e8bc5d661b92473701283259be541f"
+    }
+  ]
+}
