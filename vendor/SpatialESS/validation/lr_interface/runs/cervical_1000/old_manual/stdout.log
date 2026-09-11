@@ -1,0 +1,7 @@
+          used (Mb) gc trigger  (Mb) max used  (Mb)
+Ncells 1667656 89.1    2781082 148.6  2318276 123.9
+Vcells 4869909 37.2   12446652  95.0 12446652  95.0
+      case cells       mode version genes groups   lr nboot seed
+1 cervical  1000 old_manual   0.1.1  5101     23 1076   100    1
+  inference_and_filter_seconds graph_edges active significant    status
+1                        1.716          56     51          28 completed

@@ -8,6 +8,18 @@ independent upstream method for evidence-constrained correction of local RNA
 leakage. This project integrates the two tools without claiming the SPARKLE
 correction model as a SpatialESS contribution.
 
+Version 0.1.3 bundles the **same SpatialESS 0.1.3 engine as main**, including
+the LR coverage interface and multi-patient GLM/LMM code. It adds an H5AD
+bridge before that engine; it does not introduce a second inference model.
+No separate checkout of the main repository is required. The conda environment
+pins the upstream SPARKLE installation; its correction model is unchanged.
+See [release checks and numerical regression](RELEASE_STATUS.md).
+
+The 0.1.3 engine repairs official V3 percentage filtering in both observed
+scores and permutations. The SPARKLE model and H5AD conversion are unchanged.
+Near a nonzero `min.percent` boundary, results may differ intentionally from
+0.1.2. See [the shared compatibility contract](vendor/SpatialESS/docs/V3_COMPATIBILITY.md).
+
 ## What this repository provides
 
 - `spatialess_from_h5ad()`: one-call conversion and SpatialESS inference.
@@ -66,16 +78,21 @@ conda activate spatialess-sparkle
 Rscript scripts/install.R .
 ```
 
-The environment provides the Python dependencies for the H5AD bridge. SPARKLE itself is an upstream tool and is run before this package. CellChat is optional for
-the minimal example, but is required when using `CellChatDB.human` and automatic
-database gene extraction.
+The environment provides the Python dependencies and the pinned upstream
+SPARKLE package, which is run before this bridge. The minimal example needs
+neither CellChat nor SpatialCellChat. For the default command-line database,
+install [SpatialCellChat](https://github.com/jinworks/SpatialCellChat).
+The R API also accepts existing compatible database tables. Its legacy
+`gene_list = NULL` path uses CellChat solely to extract database gene names;
+passing an explicit `gene_list` avoids that optional dependency. Database
+versions and normalization gene sets must be frozen for numerical comparisons.
 
 ## Minimal reproducible example
 
 ```bash
 PYTHON="$(command -v python)" \
 RSCRIPT="$(command -v Rscript)" \
-./examples/minimal/run_demo.sh
+bash examples/minimal/run_demo.sh
 ```
 
 The example creates a sparse SPARKLE-like H5AD, converts it, runs one synthetic
@@ -98,11 +115,15 @@ Rscript scripts/run_spatialess_from_h5ad.R \
 The command uses `CellChatDB.human`, 100 permutations and seed 1. For explicit
 control over the database and SpatialESS parameters, use the R API:
 
+If R and Python are in different environments, prefix the command with
+`PYTHON=/absolute/path/to/python`; that interpreter must have the bridge
+dependencies installed.
+
 ```r
-library(CellChat)
+library(SpatialCellChat)
 library(SpatialESSSPARKLE)
 
-data(CellChatDB.human, package = "CellChat")
+data(CellChatDB.human, package = "SpatialCellChat")
 
 result <- spatialess_from_h5ad(
   h5ad = "corrected.h5ad",
@@ -111,6 +132,8 @@ result <- spatialess_from_h5ad(
   lr = CellChatDB.human$interaction,
   complex = CellChatDB.human$complex,
   cofactor = CellChatDB.human$cofactor,
+  gene_list = SpatialCellChat::extractGene(CellChatDB.human),
+  lr_missing = "filter",
   normalization = "log1p_cp10k",
   nboot = 100L,
   seed.use = 1L
@@ -118,7 +141,24 @@ result <- spatialess_from_h5ad(
 
 head(result$records)
 result$bridge
+result$lr_filter$audit
+result$lr_filter$missing_genes
 ```
+
+Incomplete ligand/receptor complexes require **all** mandatory subunits.
+Excluded LR produce a warning and remain listed in the audit, with original
+input-row indices and missing genes. With `output_dir` set, the bridge also
+writes `lr_audit.tsv` and `lr_missing_genes.tsv`. Cofactor absences are reported
+separately and keep the established optional-gene behavior. Use
+`lr_missing = "error"` for strict checking. The bridge retains its prior
+filtering default; the standalone main API retains its strict default.
+The older `filter_unresolved` option remains supported.
+
+For main-versus-bridge comparisons, use the **same exported matrix** from
+`read_spatialess_bundle()`, LR, labels, coordinates, parameters and seed. Do
+not remove extra signaling rows after export: they can set the normalization
+maximum in inference. RAW and corrected inputs can produce different results;
+that is separate from software numerical fidelity.
 
 ## External annotation
 
@@ -140,6 +180,8 @@ result <- spatialess_from_h5ad(
   lr = CellChatDB.human$interaction,
   complex = CellChatDB.human$complex,
   cofactor = CellChatDB.human$cofactor,
+  gene_list = SpatialCellChat::extractGene(CellChatDB.human),
+  lr_missing = "filter",
   nboot = 100L,
   seed.use = 1L
 )
@@ -185,7 +227,7 @@ lmm_result <- SpatialESS::fit_multisample_communication_lmm(
 
 The model is `log1p(score) ~ condition + (1 | patient)`. It retains multiple slices per patient and accounts for within-patient correlation. A simple slice-level GLM is included as a comparator. Status values distinguish valid fits, singular boundary fits, convergence warnings, numerical failures and features with too few nonzero slices. Convergence-warning and failed fits are excluded from FDR.
 
-The bundled engine includes the completed 2026-09-07 robust GSE250346 rerun: 45 slices from 35 patients (9 Control, 26 PF), 39,570 valid LMM fits, 1,984 convergence warnings, 292 numerical failures and 8,194 features below the nonzero-slice threshold. There are 5,147 BH-significant LMM features and effect-estimate Spearman rho 0.9966 versus the slice-level GLM. These are Wald-normal screening associations. The cohort validates the downstream engine and is not a SPARKLE-corrected experiment or evidence that correction improves biological truth. Tables and provenance are in [`benchmark/gse250346_lmm/`](benchmark/gse250346_lmm/); see [`docs/LMM_RESULTS_20260907.md`](docs/LMM_RESULTS_20260907.md) and [`docs/REVIEWER_GUIDE.md`](docs/REVIEWER_GUIDE.md) for interpretation.
+The bundled engine contains the frozen GSE250346 validation: 45 slices from 35 patients, 39,570 valid LMM fits, 5,147 FDR-significant features, and Spearman rho 0.9966 between valid LMM and slice-level GLM effect estimates. These cohort results validate the downstream SpatialESS engine; they are not evidence that SPARKLE correction itself improves biological truth. See `docs/MULTISAMPLE_LMM.md` and [`docs/REVIEWER_GUIDE.md`](docs/REVIEWER_GUIDE.md) for the distinction between model diagnostics and software failures.
 
 ## Validation
 

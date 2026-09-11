@@ -1,0 +1,50 @@
+[
+  {
+    "check": "sync_branch",
+    "exit_code": 0
+  },
+  {
+    "check": "install_bridge",
+    "exit_code": 0
+  },
+  {
+    "check": "mini_default",
+    "exit_code": 0
+  },
+  {
+    "check": "main_unit_final",
+    "exit_code": 0
+  },
+  {
+    "check": "bridge_python",
+    "exit_code": 0
+  },
+  {
+    "check": "bridge_unit",
+    "exit_code": 0
+  },
+  {
+    "check": "bridge_demo",
+    "exit_code": 0
+  },
+  {
+    "check": "lmm_bundle",
+    "exit_code": 0
+  },
+  {
+    "check": "SpatialESS_build",
+    "exit_code": 0
+  },
+  {
+    "check": "SpatialESS_check",
+    "exit_code": 0
+  },
+  {
+    "check": "SpatialESSSPARKLE_build",
+    "exit_code": 0
+  },
+  {
+    "check": "SpatialESSSPARKLE_check",
+    "exit_code": 0
+  }
+]

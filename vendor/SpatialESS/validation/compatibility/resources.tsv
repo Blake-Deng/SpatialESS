@@ -1,0 +1,26 @@
+log	wall_time_hms	peak_rss_kib	exceeds_120_GiB	exit_status	scope
+logs/center_1000.time.txt	13:03.64	853768	False	0	paired official+ESS process
+logs/center_5000.time.txt	23:32.98	1178608	False	0	paired official+ESS process
+logs/original_distance.time.txt	0:39.01	957104	False	1	original official dimension-failure audit
+logs/stratified_1000.time.txt	4:40.26	912992	False	0	paired official+ESS process
+logs/stratified_5000.time.txt	18:20.36	1207260	False	0	paired official+ESS process
+validation/bridge/runs/raw_1000/direct_main/time.txt	0:05.31	268816	False	0	isolated engine or bridge process
+validation/bridge/runs/raw_1000/new_bridge/time.txt	0:06.93	293156	False	0	isolated engine or bridge process
+validation/bridge/runs/raw_16247/direct_main/time.txt	0:50.44	310092	False	0	isolated engine or bridge process
+validation/bridge/runs/raw_16247/new_bridge/time.txt	0:54.90	363456	False	0	isolated engine or bridge process
+validation/bridge/runs/raw_5000/direct_main/time.txt	0:16.10	265672	False	0	isolated engine or bridge process
+validation/bridge/runs/raw_5000/new_bridge/time.txt	0:19.35	318148	False	0	isolated engine or bridge process
+validation/bridge/runs/sparkle_1000/direct_main/time.txt	0:05.38	268832	False	0	isolated engine or bridge process
+validation/bridge/runs/sparkle_1000/new_bridge/time.txt	0:07.21	292332	False	0	isolated engine or bridge process
+validation/bridge/runs/sparkle_16247/direct_main/time.txt	0:45.00	311288	False	0	isolated engine or bridge process
+validation/bridge/runs/sparkle_16247/new_bridge/time.txt	0:49.57	351256	False	0	isolated engine or bridge process
+validation/bridge/runs/sparkle_5000/direct_main/time.txt	0:14.90	262112	False	0	isolated engine or bridge process
+validation/bridge/runs/sparkle_5000/new_bridge/time.txt	0:18.60	314692	False	0	isolated engine or bridge process
+validation/legacy/cosmx_1000/baseline/time.txt	0:04.12	728612	False	0	isolated engine or bridge process
+validation/legacy/cosmx_1000/candidate/time.txt	0:05.32	735600	False	0	isolated engine or bridge process
+validation/legacy/cosmx_10000/baseline/time.txt	0:05.48	731536	False	0	isolated engine or bridge process
+validation/legacy/cosmx_10000/candidate/time.txt	0:06.97	742676	False	0	isolated engine or bridge process
+validation/legacy/cosmx_5000/baseline/time.txt	0:04.68	722448	False	0	isolated engine or bridge process
+validation/legacy/cosmx_5000/candidate/time.txt	0:06.20	738412	False	0	isolated engine or bridge process
+validation/legacy/cosmx_50000/baseline/time.txt	0:13.39	891324	False	0	isolated engine or bridge process
+validation/legacy/cosmx_50000/candidate/time.txt	0:14.81	874696	False	0	isolated engine or bridge process

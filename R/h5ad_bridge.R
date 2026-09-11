@@ -147,7 +147,10 @@ read_spatialess_bundle <- function(path) {
 #'   code{CellChat::extractGene()}.
 #' @param output_dir Optional persistent bridge directory.
 #' @param keep_bundle Keep a temporary bridge directory.
-#' @param filter_unresolved Drop LR rows that cannot be computed from the H5AD.
+#' @param filter_unresolved Legacy option: TRUE filters incomplete LR with a
+#'   warning and a full audit; FALSE uses strict checking.
+#' @param lr_missing Explicitly select `"filter"` or `"error"`, as in SpatialESS.
+#'   NULL preserves `filter_unresolved`. Conflicting explicit options are rejected.
 #' @param ... Arguments passed to
 #'   code{SpatialESS::spatialess()}.
 #' @return A code{SpatialESSResult} with bridge diagnostics.
@@ -159,8 +162,21 @@ spatialess_from_h5ad <- function(
     metadata_file = NULL, cell_col = "cell", layer = NULL,
     python = Sys.which("python3"), bridge_script = NULL,
     output_dir = NULL, keep_bundle = FALSE,
-    filter_unresolved = TRUE, ...) {
+    filter_unresolved = TRUE, lr_missing = NULL, ...) {
   normalization <- match.arg(normalization)
+  if (!is.logical(filter_unresolved) || length(filter_unresolved) != 1L ||
+      is.na(filter_unresolved)) {
+    stop("filter_unresolved must be TRUE or FALSE.", call. = FALSE)
+  }
+  legacy_mode <- if (filter_unresolved) "filter" else "error"
+  if (is.null(lr_missing)) {
+    lr_missing <- legacy_mode
+  } else {
+    lr_missing <- match.arg(lr_missing, c("error", "filter"))
+    if (!missing(filter_unresolved) && lr_missing != legacy_mode) {
+      stop("filter_unresolved and lr_missing specify conflicting policies.", call. = FALSE)
+    }
+  }
   if (is.null(gene_list)) {
     if (!requireNamespace("CellChat", quietly = TRUE)) {
       stop("CellChat is required when gene_list is NULL.", call. = FALSE)
@@ -192,22 +208,6 @@ spatialess_from_h5ad <- function(
   bundle <- read_spatialess_bundle(output_dir)
 
   lr <- as.data.frame(lr, stringsAsFactors = FALSE)
-  excluded_lr <- 0L
-  if (isTRUE(filter_unresolved)) {
-    valid <- vapply(seq_len(nrow(lr)), function(index) {
-      tryCatch({
-        SpatialESS::prepare_cellchat_lr_components(
-          lr[index, , drop = FALSE],
-          rownames(bundle$expression), complex, cofactor
-        )
-        TRUE
-      }, error = function(error) FALSE)
-    }, logical(1))
-    excluded_lr <- sum(!valid)
-    lr <- lr[valid, , drop = FALSE]
-  }
-  if (!nrow(lr)) stop("No LR rows are computable from this H5AD.", call. = FALSE)
-
   result <- SpatialESS::spatialess(
     expression = bundle$expression,
     coordinates = bundle$coordinates,
@@ -215,16 +215,26 @@ spatialess_from_h5ad <- function(
     lr = lr,
     complex = complex,
     cofactor = cofactor,
+    lr_missing = lr_missing,
     ...
   )
+  coverage <- result$lr_filter
+  excluded_lr <- if (is.null(coverage)) 0L else nrow(coverage$excluded)
+  if (!is.null(coverage)) {
+    utils::write.table(coverage$audit, file.path(output_dir, "lr_audit.tsv"),
+                       sep = "\t", quote = FALSE, row.names = FALSE)
+    utils::write.table(coverage$missing_genes, file.path(output_dir, "lr_missing_genes.tsv"),
+                       sep = "\t", quote = FALSE, row.names = FALSE)
+  }
   result$bridge <- list(
     source_h5ad = normalizePath(h5ad, mustWork = TRUE),
     normalization = normalization,
     exported_genes = nrow(bundle$expression),
     cells = ncol(bundle$expression),
     groups = nlevels(bundle$group),
-    computable_lr = nrow(lr),
+    computable_lr = nrow(lr) - excluded_lr,
     excluded_lr = excluded_lr,
+    lr_missing = lr_missing,
     bundle = if (!temporary_bundle || isTRUE(keep_bundle)) {
       normalizePath(output_dir, mustWork = TRUE)
     } else {

@@ -1,0 +1,9 @@
+Error: H5AD bridge failed:
+Traceback (most recent call last):
+  File "/home/dzf/cellchat_acceleration/releases/SpatialESS_main_SPARKLE_20260910/lib/SpatialESSSPARKLE/python/h5ad_to_spatialess.py", line 13, in <module>
+    import anndata as ad
+ModuleNotFoundError: No module named 'anndata'
+In addition: Warning message:
+In system2(python, args = shQuote(args), stdout = TRUE, stderr = TRUE) :
+  running command ''/home/dzf/miniforge3/envs/spatialcellchat-v3/bin/python3' '/home/dzf/cellchat_acceleration/releases/SpatialESS_main_SPARKLE_20260910/lib/SpatialESSSPARKLE/python/h5ad_to_spatialess.py' '/home/dzf/cellchat_acceleration/releases/SpatialESS_main_SPARKLE_20260910/inputs/cli_v3_64.h5ad' '/tmp/RtmpU4YlrI/spatialess_h5ad_2a2d83456d7eda' '--group-col' 'group' '--coordinate-cols' 'x_um,y_um' '--normalization' 'log1p_cp10k' '--gene-list' '/tmp/RtmpU4YlrI/file2a2d8328a13e3c.txt' '--overwrite' 2>&1' had status 1
+Execution halted

@@ -1,0 +1,36 @@
+>>>  Analyzing spatial transcriptomic data and preferring to infer interactions between individual cells...
+>>>  Apply a predefined spatial distance threshold based on the interaction length(=30um)...
+>>> Contact range is set as 10um, to restrict the contact-dependent signaling.
+>>> Run CellChat on spatial transcriptomic data using distances as constraints <<< [2026-09-11 15:00:57.832149]
+>>>  The input L-R pairs have both secreted signaling and contact-dependent signaling. Run CellChat in a contact-dependent manner for `Cell-Cell Contact` signaling, and in a diffusion manner based on the `interaction.range` for other L-R pairs. 
+ℹ Future strategy in use: `parallel with 8 workers`
+>>>  The number of cells and L-R pairs in Dim(Prob.cell): 5000 5000 1076 
+✔ CellChat inference is done. Parameter values are stored in `object@options$parameter` <<< [2026-09-11 15:09:55.413235]
+>>>  The cell groups used for averaging cell-cell communication are  Cluster_01 Cluster_02 Cluster_03 Cluster_04 Cluster_05 Cluster_07 Cluster_08 Cluster_09 Cluster_10 Cluster_12 Cluster_14 Cluster_18 Cluster_19 Cluster_20 
+>>> Compute group-level cell-cell communication... <<< [2026-09-11 15:09:58.754282] 
+>>>  compute the average signaling per cell group...
+ℹ Future strategy in use: `sequential`
+>>> Perform permutation test for group-level communication... <<< [2026-09-11 15:12:42.594466] 
+ℹ Future strategy in use: `sequential`
+✔Inference of group-level cell-cell communication is done. Parameter values are stored in `object@options$parameter` <<< [2026-09-11 15:12:48.265516]         case  filter cells groups   lr min_percent min_cells_sr
+1 center_5000 default  5000     14 1076         0.1            5
+  official_active ess_active active_jaccard max_abs_probability_difference
+1              11         11              1                   8.326673e-17
+  pvalue_exact_fraction official_significant_lt_005 ess_significant_lt_005
+1                     1                          10                     10
+  significance_disagreements official_group_seconds ess_seconds pass
+1                          0                170.125       5.799 TRUE
+>>>  The cell groups used for averaging cell-cell communication are  Cluster_01 Cluster_02 Cluster_03 Cluster_04 Cluster_05 Cluster_07 Cluster_08 Cluster_09 Cluster_10 Cluster_12 Cluster_14 Cluster_18 Cluster_19 Cluster_20 
+>>> Compute group-level cell-cell communication... <<< [2026-09-11 15:12:56.231262] 
+>>>  compute the average signaling per cell group...
+ℹ Future strategy in use: `sequential`
+>>> Perform permutation test for group-level communication... <<< [2026-09-11 15:15:43.621328] 
+ℹ Future strategy in use: `sequential`
+✔Inference of group-level cell-cell communication is done. Parameter values are stored in `object@options$parameter` <<< [2026-09-11 15:24:09.104622]         case  filter cells groups   lr min_percent min_cells_sr
+1 center_5000 relaxed  5000     14 1076           0            1
+  official_active ess_active active_jaccard max_abs_probability_difference
+1            2789       2789              1                    1.94289e-16
+  pvalue_exact_fraction official_significant_lt_005 ess_significant_lt_005
+1                     1                         889                    889
+  significance_disagreements official_group_seconds ess_seconds pass
+1                          0                673.318       5.417 TRUE

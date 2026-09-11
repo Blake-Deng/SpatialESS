@@ -1,0 +1,29 @@
+'as(<dgTMatrix>, "dgCMatrix")' is deprecated.
+Use 'as(., "CsparseMatrix")' instead.
+See help("Deprecated") and help("Matrix-deprecated").
+Official SpatialCellChat V3 RCTD-labelled sparkle: 967 genes, 16247 cells, 17 groups, 1828 LR, 100 permutations
+ℹ Create a SpatialCellChat object from a data matrixCreate a SpatialCellChat object from spatial imaging data... 
+Set cell identities for the new SpatialCellChat object 
+The cell groups used for SpatialCellChat analysis are  Ciliated Epithelial Cells Endothelial Cells Fallopian Tube Epithelium Granulosa Cells Inflammatory Tumor Cells Macrophages Malignant Cells Lining Cyst MT-High, Jun+-Fos+ Tumor Cells Pericytes Proliferative Tumor Cells Smooth Muscle Cells Stromal Associated Fibroblasts T & NK Cells Tumor Associated Fibroblasts Tumor Cells Unknown VEGFA+ Tumor Cells 
+>>>  Analyzing spatial transcriptomic data and preferring to infer interactions between individual cells...
+>>>  Apply a predefined spatial distance threshold based on the interaction length(=30um)...
+ ■■■■■■■■■                         26% |  ETA:  6s
+ ■■■■■■■■■■■■■■■■■■■■■■■■          75% |  ETA:  2s
+>>> Contact range is set as 10um, to restrict the contact-dependent signaling.
+>>> Run CellChat on spatial transcriptomic data using distances as constraints <<< [2026-09-04 10:55:44.650999]
+>>>  The input L-R pairs have both secreted signaling and contact-dependent signaling. Run CellChat in a contact-dependent manner for `Cell-Cell Contact` signaling, and in a diffusion manner based on the `interaction.range` for other L-R pairs. 
+ℹ Future strategy in use: `sequential`
+>>>  The number of cells and L-R pairs in Dim(Prob.cell): 16247 16247 1828 
+✔ CellChat inference is done. Parameter values are stored in `object@options$parameter` <<< [2026-09-04 11:50:10.686068]
+>>>  The cell groups used for averaging cell-cell communication are  Ciliated Epithelial Cells Endothelial Cells Fallopian Tube Epithelium Granulosa Cells Inflammatory Tumor Cells Macrophages Malignant Cells Lining Cyst MT-High, Jun+-Fos+ Tumor Cells Pericytes Proliferative Tumor Cells Smooth Muscle Cells Stromal Associated Fibroblasts T & NK Cells Tumor Associated Fibroblasts Tumor Cells Unknown VEGFA+ Tumor Cells 
+>>> Compute group-level cell-cell communication... <<< [2026-09-04 11:50:11.17922] 
+>>>  compute the average signaling per cell group...
+ℹ Future strategy in use: `sequential`
+>>> Perform permutation test for group-level communication... <<< [2026-09-04 11:59:44.030375] 
+ℹ Future strategy in use: `sequential`
+✔Inference of group-level cell-cell communication is done. Parameter values are stored in `object@options$parameter` <<< [2026-09-04 12:44:34.596887]   method                      engine    label_source genes cells groups   lr
+1 sparkle official_spatialcellchat_v3 RAW_RCTD_shared   967 16247     17 1828
+  nboot     seed active_records significant_records probability_seconds
+1   100 20260903          37808                8417            3277.487
+  permutation_seconds end_to_end_seconds
+1            3263.911           6541.848

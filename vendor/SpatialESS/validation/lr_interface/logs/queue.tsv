@@ -1,0 +1,67 @@
+2026-09-10T18:26:59+08:00	cervical:1000	old_manual	started
+2026-09-10T18:27:04+08:00	cervical:1000	old_manual	finished	0
+2026-09-10T18:27:04+08:00	cervical:1000	new_explicit	started
+2026-09-10T18:27:15+08:00	cervical:1000	new_explicit	finished	0
+2026-09-10T18:27:15+08:00	cervical:1000	new_filter	started
+2026-09-10T18:27:26+08:00	cervical:1000	new_filter	finished	0
+2026-09-10T18:27:26+08:00	cervical:5000	old_manual	started
+2026-09-10T18:27:36+08:00	cervical:5000	old_manual	finished	0
+2026-09-10T18:27:36+08:00	cervical:5000	new_explicit	started
+2026-09-10T18:27:53+08:00	cervical:5000	new_explicit	finished	0
+2026-09-10T18:27:53+08:00	cervical:5000	new_filter	started
+2026-09-10T18:28:10+08:00	cervical:5000	new_filter	finished	0
+2026-09-10T18:28:10+08:00	cosmx:1000	old_manual	started
+2026-09-10T18:28:18+08:00	cosmx:1000	old_manual	finished	0
+2026-09-10T18:28:18+08:00	cosmx:1000	new_explicit	started
+2026-09-10T18:28:30+08:00	cosmx:1000	new_explicit	finished	0
+2026-09-10T18:28:30+08:00	cosmx:1000	new_filter	started
+2026-09-10T18:28:41+08:00	cosmx:1000	new_filter	finished	0
+2026-09-10T18:28:41+08:00	cosmx:5000	old_manual	started
+2026-09-10T18:28:50+08:00	cosmx:5000	old_manual	finished	0
+2026-09-10T18:28:50+08:00	cosmx:5000	new_explicit	started
+2026-09-10T18:29:03+08:00	cosmx:5000	new_explicit	finished	0
+2026-09-10T18:29:03+08:00	cosmx:5000	new_filter	started
+2026-09-10T18:29:14+08:00	cosmx:5000	new_filter	finished	0
+2026-09-10T18:29:14+08:00	cosmx:10000	old_manual	started
+2026-09-10T18:29:23+08:00	cosmx:10000	old_manual	finished	0
+2026-09-10T18:29:23+08:00	cosmx:10000	new_explicit	started
+2026-09-10T18:29:35+08:00	cosmx:10000	new_explicit	finished	0
+2026-09-10T18:29:36+08:00	cosmx:10000	new_filter	started
+2026-09-10T18:29:49+08:00	cosmx:10000	new_filter	finished	0
+2026-09-10T18:29:49+08:00	cosmx:25000	old_manual	started
+2026-09-10T18:30:01+08:00	cosmx:25000	old_manual	finished	0
+2026-09-10T18:30:01+08:00	cosmx:25000	new_explicit	started
+2026-09-10T18:30:15+08:00	cosmx:25000	new_explicit	finished	0
+2026-09-10T18:30:15+08:00	cosmx:25000	new_filter	started
+2026-09-10T18:30:29+08:00	cosmx:25000	new_filter	finished	0
+2026-09-10T18:30:29+08:00	cosmx:50000	old_manual	started
+2026-09-10T18:30:49+08:00	cosmx:50000	old_manual	finished	0
+2026-09-10T18:30:49+08:00	cosmx:50000	new_explicit	started
+2026-09-10T18:31:11+08:00	cosmx:50000	new_explicit	finished	0
+2026-09-10T18:31:11+08:00	cosmx:50000	new_filter	started
+2026-09-10T18:31:33+08:00	cosmx:50000	new_filter	finished	0
+2026-09-10T18:31:33+08:00	cosmx:100000	old_manual	started
+2026-09-10T18:32:09+08:00	cosmx:100000	old_manual	finished	0
+2026-09-10T18:32:09+08:00	cosmx:100000	new_explicit	started
+2026-09-10T18:32:43+08:00	cosmx:100000	new_explicit	finished	0
+2026-09-10T18:32:43+08:00	cosmx:100000	new_filter	started
+2026-09-10T18:33:21+08:00	cosmx:100000	new_filter	finished	0
+2026-09-10T18:33:21+08:00	cosmx:200000	old_manual	started
+2026-09-10T18:34:29+08:00	cosmx:200000	old_manual	finished	0
+2026-09-10T18:34:29+08:00	cosmx:200000	new_explicit	started
+2026-09-10T18:35:44+08:00	cosmx:200000	new_explicit	finished	0
+2026-09-10T18:35:44+08:00	cosmx:200000	new_filter	started
+2026-09-10T18:37:03+08:00	cosmx:200000	new_filter	finished	0
+2026-09-10T18:37:03+08:00	cosmx:443515	old_manual	started
+2026-09-10T18:40:21+08:00	cosmx:443515	old_manual	finished	0
+2026-09-10T18:40:21+08:00	cosmx:443515	new_explicit	started
+2026-09-10T18:43:12+08:00	cosmx:443515	new_explicit	finished	0
+2026-09-10T18:43:12+08:00	cosmx:443515	new_filter	started
+2026-09-10T18:47:11+08:00	cosmx:443515	new_filter	finished	0
+2026-09-10T18:47:11+08:00	cosmx_stratified:10000	old_manual	started
+2026-09-10T18:47:20+08:00	cosmx_stratified:10000	old_manual	finished	0
+2026-09-10T18:47:20+08:00	cosmx_stratified:10000	new_explicit	started
+2026-09-10T18:47:32+08:00	cosmx_stratified:10000	new_explicit	finished	0
+2026-09-10T18:47:32+08:00	cosmx_stratified:10000	new_filter	started
+2026-09-10T18:47:43+08:00	cosmx_stratified:10000	new_filter	finished	0
+2026-09-10T18:47:43+08:00	ALL_COMPLETED

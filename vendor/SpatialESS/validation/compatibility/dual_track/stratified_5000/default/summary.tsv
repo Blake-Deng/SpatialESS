@@ -1,0 +1,2 @@
+case	filter	cells	groups	lr	min_percent	min_cells_sr	official_active	ess_active	active_jaccard	max_abs_probability_difference	pvalue_exact_fraction	official_significant_lt_005	ess_significant_lt_005	significance_disagreements	official_group_seconds	ess_seconds	pass
+stratified_5000	default	5000	23	1076	0.1	5	130	130	1	8.32667268468867e-17	1	91	91	0	132.34	6.75900000000001	TRUE

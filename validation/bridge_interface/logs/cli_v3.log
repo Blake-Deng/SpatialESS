@@ -1,0 +1,50 @@
+Warning message:
+Excluded 151 of 3234 LR records with incomplete ligand/receptor components; retained 3083. See $audit and $missing_genes (or result$lr_filter when lr_missing = 'filter'). 
+$source_h5ad
+[1] "/home/dzf/cellchat_acceleration/releases/SpatialESS_main_SPARKLE_20260910/inputs/cli_v3_64.h5ad"
+
+$normalization
+[1] "log1p_cp10k"
+
+$exported_genes
+[1] 1375
+
+$cells
+[1] 64
+
+$groups
+[1] 5
+
+$computable_lr
+[1] 3083
+
+$excluded_lr
+[1] 151
+
+$lr_missing
+[1] "filter"
+
+$bundle
+NULL
+
+  lr_index sender_group receiver_group probability pvalue active_edges
+1       64            3              5  0.06769043   0.07            6
+2       64            5              5  0.13131381   0.10           11
+3       67            5              5  0.35213860   0.05           13
+4       82            3              5  0.17111625   0.01            4
+5       82            5              5  0.13849879   0.36            5
+6       96            3              3  0.19543569   0.71            6
+   interaction_name ligand     receptor              sender_group_name
+1  BMP7_ACVR1_BMPR2   BMP7  ACVR1_BMPR2 MT-High, Jun+-Fos+ Tumor Cells
+2  BMP7_ACVR1_BMPR2   BMP7  ACVR1_BMPR2             VEGFA+ Tumor Cells
+3 BMP7_BMPR1A_BMPR2   BMP7 BMPR1A_BMPR2             VEGFA+ Tumor Cells
+4 BMP8B_ACVR1_BMPR2  BMP8B  ACVR1_BMPR2 MT-High, Jun+-Fos+ Tumor Cells
+5 BMP8B_ACVR1_BMPR2  BMP8B  ACVR1_BMPR2             VEGFA+ Tumor Cells
+6      GDF15_TGFBR2  GDF15       TGFBR2 MT-High, Jun+-Fos+ Tumor Cells
+             receiver_group_name
+1             VEGFA+ Tumor Cells
+2             VEGFA+ Tumor Cells
+3             VEGFA+ Tumor Cells
+4             VEGFA+ Tumor Cells
+5             VEGFA+ Tumor Cells
+6 MT-High, Jun+-Fos+ Tumor Cells

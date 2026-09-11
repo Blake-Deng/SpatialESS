@@ -1,0 +1,69 @@
+PASS: 33 independent processes; 22 new/old comparisons; 6 archived official comparisons
+               case  cells         mode inference_and_filter_seconds
+1          cervical   1000   old_manual                        1.716
+2          cervical   1000 new_explicit                        6.787
+3          cervical   1000   new_filter                        6.526
+4          cervical   5000   old_manual                        5.822
+5          cervical   5000 new_explicit                       12.262
+6          cervical   5000   new_filter                       12.419
+7             cosmx   1000   old_manual                        0.441
+8             cosmx   1000 new_explicit                        2.927
+9             cosmx   1000   new_filter                        2.970
+10            cosmx  10000   old_manual                        1.996
+11            cosmx  10000 new_explicit                        4.628
+12            cosmx  10000   new_filter                        4.551
+13            cosmx 100000   old_manual                       26.690
+14            cosmx 100000 new_explicit                       26.492
+15            cosmx 100000   new_filter                       28.493
+16            cosmx 200000   old_manual                       60.370
+17            cosmx 200000 new_explicit                       64.813
+18            cosmx 200000   new_filter                       69.213
+19            cosmx  25000   old_manual                        4.818
+20            cosmx  25000 new_explicit                        7.244
+21            cosmx  25000   new_filter                        7.211
+22            cosmx 443515   old_manual                      184.983
+23            cosmx 443515 new_explicit                      158.536
+24            cosmx 443515   new_filter                      227.468
+25            cosmx   5000   old_manual                        1.036
+26            cosmx   5000 new_explicit                        3.827
+27            cosmx   5000   new_filter                        3.389
+28            cosmx  50000   old_manual                       11.125
+29            cosmx  50000 new_explicit                       13.213
+30            cosmx  50000   new_filter                       13.264
+31 cosmx_stratified  10000   old_manual                        1.331
+32 cosmx_stratified  10000 new_explicit                        3.609
+33 cosmx_stratified  10000   new_filter                        3.718
+   peak_rss_gib
+1     0.2519722
+2     0.2750092
+3     0.2752724
+4     0.2570839
+5     0.2808914
+6     0.2795830
+7     0.6908073
+8     0.6931000
+9     0.6946945
+10    0.6962700
+11    0.7041054
+12    0.7007217
+13    0.9760933
+14    0.9890976
+15    0.9879074
+16    1.3115807
+17    1.3168640
+18    1.3161125
+19    0.7519569
+20    0.7521515
+21    0.7540817
+22    2.0919037
+23    2.0915565
+24    2.0938454
+25    0.6846695
+26    0.6965294
+27    0.7011833
+28    0.8491249
+29    0.8283997
+30    0.8312454
+31    0.6923904
+32    0.7046471
+33    0.7043800

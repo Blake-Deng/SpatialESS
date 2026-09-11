@@ -1,0 +1,2 @@
+method	label_source	genes	cells	groups	lr	nboot	seed	graph_edges	active_records	significant_records	inference_seconds
+sparkle	RAW_RCTD_shared	967	16247	17	1828	100	20260903	443876	37808	8417	35.765

@@ -12,18 +12,21 @@ if (length(args) != 5L) {
 }
 
 suppressPackageStartupMessages({
-  library(CellChat)
+  library(SpatialCellChat)
   library(SpatialESSSPARKLE)
 })
 
-data(CellChatDB.human, package = "CellChat")
+data(CellChatDB.human, package = "SpatialCellChat")
 result <- spatialess_from_h5ad(
   h5ad = args[[1L]],
   group_col = args[[2L]],
   coordinate_cols = args[3:4],
+  python = Sys.getenv("PYTHON", unset = Sys.which("python3")),
   lr = CellChatDB.human$interaction,
   complex = CellChatDB.human$complex,
   cofactor = CellChatDB.human$cofactor,
+  gene_list = SpatialCellChat::extractGene(CellChatDB.human),
+  lr_missing = "filter",
   normalization = "log1p_cp10k",
   nboot = 100L,
   seed.use = 1L

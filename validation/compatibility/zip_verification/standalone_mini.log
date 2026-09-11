@@ -1,0 +1,5 @@
+PASS: raw real ovarian 1k H5AD -> bridge -> bundled SpatialESS; records identical to old release.
+PASS: sparkle real ovarian 1k H5AD -> bridge -> bundled SpatialESS; records identical to old release.
+Warning messages:
+1: Excluded 111 of 1939 LR records with incomplete ligand/receptor components; retained 1828. See $audit and $missing_genes (or result$lr_filter when lr_missing = 'filter'). 
+2: Excluded 111 of 1939 LR records with incomplete ligand/receptor components; retained 1828. See $audit and $missing_genes (or result$lr_filter when lr_missing = 'filter'). 

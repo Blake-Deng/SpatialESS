@@ -1,0 +1,2 @@
+case	cells	mode	version	genes	groups	lr	nboot	seed	inference_and_filter_seconds	graph_edges	active	significant	status
+cosmx	50000	new_explicit	0.1.2	419	12	373	20	20260803	13.213	904992	18484	14217	completed

@@ -1,0 +1,15 @@
+--- official_original/R/spatial.R
++++ official_dimension_patched/R/spatial.R
+@@ -578,6 +578,7 @@
+     i=SparseMatSlots$i,
+     j=SparseMatSlots$j,
+     x = SparseMatSlots$x,
++    dims = c(NC, NC),
+     repr = "C",
+     symmetric = F,
+     index1 = T  # i and j are interpreted as 1-based indices
+@@ -745,4 +746,3 @@
+ 
+ 
+ 
+-

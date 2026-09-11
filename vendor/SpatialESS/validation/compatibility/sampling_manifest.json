@@ -1,0 +1,69 @@
+{
+  "dataset": "10x Xenium Prime FFPE Human Cervical Cancer",
+  "dataset_url": "https://www.10xgenomics.com/datasets/xenium-prime-ffpe-human-cervical-cancer",
+  "barcode_source": "/home/dzf/cellchat_acceleration/benchmark_cells.rds",
+  "barcode_sha256": "96fab90f821f5d1b1e39136514a7a1cb34386f2637f021461db75cc78e11c444",
+  "annotation_boundary": "Public 23 graph clusters; collaborator biological labels not supplied",
+  "stratification_boundary": "Submitted stratified barcode sets; biological proportionality not independently audited",
+  "center_cell": "nkjdeggk-1",
+  "center_um": [
+    5582.68994140625,
+    6655.97412109375
+  ],
+  "scale_distance": 1.0,
+  "scale_policy": "One shared scale, ceil(1.1/minimum nonzero distance across all cases)",
+  "parameters": {
+    "ratio": 1,
+    "tol": 5,
+    "interaction_range": 30,
+    "contact_range": 10,
+    "nboot": 100,
+    "seed": 1
+  },
+  "cases": [
+    {
+      "case": "center_1000",
+      "cells": 1000,
+      "groups": 13,
+      "edges_directed": 23654,
+      "isolated_cells": 0,
+      "original_inferred_dimension": 1000,
+      "min_distance_um": 3.609987050136259,
+      "nested": true,
+      "order": "original matrix index"
+    },
+    {
+      "case": "center_5000",
+      "cells": 5000,
+      "groups": 14,
+      "edges_directed": 149990,
+      "isolated_cells": 0,
+      "original_inferred_dimension": 5000,
+      "min_distance_um": 2.329210936979191,
+      "nested": true,
+      "order": "original matrix index"
+    },
+    {
+      "case": "stratified_1000",
+      "cells": 1000,
+      "groups": 23,
+      "edges_directed": 46,
+      "isolated_cells": 954,
+      "original_inferred_dimension": 927,
+      "min_distance_um": 5.44908891201865,
+      "nested": true,
+      "order": "submitted barcode order"
+    },
+    {
+      "case": "stratified_5000",
+      "cells": 5000,
+      "groups": 23,
+      "edges_directed": 1142,
+      "isolated_cells": 3985,
+      "original_inferred_dimension": 5000,
+      "min_distance_um": 3.832832517563853,
+      "nested": true,
+      "order": "submitted barcode order"
+    }
+  ]
+}

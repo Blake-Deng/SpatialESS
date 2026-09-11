@@ -1,5 +1,5 @@
 dataset	role	samples_or_scales	cells_or_patients	lr	nperm	methods	status	key_result
-GSE250346	primary patient-level biology	45 samples / 35 patients	9 control + 26 disease	37	20	SpatialESS; official V3	complete	45/45 SpatialESS; 41/45 original official; TILD117LA repaired; 3 official signal-11 boundaries
+GSE250346	primary multi-patient biology	45 slices / 35 patients	9 control + 26 disease patients	37	20	SpatialESS; lme4 LMM; slice GLM comparator	complete with diagnostics	39,242 valid LMM fits; 5,158 FDR-significant; GLM-LMM estimate rho 0.9967
 GSE306130	independent fidelity pilot	4 samples	1000 per sample	33	20	SpatialESS; official V3	complete	active Jaccard 1; p-value exact fraction 1; zero significance disagreements
 GSE313006	independent fidelity fixture	2 permutation settings	1000	133	20 and 100	SpatialESS; official V3	complete	active Jaccard 1; p-value exact fraction 1; zero significance disagreements
 CosMx Cancerous Liver	paired scalability benchmark	250,1000,5000,10000,25000,50000	paired nested cells	373	20	SpatialESS; official V3	complete	paired through 50000; exact paired agreement

@@ -1,0 +1,9 @@
+          used (Mb) gc trigger  (Mb) max used  (Mb)
+Ncells 1632488 87.2    2885351 154.1  2224693 118.9
+Vcells 3406044 26.0    8388608  64.0  4324926  33.0
+Warning message:
+Excluded 111 of 1939 LR records with incomplete ligand/receptor components; retained 1828. See $audit and $missing_genes (or result$lr_filter when lr_missing = 'filter'). 
+  condition cells        mode bridge_version engine_version genes   lr nboot
+1   sparkle 16247 direct_main          0.1.3          0.1.3   967 1828   100
+      seed pipeline_seconds active significant    status
+1 20260903            43.32  37808        8417 completed

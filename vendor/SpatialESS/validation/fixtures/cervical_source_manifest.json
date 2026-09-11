@@ -1,0 +1,13 @@
+{
+  "official_commit": "be88f300464cf970b36a6165ea7d2e41a47a7511",
+  "official_patch": "dims=c(NC,NC) only; percentage filter unchanged",
+  "dataset": "10x Xenium Prime FFPE Human Cervical Cancer",
+  "labels": "23 public graph clusters; not biological cell-type annotation",
+  "cells": 1000,
+  "expected_records": 57,
+  "nboot": 100,
+  "seed": 1,
+  "min_percent": 0.1,
+  "min_cells_sr": 5,
+  "expected_source": "frozen official V3 group probabilities and p-values, not ESS-generated"
+}

@@ -1,0 +1,9 @@
+* checking for file ‘baseline/SpatialESS-main-LMM-20260907/DESCRIPTION’ ... OK
+* preparing ‘SpatialESS’:
+* checking DESCRIPTION meta-information ... OK
+* cleaning src
+* checking for LF line-endings in source and make files and shell scripts
+* checking for empty or unneeded directories
+Removed empty directory ‘SpatialESS/examples’
+* building ‘SpatialESS_0.1.1.tar.gz’
+

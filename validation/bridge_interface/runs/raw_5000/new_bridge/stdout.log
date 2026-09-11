@@ -1,0 +1,7 @@
+          used (Mb) gc trigger  (Mb) max used  (Mb)
+Ncells 1632476 87.2    2885177 154.1  2224685 118.9
+Vcells 3406033 26.0    8388608  64.0  4324919  33.0
+  condition cells       mode bridge_version engine_version genes   lr nboot
+1       raw  5000 new_bridge          0.1.2          0.1.2   967 1828   100
+      seed pipeline_seconds active significant    status
+1 20260903            22.33  24254        5706 completed

@@ -1,0 +1,2 @@
+Warning message:
+Excluded 111 of 1939 LR records with incomplete ligand/receptor components; retained 1828. See $audit and $missing_genes (or result$lr_filter when lr_missing = 'filter'). 

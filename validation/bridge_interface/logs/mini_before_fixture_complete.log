@@ -1,0 +1,6 @@
+Error in gzfile(file, "rb") : cannot open the connection
+Calls: readRDS -> gzfile
+In addition: Warning message:
+In gzfile(file, "rb") :
+  cannot open compressed file '/home/dzf/cellchat_acceleration/releases/SpatialESS_main_SPARKLE_20260910/work/SpatialESS-SPARKLE/validation/fixtures/database.rds', probable reason 'No such file or directory'
+Execution halted

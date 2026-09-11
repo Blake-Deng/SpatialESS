@@ -118,7 +118,8 @@ test_that("sample-level mixed model uses patient random intercept", {
   expect_true(all(c(
     "singular", "response_scale", "random_effect_variance",
     "residual_variance", "max_gradient", "optimizer",
-    "convergence_message", "fit_error", "status", "q_value"
+    "optimizer_attempts", "convergence_message", "fit_error", "status",
+    "q_value"
   ) %in% names(model)))
   if (f2$status == "ok") expect_true(is.finite(f2$q_value))
 })

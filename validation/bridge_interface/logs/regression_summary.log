@@ -1,0 +1,21 @@
+PASS: 18 runs; 12 strict bridge/version comparisons.
+  condition cells            comparator
+1       raw 16247 historical_spatialess
+2   sparkle 16247 historical_spatialess
+3   sparkle 16247  archived_official_V3
+                                                                                                             source_records
+1                   /home/dzf/cellchat_acceleration/SpatialESS_RNA_leakage_20260902/results/spatialess_rctd_raw/records.rds
+2 /home/dzf/cellchat_acceleration/SpatialESS_RNA_leakage_20260902/results/spatialess_rctd_sparkle_full_20260904/records.rds
+3   /home/dzf/cellchat_acceleration/SpatialESS_RNA_leakage_20260902/results/official_rctd_sparkle_full_20260904/records.rds
+  archived_run active_a active_b active_jaccard max_abs_probability_difference
+1         TRUE    41294    41294              1                   4.553649e-17
+2         TRUE    37808    37808              1                   1.329232e-16
+3         TRUE    37808    37808              1                   1.329232e-16
+  pvalue_exact_fraction significant_a significant_b significance_disagreements
+1                     1         10942         10942                          0
+2                     1          8417          8417                          0
+3                     1          8417          8417                          0
+  significance_rule pass
+1     pvalue < 0.05 TRUE
+2     pvalue < 0.05 TRUE
+3     pvalue < 0.05 TRUE

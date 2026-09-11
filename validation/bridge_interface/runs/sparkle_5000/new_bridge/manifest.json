@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "source_h5ad": "/home/dzf/cellchat_acceleration/releases/SpatialESS_main_SPARKLE_20260910/inputs/sparkle_5000.h5ad",
+  "layer": "X",
+  "normalization": "log1p_cp10k",
+  "normalization_denominator": "all H5AD genes per cell",
+  "cells": 5000,
+  "input_genes": 18786,
+  "exported_genes": 967,
+  "missing_requested_genes": [],
+  "groups": 16,
+  "coordinate_columns": [
+    "x_um",
+    "y_um"
+  ],
+  "input_expression_sum": 11780647.213127315,
+  "exported_expression_sum": 450606.6693958349,
+  "nnz": 285987,
+  "sha256": {
+    "expression.mtx.gz": "4a38da4057776941dffddc3fc72c0ba64d32254441d8d603e58bd409d2b2dc00",
+    "genes.tsv": "68728e4652e234b4e72380c76918c62074febfda14d2be08e7aca3f8b85dfe8e",
+    "cells.tsv": "01c0aded8a4dbebfa84aad7f2edaee5a46d173063a8ad57f1c8041cf7e38e758",
+    "metadata.tsv": "e0a723353269e1d0e762479c6c3ec0cc88b19c6bf9ad52588293ed5f4dfb4657"
+  }
+}

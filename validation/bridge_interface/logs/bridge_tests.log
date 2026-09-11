@@ -1,0 +1,19 @@
+✔ | F W  S  OK | Context
+
+⠏ |          0 | bundle                                                         
+⠹ |          3 | bundle                                                         
+✔ |          4 | bundle
+
+⠏ |          0 | lr-interface                                                   
+⠋ |          1 | lr-interface                                                   
+⠙ |          2 | lr-interface                                                   
+⠴ |          6 | lr-interface                                                   
+⠧ |          8 | lr-interface                                                   
+⠇ |          9 | lr-interface                                                   
+⠙ |         12 | lr-interface                                                   
+✔ |         12 | lr-interface [11.2s]
+
+══ Results ═════════════════════════════════════════════════════════════════════
+Duration: 11.4 s
+
+[ FAIL 0 | WARN 0 | SKIP 0 | PASS 16 ]

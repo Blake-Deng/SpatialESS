@@ -1,0 +1,5 @@
+reference_active	candidate_active	active_jaccard	max_abs_probability_difference	pvalue_exact_fraction	significance_disagreements	full_records_identical	pass	cells	reference	archived_official	reference_md5_verified
+5131	5131	1	1.73472347597681e-18	1	0	FALSE	TRUE	1000	official_original_V3	TRUE	TRUE
+10478	10478	1	2.60208521396521e-18	1	0	FALSE	TRUE	5000	official_original_V3	TRUE	TRUE
+13164	13164	1	3.68628738645072e-18	1	0	FALSE	TRUE	10000	official_original_V3	TRUE	TRUE
+18484	18484	1	7.26415455565288e-18	1	0	FALSE	TRUE	50000	official_original_V3	TRUE	TRUE

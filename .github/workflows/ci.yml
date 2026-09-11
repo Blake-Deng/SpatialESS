@@ -10,6 +10,9 @@ jobs:
     runs-on: ubuntu-latest
     env:
       _R_CHECK_FORCE_SUGGESTS_: "false"
+      OMP_NUM_THREADS: "1"
+      OPENBLAS_NUM_THREADS: "1"
+      MKL_NUM_THREADS: "1"
     steps:
       - uses: actions/checkout@v4
 
@@ -27,7 +30,7 @@ jobs:
 
       - name: Install R dependencies
         run: |
-          Rscript -e 'install.packages(c("Rcpp", "Matrix", "testthat", "lme4"))'
+          Rscript -e 'install.packages(c("Rcpp", "Matrix", "testthat", "lme4", "future.apply", "RANN", "data.table"))'
           R CMD INSTALL vendor/SpatialESS
           R CMD INSTALL .
 
@@ -40,9 +43,17 @@ jobs:
           Rscript -e 'testthat::test_local(".")'
 
       - name: Run minimal example
-        run: ./examples/minimal/run_demo.sh
+        run: bash examples/minimal/run_demo.sh
 
-      - name: Check integration package
+      - name: Check bundled engine and integration package
         run: |
-          R CMD build .
-          R CMD check --no-manual SpatialESSSPARKLE_0.1.1.tar.gz
+          Rscript -e 'for (path in c("vendor/SpatialESS", ".")) { d <- read.dcf(file.path(path, "DESCRIPTION")); pkg <- d[1, "Package"]; archive <- paste0(pkg, "_", d[1, "Version"], ".tar.gz"); r <- file.path(R.home("bin"), "R"); stopifnot(system2(r, c("CMD", "build", path)) == 0L); stopifnot(system2(r, c("CMD", "check", "--no-manual", "--no-build-vignettes", archive)) == 0L); x <- readLines(file.path(paste0(pkg, ".Rcheck"), "00check.log")); stopifnot(!any(grepl("WARNING|ERROR", x))) }'
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: integration-check-logs
+          path: |
+            SpatialESS.Rcheck
+            SpatialESSSPARKLE.Rcheck
+          if-no-files-found: ignore

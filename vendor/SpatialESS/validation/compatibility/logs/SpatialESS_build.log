@@ -1,0 +1,8 @@
+* checking for file ‘/home/dzf/cellchat_acceleration/releases/SpatialESS_compatibility_20260911/work/SpatialESS/DESCRIPTION’ ... OK
+* preparing ‘SpatialESS’:
+* checking DESCRIPTION meta-information ... OK
+* cleaning src
+* checking for LF line-endings in source and make files and shell scripts
+* checking for empty or unneeded directories
+* building ‘SpatialESS_0.1.3.tar.gz’
+

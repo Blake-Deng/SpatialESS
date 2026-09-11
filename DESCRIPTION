@@ -1,7 +1,7 @@
 Package: SpatialESSSPARKLE
 Type: Package
 Title: SPARKLE-to-SpatialESS Integration Workflow
-Version: 0.1.1
+Version: 0.1.3
 Authors@R: person("DENG", "Zifeng", role = c("aut", "cre"), email = "zifengd8@gmail.com")
 Author: Zifeng DENG [aut, cre]
 Maintainer: Zifeng DENG <zifengd8@gmail.com>
@@ -18,7 +18,7 @@ Depends:
 Imports:
     Matrix,
     methods,
-    SpatialESS (>= 0.1.1),
+    SpatialESS (>= 0.1.3),
     utils
 Suggests:
     CellChat,

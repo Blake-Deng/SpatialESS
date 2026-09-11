@@ -1,0 +1,3 @@
+fixture /home/dzf/cellchat_acceleration/external/cervical_xenium_20260910/results/cells005000/fixture.rds
+library /home/dzf/cellchat_acceleration/releases/SpatialESS_LR_interface_20260910/lib_new/SpatialESS
+version 0.1.2

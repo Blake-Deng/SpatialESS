@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "source_h5ad": "/home/dzf/cellchat_acceleration/SpatialESS_RNA_leakage_20260902/software/SPARKLE/evaluation/reports/h5ad_ovarian_annotated/ovarian_x1000-1800_y300-1100_raw.h5ad",
+  "layer": "X",
+  "normalization": "log1p_cp10k",
+  "normalization_denominator": "all H5AD genes per cell",
+  "cells": 16247,
+  "input_genes": 18786,
+  "exported_genes": 967,
+  "missing_requested_genes": [],
+  "groups": 17,
+  "coordinate_columns": [
+    "x_um",
+    "y_um"
+  ],
+  "input_expression_sum": 72480657.0,
+  "exported_expression_sum": 1855345.471156398,
+  "nnz": 1198972,
+  "sha256": {
+    "expression.mtx.gz": "4e9060ac3f7e6bdd0f7a5b80f6582f59aadd23f43d37e3bebe265d7e57cdde87",
+    "genes.tsv": "68728e4652e234b4e72380c76918c62074febfda14d2be08e7aca3f8b85dfe8e",
+    "cells.tsv": "7c63b37a158f39f2ff84e697ccd664e0e7b5c963e29155a3b8e5e4e9566bd933",
+    "metadata.tsv": "9718ec2842bdeb0a4124536ecbf540b49b44fcce427a74a3d35ebd91a50f937c"
+  }
+}

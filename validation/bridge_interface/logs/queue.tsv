@@ -1,0 +1,37 @@
+2026-09-10T19:13:36.785445	raw	1000	old_bridge	started
+2026-09-10T19:13:47.762851	raw	1000	old_bridge	finished	0
+2026-09-10T19:13:47.763449	raw	1000	new_bridge	started
+2026-09-10T19:13:55.836111	raw	1000	new_bridge	finished	0
+2026-09-10T19:13:55.836590	raw	1000	direct_main	started
+2026-09-10T19:14:01.659005	raw	1000	direct_main	finished	0
+2026-09-10T19:14:01.659807	raw	5000	old_bridge	started
+2026-09-10T19:14:22.276163	raw	5000	old_bridge	finished	0
+2026-09-10T19:14:22.276843	raw	5000	new_bridge	started
+2026-09-10T19:14:47.648965	raw	5000	new_bridge	finished	0
+2026-09-10T19:14:47.649532	raw	5000	direct_main	started
+2026-09-10T19:15:05.667731	raw	5000	direct_main	finished	0
+2026-09-10T19:15:05.668379	raw	16247	old_bridge	started
+2026-09-10T19:16:07.323114	raw	16247	old_bridge	finished	0
+2026-09-10T19:16:07.323812	raw	16247	new_bridge	started
+2026-09-10T19:17:08.283110	raw	16247	new_bridge	finished	0
+2026-09-10T19:17:08.283821	raw	16247	direct_main	started
+2026-09-10T19:18:02.933918	raw	16247	direct_main	finished	0
+2026-09-10T19:18:02.934556	sparkle	1000	old_bridge	started
+2026-09-10T19:18:12.138022	sparkle	1000	old_bridge	finished	0
+2026-09-10T19:18:12.138544	sparkle	1000	new_bridge	started
+2026-09-10T19:18:21.737441	sparkle	1000	new_bridge	finished	0
+2026-09-10T19:18:21.738075	sparkle	1000	direct_main	started
+2026-09-10T19:18:28.644985	sparkle	1000	direct_main	finished	0
+2026-09-10T19:18:28.645702	sparkle	5000	old_bridge	started
+2026-09-10T19:18:50.499005	sparkle	5000	old_bridge	finished	0
+2026-09-10T19:18:50.499728	sparkle	5000	new_bridge	started
+2026-09-10T19:19:12.594411	sparkle	5000	new_bridge	finished	0
+2026-09-10T19:19:12.595550	sparkle	5000	direct_main	started
+2026-09-10T19:19:29.449739	sparkle	5000	direct_main	finished	0
+2026-09-10T19:19:29.450338	sparkle	16247	old_bridge	started
+2026-09-10T19:20:28.011183	sparkle	16247	old_bridge	finished	0
+2026-09-10T19:20:28.011906	sparkle	16247	new_bridge	started
+2026-09-10T19:21:26.936267	sparkle	16247	new_bridge	finished	0
+2026-09-10T19:21:26.937039	sparkle	16247	direct_main	started
+2026-09-10T19:22:15.079966	sparkle	16247	direct_main	finished	0
+ALL_COMPLETED

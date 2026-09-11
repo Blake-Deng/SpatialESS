@@ -1,0 +1,28 @@
+>>>  The cell groups used for averaging cell-cell communication are  Cluster_01 Cluster_02 Cluster_03 Cluster_04 Cluster_05 Cluster_06 Cluster_07 Cluster_08 Cluster_09 Cluster_10 Cluster_11 Cluster_12 Cluster_13 Cluster_14 Cluster_15 Cluster_16 Cluster_17 Cluster_18 Cluster_19 Cluster_20 Cluster_21 Cluster_22 Cluster_23 
+>>> Compute group-level cell-cell communication... <<< [2026-09-11 15:00:53.42266] 
+>>>  compute the average signaling per cell group...
+ℹ Future strategy in use: `sequential`
+>>> Perform permutation test for group-level communication... <<< [2026-09-11 15:01:48.740317] 
+ℹ Future strategy in use: `sequential`
+✔Inference of group-level cell-cell communication is done. Parameter values are stored in `object@options$parameter` <<< [2026-09-11 15:02:05.850378]             case  filter cells groups   lr min_percent min_cells_sr
+1 stratified_1000 default  1000     23 1076         0.1            5
+  official_active ess_active active_jaccard max_abs_probability_difference
+1              57         57              1                   1.387779e-17
+  pvalue_exact_fraction official_significant_lt_005 ess_significant_lt_005
+1                     1                          31                     31
+  significance_disagreements official_group_seconds ess_seconds pass
+1                          0                 72.902       2.055 TRUE
+>>>  The cell groups used for averaging cell-cell communication are  Cluster_01 Cluster_02 Cluster_03 Cluster_04 Cluster_05 Cluster_06 Cluster_07 Cluster_08 Cluster_09 Cluster_10 Cluster_11 Cluster_12 Cluster_13 Cluster_14 Cluster_15 Cluster_16 Cluster_17 Cluster_18 Cluster_19 Cluster_20 Cluster_21 Cluster_22 Cluster_23 
+>>> Compute group-level cell-cell communication... <<< [2026-09-11 15:02:09.154345] 
+>>>  compute the average signaling per cell group...
+ℹ Future strategy in use: `sequential`
+>>> Perform permutation test for group-level communication... <<< [2026-09-11 15:03:04.110157] 
+ℹ Future strategy in use: `sequential`
+✔Inference of group-level cell-cell communication is done. Parameter values are stored in `object@options$parameter` <<< [2026-09-11 15:05:21.550807]             case  filter cells groups   lr min_percent min_cells_sr
+1 stratified_1000 relaxed  1000     23 1076           0            1
+  official_active ess_active active_jaccard max_abs_probability_difference
+1             364        364              1                   2.775558e-17
+  pvalue_exact_fraction official_significant_lt_005 ess_significant_lt_005
+1                     1                         150                    150
+  significance_disagreements official_group_seconds ess_seconds pass
+1                          0                192.865       1.264 TRUE

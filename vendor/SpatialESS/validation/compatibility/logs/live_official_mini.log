@@ -1,0 +1,24 @@
+ℹ Create a SpatialCellChat object from a data matrixCreate a SpatialCellChat object from spatial imaging data... 
+Set cell identities for the new SpatialCellChat object 
+The cell groups used for SpatialCellChat analysis are  Cluster_01 Cluster_02 Cluster_03 Cluster_04 Cluster_05 Cluster_06 Cluster_07 Cluster_08 Cluster_09 Cluster_10 Cluster_11 Cluster_12 Cluster_13 Cluster_14 Cluster_15 Cluster_16 Cluster_17 Cluster_18 Cluster_19 Cluster_20 Cluster_21 Cluster_22 Cluster_23 
+>>>  Apply a predefined spatial distance threshold based on the interaction length(=30um)...
+>>> Contact range is set as 10um, to restrict the contact-dependent signaling.
+>>>  Analyzing spatial transcriptomic data and preferring to infer interactions between individual cells...
+>>>  Apply a predefined spatial distance threshold based on the interaction length(=30um)...
+>>> Contact range is set as 10um, to restrict the contact-dependent signaling.
+>>> Run CellChat on spatial transcriptomic data using distances as constraints <<< [2026-09-11 15:21:11.434561]
+>>>  The input L-R pairs have both secreted signaling and contact-dependent signaling. Run CellChat in a contact-dependent manner for `Cell-Cell Contact` signaling, and in a diffusion manner based on the `interaction.range` for other L-R pairs. 
+ℹ Future strategy in use: `parallel with 8 workers`
+>>>  The number of cells and L-R pairs in Dim(Prob.cell): 1000 1000 1076 
+✔ CellChat inference is done. Parameter values are stored in `object@options$parameter` <<< [2026-09-11 15:28:31.293081]
+>>>  The cell groups used for averaging cell-cell communication are  Cluster_01 Cluster_02 Cluster_03 Cluster_04 Cluster_05 Cluster_06 Cluster_07 Cluster_08 Cluster_09 Cluster_10 Cluster_11 Cluster_12 Cluster_13 Cluster_14 Cluster_15 Cluster_16 Cluster_17 Cluster_18 Cluster_19 Cluster_20 Cluster_21 Cluster_22 Cluster_23 
+>>> Compute group-level cell-cell communication... <<< [2026-09-11 15:28:32.805372] 
+>>>  compute the average signaling per cell group...
+ℹ Future strategy in use: `sequential`
+>>> Perform permutation test for group-level communication... <<< [2026-09-11 15:29:30.957238] 
+ℹ Future strategy in use: `sequential`
+✔Inference of group-level cell-cell communication is done. Parameter values are stored in `object@options$parameter` <<< [2026-09-11 15:29:49.053015]  official_active ess_active active_jaccard max_abs_probability_difference
+1              57         57              1                   1.387779e-17
+  pvalue_exact_fraction significance_disagreements pass
+1                     1                          0 TRUE
+PASS: fresh official cell stage and group permutation versus SpatialESS.

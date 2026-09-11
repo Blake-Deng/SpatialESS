@@ -1,0 +1,5 @@
+Error: cannot allocate vector of size 1465.6 Gb
+In addition: Warning message:
+In asMethod(object) :
+  sparse->dense coercion: allocating vector of size 1.0 GiB
+Execution halted

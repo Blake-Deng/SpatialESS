@@ -18,6 +18,12 @@
 #' @param min.percent,min.cells.sr Group-average filters.
 #' @param nboot,seed.use Global label-permutation settings.
 #' @param max_edges,max_output_records,max_active_edges_per_lr Memory guards.
+#' @param lr_missing How to handle incomplete mandatory LR genes: `"error"`
+#'   (default) preserves strict checking; `"filter"` explicitly excludes
+#'   incomplete LR with a warning and stores the full audit in `$lr_filter`.
+#' @return A SpatialESSResult with records, LR table, CSR graph, diagnostics
+#'   and parameters. When `lr_missing = "filter"`, `lr_filter` contains the
+#'   original-order coverage audit, excluded rows and missing-gene table.
 #' @export
 spatialess <- function(
     expression, coordinates, group, lr, complex, cofactor,
@@ -28,7 +34,9 @@ spatialess <- function(
     min.percent = 0.1, min.cells.sr = 5L,
     nboot = 0L, seed.use = 1L,
     max_edges = 5e8, max_output_records = 1e8,
-    max_active_edges_per_lr = 5e8) {
+    max_active_edges_per_lr = 5e8,
+    lr_missing = c("error", "filter")) {
+  lr_missing <- match.arg(lr_missing)
   if (!inherits(expression, "Matrix")) {
     expression <- Matrix::Matrix(expression, sparse = TRUE)
   }
@@ -56,6 +64,14 @@ spatialess <- function(
   }
 
   lr <- as.data.frame(lr, stringsAsFactors = FALSE)
+  lr_filter <- NULL
+  if (lr_missing == "filter") {
+    lr_filter <- filter_cellchat_lr(lr, rownames(expression), complex, cofactor)
+    lr <- lr_filter$lr
+  }
+  if (nrow(lr) == 0L) {
+    stop("No complete LR records remain. Inspect filter_cellchat_lr()$audit and $missing_genes; check the panel and gene identifiers.", call. = FALSE)
+  }
   if ("annotation" %in% colnames(lr) &&
       length(unique(lr$annotation)) > 1L) {
     annotation <- factor(
@@ -140,6 +156,7 @@ spatialess <- function(
     list(
       records = records,
       lr = lr,
+      lr_filter = lr_filter,
       graph = graph,
       diagnostics = list(
         active_edges_per_lr = result$active_edges_per_lr,
@@ -148,6 +165,7 @@ spatialess <- function(
       ),
       parameters = list(
         engine = "SpatialESS_CSR_stream",
+        percentage_filter = "SpatialCellChat_V3_format_digits1",
         ratio = ratio, tol = tol, interaction.range = interaction.range,
         scale.distance = scale.distance, contact.range = contact.range,
         Kh = Kh, n = n, use.AGAN = isTRUE(use.AGAN),
@@ -157,4 +175,14 @@ spatialess <- function(
     ),
     class = "SpatialESSResult"
   )
+}
+
+# V3 formats each aggregated expression-fraction column before comparing it.
+# Keep the data.frame dispatch and character comparison, including R options.
+.spatialess_v3_percent_mask <- function(positive, sizes, min.percent) {
+  fractions <- data.frame(
+    ligand = positive[, 1L] / sizes,
+    receptor = positive[, 2L] / sizes
+  )
+  unname(format(fractions, digits = 1) >= min.percent)
 }

@@ -1,0 +1,4 @@
+condition	cells	comparator	source_records	archived_run	active_a	active_b	active_jaccard	max_abs_probability_difference	pvalue_exact_fraction	significant_a	significant_b	significance_disagreements	significance_rule	pass
+raw	16247	historical_spatialess	/home/dzf/cellchat_acceleration/SpatialESS_RNA_leakage_20260902/results/spatialess_rctd_raw/records.rds	TRUE	41294	41294	1	4.55364912443912e-17	1	10942	10942	0	pvalue < 0.05	TRUE
+sparkle	16247	historical_spatialess	/home/dzf/cellchat_acceleration/SpatialESS_RNA_leakage_20260902/results/spatialess_rctd_sparkle_full_20260904/records.rds	TRUE	37808	37808	1	1.32923186346723e-16	1	8417	8417	0	pvalue < 0.05	TRUE
+sparkle	16247	archived_official_V3	/home/dzf/cellchat_acceleration/SpatialESS_RNA_leakage_20260902/results/official_rctd_sparkle_full_20260904/records.rds	TRUE	37808	37808	1	1.32923186346723e-16	1	8417	8417	0	pvalue < 0.05	TRUE

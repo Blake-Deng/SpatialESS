@@ -1,0 +1,44 @@
+[
+  {
+    "condition": "raw",
+    "cells": 1000,
+    "h5ad": "/home/dzf/cellchat_acceleration/releases/SpatialESS_main_SPARKLE_20260910/inputs/raw_1000.h5ad",
+    "metadata": "/home/dzf/cellchat_acceleration/releases/SpatialESS_main_SPARKLE_20260910/inputs/raw_1000_metadata.tsv",
+    "source": "/home/dzf/cellchat_acceleration/SpatialESS_RNA_leakage_20260902/software/SPARKLE/evaluation/reports/h5ad_ovarian_annotated/ovarian_x1000-1800_y300-1100_raw.h5ad"
+  },
+  {
+    "condition": "raw",
+    "cells": 5000,
+    "h5ad": "/home/dzf/cellchat_acceleration/releases/SpatialESS_main_SPARKLE_20260910/inputs/raw_5000.h5ad",
+    "metadata": "/home/dzf/cellchat_acceleration/releases/SpatialESS_main_SPARKLE_20260910/inputs/raw_5000_metadata.tsv",
+    "source": "/home/dzf/cellchat_acceleration/SpatialESS_RNA_leakage_20260902/software/SPARKLE/evaluation/reports/h5ad_ovarian_annotated/ovarian_x1000-1800_y300-1100_raw.h5ad"
+  },
+  {
+    "condition": "raw",
+    "cells": 16247,
+    "h5ad": "/home/dzf/cellchat_acceleration/SpatialESS_RNA_leakage_20260902/software/SPARKLE/evaluation/reports/h5ad_ovarian_annotated/ovarian_x1000-1800_y300-1100_raw.h5ad",
+    "metadata": "/home/dzf/cellchat_acceleration/releases/SpatialESS_main_SPARKLE_20260910/inputs/raw_16247_metadata.tsv",
+    "source": "/home/dzf/cellchat_acceleration/SpatialESS_RNA_leakage_20260902/software/SPARKLE/evaluation/reports/h5ad_ovarian_annotated/ovarian_x1000-1800_y300-1100_raw.h5ad"
+  },
+  {
+    "condition": "sparkle",
+    "cells": 1000,
+    "h5ad": "/home/dzf/cellchat_acceleration/releases/SpatialESS_main_SPARKLE_20260910/inputs/sparkle_1000.h5ad",
+    "metadata": "/home/dzf/cellchat_acceleration/releases/SpatialESS_main_SPARKLE_20260910/inputs/sparkle_1000_metadata.tsv",
+    "source": "/home/dzf/cellchat_acceleration/SpatialESS_RNA_leakage_20260902/software/SPARKLE/evaluation/reports/h5ad_ovarian_annotated/ovarian_x1000-1800_y300-1100_SPARKLE.h5ad"
+  },
+  {
+    "condition": "sparkle",
+    "cells": 5000,
+    "h5ad": "/home/dzf/cellchat_acceleration/releases/SpatialESS_main_SPARKLE_20260910/inputs/sparkle_5000.h5ad",
+    "metadata": "/home/dzf/cellchat_acceleration/releases/SpatialESS_main_SPARKLE_20260910/inputs/sparkle_5000_metadata.tsv",
+    "source": "/home/dzf/cellchat_acceleration/SpatialESS_RNA_leakage_20260902/software/SPARKLE/evaluation/reports/h5ad_ovarian_annotated/ovarian_x1000-1800_y300-1100_SPARKLE.h5ad"
+  },
+  {
+    "condition": "sparkle",
+    "cells": 16247,
+    "h5ad": "/home/dzf/cellchat_acceleration/SpatialESS_RNA_leakage_20260902/software/SPARKLE/evaluation/reports/h5ad_ovarian_annotated/ovarian_x1000-1800_y300-1100_SPARKLE.h5ad",
+    "metadata": "/home/dzf/cellchat_acceleration/releases/SpatialESS_main_SPARKLE_20260910/inputs/sparkle_16247_metadata.tsv",
+    "source": "/home/dzf/cellchat_acceleration/SpatialESS_RNA_leakage_20260902/software/SPARKLE/evaluation/reports/h5ad_ovarian_annotated/ovarian_x1000-1800_y300-1100_SPARKLE.h5ad"
+  }
+]

@@ -1,0 +1,13 @@
+condition	cells	mode	active_a	active_b	active_jaccard	max_abs_probability_difference	pvalue_exact_fraction	significant_a	significant_b	significance_disagreements	significance_rule	records_identical	input_identical	contract_identical	rng_identical	pass
+raw	1000	new_bridge	6930	6930	1	0	1	1791	1791	0	pvalue < 0.05	TRUE	TRUE	TRUE	TRUE	TRUE
+raw	1000	direct_main	6930	6930	1	0	1	1791	1791	0	pvalue < 0.05	TRUE	TRUE	TRUE	TRUE	TRUE
+raw	16247	new_bridge	41294	41294	1	0	1	10942	10942	0	pvalue < 0.05	TRUE	TRUE	TRUE	TRUE	TRUE
+raw	16247	direct_main	41294	41294	1	0	1	10942	10942	0	pvalue < 0.05	TRUE	TRUE	TRUE	TRUE	TRUE
+raw	5000	new_bridge	24254	24254	1	0	1	5706	5706	0	pvalue < 0.05	TRUE	TRUE	TRUE	TRUE	TRUE
+raw	5000	direct_main	24254	24254	1	0	1	5706	5706	0	pvalue < 0.05	TRUE	TRUE	TRUE	TRUE	TRUE
+sparkle	1000	new_bridge	5806	5806	1	0	1	1598	1598	0	pvalue < 0.05	TRUE	TRUE	TRUE	TRUE	TRUE
+sparkle	1000	direct_main	5806	5806	1	0	1	1598	1598	0	pvalue < 0.05	TRUE	TRUE	TRUE	TRUE	TRUE
+sparkle	16247	new_bridge	37808	37808	1	0	1	8417	8417	0	pvalue < 0.05	TRUE	TRUE	TRUE	TRUE	TRUE
+sparkle	16247	direct_main	37808	37808	1	0	1	8417	8417	0	pvalue < 0.05	TRUE	TRUE	TRUE	TRUE	TRUE
+sparkle	5000	new_bridge	21971	21971	1	0	1	4555	4555	0	pvalue < 0.05	TRUE	TRUE	TRUE	TRUE	TRUE
+sparkle	5000	direct_main	21971	21971	1	0	1	4555	4555	0	pvalue < 0.05	TRUE	TRUE	TRUE	TRUE	TRUE

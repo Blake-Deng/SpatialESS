@@ -13,3 +13,7 @@
 ^environment\.yml$
 ^SpatialESSSPARKLE_.*\.tar\.gz$
 ^LICENSE$
+^validation$
+^RELEASE_STATUS\.md$
+^SHA256SUMS\.txt$
+^.*\.Rcheck$

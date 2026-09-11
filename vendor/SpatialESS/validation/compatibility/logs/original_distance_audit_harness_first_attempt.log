@@ -1,0 +1,7 @@
+>>>  Apply a predefined spatial distance threshold based on the interaction length(=30um)...
+>>> Contact range is set as 10um, to restrict the contact-dependent signaling.
+>>>  Apply a predefined spatial distance threshold based on the interaction length(=30um)...
+>>> Contact range is set as 10um, to restrict the contact-dependent signaling.
+Error in dimnames(x) <- dnx : 'dimnames' applied to non-array
+Calls: data.frame ... eval -> eval -> data.frame -> do.call -> provideDimnames
+Execution halted

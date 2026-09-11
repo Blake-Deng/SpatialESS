@@ -1,0 +1,5 @@
+lr_index	sender_group	receiver_group	supported_edges	sum_spatial_weight	mean_spatial_weight	molecular_probability	mean_weighted_probability	sum_weighted_probability	interaction_name	ligand	receptor	sender_group_name	receiver_group_name
+1	1	1	12	12	1	0.268254248152571	0.268254248152571	3.21905097783085	LC_RC	LC	RC	A	A
+1	1	2	16	16	1	0.214538496830163	0.214538496830163	3.43261594928262	LC_RC	LC	RC	A	B
+1	2	1	16	16	1	0.335585045367685	0.335585045367685	5.36936072588295	LC_RC	LC	RC	B	A
+1	2	2	12	12	1	0.274308519182016	0.274308519182016	3.29170223018419	LC_RC	LC	RC	B	B

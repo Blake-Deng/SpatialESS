@@ -1,0 +1,6 @@
+         preprocessing cells  lr official_active ess_active active_jaccard
+1 shared_ALRA_MERINGUE  1000 596             232        232              1
+  max_abs_probability_difference pvalue_exact_fraction
+1                   2.081668e-17                     1
+  significance_disagreements pass
+1                          0 TRUE
