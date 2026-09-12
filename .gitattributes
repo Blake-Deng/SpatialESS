@@ -1,0 +1,4 @@
+# Archived web pages are not implementation source.
+*.html -linguist-detectable
+*.htm -linguist-detectable
+*.xhtml -linguist-detectable
