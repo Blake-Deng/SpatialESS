@@ -1,7 +1,7 @@
 Package: SpatialESS
 Type: Package
 Title: Efficient Edge-First Spatial Cell-Cell Communication
-Version: 0.1.3
+Version: 0.1.4
 Authors@R: person("DENG", "Zifeng", role = c("aut", "cre"), email = "zifengd8@gmail.com")
 Description: Provides an independent high-performance implementation of the
     SpatialCellChat V3 spatial communication workflow. Compact CSR radius
