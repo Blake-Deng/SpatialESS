@@ -1,2 +1,0 @@
-Error: non-conformable matrix dimensions in .Arith.Csparse(e1, e2, .Generic, class. = "dgCMatrix")
-

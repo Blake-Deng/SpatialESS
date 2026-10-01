@@ -1,39 +1,8 @@
 # SpatialESS + SPARKLE
 
-A reproducible bridge from SPARKLE-corrected spatial expression to exact,
-memory-efficient SpatialESS communication inference.
+SpatialESSSPARKLE 0.1.4 connects sparse H5AD expression to SpatialESS 0.1.4. The complete engine, including patient-aware GLM/LMM analysis, is bundled in `vendor/SpatialESS`.
 
-SpatialESS is the inference engine in this repository. SPARKLE is an
-independent upstream method for evidence-constrained correction of local RNA
-leakage. This project integrates the two tools without claiming the SPARKLE
-correction model as a SpatialESS contribution.
-
-Version 0.1.3 bundles the **same SpatialESS 0.1.3 engine as main**, including
-the LR coverage interface and multi-patient GLM/LMM code. It adds an H5AD
-bridge before that engine; it does not introduce a second inference model.
-No separate checkout of the main repository is required. The conda environment
-pins the upstream SPARKLE installation; its correction model is unchanged.
-See [release checks and numerical regression](RELEASE_STATUS.md).
-
-The 0.1.3 engine repairs official V3 percentage filtering in both observed
-scores and permutations. The SPARKLE model and H5AD conversion are unchanged.
-Near a nonzero `min.percent` boundary, results may differ intentionally from
-0.1.2. See [the shared compatibility contract](vendor/SpatialESS/docs/V3_COMPATIBILITY.md).
-
-## What this repository provides
-
-- `spatialess_from_h5ad()`: one-call conversion and SpatialESS inference.
-- Sparse, chunked H5AD export without densifying the complete matrix in R.
-- Cell labels and coordinates from H5AD `obs` or an external metadata TSV.
-- CP10K library-size calculation over all H5AD genes before signaling-gene
-  selection.
-- The SpatialESS engine, including the multi-patient LMM layer, is bundled in this repository and installed locally before the bridge package.
-- A 24-cell executable example and regression tests.
-- Compact source tables and scripts for two publication figures.
-
-SPARKLE does not assign cell types. SpatialESS requires a group label for each
-cell. Users can provide an existing annotation or generate one with an
-appropriate reference and annotation workflow.
+SPARKLE is independent upstream RNA-leakage correction software. This repository supplies the bridge and inference workflow; see [attribution](docs/SPARKLE_ATTRIBUTION.md).
 
 ## Method boundary
 
@@ -150,8 +119,7 @@ Excluded LR produce a warning and remain listed in the audit, with original
 input-row indices and missing genes. With `output_dir` set, the bridge also
 writes `lr_audit.tsv` and `lr_missing_genes.tsv`. Cofactor absences are reported
 separately and keep the established optional-gene behavior. Use
-`lr_missing = "error"` for strict checking. The bridge retains its prior
-filtering default; the standalone main API retains its strict default.
+`lr_missing = "error"` for strict checking. The bridge filters unresolved LR by default; the standalone main API retains its strict default.
 The older `filter_unresolved` option remains supported.
 
 For main-versus-bridge comparisons, use the **same exported matrix** from
@@ -205,96 +173,11 @@ coordinates or unresolved matrix dimensions.
   evidence. Follow the upstream SPARKLE documentation before running this
   bridge.
 
-## Multi-patient analysis
 
-SPARKLE correction is performed independently for each spatial sample. After RAW or corrected H5AD inputs have been analyzed with `spatialess_from_h5ad()`, the same downstream SpatialESS cohort model can be used without installing a separate repository:
+## Cohort analysis and results
 
-```r
-prepared <- SpatialESS::prepare_multisample_communication(
-  results = sample_results,
-  sample_metadata = sample_metadata,
-  unit = "sample"
-)
+Use the bundled `SpatialESS::prepare_multisample_communication()` and `SpatialESS::fit_multisample_communication_lmm()` for multi-patient analysis. See [model documentation](vendor/SpatialESS/docs/MULTISAMPLE_LMM.md).
 
-lmm_result <- SpatialESS::fit_multisample_communication_lmm(
-  prepared = prepared,
-  design = ~ condition,
-  coefficient = "conditiondisease",
-  patient_col = "patient_id",
-  REML = FALSE
-)
-```
+Current RAW and corrected-input bridge measurements are in `results/tables/bridge_results.tsv`. Direct-inference records, official comparator metrics and cohort fits are indexed by the [bundled result catalog](vendor/SpatialESS/docs/RESULTS.md).
 
-The model is `log1p(score) ~ condition + (1 | patient)`. It retains multiple slices per patient and accounts for within-patient correlation. A simple slice-level GLM is included as a comparator. Status values distinguish valid fits, singular boundary fits, convergence warnings, numerical failures and features with too few nonzero slices. Convergence-warning and failed fits are excluded from FDR.
-
-The bundled engine contains the frozen GSE250346 validation: 45 slices from 35 patients, 39,570 valid LMM fits, 5,147 FDR-significant features, and Spearman rho 0.9966 between valid LMM and slice-level GLM effect estimates. These cohort results validate the downstream SpatialESS engine; they are not evidence that SPARKLE correction itself improves biological truth. See `docs/MULTISAMPLE_LMM.md` and [`docs/REVIEWER_GUIDE.md`](docs/REVIEWER_GUIDE.md) for the distinction between model diagnostics and software failures.
-
-## Validation
-
-The recorded ovarian Visium HD analysis used one SPARKLE-corrected input,
-16,247 cells, 967 signaling genes, 1,828 computable LR pairs, 100 permutations,
-identical labels, coordinates, seed and parameters, and one thread.
-
-| Method | Core time | Process wall | Peak RSS | Active | Significant |
-|---|---:|---:|---:|---:|---:|
-| Official SpatialCellChat V3 | 6,541.848 s | 6,549.0 s | 4.008 GiB | 37,808 | 8,417 |
-| SpatialESS | 35.765 s | 40.6 s | 0.590 GiB | 37,808 | 8,417 |
-
-Numerical fidelity on the common SPARKLE input:
-
-- active-record Jaccard: `1.000`;
-- maximum absolute probability difference: `4.99e-18`;
-- exact p-value fraction: `1.000`;
-- significance disagreements at 0.05: `0`.
-
-![Official SpatialCellChat V3 versus SpatialESS](figures/Figure1_SPARKLE_Official_vs_SpatialESS.png)
-
-RAW and SPARKLE-corrected expression were also analyzed with identical
-SpatialESS settings. Aggregate LR strength remained highly concordant
-(Spearman rho `0.986`; top-100 LR overlap `85/100`), while the significant
-sender-receiver-LR set changed (Jaccard `0.596`). This is an input-correction
-effect, not an implementation discrepancy.
-
-![RAW versus SPARKLE with SpatialESS](figures/Figure2_RAW_vs_SPARKLE_SpatialESS.png)
-
-See [the validation notes](docs/VALIDATION.md) for interpretation boundaries and
-[the benchmark directory](benchmark/ovarian_20260904/) for source tables.
-
-## Reproduce the figures
-
-```bash
-python scripts/make_publication_figures.py
-```
-
-PDF and SVG versions are included for manuscript editing. The repository does
-not include the large ovarian H5AD or raw 10x files.
-
-## Repository layout
-
-```text
-R/                         R bridge API
-inst/python/               backed H5AD converter
-vendor/SpatialESS/          bundled inference and multi-patient engine
-examples/minimal/          executable small example
-benchmark/                 compact validation source tables
-figures/                   PDF, SVG and 450-dpi PNG outputs
-docs/                      validation and attribution notes
-```
-
-## Scope of claims
-
-The official comparison establishes numerical fidelity for the tested
-SpatialCellChat V3 workflow and parameterization. RAW-versus-SPARKLE results
-show that the integration carries corrected expression into SpatialESS
-reproducibly. They do not by themselves prove that leakage correction improves
-biological truth in every tissue, platform or parameter setting.
-
-## Attribution
-
-SPARKLE is developed independently and distributed under the MIT License. The
-validated integration used `stambient` 0.1.2 at commit
-`e0855e11ce22d4e97fedeeaf5bdcfe94f79b3d78`. Users enabling SPARKLE correction
-must cite the SPARKLE work. See [SPARKLE attribution](docs/SPARKLE_ATTRIBUTION.md).
-
-This repository includes the GPL-3 SpatialESS implementation and is distributed
-under GPL-3.
+Local checks are in `results/checks.tsv`. GitHub cloud Actions are **NOT RUN** for this source ZIP.

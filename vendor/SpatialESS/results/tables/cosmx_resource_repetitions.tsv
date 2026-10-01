@@ -1,0 +1,14 @@
+cells	repetition	wall_seconds	peak_rss_GiB	inference_seconds	exit_code	timing_scope
+1000	1	2.49	0.6118545532226562	0.338	0	original_full_fixture_harness
+10000	1	3.75	0.6372261047363281	1.488	0	original_full_fixture_harness
+100000	1	19.62	0.9453010559082031	17.016	0	original_full_fixture_harness
+200000	1	41.07	1.2618789672851562	38.253	0	original_full_fixture_harness
+250	1	2.39	0.6119232177734375	0.254	0	original_full_fixture_harness
+25000	1	6.02	0.6937294006347656	3.719	0	original_full_fixture_harness
+443515	1	95.56	1.9698753356933594	92.057	0	original_full_fixture_harness
+5000	1	3.02	0.6236114501953125	0.815	0	original_full_fixture_harness
+50000	1	9.78	0.8042984008789062	7.421	0	original_full_fixture_harness
+443515	2	96.31	1.9683952331542969	92.825	0	original_full_fixture_harness
+50000	2	9.85	0.804931640625	7.501	0	original_full_fixture_harness
+443515	3	96.03	1.9672660827636719	92.529	0	original_full_fixture_harness
+50000	3	9.89	0.8042526245117188	7.527	0	original_full_fixture_harness

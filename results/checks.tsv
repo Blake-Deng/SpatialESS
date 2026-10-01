@@ -1,0 +1,6 @@
+check	status	scope	version
+R CMD check SpatialESS	PASS	local	0.1.4
+R CMD check SpatialESSSPARKLE	PASS	local	0.1.4
+Examples and Python tests	PASS	local	0.1.4
+GitHub Actions syntax	PASS	local	0.1.4
+GitHub Actions execution	NOT RUN	cloud	0.1.4

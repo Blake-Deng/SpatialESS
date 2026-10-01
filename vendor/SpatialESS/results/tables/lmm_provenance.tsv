@@ -1,0 +1,2 @@
+dataset	samples	patients	features	fit_date	matrix_scope	model_source_sha256	analysis	pvalue	FDR	completed_fits_file
+GSE250346	45	35	50040	2026-09-07	343_gene_panel_per_slice	8cd1241b2a052d07a8882cf04787bd8bcf846966057dab5a226fe86911cf20fa	patient_random_intercept_LMM	Wald_normal	BH_status_ok	results/lmm/patient_random_intercept_lmm.tsv.gz

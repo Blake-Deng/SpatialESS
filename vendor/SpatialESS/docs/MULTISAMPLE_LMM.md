@@ -40,35 +40,4 @@ This is implemented by
 Singular fits are successful fits, not software failures. Features rejected by
 the support screens are also not treated as model failures. Numerical failures
 are retained with their complete optimizer messages and never receive p-values
-or q-values. The 2026-09-07 robust cohort rerun is complete: 39,570 valid fits,
-1,984 convergence warnings, 292 numerical failures and 8,194 unsupported
-features. See [LMM_RESULTS_20260907.md](LMM_RESULTS_20260907.md) for the
-complete tables, input hashes and checkpointed reproduction command. Further
-parameter changes require a new rerun, not relabeling these tables.
-
-The reviewer-oriented explanation of these distinctions is in
-`docs/REVIEWER_GUIDE.md`.
-
-## Reproduce on GSE250346
-
-The full sample-level result files and metadata are expected at
-`/data/dzf/GSE250346/benchmarks/multisample/`. Run:
-
-```bash
-Rscript benchmarks/run_gse250346_lmm_comparison.R
-```
-
-The script writes:
-
-```text
-slice_glm_vs_patient_lmm/slice_level_glm.tsv
-slice_glm_vs_patient_lmm/patient_random_intercept_lmm.tsv
-slice_glm_vs_patient_lmm/model_summary.tsv
-slice_glm_vs_patient_lmm/lmm_status_summary.tsv
-slice_glm_vs_patient_lmm/lmm_failure_summary.tsv
-slice_glm_vs_patient_lmm/lmm_convergence_summary.tsv
-```
-
-The GLM is the slice-level baseline. The LMM is the primary patient-aware model. For confirmatory inference, degrees of freedom can be
-replaced by `lmerTest` or a parametric bootstrap; the current implementation
-keeps the dependency limited to `lme4` and makes the approximation explicit.
+or q-values. The included cohort fit uses 45 slices from 35 patients. Complete fit tables and diagnostics are indexed in [RESULTS.md](RESULTS.md).

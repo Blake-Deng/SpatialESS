@@ -175,7 +175,9 @@ LogicalMatrix v3_percent_mask(const std::vector<int>& ligand_positive,
     positive(g, 1) = receptor_positive[static_cast<std::size_t>(g)];
   }
   // Format only the small group-level table, never a cell-by-cell matrix.
-  return filter(positive, wrap(group_sizes), min_percent);
+  // Keep sizes alive while Rcpp allocates the other callback arguments.
+  const IntegerVector sizes = wrap(group_sizes);
+  return filter(positive, sizes, min_percent);
 }
 
 }  // namespace

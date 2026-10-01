@@ -17,3 +17,4 @@
 ^RELEASE_STATUS\.md$
 ^SHA256SUMS\.txt$
 ^.*\.Rcheck$
+^results(/|$)
