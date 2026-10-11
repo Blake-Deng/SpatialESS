@@ -128,9 +128,24 @@ must be cited separately when used.
 
 ## Scope and checks
 
-Local installation, examples and R CMD check are recorded in
-`results/checks.tsv`. GitHub cloud Actions are **NOT RUN** for this source ZIP.
+Historical installation, examples and R CMD check are recorded in
+`results/checks.tsv`. A fresh macOS R 4.5.2 check completed with `Status: OK`
+and 711 passing tests (zero failures, warnings or skips); its logs are in
+`paper/provenance/editorial_checks_20261012/`. See the
+[GitHub Actions runs](https://github.com/Blake-Deng/SpatialESS/actions/workflows/R-CMD-check.yml)
+for the R package status of each public commit. Submission checksums and saved
+ovarian/bridge records were independently verified locally; the portable
+verification commands are listed in docs/SUBMISSION_CONTENTS.md.
 Numerical agreement is not biological ground truth, and the tested execution
 strategy does not establish compatibility with every communication model.
 
 License: GPL-3.
+
+## Manuscript data and verification records
+
+The public research materials are indexed in
+[docs/SUBMISSION_CONTENTS.md](docs/SUBMISSION_CONTENTS.md). They include figure
+source data and plotting scripts, Supplementary Table 1, annotation provenance
+and saved-record verification code under `paper/`. Manuscript Word drafts are
+retained locally for author review. Figure 1A is an unfinished reference
+composition, as documented in the figure QA report.

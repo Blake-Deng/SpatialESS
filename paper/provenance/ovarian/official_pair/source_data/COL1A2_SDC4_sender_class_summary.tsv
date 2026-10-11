@@ -1,0 +1,4 @@
+sender_class	sender_receiver_records	raw_active_records	sparkle_active_records	raw_significant_records	sparkle_significant_records	significant_gained	significant_lost	raw_probability_sum	sparkle_probability_sum	probability_retention
+fibroblast	16	16	11	9	6	0	3	0.00790142568204886	0.00575785769999032	0.728711239171878
+tumor	59	59	46	25	13	2	14	0.024634413320718	0.018753116234279	0.761256864132717
+other	71	71	57	32	9	1	24	0.0371310425169125	0.0304964090095302	0.821318415599015

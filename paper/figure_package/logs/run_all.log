@@ -1,0 +1,5 @@
+Verified 64 original input hashes.
+Running redraw.py
+Running compose_and_check.py
+Running write_reports.py
+Finished. Open reports/QA_REPORT.md and preview/*_from_pdf.png.

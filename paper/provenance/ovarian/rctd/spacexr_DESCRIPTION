@@ -1,0 +1,19 @@
+Package: spacexr
+Type: Package
+Title: SpatialeXpressionR: Cell type identification and cell
+        type-specific differential expression in spatial
+        transcriptomics
+Version: 2.2.1
+Author: Dylan Cable
+Maintainer: <dcable@mit.edu>
+Description: cell type identification and cell type-specific differential expression for spatial transcriptomics
+Depends: R (>= 3.5.0)
+License: GNU General Public License v3.0.
+Encoding: UTF-8
+LazyData: true
+Imports: readr, ggplot2, pals, Matrix, parallel, doParallel, foreach,
+        quadprog, tibble, dplyr, reshape2, knitr, rmarkdown, fields,
+        mgcv, CompQuadForm, Rfast, locfdr, metafor, data.table
+RoxygenNote: 7.3.2
+VignetteBuilder: knitr
+Built: R 4.5.3; ; 2026-09-03 04:24:17 UTC; unix

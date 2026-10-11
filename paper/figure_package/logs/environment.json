@@ -1,0 +1,9 @@
+{
+  "python": "3.13.13 | packaged by conda-forge | (main, Apr  8 2026, 02:00:33) [GCC 14.3.0]",
+  "platform": "Linux-6.17.0-35-generic-x86_64-with-glibc2.39",
+  "numpy": "2.4.6",
+  "pandas": "3.0.5",
+  "matplotlib": "3.11.1",
+  "font": "Arial",
+  "font_path": "/home/dzf/.local/share/fonts/arial/Arial.TTF"
+}

@@ -1,0 +1,4 @@
+metric,value
+Active-record Jaccard,1
+Exact p fraction,1
+Significant-call Jaccard,1

@@ -1,0 +1,27 @@
+{
+  "cells": 16247,
+  "mapped_cells": 16213,
+  "unknown_cells": 34,
+  "mapped_fraction": 0.997907305964178,
+  "cell_types": 16,
+  "label_source": "RAW RCTD first_type; shared unchanged by RAW and SPARKLE",
+  "cell_type_counts": {
+    "Ciliated Epithelial Cells": 32,
+    "Endothelial Cells": 163,
+    "Fallopian Tube Epithelium": 413,
+    "Granulosa Cells": 23,
+    "Inflammatory Tumor Cells": 174,
+    "MT-High, Jun+-Fos+ Tumor Cells": 3293,
+    "Macrophages": 68,
+    "Malignant Cells Lining Cyst": 6,
+    "Pericytes": 170,
+    "Proliferative Tumor Cells": 173,
+    "Smooth Muscle Cells": 4,
+    "Stromal Associated Fibroblasts": 5,
+    "T & NK Cells": 2,
+    "Tumor Associated Fibroblasts": 387,
+    "Tumor Cells": 133,
+    "Unknown": 34,
+    "VEGFA+ Tumor Cells": 11167
+  }
+}

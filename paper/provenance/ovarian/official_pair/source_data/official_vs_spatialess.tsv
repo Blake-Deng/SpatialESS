@@ -1,0 +1,2 @@
+method	official_active_records	spatialess_active_records	shared_active_records	active_jaccard	max_abs_probability_difference	probability_exact_fraction	max_abs_pvalue_difference	pvalue_exact_fraction	significance_disagreements
+sparkle	37808	37808	37808	1	4.98732999343332e-18	0.784754549301735	0	1	0

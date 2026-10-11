@@ -14,3 +14,6 @@
 ^examples$
 ^mini$
 ^LMM_RESULTS_20260907_SHA256SUMS\.txt$
+
+^paper$
+^SUBMISSION_SHA256\.tsv$

@@ -1,0 +1,60 @@
+figure	check	status	details
+Figure1A	Original asset SHA256 unchanged	PASS	92c19a82c3dd3667720db50139d0d043b7d95cad3795d410c54eb5ab5722ec52
+Figure1A	Final-size lettering	WARNING	Protected asset reaches 2.59 pt in A slot; reference preview only.
+Figure1_data	Physical dimensions	PASS	[179.99999491373697, 190.0000089857313]
+Figure1_data	Ordinary lettering at least 5 pt	PASS	min ordinary text=5.000 pt
+Figure1_data	Text inside page	PASS	
+Figure1_data	All data-panel letters present	PASS	B,C,D,E,F,G,H,I
+Figure1_data	Protected A slot empty in editable data master	PASS	
+Figure1_data	No Type 3 fonts	PASS	[('Type0', 'BTCBPR+ArialMT'), ('Type0', 'FHMNPP+Arial-BoldMT')]
+Figure1_data	Fonts embedded	PASS	['ttf', 'ttf']
+Figure1_data	SVG editable text exists	PASS	168 text nodes; 0 raster data-layer elements
+Figure1_data	600 dpi at final physical size	PASS	(4251, 4488)
+Figure2	Physical dimensions	PASS	[179.99999491373697, 196.00000881618922]
+Figure2	Ordinary lettering at least 5 pt	PASS	min ordinary text=5.050 pt
+Figure2	Text inside page	PASS	
+Figure2	All data-panel letters present	PASS	A,B,C,D,E
+Figure2	No Type 3 fonts	PASS	[('Type0', 'ECIUCP+ArialMT'), ('Type0', 'FPQTQJ+Arial-BoldMT')]
+Figure2	Fonts embedded	PASS	['ttf', 'ttf']
+Figure2	SVG editable text exists	PASS	282 text nodes; 1 raster data-layer elements
+Figure2	Each volcano arrow matches full-key effect and BH q	PASS	8 original LR features; exact saved estimate / -log10(q) targets
+Figure2	All eight editable volcano leaders exported	PASS	
+Figure2	600 dpi at final physical size	PASS	(4251, 4629)
+FigureS1	Physical dimensions	PASS	[179.99999491373697, 155.00000279744464]
+FigureS1	Ordinary lettering at least 5 pt	PASS	min ordinary text=5.200 pt
+FigureS1	Text inside page	PASS	
+FigureS1	All data-panel letters present	PASS	A,B,C,D,E,F
+FigureS1	No Type 3 fonts	PASS	[('Type0', 'QFMBND+ArialMT'), ('Type0', 'GKGHUF+Arial-BoldMT')]
+FigureS1	Fonts embedded	PASS	['ttf', 'ttf']
+FigureS1	SVG editable text exists	PASS	131 text nodes; 0 raster data-layer elements
+FigureS1	600 dpi at final physical size	PASS	(4251, 3661)
+FigureS2	Physical dimensions	PASS	[179.99999491373697, 174.9999986436632]
+FigureS2	Ordinary lettering at least 5 pt	PASS	min ordinary text=5.000 pt
+FigureS2	Text inside page	PASS	
+FigureS2	All data-panel letters present	PASS	A,B,C,D
+FigureS2	No Type 3 fonts	PASS	[('Type0', 'UWWMHN+ArialMT'), ('Type0', 'DTWHMY+Arial-BoldMT')]
+FigureS2	Fonts embedded	PASS	['ttf', 'ttf']
+FigureS2	SVG editable text exists	PASS	152 text nodes; 0 raster data-layer elements
+FigureS2	600 dpi at final physical size	PASS	(4251, 4133)
+FigureS3	Physical dimensions	PASS	[179.99999491373697, 124.00000008477103]
+FigureS3	Ordinary lettering at least 5 pt	PASS	min ordinary text=5.000 pt
+FigureS3	Text inside page	PASS	
+FigureS3	All data-panel letters present	PASS	A,B,C,D
+FigureS3	No Type 3 fonts	PASS	[('Type0', 'WEXEDM+ArialMT'), ('Type0', 'FPNWCK+Arial-BoldMT')]
+FigureS3	Fonts embedded	PASS	['ttf', 'ttf']
+FigureS3	SVG editable text exists	PASS	88 text nodes; 0 raster data-layer elements
+FigureS3	600 dpi at final physical size	PASS	(4251, 2929)
+FigureS4	Physical dimensions	PASS	[179.99999491373697, 132.99999983045788]
+FigureS4	Ordinary lettering at least 5 pt	PASS	min ordinary text=5.500 pt
+FigureS4	Text inside page	PASS	
+FigureS4	All data-panel letters present	PASS	A,B,C,D
+FigureS4	No Type 3 fonts	PASS	[('Type0', 'WQQVAU+ArialMT'), ('Type0', 'EDEYDU+Arial-BoldMT')]
+FigureS4	Fonts embedded	PASS	['ttf', 'ttf']
+FigureS4	SVG editable text exists	PASS	74 text nodes; 0 raster data-layer elements
+FigureS4	600 dpi at final physical size	PASS	(4251, 3141)
+Figure1_data	Color-vision simulations generated	PASS	Visual review required; generated images are not automatic proof of discriminability.
+Figure2	Color-vision simulations generated	PASS	Visual review required; generated images are not automatic proof of discriminability.
+FigureS1	Color-vision simulations generated	PASS	Visual review required; generated images are not automatic proof of discriminability.
+FigureS2	Color-vision simulations generated	PASS	Visual review required; generated images are not automatic proof of discriminability.
+FigureS3	Color-vision simulations generated	PASS	Visual review required; generated images are not automatic proof of discriminability.
+FigureS4	Color-vision simulations generated	PASS	Visual review required; generated images are not automatic proof of discriminability.

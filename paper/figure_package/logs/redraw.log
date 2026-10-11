@@ -1,0 +1,48 @@
+Figure1B	source_data/current/cosmx_50000_paired.tsv	probability_official;probability_ess	n=18484
+Figure1C	source_data/current/official_fidelity.tsv	N;probability_pearson;max_probability_difference;exact_pvalue_fraction;active_jaccard;significant_disagreements_le005	n=6
+Figure1D	source_data/current/cosmx_scaling.tsv	cells;ESS_wall_seconds;official_wall_seconds;*_status	n=9
+Figure1E	source_data/current/cosmx_scaling.tsv	cells;ESS_peak_rss_GiB;official_peak_rss_gib;*_status	n=9
+Figure1F	source_data/current/spatial_sparsity.tsv	N;N_squared;E;fixture;sampling_design	n=14
+Figure1G	source_data/current/spatial_sparsity.tsv	N;E;mean_out_degree;fixture	n=14
+Figure1H	source_data/current/spatial_sparsity.tsv	N;graph_density;fixture	n=14
+Figure1I	source_data/current/cosmx_scaling.tsv	cells;ESS_status;official_status;official_failure_reason	n=9
+Figure2A	source_data/archived/lmm.tsv.gz;source_data/archived/volcano_labels.tsv.gz	feature_id;estimate;q_value;status	n=39570
+Figure2B	source_data/archived/forest.tsv.gz	feature_id;display_id;estimate;lower;upper;singular	n=12
+Figure2C	source_data/archived/effect_heatmap.tsv.gz;source_data/archived/selected_interactions.tsv.gz	feature_id;display_id;standardized_effect;glm_standardized_effect;q_value;glm_q;support_fraction;icc;singular	n=28
+Figure2D_slices	source_data/archived/slice_scores.tsv.gz	feature_id;sample_id;patient_id;condition;log1p_score	n=135
+Figure2D_patients	source_data/archived/patient_scores.tsv.gz	feature_id;patient_id;condition;log1p_score	n=105
+Figure2D_feature_identities	source_data/archived/patient_examples.tsv.gz	feature_id;display_id;ligand;receptor;sender_group_name;receiver_group_name	n=3
+Figure2E	source_data/archived/pathway_pair_representatives.tsv.gz	feature_id;pathway_name;sender_group_name;receiver_group_name;standardized_effect;q_value	n=52
+Exported Theme_preview: [180.  67.] mm
+Figure1B_marginals	source_data/current/cosmx_50000_paired.tsv	probability_official;probability_ess	n=24
+Exported Figure1_data: [180. 190.] mm
+Figure2A_labels	source_data/archived/volcano_labels.tsv.gz;source_data/archived/lmm.tsv.gz	feature_id;display_id;ligand;receptor;estimate;q_value	n=8
+Exported Figure2: [180. 196.] mm
+FigureS1A	provenance/current_docs/RESULTS.md;source_data/archived/sparkle_fidelity.tsv.gz	documented input bridge;method	n=3
+FigureS1B	source_data/archived/bridge_regression.tsv.gz	case;comparison;max_abs_probability_difference;pvalue_exact_fraction;active_jaccard;significance_disagreements	n=12
+FigureS1C	source_data/archived/sparkle_probability_records.tsv.gz	official_probability;spatialess_probability;official_pvalue;spatialess_pvalue	n=37808
+FigureS1D	source_data/archived/sparkle_probability_records.tsv.gz	official_pvalue;spatialess_pvalue	n=101
+FigureS1F	source_data/archived/raw_corrected_transitions.tsv.gz	category;records	n=3
+FigureS1C_marginals	source_data/archived/sparkle_probability_records.tsv.gz	official_probability;spatialess_probability	n=24
+FigureS1E	source_data/archived/sparkle_fidelity.tsv.gz;source_data/archived/sparkle_probability_records.tsv.gz	active_jaccard;pvalue_exact_fraction;official_pvalue;spatialess_pvalue	n=3
+Exported FigureS1: [180. 155.] mm
+FigureS2A	source_data/archived/cervical_spatial_metadata.tsv.gz	cell_id;x_centroid;y_centroid;group	n=5000
+FigureS2B	source_data/current/official_fidelity.tsv;source_data/archived/cervical_fidelity.tsv.gz	case;filter;cells;max_abs_probability_difference;pvalue_exact_fraction;active_jaccard;significance_disagreements	n=8
+FigureS2C	source_data/current/cervical_*_default_paired.tsv	case;probability_official;probability_ess	n=204
+FigureS2C_center_1000_marginals	source_data/current/cervical_center_1000_default_paired.tsv	probability_official;probability_ess	n=24
+FigureS2C_center_5000_marginals	source_data/current/cervical_center_5000_default_paired.tsv	probability_official;probability_ess	n=24
+FigureS2C_stratified_1000_marginals	source_data/current/cervical_stratified_1000_default_paired.tsv	probability_official;probability_ess	n=24
+FigureS2C_stratified_5000_marginals	source_data/current/cervical_stratified_5000_default_paired.tsv	probability_official;probability_ess	n=24
+FigureS2D	source_data/archived/cervical_fidelity.tsv.gz	case;filter;cells;ess_active;official_active;ess_significant_lt_005;official_significant_lt_005	n=32
+Exported FigureS2: [180. 175.] mm
+FigureS3A	source_data/current/spatial_sparsity.tsv	fixture;N;csr_total_bytes;dense_float64_bytes	n=5
+FigureS3B	source_data/current/spatial_sparsity.tsv	fixture;N;mean_out_degree;sampling_design	n=4
+FigureS3C	source_data/current/spatial_sparsity.tsv	fixture;N;isolated_cells	n=14
+FigureS3D	source_data/current/spatial_sparsity.tsv	fixture;N;csr_total_bytes;all_numeric_array_bytes	n=9
+Exported FigureS3: [180. 124.] mm
+FigureS4A	source_data/archived/model_summary.tsv.gz	lmm_* counts	n=5
+FigureS4B	source_data/archived/lmm_glm_summary.tsv.gz	glm_significant;lmm_significant;overlap_significant	n=1
+FigureS4C	source_data/archived/pathway_pair_representatives.tsv.gz	feature_id;pair;pathway_name;standardized_effect;q_value	n=52
+FigureS4D	source_data/archived/patient_examples.tsv.gz	feature_id;estimate;lower;upper	n=3
+Exported FigureS4: [180. 133.] mm
+All data panels exported; composition and visual QA still required.

@@ -1,0 +1,13 @@
+reference_active	candidate_active	active_jaccard	max_abs_probability_difference	pvalue_exact_fraction	significance_disagreements	full_records_identical	pass	case	comparison	inputs_identical	rng_identical	contract_except_filter_marker_identical
+6930	6930	1	0	1	0	TRUE	TRUE	raw_1000	old_vs_new	TRUE	TRUE	TRUE
+6930	6930	1	0	1	0	TRUE	TRUE	raw_1000	bridge_vs_direct	TRUE	TRUE	TRUE
+24254	24254	1	0	1	0	TRUE	TRUE	raw_5000	old_vs_new	TRUE	TRUE	TRUE
+24254	24254	1	0	1	0	TRUE	TRUE	raw_5000	bridge_vs_direct	TRUE	TRUE	TRUE
+41294	41294	1	0	1	0	TRUE	TRUE	raw_16247	old_vs_new	TRUE	TRUE	TRUE
+41294	41294	1	0	1	0	TRUE	TRUE	raw_16247	bridge_vs_direct	TRUE	TRUE	TRUE
+5806	5806	1	0	1	0	TRUE	TRUE	sparkle_1000	old_vs_new	TRUE	TRUE	TRUE
+5806	5806	1	0	1	0	TRUE	TRUE	sparkle_1000	bridge_vs_direct	TRUE	TRUE	TRUE
+21971	21971	1	0	1	0	TRUE	TRUE	sparkle_5000	old_vs_new	TRUE	TRUE	TRUE
+21971	21971	1	0	1	0	TRUE	TRUE	sparkle_5000	bridge_vs_direct	TRUE	TRUE	TRUE
+37808	37808	1	0	1	0	TRUE	TRUE	sparkle_16247	old_vs_new	TRUE	TRUE	TRUE
+37808	37808	1	0	1	0	TRUE	TRUE	sparkle_16247	bridge_vs_direct	TRUE	TRUE	TRUE

@@ -1,0 +1,71 @@
+            case       comparison reference_active candidate_active
+1       raw_1000       old_vs_new             6930             6930
+2       raw_1000 bridge_vs_direct             6930             6930
+3       raw_5000       old_vs_new            24254            24254
+4       raw_5000 bridge_vs_direct            24254            24254
+5      raw_16247       old_vs_new            41294            41294
+6      raw_16247 bridge_vs_direct            41294            41294
+7   sparkle_1000       old_vs_new             5806             5806
+8   sparkle_1000 bridge_vs_direct             5806             5806
+9   sparkle_5000       old_vs_new            21971            21971
+10  sparkle_5000 bridge_vs_direct            21971            21971
+11 sparkle_16247       old_vs_new            37808            37808
+12 sparkle_16247 bridge_vs_direct            37808            37808
+   active_jaccard probability_pearson max_abs_probability_difference
+1               1 0.99999999999999989                              0
+2               1 0.99999999999999989                              0
+3               1 1.00000000000000000                              0
+4               1 1.00000000000000000                              0
+5               1 1.00000000000000000                              0
+6               1 1.00000000000000000                              0
+7               1 1.00000000000000000                              0
+8               1 1.00000000000000000                              0
+9               1 1.00000000000000000                              0
+10              1 1.00000000000000000                              0
+11              1 1.00000000000000000                              0
+12              1 1.00000000000000000                              0
+   pvalue_exact_fraction max_abs_pvalue_difference significant_reference_lt005
+1                      1                         0                        1791
+2                      1                         0                        1791
+3                      1                         0                        5706
+4                      1                         0                        5706
+5                      1                         0                       10942
+6                      1                         0                       10942
+7                      1                         0                        1598
+8                      1                         0                        1598
+9                      1                         0                        4555
+10                     1                         0                        4555
+11                     1                         0                        8417
+12                     1                         0                        8417
+   significant_candidate_lt005 significance_disagreements
+1                         1791                          0
+2                         1791                          0
+3                         5706                          0
+4                         5706                          0
+5                        10942                          0
+6                        10942                          0
+7                         1598                          0
+8                         1598                          0
+9                         4555                          0
+10                        4555                          0
+11                        8417                          0
+12                        8417                          0
+           case             comparison reference_active candidate_active
+1 sparkle_16247 archived_official_pair            37808            37808
+  active_jaccard probability_pearson max_abs_probability_difference
+1              1                   1         4.9873299934333204e-18
+  pvalue_exact_fraction max_abs_pvalue_difference significant_reference_lt005
+1                     1                         0                        8417
+  significant_candidate_lt005 significance_disagreements
+1                        8417                          0
+                   case                         comparison reference_active
+1 ovarian_sparkle_16247 current_0.1.4_vs_archived_official            37808
+  candidate_active active_jaccard probability_pearson
+1            37808              1 0.99999999999999967
+  max_abs_probability_difference pvalue_exact_fraction
+1         1.3292318634672284e-16                     1
+  max_abs_pvalue_difference significant_reference_lt005
+1                         0                        8417
+  significant_candidate_lt005 significance_disagreements
+1                        8417                          0
+PASS: 12 archived bridge comparisons, archived ovarian pair, current-release linkage, figure source records.

@@ -1,0 +1,19 @@
+{
+  "user_source": "assets/Figure1A_user_original.pdf",
+  "sha256": "92c19a82c3dd3667720db50139d0d043b7d95cad3795d410c54eb5ab5722ec52",
+  "source_width_pt": 1034.2313232421875,
+  "source_height_pt": 461.47528076171875,
+  "destination_mm": [
+    2,
+    2,
+    104,
+    46.404927138316864
+  ],
+  "keep_proportion": true,
+  "internal_modification": false,
+  "minimum_original_font_pt": 9.070865631103516,
+  "minimum_composed_font_pt": 2.585610876028984,
+  "deliverable_status": "Reference composition only; original A is too small in this compact slot",
+  "data_master": "figures/Figure1_data.pdf",
+  "editable_data_svg": "figures/Figure1_data.svg"
+}

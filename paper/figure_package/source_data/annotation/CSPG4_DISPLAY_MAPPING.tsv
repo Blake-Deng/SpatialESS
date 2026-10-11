@@ -1,0 +1,2 @@
+original_interaction_name	original_interaction_name_2	ligand	receptor	subunits	display_name	action	evidence
+CSPG4_ITGA2_ITGB1	CSPG4 - (ITGA2+ITGB1)	CSPG4	ITGA3_ITGB1	ITGA3;ITGB1	CSPG4-(ITGA3+ITGB1)	display_annotation_resolved; primary statistics retained	PMID:30213051; archived LR; complex table; all 45 slice record files

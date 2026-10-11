@@ -1,0 +1,6 @@
+status,features
+"Valid, non-singular",22262
+"Valid, singular",17308
+Convergence warning,1984
+Numerical failure,292
+Insufficient nonzero,8194

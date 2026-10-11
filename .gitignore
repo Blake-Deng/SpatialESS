@@ -6,6 +6,8 @@
 *.Rcheck/
 *.rds
 *.RDS
+!paper/provenance/**/*.rds
+!paper/provenance/**/*.RDS
 *.h5
 *.h5ad
 *.zip

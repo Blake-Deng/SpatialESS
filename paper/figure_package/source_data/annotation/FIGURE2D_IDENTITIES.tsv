@@ -1,0 +1,4 @@
+interaction_name	ligand	receptor	sender_group_name	receiver_group_name	feature_id	display_id	estimate	lower	upper	nonzero_units	total_units
+HLA-DRA_CD4	HLA-DRA	CD4	pDCs	pDCs	4:pDCs:4:pDCs:11:HLA-DRA_CD4	I19	0.0025310911101521	0.0017702841204885	0.0032918980998158	35	45
+COL1A1_CD44	COL1A1	CD44	Proliferating T-cells	Proliferating T-cells	21:Proliferating T-cells:21:Proliferating T-cells:11:COL1A1_CD44	I03	0.0020337865799642	0.0012784192914997	0.0027891538684287	32	45
+HLA-DQA1_CD4	HLA-DQA1	CD4	pDCs	pDCs	4:pDCs:4:pDCs:12:HLA-DQA1_CD4	I21	0.0018675359358398	0.001236581574975	0.0024984902967045	33	45

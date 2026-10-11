@@ -1,0 +1,38 @@
+SpatialESS editorial and package verification
+Date: 12 October 2026 (Asia/Shanghai)
+
+Core R, C++, manual pages and tests are unchanged from public engine revision
+626ffecdd4cd632a462a037edd903cf67d062c54; package version remains 0.1.4.
+
+Fresh R CMD build and R CMD check --no-manual --no-build-vignettes:
+Status: OK. macOS, R 4.5.2. testthat: PASS 711, FAIL 0, WARN 0, SKIP 0.
+Original Linux R 4.5.3 release evidence is retained in release_checks/.
+
+Saved records independently verified without new inference or fitting:
+- 12 historical bridge comparisons: zero probability differences, exact p values.
+- Archived ovarian official pair: 37,808 records; max error 4.98732999343332e-18.
+- Current 0.1.4 vs archived ovarian official: max error 1.32923186346723e-16.
+- Both ovarian pairs: exact p values, 8,417 raw p<0.05 calls, zero call differences.
+- RCTD mapping: 16,213 mapped cells, 34 Unknown, RAW/corrected labels shared.
+
+Figure pipeline rerun from a separate copy with the pinned Python dependencies:
+64 input hashes, 50 data checks and 58 export checks passed.
+Known warning: Figure 1A minimum lettering approximately 2.59 pt in its slot.
+Frozen figure files in this repository retain the supplied bytes.
+
+Current official table: 66 comparisons, 65 strict passes. VUILD142MA has one
+p-value discrepancy of 0.05 without a changed significance call. Model states
+are preserved: 39,570 status=ok (17,308 singular); 1,984 convergence warnings;
+292 numerical failures; 8,194 insufficient-nonzero. Package Status: OK does
+not imply that all data comparisons or model features passed.
+
+Upload is incremental. Frozen RDS evidence is explicitly included despite the
+raw-RDS ignore rule. The original source checksum manifest is archived, and
+current manifests are regenerated. Manuscript Word drafts remain local.
+
+Submission remains pending author information/declarations, a persistent archive
+DOI and completion of Figure 1A. No missing item is recorded as passed.
+
+The existing GitHub R-CMD-check workflow is preserved. The available OAuth token
+lacks workflow scope, so adding new cloud validation steps was not published.
+Checksum and archived-record verification were completed locally.

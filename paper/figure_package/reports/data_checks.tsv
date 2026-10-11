@@ -1,0 +1,51 @@
+check	status	note
+LMM full keys retained	PASS	
+LMM saved field estimate	PASS	Only text-serialization precision allowed
+LMM saved field q_value	PASS	Only text-serialization precision allowed
+LMM saved field std_error	PASS	Only text-serialization precision allowed
+LMM saved field nonzero_units	PASS	Only text-serialization precision allowed
+LMM saved field total_units	PASS	Only text-serialization precision allowed
+LMM saved field patient_count	PASS	Only text-serialization precision allowed
+Warning fits excluded from primary FDR	PASS	
+No zero or invalid q in displayed volcano	PASS	
+28 selected heatmap rows preserved	PASS	
+12 forest features retained	PASS	
+Stable display IDs	PASS	
+Volcano eight archived labels	PASS	
+Feature CI from saved columns	PASS	
+Support denominator	PASS	
+Patient identity and slice count	PASS	
+Saved patient means	PASS	
+No double log transform	PASS	
+CSR definitions retained	PASS	
+No self-edges in radius graph counts	PASS	
+Fidelity exception preserved	PASS	
+Positive finite agreement Figure121	PASS	n=18484; invalid=0
+Hexbin count conservation Figure1	PASS	
+F1 probability marginal count conservation	PASS	
+Volcano leader full-key identity	PASS	
+Heatmap zero center	PASS	
+SPARKLE p-value count conservation	PASS	
+Positive finite agreement FigureS127	PASS	n=37808; invalid=0
+Hexbin count conservation FigureS1	PASS	
+Marginal conservation FigureS1	PASS	
+Cervical current comparison cervical_center_1000_default	PASS	
+Cervical active identity cervical_center_1000_default	PASS	
+Cervical current comparison cervical_center_1000_relaxed	PASS	
+Cervical active identity cervical_center_1000_relaxed	PASS	
+Cervical current comparison cervical_center_5000_default	PASS	
+Cervical active identity cervical_center_5000_default	PASS	
+Cervical current comparison cervical_center_5000_relaxed	PASS	
+Cervical active identity cervical_center_5000_relaxed	PASS	
+Cervical current comparison cervical_stratified_1000_default	PASS	
+Cervical active identity cervical_stratified_1000_default	PASS	
+Cervical current comparison cervical_stratified_1000_relaxed	PASS	
+Cervical active identity cervical_stratified_1000_relaxed	PASS	
+Cervical current comparison cervical_stratified_5000_default	PASS	
+Cervical active identity cervical_stratified_5000_default	PASS	
+Cervical current comparison cervical_stratified_5000_relaxed	PASS	
+Cervical active identity cervical_stratified_5000_relaxed	PASS	
+Marginal conservation FigureS2	PASS	
+Marginal conservation FigureS2	PASS	
+Marginal conservation FigureS2	PASS	
+Marginal conservation FigureS2	PASS	

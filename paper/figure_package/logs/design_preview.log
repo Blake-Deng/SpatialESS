@@ -1,0 +1,21 @@
+Figure1B	source_data/current/cosmx_50000_paired.tsv	probability_official;probability_ess	n=18484
+Figure1C	source_data/current/official_fidelity.tsv	N;probability_pearson;max_probability_difference;exact_pvalue_fraction;active_jaccard;significant_disagreements_le005	n=6
+Figure1D	source_data/current/cosmx_scaling.tsv	cells;ESS_wall_seconds;official_wall_seconds;*_status	n=9
+Figure1E	source_data/current/cosmx_scaling.tsv	cells;ESS_peak_rss_GiB;official_peak_rss_gib;*_status	n=9
+Figure1F	source_data/current/spatial_sparsity.tsv	N;N_squared;E;fixture;sampling_design	n=14
+Figure1G	source_data/current/spatial_sparsity.tsv	N;E;mean_out_degree;fixture	n=14
+Figure1H	source_data/current/spatial_sparsity.tsv	N;graph_density;fixture	n=14
+Figure1I	source_data/current/cosmx_scaling.tsv	cells;ESS_status;official_status;official_failure_reason	n=9
+Figure2A	source_data/archived/lmm.tsv.gz;source_data/archived/volcano_labels.tsv.gz	feature_id;estimate;q_value;status	n=39570
+Figure2B	source_data/archived/forest.tsv.gz	feature_id;display_id;estimate;lower;upper;singular	n=12
+Figure2C	source_data/archived/effect_heatmap.tsv.gz;source_data/archived/selected_interactions.tsv.gz	feature_id;display_id;standardized_effect;glm_standardized_effect;q_value;glm_q;support_fraction;icc;singular	n=28
+Figure2D_slices	source_data/archived/slice_scores.tsv.gz	feature_id;sample_id;patient_id;condition;log1p_score	n=135
+Figure2D_patients	source_data/archived/patient_scores.tsv.gz	feature_id;patient_id;condition;log1p_score	n=105
+Figure2D_feature_identities	source_data/archived/patient_examples.tsv.gz	feature_id;display_id;ligand;receptor;sender_group_name;receiver_group_name	n=3
+Figure2E	source_data/archived/pathway_pair_representatives.tsv.gz	feature_id;pathway_name;sender_group_name;receiver_group_name;standardized_effect;q_value	n=52
+Exported Theme_preview: [180.  67.] mm
+Figure1B_marginals	source_data/current/cosmx_50000_paired.tsv	probability_official;probability_ess	n=24
+Exported Figure1_data: [180. 190.] mm
+Figure2A_labels	source_data/archived/volcano_labels.tsv.gz;source_data/archived/lmm.tsv.gz	feature_id;display_id;ligand;receptor;estimate;q_value	n=8
+Exported Figure2: [180. 196.] mm
+Main-only design preview completed.

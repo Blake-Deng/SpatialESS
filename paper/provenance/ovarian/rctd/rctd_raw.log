@@ -1,0 +1,565 @@
+Using dataset tag 'ovarian_x1000-1800_y300-1100'. Discovered 1 methods: RAW
+MTX inputs missing for ovarian_x1000-1800_y300-1100_raw. Running Python conversion ...
+  python3 '/home/dzf/cellchat_acceleration/SpatialESS_RNA_leakage_20260902/software/SPARKLE/evaluation/scripts/../../evaluation/scripts/convert_h5ad_to_mtx_mousebrain.py' '/home/dzf/cellchat_acceleration/SpatialESS_RNA_leakage_20260902/software/SPARKLE/evaluation/scripts/../../evaluation/reports/h5ad/ovarian_x1000-1800_y300-1100_raw.h5ad' '/home/dzf/cellchat_acceleration/SpatialESS_RNA_leakage_20260902/software/SPARKLE/evaluation/scripts/../../evaluation/reports/rctd_ovarian/mtx'
+/home/dzf/cellchat_acceleration/SpatialESS_RNA_leakage_20260902/software/SPARKLE/evaluation/scripts/../../evaluation/scripts/convert_h5ad_to_mtx_mousebrain.py:41: UserWarning: h5ad obs does not contain 'x'/'y'; using dummy coordinates for RCTD
+  warnings.warn("h5ad obs does not contain 'x'/'y'; using dummy coordinates for RCTD")
+[convert] Reading /home/dzf/cellchat_acceleration/SpatialESS_RNA_leakage_20260902/software/SPARKLE/evaluation/scripts/../../evaluation/reports/h5ad/ovarian_x1000-1800_y300-1100_raw.h5ad ...
+[convert] Writing /home/dzf/cellchat_acceleration/SpatialESS_RNA_leakage_20260902/software/SPARKLE/evaluation/scripts/../../evaluation/reports/rctd_ovarian/mtx/ovarian_x1000-1800_y300-1100_raw_counts.mtx (18786 genes x 16247 cells) ...
+[convert] Writing /home/dzf/cellchat_acceleration/SpatialESS_RNA_leakage_20260902/software/SPARKLE/evaluation/scripts/../../evaluation/reports/rctd_ovarian/mtx/ovarian_x1000-1800_y300-1100_raw_obs.csv ...
+[convert] Writing /home/dzf/cellchat_acceleration/SpatialESS_RNA_leakage_20260902/software/SPARKLE/evaluation/scripts/../../evaluation/reports/rctd_ovarian/mtx/ovarian_x1000-1800_y300-1100_raw_var.csv ...
+[convert] Done: ovarian_x1000-1800_y300-1100_raw
+[1/5] Loading scRNA reference and annotation ...
+  Reference: 18082 genes x 11214 cells, 16 cell types
+[2/5] Loading cell coordinates from segmentation mask ...
+  Coordinates loaded for 183450 segmented cells
+[3/5] Running RCTD doublet mode on each h5ad ...
+  Processing RAW ...
+    Shared genes: 17552 / 16247 cells
+Begin: process_cell_type_info
+process_cell_type_info: number of cells in reference: 11214
+process_cell_type_info: number of genes in reference: 18082
+
+     Ciliated Epithelial Cells              Endothelial Cells 
+                           169                           1000 
+     Fallopian Tube Epithelium                Granulosa Cells 
+                           298                            256 
+      Inflammatory Tumor Cells                    Macrophages 
+                           135                           1000 
+   Malignant Cells Lining Cyst MT-High, Jun+-Fos+ Tumor Cells 
+                            98                            606 
+                     Pericytes      Proliferative Tumor Cells 
+                           881                           1000 
+           Smooth Muscle Cells Stromal Associated Fibroblasts 
+                           959                           1000 
+                  T & NK Cells   Tumor Associated Fibroblasts 
+                           812                           1000 
+                   Tumor Cells             VEGFA+ Tumor Cells 
+                          1000                           1000 
+End: process_cell_type_info
+create.RCTD: getting regression differentially expressed genes: 
+get_de_genes: Ciliated Epithelial Cells found DE genes: 331
+get_de_genes: Endothelial Cells found DE genes: 328
+get_de_genes: Fallopian Tube Epithelium found DE genes: 187
+get_de_genes: Granulosa Cells found DE genes: 296
+get_de_genes: Inflammatory Tumor Cells found DE genes: 167
+get_de_genes: Macrophages found DE genes: 420
+get_de_genes: Malignant Cells Lining Cyst found DE genes: 279
+get_de_genes: MT-High, Jun+-Fos+ Tumor Cells found DE genes: 91
+get_de_genes: Pericytes found DE genes: 228
+get_de_genes: Proliferative Tumor Cells found DE genes: 230
+get_de_genes: Smooth Muscle Cells found DE genes: 229
+get_de_genes: Stromal Associated Fibroblasts found DE genes: 246
+get_de_genes: T & NK Cells found DE genes: 442
+get_de_genes: Tumor Associated Fibroblasts found DE genes: 206
+get_de_genes: Tumor Cells found DE genes: 119
+get_de_genes: VEGFA+ Tumor Cells found DE genes: 195
+get_de_genes: total DE genes: 2842
+create.RCTD: getting platform effect normalization differentially expressed genes: 
+get_de_genes: Ciliated Epithelial Cells found DE genes: 705
+get_de_genes: Endothelial Cells found DE genes: 674
+get_de_genes: Fallopian Tube Epithelium found DE genes: 602
+get_de_genes: Granulosa Cells found DE genes: 606
+get_de_genes: Inflammatory Tumor Cells found DE genes: 607
+get_de_genes: Macrophages found DE genes: 821
+get_de_genes: Malignant Cells Lining Cyst found DE genes: 608
+get_de_genes: MT-High, Jun+-Fos+ Tumor Cells found DE genes: 461
+get_de_genes: Pericytes found DE genes: 490
+get_de_genes: Proliferative Tumor Cells found DE genes: 755
+get_de_genes: Smooth Muscle Cells found DE genes: 457
+get_de_genes: Stromal Associated Fibroblasts found DE genes: 496
+get_de_genes: T & NK Cells found DE genes: 936
+get_de_genes: Tumor Associated Fibroblasts found DE genes: 430
+get_de_genes: Tumor Cells found DE genes: 601
+get_de_genes: VEGFA+ Tumor Cells found DE genes: 690
+get_de_genes: total DE genes: 5540
+fitBulk: decomposing bulk
+chooseSigma: using initial Q_mat with sigma =  1
+starting worker pid=3571940 on localhost:11999 at 12:26:18.800
+starting worker pid=3571956 on localhost:11999 at 12:26:18.954
+starting worker pid=3571972 on localhost:11999 at 12:26:19.107
+starting worker pid=3571988 on localhost:11999 at 12:26:19.294
+starting worker pid=3572004 on localhost:11999 at 12:26:19.445
+starting worker pid=3572020 on localhost:11999 at 12:26:19.599
+starting worker pid=3572036 on localhost:11999 at 12:26:19.757
+starting worker pid=3572052 on localhost:11999 at 12:26:19.908
+starting worker pid=3572068 on localhost:11999 at 12:26:20.061
+starting worker pid=3572084 on localhost:11999 at 12:26:20.217
+starting worker pid=3572100 on localhost:11999 at 12:26:20.374
+starting worker pid=3572116 on localhost:11999 at 12:26:20.537
+starting worker pid=3572132 on localhost:11999 at 12:26:20.701
+starting worker pid=3572148 on localhost:11999 at 12:26:20.861
+starting worker pid=3572164 on localhost:11999 at 12:26:21.021
+starting worker pid=3572180 on localhost:11999 at 12:26:21.175
+Loading required package: spacexr
+loaded spacexr and set parent environment
+Loading required package: spacexr
+loaded spacexr and set parent environment
+Loading required package: spacexr
+loaded spacexr and set parent environment
+Loading required package: spacexr
+loaded spacexr and set parent environment
+Loading required package: spacexr
+loaded spacexr and set parent environment
+Loading required package: spacexr
+loaded spacexr and set parent environment
+Loading required package: spacexr
+loaded spacexr and set parent environment
+Loading required package: spacexr
+loaded spacexr and set parent environment
+Loading required package: spacexr
+loaded spacexr and set parent environment
+Loading required package: spacexr
+loaded spacexr and set parent environment
+Loading required package: spacexr
+loaded spacexr and set parent environment
+Loading required package: spacexr
+loaded spacexr and set parent environment
+Loading required package: spacexr
+loaded spacexr and set parent environment
+Loading required package: spacexr
+loaded spacexr and set parent environment
+Loading required package: spacexr
+loaded spacexr and set parent environment
+Loading required package: spacexr
+loaded spacexr and set parent environment
+Likelihood value: 1727542.54523434
+Sigma value:  0.84
+starting worker pid=3572561 on localhost:11999 at 12:27:03.060
+starting worker pid=3572594 on localhost:11999 at 12:27:03.209
+starting worker pid=3572610 on localhost:11999 at 12:27:03.357
+starting worker pid=3572626 on localhost:11999 at 12:27:03.503
+starting worker pid=3572643 on localhost:11999 at 12:27:03.661
+starting worker pid=3572659 on localhost:11999 at 12:27:03.822
+starting worker pid=3572675 on localhost:11999 at 12:27:03.972
+starting worker pid=3572691 on localhost:11999 at 12:27:04.125
+starting worker pid=3572707 on localhost:11999 at 12:27:04.323
+starting worker pid=3572731 on localhost:11999 at 12:27:04.494
+starting worker pid=3572749 on localhost:11999 at 12:27:04.669
+starting worker pid=3572765 on localhost:11999 at 12:27:04.825
+starting worker pid=3572781 on localhost:11999 at 12:27:04.984
+starting worker pid=3572797 on localhost:11999 at 12:27:05.155
+starting worker pid=3572813 on localhost:11999 at 12:27:05.307
+starting worker pid=3572829 on localhost:11999 at 12:27:05.466
+Loading required package: spacexr
+loaded spacexr and set parent environment
+Loading required package: spacexr
+loaded spacexr and set parent environment
+Loading required package: spacexr
+loaded spacexr and set parent environment
+Loading required package: spacexr
+loaded spacexr and set parent environment
+Loading required package: spacexr
+loaded spacexr and set parent environment
+Loading required package: spacexr
+loaded spacexr and set parent environment
+Loading required package: spacexr
+loaded spacexr and set parent environment
+Loading required package: spacexr
+loaded spacexr and set parent environment
+Loading required package: spacexr
+loaded spacexr and set parent environment
+Loading required package: spacexr
+loaded spacexr and set parent environment
+Loading required package: spacexr
+loaded spacexr and set parent environment
+Loading required package: spacexr
+loaded spacexr and set parent environment
+Loading required package: spacexr
+loaded spacexr and set parent environment
+Loading required package: spacexr
+loaded spacexr and set parent environment
+Loading required package: spacexr
+loaded spacexr and set parent environment
+Loading required package: spacexr
+loaded spacexr and set parent environment
+Likelihood value: 1699804.61558322
+Sigma value:  0.69
+starting worker pid=3572913 on localhost:11999 at 12:27:45.292
+starting worker pid=3572929 on localhost:11999 at 12:27:45.441
+starting worker pid=3572945 on localhost:11999 at 12:27:45.589
+starting worker pid=3572961 on localhost:11999 at 12:27:45.742
+starting worker pid=3572977 on localhost:11999 at 12:27:45.894
+starting worker pid=3572993 on localhost:11999 at 12:27:46.042
+starting worker pid=3573009 on localhost:11999 at 12:27:46.192
+starting worker pid=3573025 on localhost:11999 at 12:27:46.344
+starting worker pid=3573041 on localhost:11999 at 12:27:46.499
+starting worker pid=3573057 on localhost:11999 at 12:27:46.650
+starting worker pid=3573073 on localhost:11999 at 12:27:46.802
+starting worker pid=3573089 on localhost:11999 at 12:27:46.955
+starting worker pid=3573105 on localhost:11999 at 12:27:47.115
+starting worker pid=3573121 on localhost:11999 at 12:27:47.266
+starting worker pid=3573137 on localhost:11999 at 12:27:47.422
+starting worker pid=3573153 on localhost:11999 at 12:27:47.574
+Loading required package: spacexr
+loaded spacexr and set parent environment
+Loading required package: spacexr
+loaded spacexr and set parent environment
+Loading required package: spacexr
+loaded spacexr and set parent environment
+Loading required package: spacexr
+loaded spacexr and set parent environment
+Loading required package: spacexr
+loaded spacexr and set parent environment
+Loading required package: spacexr
+loaded spacexr and set parent environment
+Loading required package: spacexr
+loaded spacexr and set parent environment
+Loading required package: spacexr
+loaded spacexr and set parent environment
+Loading required package: spacexr
+loaded spacexr and set parent environment
+Loading required package: spacexr
+loaded spacexr and set parent environment
+Loading required package: spacexr
+loaded spacexr and set parent environment
+Loading required package: spacexr
+loaded spacexr and set parent environment
+Loading required package: spacexr
+loaded spacexr and set parent environment
+Loading required package: spacexr
+loaded spacexr and set parent environment
+Loading required package: spacexr
+loaded spacexr and set parent environment
+Loading required package: spacexr
+loaded spacexr and set parent environment
+Likelihood value: 1678227.62496793
+Sigma value:  0.61
+starting worker pid=3573362 on localhost:11999 at 12:28:28.740
+starting worker pid=3573378 on localhost:11999 at 12:28:28.891
+starting worker pid=3573394 on localhost:11999 at 12:28:29.048
+starting worker pid=3573410 on localhost:11999 at 12:28:29.212
+starting worker pid=3573426 on localhost:11999 at 12:28:29.364
+starting worker pid=3573442 on localhost:11999 at 12:28:29.516
+starting worker pid=3573458 on localhost:11999 at 12:28:29.668
+starting worker pid=3573475 on localhost:11999 at 12:28:29.826
+starting worker pid=3573491 on localhost:11999 at 12:28:29.976
+starting worker pid=3573507 on localhost:11999 at 12:28:30.129
+starting worker pid=3573523 on localhost:11999 at 12:28:30.283
+starting worker pid=3573539 on localhost:11999 at 12:28:30.445
+starting worker pid=3573555 on localhost:11999 at 12:28:30.601
+starting worker pid=3573571 on localhost:11999 at 12:28:30.753
+starting worker pid=3573587 on localhost:11999 at 12:28:30.906
+starting worker pid=3573603 on localhost:11999 at 12:28:31.061
+Loading required package: spacexr
+loaded spacexr and set parent environment
+Loading required package: spacexr
+loaded spacexr and set parent environment
+Loading required package: spacexr
+loaded spacexr and set parent environment
+Loading required package: spacexr
+loaded spacexr and set parent environment
+Loading required package: spacexr
+loaded spacexr and set parent environment
+Loading required package: spacexr
+loaded spacexr and set parent environment
+Loading required package: spacexr
+loaded spacexr and set parent environment
+Loading required package: spacexr
+loaded spacexr and set parent environment
+Loading required package: spacexr
+loaded spacexr and set parent environment
+Loading required package: spacexr
+loaded spacexr and set parent environment
+Loading required package: spacexr
+loaded spacexr and set parent environment
+Loading required package: spacexr
+loaded spacexr and set parent environment
+Loading required package: spacexr
+loaded spacexr and set parent environment
+Loading required package: spacexr
+loaded spacexr and set parent environment
+Loading required package: spacexr
+loaded spacexr and set parent environment
+Loading required package: spacexr
+loaded spacexr and set parent environment
+Likelihood value: 1668953.51908898
+Sigma value:  0.53
+starting worker pid=3573732 on localhost:11999 at 12:29:14.937
+starting worker pid=3573748 on localhost:11999 at 12:29:15.094
+starting worker pid=3573764 on localhost:11999 at 12:29:15.255
+starting worker pid=3573780 on localhost:11999 at 12:29:15.421
+starting worker pid=3573796 on localhost:11999 at 12:29:15.579
+starting worker pid=3573812 on localhost:11999 at 12:29:15.739
+starting worker pid=3573828 on localhost:11999 at 12:29:15.895
+starting worker pid=3573844 on localhost:11999 at 12:29:16.049
+starting worker pid=3573860 on localhost:11999 at 12:29:16.204
+starting worker pid=3573876 on localhost:11999 at 12:29:16.360
+starting worker pid=3573892 on localhost:11999 at 12:29:16.527
+starting worker pid=3573908 on localhost:11999 at 12:29:16.683
+starting worker pid=3573924 on localhost:11999 at 12:29:16.851
+starting worker pid=3573940 on localhost:11999 at 12:29:17.007
+starting worker pid=3573956 on localhost:11999 at 12:29:17.170
+starting worker pid=3573972 on localhost:11999 at 12:29:17.327
+Loading required package: spacexr
+loaded spacexr and set parent environment
+Loading required package: spacexr
+loaded spacexr and set parent environment
+Loading required package: spacexr
+loaded spacexr and set parent environment
+Loading required package: spacexr
+loaded spacexr and set parent environment
+Loading required package: spacexr
+loaded spacexr and set parent environment
+Loading required package: spacexr
+loaded spacexr and set parent environment
+Loading required package: spacexr
+loaded spacexr and set parent environment
+Loading required package: spacexr
+loaded spacexr and set parent environment
+Loading required package: spacexr
+loaded spacexr and set parent environment
+Loading required package: spacexr
+loaded spacexr and set parent environment
+Loading required package: spacexr
+loaded spacexr and set parent environment
+Loading required package: spacexr
+loaded spacexr and set parent environment
+Loading required package: spacexr
+loaded spacexr and set parent environment
+Loading required package: spacexr
+loaded spacexr and set parent environment
+Loading required package: spacexr
+loaded spacexr and set parent environment
+Loading required package: spacexr
+loaded spacexr and set parent environment
+Likelihood value: 1661512.78332897
+Sigma value:  0.45
+starting worker pid=3574104 on localhost:11999 at 12:29:58.230
+starting worker pid=3574120 on localhost:11999 at 12:29:58.379
+starting worker pid=3574136 on localhost:11999 at 12:29:58.530
+starting worker pid=3574152 on localhost:11999 at 12:29:58.697
+starting worker pid=3574168 on localhost:11999 at 12:29:58.857
+starting worker pid=3574184 on localhost:11999 at 12:29:59.026
+starting worker pid=3574200 on localhost:11999 at 12:29:59.178
+starting worker pid=3574216 on localhost:11999 at 12:29:59.331
+starting worker pid=3574232 on localhost:11999 at 12:29:59.483
+starting worker pid=3574248 on localhost:11999 at 12:29:59.636
+starting worker pid=3574264 on localhost:11999 at 12:29:59.788
+starting worker pid=3574280 on localhost:11999 at 12:29:59.950
+starting worker pid=3574296 on localhost:11999 at 12:30:00.117
+starting worker pid=3574312 on localhost:11999 at 12:30:00.282
+starting worker pid=3574328 on localhost:11999 at 12:30:00.432
+starting worker pid=3574344 on localhost:11999 at 12:30:00.584
+Loading required package: spacexr
+loaded spacexr and set parent environment
+Loading required package: spacexr
+loaded spacexr and set parent environment
+Loading required package: spacexr
+loaded spacexr and set parent environment
+Loading required package: spacexr
+loaded spacexr and set parent environment
+Loading required package: spacexr
+loaded spacexr and set parent environment
+Loading required package: spacexr
+loaded spacexr and set parent environment
+Loading required package: spacexr
+loaded spacexr and set parent environment
+Loading required package: spacexr
+loaded spacexr and set parent environment
+Loading required package: spacexr
+loaded spacexr and set parent environment
+Loading required package: spacexr
+loaded spacexr and set parent environment
+Loading required package: spacexr
+loaded spacexr and set parent environment
+Loading required package: spacexr
+loaded spacexr and set parent environment
+Loading required package: spacexr
+loaded spacexr and set parent environment
+Loading required package: spacexr
+loaded spacexr and set parent environment
+Loading required package: spacexr
+loaded spacexr and set parent environment
+Loading required package: spacexr
+loaded spacexr and set parent environment
+Likelihood value: 1656112.64012092
+Sigma value:  0.37
+starting worker pid=3574447 on localhost:11999 at 12:30:40.935
+starting worker pid=3574463 on localhost:11999 at 12:30:41.089
+starting worker pid=3574479 on localhost:11999 at 12:30:41.246
+starting worker pid=3574495 on localhost:11999 at 12:30:41.410
+starting worker pid=3574511 on localhost:11999 at 12:30:41.565
+starting worker pid=3574527 on localhost:11999 at 12:30:41.725
+starting worker pid=3574543 on localhost:11999 at 12:30:41.892
+starting worker pid=3574559 on localhost:11999 at 12:30:42.047
+starting worker pid=3574575 on localhost:11999 at 12:30:42.215
+starting worker pid=3574591 on localhost:11999 at 12:30:42.385
+starting worker pid=3574607 on localhost:11999 at 12:30:42.537
+starting worker pid=3574623 on localhost:11999 at 12:30:42.697
+starting worker pid=3574639 on localhost:11999 at 12:30:42.853
+starting worker pid=3574655 on localhost:11999 at 12:30:43.013
+starting worker pid=3574671 on localhost:11999 at 12:30:43.163
+starting worker pid=3574687 on localhost:11999 at 12:30:43.314
+Loading required package: spacexr
+loaded spacexr and set parent environment
+Loading required package: spacexr
+loaded spacexr and set parent environment
+Loading required package: spacexr
+loaded spacexr and set parent environment
+Loading required package: spacexr
+loaded spacexr and set parent environment
+Loading required package: spacexr
+loaded spacexr and set parent environment
+Loading required package: spacexr
+loaded spacexr and set parent environment
+Loading required package: spacexr
+loaded spacexr and set parent environment
+Loading required package: spacexr
+loaded spacexr and set parent environment
+Loading required package: spacexr
+loaded spacexr and set parent environment
+Loading required package: spacexr
+loaded spacexr and set parent environment
+Loading required package: spacexr
+loaded spacexr and set parent environment
+Loading required package: spacexr
+loaded spacexr and set parent environment
+Loading required package: spacexr
+loaded spacexr and set parent environment
+Loading required package: spacexr
+loaded spacexr and set parent environment
+Loading required package: spacexr
+loaded spacexr and set parent environment
+Loading required package: spacexr
+loaded spacexr and set parent environment
+Likelihood value: 1652928.19725767
+Sigma value:  0.32
+starting worker pid=3574797 on localhost:11999 at 12:31:22.880
+starting worker pid=3574813 on localhost:11999 at 12:31:23.039
+starting worker pid=3574829 on localhost:11999 at 12:31:23.195
+starting worker pid=3574845 on localhost:11999 at 12:31:23.353
+starting worker pid=3574862 on localhost:11999 at 12:31:23.506
+starting worker pid=3574878 on localhost:11999 at 12:31:23.661
+starting worker pid=3574894 on localhost:11999 at 12:31:23.812
+starting worker pid=3574910 on localhost:11999 at 12:31:23.962
+starting worker pid=3574926 on localhost:11999 at 12:31:24.120
+starting worker pid=3574942 on localhost:11999 at 12:31:24.273
+starting worker pid=3574958 on localhost:11999 at 12:31:24.425
+starting worker pid=3574974 on localhost:11999 at 12:31:24.573
+starting worker pid=3574990 on localhost:11999 at 12:31:24.724
+starting worker pid=3575006 on localhost:11999 at 12:31:24.874
+starting worker pid=3575022 on localhost:11999 at 12:31:25.026
+starting worker pid=3575038 on localhost:11999 at 12:31:25.185
+Loading required package: spacexr
+loaded spacexr and set parent environment
+Loading required package: spacexr
+loaded spacexr and set parent environment
+Loading required package: spacexr
+loaded spacexr and set parent environment
+Loading required package: spacexr
+loaded spacexr and set parent environment
+Loading required package: spacexr
+loaded spacexr and set parent environment
+Loading required package: spacexr
+loaded spacexr and set parent environment
+Loading required package: spacexr
+loaded spacexr and set parent environment
+Loading required package: spacexr
+loaded spacexr and set parent environment
+Loading required package: spacexr
+loaded spacexr and set parent environment
+Loading required package: spacexr
+loaded spacexr and set parent environment
+Loading required package: spacexr
+loaded spacexr and set parent environment
+Loading required package: spacexr
+loaded spacexr and set parent environment
+Loading required package: spacexr
+loaded spacexr and set parent environment
+Loading required package: spacexr
+loaded spacexr and set parent environment
+Loading required package: spacexr
+loaded spacexr and set parent environment
+Loading required package: spacexr
+loaded spacexr and set parent environment
+Likelihood value: 1652112.05240623
+Sigma value:  0.31
+starting worker pid=3575584 on localhost:11999 at 12:32:05.669
+starting worker pid=3575600 on localhost:11999 at 12:32:05.826
+starting worker pid=3575616 on localhost:11999 at 12:32:05.980
+starting worker pid=3575632 on localhost:11999 at 12:32:06.140
+starting worker pid=3575648 on localhost:11999 at 12:32:06.298
+starting worker pid=3575664 on localhost:11999 at 12:32:06.455
+starting worker pid=3575680 on localhost:11999 at 12:32:06.610
+starting worker pid=3575696 on localhost:11999 at 12:32:06.766
+starting worker pid=3575712 on localhost:11999 at 12:32:06.926
+starting worker pid=3575728 on localhost:11999 at 12:32:07.081
+starting worker pid=3575744 on localhost:11999 at 12:32:07.238
+starting worker pid=3575760 on localhost:11999 at 12:32:07.388
+starting worker pid=3575776 on localhost:11999 at 12:32:07.538
+starting worker pid=3575792 on localhost:11999 at 12:32:07.709
+starting worker pid=3575808 on localhost:11999 at 12:32:07.863
+starting worker pid=3575824 on localhost:11999 at 12:32:08.018
+Loading required package: spacexr
+loaded spacexr and set parent environment
+Loading required package: spacexr
+loaded spacexr and set parent environment
+Loading required package: spacexr
+loaded spacexr and set parent environment
+Loading required package: spacexr
+loaded spacexr and set parent environment
+Loading required package: spacexr
+loaded spacexr and set parent environment
+Loading required package: spacexr
+loaded spacexr and set parent environment
+Loading required package: spacexr
+loaded spacexr and set parent environment
+Loading required package: spacexr
+loaded spacexr and set parent environment
+Loading required package: spacexr
+loaded spacexr and set parent environment
+Loading required package: spacexr
+loaded spacexr and set parent environment
+Loading required package: spacexr
+loaded spacexr and set parent environment
+Loading required package: spacexr
+loaded spacexr and set parent environment
+Loading required package: spacexr
+loaded spacexr and set parent environment
+Loading required package: spacexr
+loaded spacexr and set parent environment
+Loading required package: spacexr
+loaded spacexr and set parent environment
+Loading required package: spacexr
+loaded spacexr and set parent environment
+[1] "gather_results: finished 1000"
+[1] "gather_results: finished 2000"
+[1] "gather_results: finished 3000"
+[1] "gather_results: finished 4000"
+[1] "gather_results: finished 5000"
+[1] "gather_results: finished 6000"
+[1] "gather_results: finished 7000"
+[1] "gather_results: finished 8000"
+[1] "gather_results: finished 9000"
+[1] "gather_results: finished 10000"
+[1] "gather_results: finished 11000"
+[1] "gather_results: finished 12000"
+[1] "gather_results: finished 13000"
+[1] "gather_results: finished 14000"
+[1] "gather_results: finished 15000"
+[1] "gather_results: finished 16000"
+    Exported first_type to RAW_first_type.csv
+[4/5] Computing shared-cell metrics against RAW ...
+[5/5] Saving results ...
+  Per-cell results: /home/dzf/cellchat_acceleration/SpatialESS_RNA_leakage_20260902/software/SPARKLE/evaluation/scripts/../../evaluation/reports/rctd_ovarian/rctd_doublet_results.csv
+  Summary metrics: /home/dzf/cellchat_acceleration/SpatialESS_RNA_leakage_20260902/software/SPARKLE/evaluation/scripts/../../evaluation/reports/rctd_ovarian/rctd_summary_metrics.csv
+  Shared-cell metrics: /home/dzf/cellchat_acceleration/SpatialESS_RNA_leakage_20260902/software/SPARKLE/evaluation/scripts/../../evaluation/reports/rctd_ovarian/rctd_shared_metrics.csv
+
+RCTD doublet-mode comparison (all retained cells):
+   method n_cells pct_singlet pct_doublet pct_doublet_certain
+   <char>   <int>       <num>       <num>               <num>
+1:    RAW   16213    14.50688    78.51724            59.44612
+   pct_doublet_uncertain mean_max_weight mean_top2_gap mean_entropy
+                   <num>           <num>         <num>        <num>
+1:              19.07112        0.501862     0.2873616     2.004576
+   singlet_purity doublet_balance
+            <num>           <num>
+1:      0.5628474       0.4864307
+
+RCTD doublet-mode comparison (shared cells with RAW):
+       method compared_to n_cells pct_doublet mean_entropy
+       <char>      <char>   <int>       <num>        <num>
+1: RAW_shared         RAW   16213    85.49312     2.004576
+2:        RAW         RAW   16213    85.49312     2.004576
+
+Done.
