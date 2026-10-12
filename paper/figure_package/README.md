@@ -5,7 +5,7 @@ The data and statistical selections are frozen; only presentation has changed.
 
 ## Files to open
 
-- `figures/Figure1_data.pdf` and `.svg`: editable panels B-I, with the user-owned A slot empty.
+- `figures/Figure1_data.pdf` and `.svg`: complete editable panels A-I, including the revised workflow.
 - `figures/Figure2.pdf` and `.svg`: complete redrawn data figure, including panel A.
 - `figures/FigureS1` through `FigureS4`: editable supplementary masters.
 - `figures/*.png`: 600 dpi images at the declared physical size.
@@ -18,16 +18,18 @@ Figure 1 retains the neighbor-graph analysis in panels F-H. Figure 2 retains all
 28 selected heatmap rows, 12 forest features, eight original volcano labels and
 three original patient examples. The full feature-key mapping is supplied.
 
-## Protected Figure 1A
+## Revised Figure 1A and preserved original
 
 `assets/Figure1A_user_original.pdf` is byte-identical to the supplied workflow.
-No elements, fonts, colors or internal geometry were edited. The slot is
+The original asset was not edited. A separate editable workflow summary now fills the slot
 `[x=2, y=2, width=104, height=46.404]` mm from the top-left of a 180 x 190 mm page.
-`config/Figure1A_composition.json` records the proportional placement.
+`config/Figure1A_composition.json` records both the original proportional placement and the revised panel's lettering audit.
 
 `Figure1_with_original_A_reference.pdf` is a reference composition only. The
-original A's text scales below the target minimum in this slot; the user will
-complete A. The editable data master deliberately leaves that slot blank.
+original A's text scales below the target minimum in this slot, so that historical
+composition is not the submission master. The complete data master contains the
+revised workflow with at least 5.7 pt ordinary lettering. Its editable source is
+`scripts/redraw.py`, function `workflow`. No scientific values or model fits were changed.
 
 ## Reproduce from the packaged data
 
@@ -62,6 +64,9 @@ comparison fills between existing paired curves, actual probability marginals,
 and fixture-wise mean-degree bars alongside the pair-space and graph-density
 curves. Fills are comparison guides, not uncertainty intervals. No new inference
 was performed; marginal bars count the existing paired records.
+
+Runtime and RSS annotations report the archived reference / current ESS ratio
+at 50,000 cells. This is a descriptive comparison rather than newly matched timing.
 
 Figure 2A has a separate full-LR label column with eight explicit editable arrows.
 Each arrow target is verified against the full feature key, saved effect and BH q;

@@ -21,7 +21,7 @@ required += [ROOT / name for name in ['source_data/Source_Data.xlsx',
 assert all(path.is_file() and path.stat().st_size for path in required)
 assert not (pd.read_csv(ROOT / 'reports/data_checks.tsv', sep='\t').status == 'FAIL').any()
 export_checks = pd.read_csv(ROOT / 'reports/export_checks.tsv', sep='\t')
-assert not (export_checks.loc[export_checks.figure != 'Figure1A', 'status'] != 'PASS').any()
+assert not (export_checks.status != 'PASS').any()
 
 def include(path):
     return path.is_file() and '__pycache__' not in path.parts and path.suffix != '.pyc' \

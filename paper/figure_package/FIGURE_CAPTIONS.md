@@ -2,7 +2,9 @@
 
 ## Figure 1. Numerical fidelity, performance and spatial-neighborhood sparsity
 
-**A**, User-owned computational workflow, supplied separately and not redrawn.
+**A**, Editable summary of sparse inference and patient analysis. The original
+workflow asset is preserved separately for provenance. Label permutations reuse
+the same spatial graph; group outputs populate the slice-by-feature score matrix.
 **B**, Probability agreement for the largest completed paired CosMx fixture
 (50,000 cells). Both axes show log10 of positive saved probabilities, with identical
 limits and a dashed identity line; hexagon color represents record count. Pearson
@@ -17,7 +19,9 @@ values rounded to 1 are not a claim of exact floating-point probability equality
 **D,E**, Completed wall-clock runtime and peak RSS measurements. Blue circles
 denote SpatialESS and gray squares the official SpatialCellChat V3 comparator.
 Logarithmic axes show saved measurements; ESS repeated measurements use their
-saved medians. Vertical guides identify the 50,000-cell paired comparison.
+saved medians. Reference values are archived measurements; the 50,000-cell
+annotations report archived reference / current ESS ratios, not newly matched
+timing. Vertical guides identify the displayed comparison.
 Light fill between completed paired curves is a comparison guide, not a
 confidence interval or an extrapolated measurement.
 **F-H**, Potential ordered-pair space N squared, observed directed non-self radius
@@ -60,7 +64,8 @@ CSPG4-(ITGA3+ITGB1), without changing the original feature key or statistics.
 **D**, The three original examples, identified by LR, stable ID and actual
 sender-to-receiver groups. Small points show all 45 slices per feature; outlined
 points show each of the 35 patient means of saved log1p scores. Fixed horizontal
-jitter changes only display positions. No adjusted group-mean CI is inferred.
+jitter changes only display positions. Condition-effect CIs for these examples
+appear in Supplementary Figure S4D. No adjusted group-mean CI is inferred.
 **E**, The original 52 pathway/cell-pair representatives. Color shows saved
 standardized effect, and area is proportional to minus log10 of the saved LR
 feature's BH q, capped at 10. These values are not pathway-enrichment FDR.
@@ -70,7 +75,8 @@ unabbreviated groups and values are in the source-data workbook.
 ## Supplementary Figure S1. Existing SPARKLE bridge validation
 
 **A**, The documented corrected-H5AD input bridge and comparison on identical
-inputs. **B**, Twelve archived engine-regression or bridge/direct configurations;
+inputs. **B**, Twelve archived engine-regression or bridge/direct comparisons from
+six input configurations (RAW/corrected at three sizes);
 E and B identify these distinct comparisons. **C**, Archived official/SpatialESS
 corrected-input probability agreement with density bins, an identity line and
 reference/ESS marginal record-count distributions in 24 equal log10 bins.

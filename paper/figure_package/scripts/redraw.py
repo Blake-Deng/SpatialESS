@@ -270,9 +270,34 @@ def scaling(ax, what):
     upper=s.official_wall_seconds if what=='time' else s.official_peak_rss_gib
     ax.plot([50000,50000],[lower,upper],c='#94B6D2',lw=.65,ls=':',zorder=0)
     ratio=upper/lower
-    label=f'{ratio:,.0f}× faster' if what=='time' else f'{ratio:.1f}× lower RSS'
+    label=f'Time ratio {ratio:,.0f}' if what=='time' else f'RSS ratio {ratio:.1f}'
     ax.text(.035,.96,label,va='top',size=5.7,weight='bold',color=C['ESS'],transform=ax.transAxes)
-    ax.text(.035,.88,'50k paired comparison',va='top',size=5.1,color=C['secondary'],transform=ax.transAxes)
+    ax.text(.035,.86,'50k: archived reference / current ESS',va='top',size=5.1,color=C['secondary'],transform=ax.transAxes)
+
+def workflow(fig):
+    """Readable conceptual summary; no additional numerical result is implied."""
+    x,y,w,h=heading(fig,'A','Sparse inference and patient analysis')
+    ax=axes_mm(fig,x,y,w,h);ax.set_xlim(0,w);ax.set_ylim(h,0);ax.axis('off')
+    def box(left,top,width,height,title,body):
+        ax.add_patch(Rectangle((left,top),width,height,fc='#F0F5F9',ec='#AAB9C7',lw=.55))
+        ax.text(left+width/2,top+1.7,title,ha='center',va='top',size=6.1,weight='bold')
+        ax.text(left+width/2,top+5.5,body,ha='center',va='top',size=5.7,linespacing=1.2)
+    def arrow(points,color=C['secondary']):
+        for a,b in zip(points[:-2],points[1:-1]):ax.plot([a[0],b[0]],[a[1],b[1]],color=color,lw=.65)
+        ax.add_patch(FancyArrowPatch(points[-2],points[-1],arrowstyle='-|>',mutation_scale=5.5,lw=.65,color=color))
+    cards=[(1,'Spatial input','Expression\nPositions + labels'),
+           (27,'Local graph','CSR radius graph\nRetained neighbors'),
+           (53,'LR calculation','Reference rules\nStream edges'),
+           (79,'Group outputs','Scores\nPermutation p values')]
+    for left,title,body in cards:box(left,8,23,14,title,body)
+    for left in [24,50,76]:arrow([(left,15),(left+3,15)])
+    ax.text(39,25,'Global label permutations',ha='center',va='top',size=5.7,color=C['ESS'])
+    ax.text(39,28,'Reuse the same spatial graph',ha='center',va='top',size=5.7,color=C['ESS'])
+    arrow([(63,28),(66,28),(66,22)],C['ESS'])
+    arrow([(90.5,22),(90.5,33),(24,33),(24,35)])
+    box(1,35,46,10,'Slice-by-feature scores','Absent records = 0')
+    box(57,35,45,10,'Patient mixed model','Condition + (1 | patient)')
+    arrow([(47,40),(57,40)])
 
 SERIES=['CosMx central','Xenium central','Xenium stratified','Visium HD ovarian']
 SCOL=[C['ESS'],C['positive'],C['positive'],C['green']]
@@ -616,6 +641,7 @@ def fig1():
     ax.tick_params(length=0,labelsize=5.7,pad=2)
     for s in ax.spines.values():s.set_visible(False)
     text_mm(f,5,y+4.5,'Filled: paired\nOpen: ESS-only\nCross: V3 failed',size=5.1,linespacing=1.10)
+    workflow(f)
     save(f,'Figure1_data');plt.close(f)
 
 def fig2():

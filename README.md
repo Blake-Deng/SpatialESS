@@ -147,5 +147,5 @@ The public research materials are indexed in
 [docs/SUBMISSION_CONTENTS.md](docs/SUBMISSION_CONTENTS.md). They include figure
 source data and plotting scripts, Supplementary Table 1, annotation provenance
 and saved-record verification code under `paper/`. Manuscript Word drafts are
-retained locally for author review. Figure 1A is an unfinished reference
-composition, as documented in the figure QA report.
+retained locally for author review. Figure 1A has a readable editable replacement,
+with the original asset preserved, as documented in the figure QA report.

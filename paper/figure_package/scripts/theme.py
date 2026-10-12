@@ -92,13 +92,11 @@ def save(fig, name=None):
         fig.savefig(ROOT / 'figures' / f'{name}.{suffix}', facecolor='white', dpi=600)
     fig.savefig(ROOT / 'figures' / f'{name}.png', dpi=600, facecolor='white')
     fig.savefig(ROOT / 'preview' / f'{name}.png', dpi=180, facecolor='white')
-    # Native panel exports retain text and primitives; the protected A slot is skipped.
+    # Native panel exports retain text and primitives, including the revised workflow.
     if fig._name in LAYOUT:
         from matplotlib.transforms import Bbox
         height = fig.get_size_inches()[1] * 25.4
         for letter, (x, y, w, h) in LAYOUT[fig._name]['panels'].items():
-            if fig._name == 'Figure1' and letter == 'A':
-                continue
             box = Bbox.from_extents(x/25.4, (height-y-h)/25.4,
                                    (x+w)/25.4, (height-y)/25.4)
             for suffix in ['pdf', 'svg']:

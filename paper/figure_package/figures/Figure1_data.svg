@@ -6,7 +6,7 @@
   <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
    <cc:Work>
     <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
-    <dc:date>2026-10-09T11:47:30.693105</dc:date>
+    <dc:date>2026-10-12T13:02:58.123446</dc:date>
     <dc:format>image/svg+xml</dc:format>
     <dc:creator>
      <cc:Agent>
@@ -3389,10 +3389,10 @@ L 240.944882 311.811024
 " style="fill: none; stroke: #000000; stroke-width: 0.5; stroke-linejoin: miter; stroke-linecap: square"/>
    </g>
    <g id="text_61">
-    <text style="font-weight: 700; font-size: 5.7px; font-family: 'Arial'; text-anchor: start; fill: #2166ac" x="43.993701" y="250.650543" transform="rotate(-0 43.993701 250.650543)">2,428× faster</text>
+    <text style="font-weight: 700; font-size: 5.7px; font-family: 'Arial'; text-anchor: start; fill: #2166ac" x="43.993701" y="250.650543" transform="rotate(-0 43.993701 250.650543)">Time ratio 2,428</text>
    </g>
    <g id="text_62">
-    <text style="font-size: 5.1px; font-family: 'Arial'; text-anchor: start; fill: #515c67" x="43.993701" y="255.656247" transform="rotate(-0 43.993701 255.656247)">50k paired comparison</text>
+    <text style="font-size: 5.1px; font-family: 'Arial'; text-anchor: start; fill: #515c67" x="43.993701" y="257.016876" transform="rotate(-0 43.993701 257.016876)">50k: archived reference / current ESS</text>
    </g>
   </g>
   <g id="axes_7">
@@ -3553,10 +3553,10 @@ L 498.897638 311.811024
 " style="fill: none; stroke: #000000; stroke-width: 0.5; stroke-linejoin: miter; stroke-linecap: square"/>
    </g>
    <g id="text_71">
-    <text style="font-weight: 700; font-size: 5.7px; font-family: 'Arial'; text-anchor: start; fill: #2166ac" x="301.946457" y="250.650543" transform="rotate(-0 301.946457 250.650543)">75.6× lower RSS</text>
+    <text style="font-weight: 700; font-size: 5.7px; font-family: 'Arial'; text-anchor: start; fill: #2166ac" x="301.946457" y="250.650543" transform="rotate(-0 301.946457 250.650543)">RSS ratio 75.6</text>
    </g>
    <g id="text_72">
-    <text style="font-size: 5.1px; font-family: 'Arial'; text-anchor: start; fill: #515c67" x="301.946457" y="255.656247" transform="rotate(-0 301.946457 255.656247)">50k paired comparison</text>
+    <text style="font-size: 5.1px; font-family: 'Arial'; text-anchor: start; fill: #515c67" x="301.946457" y="257.016876" transform="rotate(-0 301.946457 257.016876)">50k: archived reference / current ESS</text>
    </g>
   </g>
   <g id="axes_8">
@@ -4752,64 +4752,241 @@ z
     <text style="font-size: 5px; font-family: 'Arial'; text-anchor: middle; fill: #515c67" x="479.212598" y="503.922691" transform="rotate(-0 479.212598 503.922691)">allocation</text>
    </g>
   </g>
-  <g id="text_140">
-   <text style="font-weight: 700; font-size: 8px; font-family: 'Arial'; text-anchor: start; fill: #111111" x="314.645669" y="11.49351" transform="rotate(-0 314.645669 11.49351)">B</text>
-  </g>
-  <g id="text_141">
-   <text style="font-weight: 700; font-size: 7px; font-family: 'Arial'; text-anchor: start; fill: #111111" x="326.267717" y="11.19068" transform="rotate(-0 326.267717 11.19068)">Probability fidelity · 50k</text>
-  </g>
-  <g id="text_142">
-   <text style="font-weight: 700; font-size: 8px; font-family: 'Arial'; text-anchor: start; fill: #111111" x="5.669291" y="153.225794" transform="rotate(-0 5.669291 153.225794)">C</text>
-  </g>
-  <g id="text_143">
-   <text style="font-weight: 700; font-size: 7px; font-family: 'Arial'; text-anchor: start; fill: #111111" x="17.291339" y="152.922963" transform="rotate(-0 17.291339 152.922963)">Fidelity across paired scales</text>
-  </g>
-  <g id="text_144">
-   <text style="font-weight: 700; font-size: 8px; font-family: 'Arial'; text-anchor: start; fill: #111111" x="5.669291" y="229.761227" transform="rotate(-0 5.669291 229.761227)">D</text>
-  </g>
-  <g id="text_145">
-   <text style="font-weight: 700; font-size: 7px; font-family: 'Arial'; text-anchor: start; fill: #111111" x="17.291339" y="229.458396" transform="rotate(-0 17.291339 229.458396)">Runtime</text>
-  </g>
-  <g id="text_146">
-   <text style="font-weight: 700; font-size: 8px; font-family: 'Arial'; text-anchor: start; fill: #111111" x="263.622047" y="229.761227" transform="rotate(-0 263.622047 229.761227)">E</text>
-  </g>
-  <g id="text_147">
-   <text style="font-weight: 700; font-size: 7px; font-family: 'Arial'; text-anchor: start; fill: #111111" x="275.244094" y="229.458396" transform="rotate(-0 275.244094 229.458396)">Peak memory</text>
-  </g>
-  <g id="text_148">
-   <text style="font-weight: 700; font-size: 8px; font-family: 'Arial'; text-anchor: start; fill: #111111" x="5.669291" y="360.154927" transform="rotate(-0 5.669291 360.154927)">F</text>
-  </g>
-  <g id="text_149">
-   <text style="font-weight: 700; font-size: 7px; font-family: 'Arial'; text-anchor: start; fill: #111111" x="17.291339" y="359.852097" transform="rotate(-0 17.291339 359.852097)">Pair space and local edges</text>
-  </g>
-  <g id="text_150">
-   <text style="font-weight: 700; font-size: 8px; font-family: 'Arial'; text-anchor: start; fill: #111111" x="209.76378" y="360.154927" transform="rotate(-0 209.76378 360.154927)">G</text>
-  </g>
-  <g id="text_151">
-   <text style="font-weight: 700; font-size: 7px; font-family: 'Arial'; text-anchor: start; fill: #111111" x="221.385827" y="359.852097" transform="rotate(-0 221.385827 359.852097)">Local neighbors per cell</text>
-  </g>
-  <g id="text_152">
-   <text style="font-weight: 700; font-size: 8px; font-family: 'Arial'; text-anchor: start; fill: #111111" x="371.338583" y="360.154927" transform="rotate(-0 371.338583 360.154927)">H</text>
-  </g>
-  <g id="text_153">
-   <text style="font-weight: 700; font-size: 7px; font-family: 'Arial'; text-anchor: start; fill: #111111" x="382.96063" y="359.852097" transform="rotate(-0 382.96063 359.852097)">Graph density</text>
+  <g id="axes_12">
+   <g id="patch_184">
+    <path d="M 8.503937 28.346457 
+L 73.700787 28.346457 
+L 73.700787 68.031496 
+L 8.503937 68.031496 
+z
+" clip-path="url(#p3d042289e4)" style="fill: #f0f5f9; stroke: #aab9c7; stroke-width: 0.55; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_185">
+    <path d="M 82.204724 28.346457 
+L 147.401575 28.346457 
+L 147.401575 68.031496 
+L 82.204724 68.031496 
+z
+" clip-path="url(#p3d042289e4)" style="fill: #f0f5f9; stroke: #aab9c7; stroke-width: 0.55; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_186">
+    <path d="M 155.905512 28.346457 
+L 221.102362 28.346457 
+L 221.102362 68.031496 
+L 155.905512 68.031496 
+z
+" clip-path="url(#p3d042289e4)" style="fill: #f0f5f9; stroke: #aab9c7; stroke-width: 0.55; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_187">
+    <path d="M 229.606299 28.346457 
+L 294.80315 28.346457 
+L 294.80315 68.031496 
+L 229.606299 68.031496 
+z
+" clip-path="url(#p3d042289e4)" style="fill: #f0f5f9; stroke: #aab9c7; stroke-width: 0.55; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_188">
+    <path d="M 75.69805 48.188976 
+Q 77.952193 48.188976 79.479615 48.188976 
+" clip-path="url(#p3d042289e4)" style="fill: none; stroke: #515c67; stroke-width: 0.65; stroke-linecap: round"/>
+    <path d="M 77.279615 47.088976 
+L 79.479615 48.188976 
+L 77.279615 49.288976 
+z
+" clip-path="url(#p3d042289e4)" style="fill: #515c67; stroke: #515c67; stroke-width: 0.65; stroke-linecap: round"/>
+   </g>
+   <g id="patch_189">
+    <path d="M 149.398837 48.188976 
+Q 151.652981 48.188976 153.180402 48.188976 
+" clip-path="url(#p3d042289e4)" style="fill: none; stroke: #515c67; stroke-width: 0.65; stroke-linecap: round"/>
+    <path d="M 150.980402 47.088976 
+L 153.180402 48.188976 
+L 150.980402 49.288976 
+z
+" clip-path="url(#p3d042289e4)" style="fill: #515c67; stroke: #515c67; stroke-width: 0.65; stroke-linecap: round"/>
+   </g>
+   <g id="patch_190">
+    <path d="M 223.099625 48.188976 
+Q 225.353768 48.188976 226.881189 48.188976 
+" clip-path="url(#p3d042289e4)" style="fill: none; stroke: #515c67; stroke-width: 0.65; stroke-linecap: round"/>
+    <path d="M 224.681189 47.088976 
+L 226.881189 48.188976 
+L 224.681189 49.288976 
+z
+" clip-path="url(#p3d042289e4)" style="fill: #515c67; stroke: #515c67; stroke-width: 0.65; stroke-linecap: round"/>
+   </g>
+   <g id="patch_191">
+    <path d="M 192.755906 83.042108 
+Q 192.755906 76.535433 192.755906 70.75548 
+" clip-path="url(#p3d042289e4)" style="fill: none; stroke: #2166ac; stroke-width: 0.65; stroke-linecap: round"/>
+    <path d="M 191.655906 72.95548 
+L 192.755906 70.75548 
+L 193.855906 72.95548 
+z
+" clip-path="url(#p3d042289e4)" style="fill: #2166ac; stroke: #2166ac; stroke-width: 0.65; stroke-linecap: round"/>
+   </g>
+   <g id="patch_192">
+    <path d="M 73.700787 101.214013 
+Q 73.700787 102.046808 73.700787 102.15288 
+" clip-path="url(#p3d042289e4)" style="fill: none; stroke: #515c67; stroke-width: 0.65; stroke-linecap: round"/>
+    <path d="M 74.800787 99.95288 
+L 73.700787 102.15288 
+L 72.600787 99.95288 
+z
+" clip-path="url(#p3d042289e4)" style="fill: #515c67; stroke: #515c67; stroke-width: 0.65; stroke-linecap: round"/>
+   </g>
+   <g id="patch_193">
+    <path d="M 8.503937 104.88189 
+L 138.897638 104.88189 
+L 138.897638 133.228346 
+L 8.503937 133.228346 
+z
+" clip-path="url(#p3d042289e4)" style="fill: #f0f5f9; stroke: #aab9c7; stroke-width: 0.55; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_194">
+    <path d="M 167.244094 104.88189 
+L 294.80315 104.88189 
+L 294.80315 133.228346 
+L 167.244094 133.228346 
+z
+" clip-path="url(#p3d042289e4)" style="fill: #f0f5f9; stroke: #aab9c7; stroke-width: 0.55; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_195">
+    <path d="M 140.894208 119.055118 
+Q 153.070416 119.055118 164.519902 119.055118 
+" clip-path="url(#p3d042289e4)" style="fill: none; stroke: #515c67; stroke-width: 0.65; stroke-linecap: round"/>
+    <path d="M 162.319902 117.955118 
+L 164.519902 119.055118 
+L 162.319902 120.155118 
+z
+" clip-path="url(#p3d042289e4)" style="fill: #515c67; stroke: #515c67; stroke-width: 0.65; stroke-linecap: round"/>
+   </g>
+   <g id="line2d_138">
+    <path d="M 184.251969 85.03937 
+L 192.755906 85.03937 
+" clip-path="url(#p3d042289e4)" style="fill: none; stroke: #2166ac; stroke-width: 0.65; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_139">
+    <path d="M 262.204724 68.031496 
+L 262.204724 99.212598 
+" clip-path="url(#p3d042289e4)" style="fill: none; stroke: #515c67; stroke-width: 0.65; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_140">
+    <path d="M 262.204724 99.212598 
+L 73.700787 99.212598 
+" clip-path="url(#p3d042289e4)" style="fill: none; stroke: #515c67; stroke-width: 0.65; stroke-linecap: square"/>
+   </g>
+   <g id="text_140">
+    <text style="font-weight: 700; font-size: 6.1px; font-family: 'Arial'; text-anchor: middle; fill: #111111" x="41.102362" y="37.606321" transform="rotate(-0 41.102362 37.606321)">Spatial input</text>
+   </g>
+   <g id="text_141">
+    <text style="font-size: 5.7px; font-family: 'Arial'; fill: #111111" transform="translate(27.004659 48.620137)">Expression</text>
+    <text style="font-size: 5.7px; font-family: 'Arial'; fill: #111111" transform="translate(18.844308 55.572356)">Positions + labels</text>
+   </g>
+   <g id="text_142">
+    <text style="font-weight: 700; font-size: 6.1px; font-family: 'Arial'; text-anchor: middle; fill: #111111" x="114.80315" y="37.606321" transform="rotate(-0 114.80315 37.606321)">Local graph</text>
+   </g>
+   <g id="text_143">
+    <text style="font-size: 5.7px; font-family: 'Arial'; fill: #111111" transform="translate(92.151884 48.621473)">CSR radius graph</text>
+    <text style="font-size: 5.7px; font-family: 'Arial'; fill: #111111" transform="translate(90.087415 55.005918)">Retained neighbors</text>
+   </g>
+   <g id="text_144">
+    <text style="font-weight: 700; font-size: 6.1px; font-family: 'Arial'; text-anchor: middle; fill: #111111" x="188.503937" y="37.606321" transform="rotate(-0 188.503937 37.606321)">LR calculation</text>
+   </g>
+   <g id="text_145">
+    <text style="font-size: 5.7px; font-family: 'Arial'; fill: #111111" transform="translate(168.386945 49.18791)">Reference rules</text>
+    <text style="font-size: 5.7px; font-family: 'Arial'; fill: #111111" transform="translate(170.762242 55.040652)">Stream edges</text>
+   </g>
+   <g id="text_146">
+    <text style="font-weight: 700; font-size: 6.1px; font-family: 'Arial'; text-anchor: middle; fill: #111111" x="262.204724" y="37.606321" transform="rotate(-0 262.204724 37.606321)">Group outputs</text>
+   </g>
+   <g id="text_147">
+    <text style="font-size: 5.7px; font-family: 'Arial'; fill: #111111" transform="translate(253.33499 49.186574)">Scores</text>
+    <text style="font-size: 5.7px; font-family: 'Arial'; fill: #111111" transform="translate(235.433428 55.039316)">Permutation p values</text>
+   </g>
+   <g id="text_148">
+    <text style="font-size: 5.7px; font-family: 'Arial'; text-anchor: middle; fill: #2166ac" x="116.220472" y="80.685189" transform="rotate(-0 116.220472 80.685189)">Global label permutations</text>
+   </g>
+   <g id="text_149">
+    <text style="font-size: 5.7px; font-family: 'Arial'; text-anchor: middle; fill: #2166ac" x="116.220472" y="89.189126" transform="rotate(-0 116.220472 89.189126)">Reuse the same spatial graph</text>
+   </g>
+   <g id="text_150">
+    <text style="font-weight: 700; font-size: 6.1px; font-family: 'Arial'; text-anchor: middle; fill: #111111" x="73.700787" y="114.141754" transform="rotate(-0 73.700787 114.141754)">Slice-by-feature scores</text>
+   </g>
+   <g id="text_151">
+    <text style="font-size: 5.7px; font-family: 'Arial'; text-anchor: middle; fill: #111111" x="73.700787" y="125.695734" transform="rotate(-0 73.700787 125.695734)">Absent records = 0</text>
+   </g>
+   <g id="text_152">
+    <text style="font-weight: 700; font-size: 6.1px; font-family: 'Arial'; text-anchor: middle; fill: #111111" x="231.023622" y="114.141754" transform="rotate(-0 231.023622 114.141754)">Patient mixed model</text>
+   </g>
+   <g id="text_153">
+    <text style="font-size: 5.7px; font-family: 'Arial'; text-anchor: middle; fill: #111111" x="231.023622" y="125.156906" transform="rotate(-0 231.023622 125.156906)">Condition + (1 | patient)</text>
+   </g>
   </g>
   <g id="text_154">
-   <text style="font-size: 5.1px; font-family: 'Arial'; text-anchor: start; fill: #111111" x="11.338583" y="481.350735" transform="rotate(-0 11.338583 481.350735)">Directed non-self edges; effective radius = 35 μm. Shading in D–F is a comparison guide, not a confidence interval.</text>
+   <text style="font-weight: 700; font-size: 8px; font-family: 'Arial'; text-anchor: start; fill: #111111" x="314.645669" y="11.49351" transform="rotate(-0 314.645669 11.49351)">B</text>
   </g>
   <g id="text_155">
-   <text style="font-weight: 700; font-size: 8px; font-family: 'Arial'; text-anchor: start; fill: #111111" x="5.669291" y="496.21792" transform="rotate(-0 5.669291 496.21792)">I</text>
+   <text style="font-weight: 700; font-size: 7px; font-family: 'Arial'; text-anchor: start; fill: #111111" x="326.267717" y="11.19068" transform="rotate(-0 326.267717 11.19068)">Probability fidelity · 50k</text>
   </g>
   <g id="text_156">
-   <text style="font-weight: 700; font-size: 7px; font-family: 'Arial'; text-anchor: start; fill: #111111" x="17.291339" y="495.915089" transform="rotate(-0 17.291339 495.915089)">Completion and comparison scope</text>
+   <text style="font-weight: 700; font-size: 8px; font-family: 'Arial'; text-anchor: start; fill: #111111" x="5.669291" y="153.225794" transform="rotate(-0 5.669291 153.225794)">C</text>
   </g>
   <g id="text_157">
+   <text style="font-weight: 700; font-size: 7px; font-family: 'Arial'; text-anchor: start; fill: #111111" x="17.291339" y="152.922963" transform="rotate(-0 17.291339 152.922963)">Fidelity across paired scales</text>
+  </g>
+  <g id="text_158">
+   <text style="font-weight: 700; font-size: 8px; font-family: 'Arial'; text-anchor: start; fill: #111111" x="5.669291" y="229.761227" transform="rotate(-0 5.669291 229.761227)">D</text>
+  </g>
+  <g id="text_159">
+   <text style="font-weight: 700; font-size: 7px; font-family: 'Arial'; text-anchor: start; fill: #111111" x="17.291339" y="229.458396" transform="rotate(-0 17.291339 229.458396)">Runtime</text>
+  </g>
+  <g id="text_160">
+   <text style="font-weight: 700; font-size: 8px; font-family: 'Arial'; text-anchor: start; fill: #111111" x="263.622047" y="229.761227" transform="rotate(-0 263.622047 229.761227)">E</text>
+  </g>
+  <g id="text_161">
+   <text style="font-weight: 700; font-size: 7px; font-family: 'Arial'; text-anchor: start; fill: #111111" x="275.244094" y="229.458396" transform="rotate(-0 275.244094 229.458396)">Peak memory</text>
+  </g>
+  <g id="text_162">
+   <text style="font-weight: 700; font-size: 8px; font-family: 'Arial'; text-anchor: start; fill: #111111" x="5.669291" y="360.154927" transform="rotate(-0 5.669291 360.154927)">F</text>
+  </g>
+  <g id="text_163">
+   <text style="font-weight: 700; font-size: 7px; font-family: 'Arial'; text-anchor: start; fill: #111111" x="17.291339" y="359.852097" transform="rotate(-0 17.291339 359.852097)">Pair space and local edges</text>
+  </g>
+  <g id="text_164">
+   <text style="font-weight: 700; font-size: 8px; font-family: 'Arial'; text-anchor: start; fill: #111111" x="209.76378" y="360.154927" transform="rotate(-0 209.76378 360.154927)">G</text>
+  </g>
+  <g id="text_165">
+   <text style="font-weight: 700; font-size: 7px; font-family: 'Arial'; text-anchor: start; fill: #111111" x="221.385827" y="359.852097" transform="rotate(-0 221.385827 359.852097)">Local neighbors per cell</text>
+  </g>
+  <g id="text_166">
+   <text style="font-weight: 700; font-size: 8px; font-family: 'Arial'; text-anchor: start; fill: #111111" x="371.338583" y="360.154927" transform="rotate(-0 371.338583 360.154927)">H</text>
+  </g>
+  <g id="text_167">
+   <text style="font-weight: 700; font-size: 7px; font-family: 'Arial'; text-anchor: start; fill: #111111" x="382.96063" y="359.852097" transform="rotate(-0 382.96063 359.852097)">Graph density</text>
+  </g>
+  <g id="text_168">
+   <text style="font-size: 5.1px; font-family: 'Arial'; text-anchor: start; fill: #111111" x="11.338583" y="481.350735" transform="rotate(-0 11.338583 481.350735)">Directed non-self edges; effective radius = 35 μm. Shading in D–F is a comparison guide, not a confidence interval.</text>
+  </g>
+  <g id="text_169">
+   <text style="font-weight: 700; font-size: 8px; font-family: 'Arial'; text-anchor: start; fill: #111111" x="5.669291" y="496.21792" transform="rotate(-0 5.669291 496.21792)">I</text>
+  </g>
+  <g id="text_170">
+   <text style="font-weight: 700; font-size: 7px; font-family: 'Arial'; text-anchor: start; fill: #111111" x="17.291339" y="495.915089" transform="rotate(-0 17.291339 495.915089)">Completion and comparison scope</text>
+  </g>
+  <g id="text_171">
    <text style="font-size: 5.1px; font-family: 'Arial'; fill: #111111" transform="translate(14.173228 507.100463)">Filled: paired</text>
    <text style="font-size: 5.1px; font-family: 'Arial'; fill: #111111" transform="translate(14.173228 512.368105)">Open: ESS-only</text>
    <text style="font-size: 5.1px; font-family: 'Arial'; fill: #111111" transform="translate(14.173228 518.135787)">Cross: V3 failed</text>
   </g>
+  <g id="text_172">
+   <text style="font-weight: 700; font-size: 8px; font-family: 'Arial'; text-anchor: start; fill: #111111" x="5.669291" y="11.49351" transform="rotate(-0 5.669291 11.49351)">A</text>
+  </g>
+  <g id="text_173">
+   <text style="font-weight: 700; font-size: 7px; font-family: 'Arial'; text-anchor: start; fill: #111111" x="17.291339" y="11.19068" transform="rotate(-0 17.291339 11.19068)">Sparse inference and patient analysis</text>
+  </g>
   <g id="legend_1">
-   <g id="line2d_138">
+   <g id="line2d_141">
     <path d="M 285.090656 216.339612 
 L 288.730656 216.339612 
 L 292.370656 216.339612 
@@ -4831,10 +5008,10 @@ z
      <use xlink:href="#m5a2cb13867" x="288.730656" y="216.339612" style="fill: #2166ac; stroke: #2166ac"/>
     </g>
    </g>
-   <g id="text_158">
+   <g id="text_174">
     <text style="font-size: 5.6px; font-family: 'Arial'; text-anchor: start; fill: #111111" x="296.850656" y="218.299612" transform="rotate(-0 296.850656 218.299612)">SpatialESS</text>
    </g>
-   <g id="line2d_139">
+   <g id="line2d_142">
     <path d="M 329.658781 216.339612 
 L 333.298781 216.339612 
 L 336.938781 216.339612 
@@ -4851,41 +5028,41 @@ z
      <use xlink:href="#mb08c2ae049" x="333.298781" y="216.339612" style="fill: #737b86; stroke: #737b86; stroke-linejoin: miter"/>
     </g>
    </g>
-   <g id="text_159">
+   <g id="text_175">
     <text style="font-size: 5.6px; font-family: 'Arial'; text-anchor: start; fill: #111111" x="341.418781" y="218.299612" transform="rotate(-0 341.418781 218.299612)">SpatialCellChat V3</text>
    </g>
   </g>
   <g id="legend_2">
-   <g id="line2d_140">
+   <g id="line2d_143">
     <g>
      <use xlink:href="#mf8ceb325f4" x="154.342553" y="345.297748" style="fill: #2166ac; stroke: #2166ac; stroke-width: 0.7"/>
     </g>
    </g>
-   <g id="text_160">
+   <g id="text_176">
     <text style="font-size: 5.8px; font-family: 'Arial'; text-anchor: start; fill: #111111" x="162.752553" y="347.327748" transform="rotate(-0 162.752553 347.327748)">CosMx central</text>
    </g>
-   <g id="line2d_141">
+   <g id="line2d_144">
     <g>
      <use xlink:href="#mf1c28eef15" x="208.226366" y="345.297748" style="fill: #c43b53; stroke: #c43b53; stroke-width: 0.7; stroke-linejoin: miter"/>
     </g>
    </g>
-   <g id="text_161">
+   <g id="text_177">
     <text style="font-size: 5.8px; font-family: 'Arial'; text-anchor: start; fill: #111111" x="216.636366" y="347.327748" transform="rotate(-0 216.636366 347.327748)">Xenium central</text>
    </g>
-   <g id="line2d_142">
+   <g id="line2d_145">
     <g>
      <use xlink:href="#m1017a538f2" x="263.729647" y="345.297748" style="fill: #ffffff; stroke: #c43b53; stroke-width: 0.7; stroke-linejoin: miter"/>
     </g>
    </g>
-   <g id="text_162">
+   <g id="text_178">
     <text style="font-size: 5.8px; font-family: 'Arial'; text-anchor: start; fill: #111111" x="272.139647" y="347.327748" transform="rotate(-0 272.139647 347.327748)">Xenium stratified</text>
    </g>
-   <g id="line2d_143">
+   <g id="line2d_146">
     <g>
      <use xlink:href="#maa4298fc71" x="323.744241" y="345.297748" style="fill: #16877a; stroke: #16877a; stroke-width: 0.7; stroke-linejoin: miter"/>
     </g>
    </g>
-   <g id="text_163">
+   <g id="text_179">
     <text style="font-size: 5.8px; font-family: 'Arial'; text-anchor: start; fill: #111111" x="332.154241" y="347.327748" transform="rotate(-0 332.154241 347.327748)">Visium HD ovarian</text>
    </g>
   </g>
@@ -4923,6 +5100,9 @@ z
   </clipPath>
   <clipPath id="pd3f0bccf95">
    <rect x="96.377953" y="501.732283" width="405.354331" height="24.094488"/>
+  </clipPath>
+  <clipPath id="p3d042289e4">
+   <rect x="5.669291" y="5.669291" width="294.80315" height="131.538898"/>
   </clipPath>
  </defs>
 </svg>

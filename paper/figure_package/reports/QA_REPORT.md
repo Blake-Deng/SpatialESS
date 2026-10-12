@@ -2,7 +2,7 @@
 
 - Original input SHA256 verification: 64 / 64 unchanged.
 - Numerical/data checks: PASS: 50.
-- Export checks: PASS: 58, WARNING: 1.
+- Export checks: PASS: 59.
 - Full-key paired-record audits: 5 fixtures; 0 unmatched, 0 zero values, 0 nonfinite values.
 - Neighbor graphs: 14 fixtures; N = 250 to 443,515.
 - All six data masters use 180 mm width; dimensions, embedded fonts, editable SVG text, page boundaries, letters and 600 dpi PNG size were checked.
@@ -13,15 +13,15 @@
 - Failed comparator jobs appear only as status symbols, not as completed runtime/RSS measurements.
 - PDF/PNG export was visually reviewed for all six data masters, including high-density heatmap, patient and bubble areas. Page-boundary tests do not automatically prove absence of text overlap.
 - Grayscale, deuteranopia and protanopia previews are included for all six data masters. Method/geometry markers and printed heatmap signs supply additional coding; no quantitative perceptual certification is claimed.
-- Main data master A remains empty. The original user workflow is unchanged and only proportionally placed in a separately named reference composition.
+- Figure 1A now contains an editable workflow summary. Performance ratios explicitly compare archived reference measurements with current ESS measurements.
 
-## Remaining limitation
+## Workflow presentation
 
-The protected Figure 1A has minimum text 2.59 pt when placed in the current slot. The reference composition is not a final-size-compliant Figure 1. The user-owned A requires user completion; it was not modified.
+The revised Figure 1A has minimum ordinary text 5.70 pt at final size. The original asset is preserved. Its separately named historical reference composition has 2.59 pt minimum text and is not the submission master.
 
 ## Recorded warnings
 
-- Figure1A: Final-size lettering. Protected asset reaches 2.59 pt in A slot; reference preview only.
+- None in the current masters. The archived original-A reference composition is retained only for provenance.
 
 ## Editability
 

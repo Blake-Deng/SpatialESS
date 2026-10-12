@@ -31,7 +31,7 @@ for row in inv.itertuples():
     fields = [str(s).replace('|', '\\|').replace('\n', ' ') for s in fields]
     lines.append('| ' + ' | '.join(fields) + ' |')
 lines += ['', '## Interpretation', '',
-          '- Figure 1A is protected and absent from the editable data master; its exact source is supplied separately.',
+          '- Figure 1A is a readable editable summary of the tested workflow. The original supplied PDF remains byte-identical in assets for provenance.',
           '- Figure 1D/E include completed measurements only. ESS values are saved v0.1.4 measurements; official measurements are saved comparator runs, not newly timed here.',
           '- F1B marginal histograms count every paired record in equal log10 probability bins. They do not introduce simulated points or change fidelity calculations.',
           '- Light fills in Figure 1D-F mark gaps between existing paired curves or CosMx N-squared and E; they are comparison guides, not confidence intervals.',
@@ -76,12 +76,14 @@ report = ['# Figure QA', '',
           '- Failed comparator jobs appear only as status symbols, not as completed runtime/RSS measurements.',
           '- PDF/PNG export was visually reviewed for all six data masters, including high-density heatmap, patient and bubble areas. Page-boundary tests do not automatically prove absence of text overlap.',
           '- Grayscale, deuteranopia and protanopia previews are included for all six data masters. Method/geometry markers and printed heatmap signs supply additional coding; no quantitative perceptual certification is claimed.',
-          '- Main data master A remains empty. The original user workflow is unchanged and only proportionally placed in a separately named reference composition.', '',
-          '## Remaining limitation', '',
-          f'The protected Figure 1A has minimum text {composition["minimum_composed_font_pt"]:.2f} pt when placed in the current slot. The reference composition is not a final-size-compliant Figure 1. The user-owned A requires user completion; it was not modified.', '',
+          '- Figure 1A now contains an editable workflow summary. Performance ratios explicitly compare archived reference measurements with current ESS measurements.', '',
+          '## Workflow presentation', '',
+          f'The revised Figure 1A has minimum ordinary text {composition["minimum_revised_font_pt"]:.2f} pt at final size. The original asset is preserved. Its separately named historical reference composition has {composition["minimum_composed_font_pt"]:.2f} pt minimum text and is not the submission master.', '',
           '## Recorded warnings', '']
 for row in warnings.itertuples():
     report.append(f'- {row.figure}: {row.check}. {row.details}')
+if warnings.empty:
+    report.append('- None in the current masters. The archived original-A reference composition is retained only for provenance.')
 report += ['', '## Editability', '',
            'Hexbin polygons, tissue points, heatmap tiles, curves, CI bars, text, axes and legends are vector objects. Only the dense volcano point layers are rasterized at 600 dpi. Original tables and per-panel CSVs accompany the workbook.', '',
            '## Scientific limits', '',

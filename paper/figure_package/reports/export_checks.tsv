@@ -1,14 +1,14 @@
 figure	check	status	details
 Figure1A	Original asset SHA256 unchanged	PASS	92c19a82c3dd3667720db50139d0d043b7d95cad3795d410c54eb5ab5722ec52
-Figure1A	Final-size lettering	WARNING	Protected asset reaches 2.59 pt in A slot; reference preview only.
+Figure1A	Revised final-size lettering at least 5 pt	PASS	Revised panel minimum 5.70 pt; original reference composition 2.59 pt is archived only.
 Figure1_data	Physical dimensions	PASS	[179.99999491373697, 190.0000089857313]
 Figure1_data	Ordinary lettering at least 5 pt	PASS	min ordinary text=5.000 pt
 Figure1_data	Text inside page	PASS	
-Figure1_data	All data-panel letters present	PASS	B,C,D,E,F,G,H,I
-Figure1_data	Protected A slot empty in editable data master	PASS	
-Figure1_data	No Type 3 fonts	PASS	[('Type0', 'BTCBPR+ArialMT'), ('Type0', 'FHMNPP+Arial-BoldMT')]
+Figure1_data	All data-panel letters present	PASS	A,B,C,D,E,F,G,H,I
+Figure1_data	Revised workflow present in editable master	PASS	
+Figure1_data	No Type 3 fonts	PASS	[('Type0', 'EMGFBR+Arial-BoldMT'), ('Type0', 'QFQZHR+ArialMT')]
 Figure1_data	Fonts embedded	PASS	['ttf', 'ttf']
-Figure1_data	SVG editable text exists	PASS	168 text nodes; 0 raster data-layer elements
+Figure1_data	SVG editable text exists	PASS	188 text nodes; 0 raster data-layer elements
 Figure1_data	600 dpi at final physical size	PASS	(4251, 4488)
 Figure2	Physical dimensions	PASS	[179.99999491373697, 196.00000881618922]
 Figure2	Ordinary lettering at least 5 pt	PASS	min ordinary text=5.050 pt

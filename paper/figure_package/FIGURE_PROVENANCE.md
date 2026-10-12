@@ -49,7 +49,7 @@ preserve full keys and saved precision; display abbreviations are mapped separat
 
 ## Interpretation
 
-- Figure 1A is protected and absent from the editable data master; its exact source is supplied separately.
+- Figure 1A is a readable editable summary of the tested workflow. The original supplied PDF remains byte-identical in assets for provenance.
 - Figure 1D/E include completed measurements only. ESS values are saved v0.1.4 measurements; official measurements are saved comparator runs, not newly timed here.
 - F1B marginal histograms count every paired record in equal log10 probability bins. They do not introduce simulated points or change fidelity calculations.
 - Light fills in Figure 1D-F mark gaps between existing paired curves or CosMx N-squared and E; they are comparison guides, not confidence intervals.

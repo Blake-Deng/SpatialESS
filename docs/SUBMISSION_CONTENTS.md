@@ -54,10 +54,10 @@ primary BH correction; warnings and failures are retained in the result tables.
 Fresh macOS R 4.5.2 checks and saved-record verification are documented in
 `paper/provenance/editorial_checks_20261012/`. The original Linux check and
 verification environments remain archived separately. The figure pipeline was
-also rerun: 64 input hashes, 50 data checks and 58 export checks passed, with the
-known Figure 1A lettering warning retained.
+also rerun after the Figure 1 presentation correction. The revised workflow and
+export checks are documented in `paper/figure_package/reports/QA_REPORT.md`.
 
-The original RCTD annotation sessionInfo was not saved. Figure 1A remains an
-unfinished reference composition: minimum lettering is approximately 2.59 pt
-in the compact slot, and the data master leaves A empty. Neither is a finished
-submission figure. A persistent archive DOI has not yet been assigned.
+The original RCTD annotation sessionInfo was not saved. The complete Figure 1
+master now contains a readable editable workflow; the original 2.59 pt reference
+composition is preserved only for provenance. A persistent archive DOI has not
+yet been assigned.

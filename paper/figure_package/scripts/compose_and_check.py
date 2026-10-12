@@ -1,4 +1,4 @@
-"""Preserve the user PDF, render final masters, and audit editable output."""
+"""Preserve the original workflow, audit its readable replacement and final masters."""
 from pathlib import Path
 import argparse
 import hashlib
@@ -34,24 +34,29 @@ src_spans=[s for b in user[0].get_text('dict')['blocks'] if 'lines' in b
            for ln in b['lines'] for s in ln['spans']]
 min_original=min(s['size'] for s in src_spans)
 scaled_min=min_original*target[2]*mm/user[0].rect.width
+native=fitz.open(ROOT/'panels/Figure1A.pdf')
+native_spans=[s for b in native[0].get_text('dict')['blocks'] if 'lines' in b for ln in b['lines'] for s in ln['spans']]
+native_min=min(s['size'] for s in native_spans if re.search(r'[A-Za-z]',s['text']))
 composition=dict(user_source='assets/Figure1A_user_original.pdf',sha256=original_hash,
                  source_width_pt=user[0].rect.width,source_height_pt=user[0].rect.height,
                  destination_mm=target,keep_proportion=True,internal_modification=False,
                  minimum_original_font_pt=min_original,minimum_composed_font_pt=scaled_min,
-                 deliverable_status='Reference composition only; original A is too small in this compact slot',
+                 revised_panel='panels/Figure1A.pdf',minimum_revised_font_pt=native_min,
+                 deliverable_status='Complete editable master contains a readable revised workflow; original asset retained for provenance',
                  data_master='figures/Figure1_data.pdf',editable_data_svg='figures/Figure1_data.svg')
 (ROOT/'config/Figure1A_composition.json').write_text(json.dumps(composition,indent=2)+'\n')
 data=fitz.open(ROOT/'figures/Figure1_data.pdf')
 composed=fitz.open();page=composed.new_page(width=data[0].rect.width,height=data[0].rect.height)
 page.show_pdf_page(page.rect,data,0)
 rect=fitz.Rect(target[0]*mm,target[1]*mm,(target[0]+target[2])*mm,(target[1]+target[3])*mm)
+page.draw_rect(rect,color=None,fill=(1,1,1),overlay=True)
 page.show_pdf_page(rect,user,0,keep_proportion=True)
 composed.set_metadata({'title':'Reference composition: original user Figure 1A + redrawn data',
                       'subject':'Original A untouched; compact A text below target size; see QA report.'})
 composed.save(ROOT/'figures/Figure1_with_original_A_reference.pdf')
 composed[0].get_pixmap(dpi=180,alpha=False).save(ROOT/'preview/Figure1_with_original_A_reference.png')
 audit('Figure1A','Original asset SHA256 unchanged',True,original_hash)
-audit('Figure1A','Final-size lettering',False,f'Protected asset reaches {scaled_min:.2f} pt in A slot; reference preview only.')
+audit('Figure1A','Revised final-size lettering at least 5 pt',native_min>=4.99,f'Revised panel minimum {native_min:.2f} pt; original reference composition {scaled_min:.2f} pt is archived only.')
 
 for name in fig_names:
     doc=fitz.open(ROOT/'figures'/f'{name}.pdf');page=doc[0]
@@ -71,12 +76,11 @@ for name in fig_names:
              s['bbox'][2]>page.rect.width+.5 or s['bbox'][3]>page.rect.height+.5]
     audit(name,'Text inside page',not outside,'; '.join(outside))
     expected_letters=list(layout[config_name]['panels'])
-    if config_name=='Figure1':expected_letters.remove('A')
     present={s['text'].strip() for s in spans}
     audit(name,'All data-panel letters present',set(expected_letters)<=present,','.join(expected_letters))
     if config_name=='Figure1':
         a=fitz.Rect(*(v*mm for v in [target[0],target[1],target[0]+target[2],target[1]+target[3]]))
-        audit(name,'Protected A slot empty in editable data master',page.get_text(clip=a).strip()=='')
+        audit(name,'Revised workflow present in editable master','Patient mixed model' in page.get_text(clip=a))
     fonts=page.get_fonts(full=True)
     audit(name,'No Type 3 fonts',not any(f[2]=='Type3' for f in fonts),str([(f[2],f[3]) for f in fonts]))
     audit(name,'Fonts embedded',all(f[1]!='n/a' for f in fonts),str([f[1] for f in fonts]))
@@ -135,4 +139,4 @@ for name in fig_names:
 pd.DataFrame(results).to_csv(ROOT/'reports/export_checks.tsv',sep='\t',index=False)
 pd.DataFrame(spans_out).to_csv(ROOT/'reports/PDF_TEXT_AUDIT.tsv',sep='\t',index=False)
 print(pd.DataFrame(results).groupby('status').size().to_string())
-print('Protected A reference only: minimum lettering',scaled_min)
+print('Revised A minimum lettering',native_min,'; archived original composition',scaled_min)
