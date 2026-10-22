@@ -78,4 +78,5 @@ labels and full feature-key mappings.
 The original RCTD annotation sessionInfo was not saved. The archived DESCRIPTION
 identifies spacexr 2.2.1, which does not substantiate the draft's 2.2.16. See the
 ovarian environment note before naming an exact original-run version. A
-persistent archive DOI has not yet been assigned.
+The Zenodo archive is published: version DOI 10.5281/zenodo.23567248;
+concept DOI 10.5281/zenodo.23567247.

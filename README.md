@@ -1,9 +1,15 @@
 # SpatialESS
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23567247.svg)](https://doi.org/10.5281/zenodo.23567247)
+
 SpatialESS 0.1.4 implements spatial cell-cell communication inference using a
 CSR radius graph and streamed ligand-receptor scoring and permutation tests.
 It provides patient-aware multi-sample analysis with a random-intercept linear
 mixed model. Numerical validation targets the tested SpatialCellChat V3 workflow.
+
+## Cite the archived release
+
+SpatialESS 0.1.4 archive: [version DOI 10.5281/zenodo.23567248](https://doi.org/10.5281/zenodo.23567248). The project concept DOI, which points to the latest archived version, is [10.5281/zenodo.23567247](https://doi.org/10.5281/zenodo.23567247).
 
 ## Installation
 

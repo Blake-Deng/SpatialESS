@@ -1,0 +1,12 @@
+cff-version: 1.2.0
+message: "If you use SpatialESS, please cite this software archive."
+title: "SpatialESS: Efficient Edge-First Spatial Cell-Cell Communication"
+authors:
+  - family-names: Deng
+    given-names: Zifeng
+version: 0.1.4
+doi: 10.5281/zenodo.23567248
+date-released: 2026-10-22
+license: GPL-3.0-or-later
+repository-code: https://github.com/Blake-Deng/SpatialESS
+url: https://doi.org/10.5281/zenodo.23567248
