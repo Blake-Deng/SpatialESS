@@ -10,7 +10,7 @@ files = []
 for folder in ['scripts', 'config', 'figures', 'panels', 'reports', 'logs']:
     files.extend(p for p in (root/folder).rglob('*') if p.is_file()
                  and '__pycache__' not in p.parts)
-files.extend([root/'README.md', root/'FIGURE2_CAPTION.md'])
+files.append(root/'README.md')
 files.extend(p for p in (root/'source_data').glob('*') if p.is_file())
 files.extend((root/'source_data/panels').glob('Figure2*.csv'))
 for name in ['cosmx_scaling.tsv', 'official_fidelity.tsv', 'spatial_sparsity.tsv',

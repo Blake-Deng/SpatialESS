@@ -16,7 +16,7 @@ required = [ROOT / 'figures' / f'{name}.{ext}'
             for name in ['Figure1_data', 'Figure2', 'FigureS1', 'FigureS2', 'FigureS3', 'FigureS4']
             for ext in ['pdf', 'svg', 'png']]
 required += [ROOT / name for name in ['source_data/Source_Data.xlsx',
-                                     'FIGURE_PROVENANCE.md', 'FIGURE_CAPTIONS.md',
+                                     'FIGURE_PROVENANCE.md',
                                      'reports/QA_REPORT.md', 'README.md']]
 assert all(path.is_file() and path.stat().st_size for path in required)
 assert not (pd.read_csv(ROOT / 'reports/data_checks.tsv', sep='\t').status == 'FAIL').any()

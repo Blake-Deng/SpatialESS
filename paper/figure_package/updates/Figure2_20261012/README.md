@@ -6,7 +6,6 @@ Only Figure 2 is updated. Original package figures and manuscript files remain i
 - `figures/Figure2.svg`: editable SVG, including text.
 - `figures/Figure2.png`: 600 dpi preview.
 - `source_data/Figure2_Source_Data.xlsx`: exact per-panel source tables and feature mapping.
-- `FIGURE2_CAPTION.md`: caption matching the updated examples and annotation labels.
 - `reports/QA_REPORT.md`: verification and visual inspection notes.
 
 Regenerate the supplied saved sources:

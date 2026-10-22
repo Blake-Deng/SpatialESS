@@ -50,7 +50,7 @@ and keeps its I03/I21/I19 interval examples; its files and the existing cohort
 sensitivity analysis should be retained.
 
 The supplied `paper/figure_package/README.md` identifies the dated Figure 1 and
-Figure 2 directories as current masters, with direct links to figures, captions,
+Figure 2 directories as current masters, with direct links to figures, source
 data and reproduction commands. Earlier figure files remain historical outputs;
 the new index prevents treating the old `figures/Figure2.pdf` or the original
 all-figure runner as the current main figure. Do not overwrite the author workflow

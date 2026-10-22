@@ -11,7 +11,6 @@ Panels D/E use the original SpatialESS-blue / SpatialCellChat-orange encoding, w
 - `figures/Figure1_data.pdf`, `.svg`, `.png`: data-only master; the A slot is blank by design.
 - `panels/Figure1B.pdf` through `Figure1I.pdf` and matching SVG files: editable panel exports.
 - `source_data/Figure1_Source_Data.xlsx` and `source_data/panels/`: panel-level data, including the 46 CosMx/Atera runtime and memory states, 10 Atera paired comparisons, and completion status.
-- `Figure1_caption.md`: panel-specific caption with the comparison and failure scope.
 - `reports/QA_REPORT.md` and `reports/VISUAL_REVIEW.md`: numerical, provenance, export and visual checks.
 
 ## Reproduce

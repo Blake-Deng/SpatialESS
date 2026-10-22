@@ -30,50 +30,6 @@ allocation = float(full_attempt.requested_allocation_GiB)
 rss_gb = float(full_attempt.peak_RSS_GB_decimal)
 wall_seconds = float(full_attempt.whole_process_seconds)
 
-caption_path = ROOT/'Figure1_caption.md'
-caption = caption_path.read_text()
-caption = re.sub(
-    r'\*\*\(D\)\*\*.*?(?=\n\n\*\*\(E\)\*\*)',
-    '**(D)** Whole-process runtime across CosMx CancerousLiver and Atera breast and cervical inputs. '
-    'Blue circles identify SpatialESS and orange squares identify SpatialCellChat. Solid, dashed '
-    'and dotted lines distinguish CosMx, Atera breast and Atera cervical, respectively. Pale grey '
-    'shading marks input sizes with completed measurements from both methods. Lines connect '
-    'measured successful runs only. SpatialCellChat completed paired Atera comparisons through '
-    '50,000 cells; its 100,000-cell attempts failed during allocation under the configured memory '
-    'budget. A reference attempt on the full 715,512-cell cervical input failed while allocating '
-    f'a {allocation:.1f} GiB dense intermediate under the 96 GiB virtual-memory limit '
-    f'({wall_seconds:.2f} s; peak RSS {rss_gb:.2f} GB), so no full-scale reference result was '
-    'generated. The full-breast reference was not attempted. SpatialESS completed the full '
-    '169,940-cell breast and 715,512-cell cervical inputs. CosMx SpatialESS values at 50,000 and '
-    '443,515 cells are medians of three repetitions; other displayed values are single measurements '
-    'or saved reference measurements.',
-    caption, count=1, flags=re.S)
-caption = re.sub(
-    r'\*\*\(E\)\*\*.*?(?=\n\n\*\*\(F\)\*\*)',
-    '**(E)** Peak resident memory for the same runs, with method colors and cohort line styles as '
-    'in D. CosMx measurements recorded in GiB are converted to decimal GB; Atera memory is '
-    'reported in decimal GB. Failed attempts are not plotted as successful measurements.',
-    caption, count=1, flags=re.S)
-caption = re.sub(
-    r'\*\*\(I\)\*\*.*\Z',
-    '**(I)** Completion status across CosMx and Atera scales. Tick labels show 1k, 5k, 10k, 25k, '
-    '50k, 100k, 200k and 700k, with 200k followed directly by 700k. The 400k cervical and '
-    '443,515-cell (nominal 450k) CosMx categories are omitted from this panel; their run records '
-    'remain in the source data, and the 443,515-cell CosMx measurements remain in D/E. Exact cell '
-    'counts and status provenance are provided in the source data. At 200k, cervical SpatialESS '
-    f'was {ess_200}; SpatialCellChat had {ref_200_label}. The 169,940-cell Atera breast category '
-    'and two 250-cell CosMx points are also omitted from I, with run records retained. Filled '
-    'circles indicate paired completion, open circles indicate SpatialESS-only completion, crosses '
-    'indicate failed SpatialCellChat attempts. The cross at 700k uses the same reference-failed '
-    'symbol as the earlier failed attempts. The run failed '
-    f'requesting a {allocation:.1f} GiB dense intermediate; the source data retain its status and '
-    f'resource measurements. At '
-    '100,000 cells, both Atera reference attempts failed allocation under the configured memory '
-    'budget; the full-breast reference was not attempted. These budget-specific outcomes do '
-    'not establish a universal limit for SpatialCellChat.',
-    caption, count=1, flags=re.S)
-caption_path.write_text(caption)
-
 readme_path = ROOT/'README.md'
 readme = readme_path.read_text()
 readme = re.sub(
@@ -135,4 +91,4 @@ qa = re.sub(
     qa, count=1, flags=re.S)
 qa_path.write_text(qa)
 
-print(f'Caption and QA report updated: SpatialESS 200k={ess_200}; 400k={ess_400}.')
+print(f'QA report updated: SpatialESS 200k={ess_200}; 400k={ess_400}.')

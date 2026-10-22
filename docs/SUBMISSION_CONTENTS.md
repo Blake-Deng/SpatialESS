@@ -72,8 +72,8 @@ export checks are documented in `paper/figure_package/reports/QA_REPORT.md`.
 
 The current Figure 1 proportionally places the original author workflow without
 internal edits; older workflow replacements are historical exports. Main Figure
-2D uses I15/I06/I19, whereas S4D retains I03/I21/I19. Use the current captions
-and full feature-key mappings.
+2D uses I15/I06/I19, whereas S4D retains I03/I21/I19. Use the current figure
+labels and full feature-key mappings.
 
 The original RCTD annotation sessionInfo was not saved. The archived DESCRIPTION
 identifies spacexr 2.2.1, which does not substantiate the draft's 2.2.16. See the

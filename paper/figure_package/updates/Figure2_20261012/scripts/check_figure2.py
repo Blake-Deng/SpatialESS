@@ -83,6 +83,6 @@ pd.DataFrame(checks).to_csv(ROOT/'reports/Figure2_QA.tsv',sep='\t',index=False)
     '- Existing A, B, C and E numeric plotting tables match the previous exports exactly. No inference, model, BH or molecular annotation was changed. The arrow target identities are retained.\n'
     '- Final masters: 180 x 208 mm, Arial regular/bold embedded, editable SVG text and vector axes, 600 dpi PNG. Only dense volcano data points are rasterized. No PDF text extends outside the page.\n'
     '- The rendered PDF was inspected at whole-figure and C/D detail sizes. C headings are separated from one another and data rows; all D group labels fit.\n'
-    '- The existing S4d interval panel still describes the previous three examples and was not revised in this Figure-2-only request; the new standalone caption does not refer its intervals to the new examples. The model tables retain original intervals for the new features.\n'
+    '- The existing S4d interval panel still describes the previous three examples and was not revised in this Figure-2-only request; its intervals remain tied to the original examples. The model tables retain intervals for the revised examples.\n'
     '- Biological interpretation is unchanged: the I06 patient HC3 sensitivity q is >0.05; replacing the example does not establish robust biological significance.\n')
 print(f'PASS: {len(checks)} data/export checks')

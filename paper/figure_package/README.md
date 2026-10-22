@@ -6,15 +6,15 @@ The dated directories below are the current main-figure masters. They supersede
 the main figures in the original `figures/` directory; historical exports and
 their sources remain archived.
 
-| Figure | Editable masters and preview | Source data and caption |
+| Figure | Editable masters and preview | Source data and reproduction |
 | --- | --- | --- |
-| Figure 1: numerical agreement, scaling and local-neighbor sparsity | [PDF](updates/Figure1_Atera_20261016/figures/Figure1.pdf), [SVG](updates/Figure1_Atera_20261016/figures/Figure1.svg), [PNG](updates/Figure1_Atera_20261016/figures/Figure1.png) | [Workbook](updates/Figure1_Atera_20261016/source_data/Figure1_Source_Data.xlsx), [panel tables](updates/Figure1_Atera_20261016/source_data/panels/), [caption](updates/Figure1_Atera_20261016/Figure1_caption.md), [code and QA](updates/Figure1_Atera_20261016/README.md) |
-| Figure 2: patient-aware pulmonary-fibrosis score analysis | [PDF](updates/Figure2_20261012/figures/Figure2.pdf), [SVG](updates/Figure2_20261012/figures/Figure2.svg), [PNG](updates/Figure2_20261012/figures/Figure2.png) | [Workbook](updates/Figure2_20261012/source_data/Figure2_Source_Data.xlsx), [panel tables](updates/Figure2_20261012/source_data/panels/), [caption](updates/Figure2_20261012/FIGURE2_CAPTION.md), [code and QA](updates/Figure2_20261012/README.md) |
+| Figure 1: numerical agreement, scaling and local-neighbor sparsity | [PDF](updates/Figure1_Atera_20261016/figures/Figure1.pdf), [SVG](updates/Figure1_Atera_20261016/figures/Figure1.svg), [PNG](updates/Figure1_Atera_20261016/figures/Figure1.png) | [Workbook](updates/Figure1_Atera_20261016/source_data/Figure1_Source_Data.xlsx), [panel tables](updates/Figure1_Atera_20261016/source_data/panels/), [code and QA](updates/Figure1_Atera_20261016/README.md) |
+| Figure 2: patient-aware pulmonary-fibrosis score analysis | [PDF](updates/Figure2_20261012/figures/Figure2.pdf), [SVG](updates/Figure2_20261012/figures/Figure2.svg), [PNG](updates/Figure2_20261012/figures/Figure2.png) | [Workbook](updates/Figure2_20261012/source_data/Figure2_Source_Data.xlsx), [panel tables](updates/Figure2_20261012/source_data/panels/), [code and QA](updates/Figure2_20261012/README.md) |
 
 Figure 1A uses the author-supplied vector asset, placed proportionally without
 changing its internal content. Figure 1F-H retain the measured radius-graph
 analysis. Atera is a fixed-LR benchmark on preview inputs; inference and failure
-scopes are documented in the caption and source data.
+scopes are documented in the experiment notes and source data.
 
 Figure 2C retains all 28 selected features and separates its support, patient ICC
 and singular annotation headers from the data. Figure 2D uses I15, I06 and I19,
@@ -27,10 +27,10 @@ The existing [Figure S1](figures/FigureS1.pdf), [Figure S2](figures/FigureS2.pdf
 [Figure S3](figures/FigureS3.pdf) and [Figure S4](figures/FigureS4.pdf) remain
 current. Matching SVG/PNG files, per-panel CSV files, original code and the
 original `source_data/Source_Data.xlsx` workbook are retained in this directory.
-Their captions are in [FIGURE_CAPTIONS.md](FIGURE_CAPTIONS.md).
+Definitions and labels are documented with the source data and verification reports.
 
 S4D retains I03, I21 and I19. It does not show intervals for all three revised
-Figure 2D examples; use the current main Figure 2 caption and the saved model
+Figure 2D examples; use the current main Figure 2 labels and the saved model
 tables to avoid mixing their identities. No supplementary data or statistics
 were altered for the GitHub update.
 
