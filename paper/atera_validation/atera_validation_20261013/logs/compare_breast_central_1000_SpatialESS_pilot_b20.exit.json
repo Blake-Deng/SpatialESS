@@ -1,0 +1,19 @@
+{
+  "tag": "compare_breast_central_1000_SpatialESS_pilot_b20",
+  "status": "completed",
+  "started": "2026-10-13T13:49:27+0800",
+  "runner_pid": 3821002,
+  "command": [
+    "/home/dzf/miniforge3/bin/python",
+    "/home/dzf/cellchat_acceleration/analysis/atera_validation_20261013/scripts/compare.py",
+    "/home/dzf/cellchat_acceleration/analysis/atera_validation_20261013",
+    "breast_central_1000_SpatialESS_pilot_b20",
+    "breast_central_1000_SpatialCellChat_pilot_b20"
+  ],
+  "timeout_seconds": 180,
+  "child_pid": 3839618,
+  "log": "/home/dzf/cellchat_acceleration/analysis/atera_validation_20261013/logs/compare_breast_central_1000_SpatialESS_pilot_b20.log",
+  "returncode": 0,
+  "finished": "2026-10-13T13:49:28+0800",
+  "elapsed_seconds": 0.42072439193725586
+}

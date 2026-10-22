@@ -1,0 +1,15 @@
+{
+  "python": "3.13.13 | packaged by conda-forge | (main, Apr  8 2026, 02:00:33) [GCC 14.3.0]",
+  "runner_pid": 3821002,
+  "cpu": 0,
+  "threads": {
+    "OMP_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1",
+    "BLIS_NUM_THREADS": "1"
+  },
+  "rscript": "/home/dzf/miniforge3/envs/spatialcellchat-v3/bin/Rscript",
+  "spatialess_version": "0.1.4",
+  "reference_implementation_log_sha256": "d8904a37d590b0a0710030b1070a2226978efa70f089d4857f43145f7c6fe1e9",
+  "address_space_limit_GiB": 96
+}

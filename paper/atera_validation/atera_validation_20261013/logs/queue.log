@@ -1,0 +1,102 @@
+2026-10-13T13:09:10+0800 QUEUE START /home/dzf/cellchat_acceleration/analysis/atera_validation_20261013 single CPU 0
+2026-10-13T13:09:10+0800 START install_spatialess
+2026-10-13T13:09:38+0800 END install_spatialess completed 27.93s
+2026-10-13T13:09:38+0800 START package_environment
+2026-10-13T13:09:44+0800 END package_environment completed 5.78s
+2026-10-13T13:09:44+0800 START prepare_matrix_breast
+2026-10-13T13:10:22+0800 END prepare_matrix_breast completed 38.11s
+2026-10-13T13:10:22+0800 START prepare_fixtures_breast
+2026-10-13T13:11:34+0800 END prepare_fixtures_breast completed 71.64s
+2026-10-13T13:11:34+0800 START breast_central_1000_SpatialESS_smoke_b5
+2026-10-13T13:11:35+0800 END breast_central_1000_SpatialESS_smoke_b5 completed 1.27s
+2026-10-13T13:11:36+0800 START breast_central_1000_SpatialCellChat_smoke_b5
+2026-10-13T13:12:11+0800 END breast_central_1000_SpatialCellChat_smoke_b5 completed 35.06s
+2026-10-13T13:12:12+0800 START compare_breast_central_1000_SpatialESS_smoke_b5
+2026-10-13T13:12:12+0800 END compare_breast_central_1000_SpatialESS_smoke_b5 completed 0.47s
+2026-10-13T13:12:12+0800 START breast_central_1000_SpatialESS_pilot_b20
+2026-10-13T13:12:21+0800 END breast_central_1000_SpatialESS_pilot_b20 completed 8.59s
+2026-10-13T13:12:22+0800 START breast_central_1000_SpatialCellChat_pilot_b20
+2026-10-13T13:49:26+0800 END breast_central_1000_SpatialCellChat_pilot_b20 completed 2224.69s
+2026-10-13T13:49:27+0800 START compare_breast_central_1000_SpatialESS_pilot_b20
+2026-10-13T13:49:28+0800 END compare_breast_central_1000_SpatialESS_pilot_b20 completed 0.42s
+2026-10-13T13:49:28+0800 START prepare_matrix_cervical
+2026-10-13T13:51:45+0800 END prepare_matrix_cervical completed 137.70s
+2026-10-13T13:51:45+0800 START prepare_fixtures_cervical
+2026-10-13T13:52:57+0800 END prepare_fixtures_cervical completed 71.64s
+2026-10-13T13:52:57+0800 START cervical_central_1000_SpatialESS_smoke_b5
+2026-10-13T13:52:58+0800 END cervical_central_1000_SpatialESS_smoke_b5 completed 1.22s
+2026-10-13T13:52:59+0800 START cervical_central_1000_SpatialCellChat_smoke_b5
+2026-10-13T13:53:30+0800 END cervical_central_1000_SpatialCellChat_smoke_b5 completed 30.69s
+2026-10-13T13:53:31+0800 START compare_cervical_central_1000_SpatialESS_smoke_b5
+2026-10-13T13:53:32+0800 END compare_cervical_central_1000_SpatialESS_smoke_b5 completed 0.37s
+2026-10-13T13:53:32+0800 START cervical_central_1000_SpatialESS_pilot_b20
+2026-10-13T13:53:39+0800 END cervical_central_1000_SpatialESS_pilot_b20 completed 7.49s
+2026-10-13T13:53:41+0800 START cervical_central_1000_SpatialCellChat_pilot_b20
+2026-10-13T14:26:58+0800 END cervical_central_1000_SpatialCellChat_pilot_b20 completed 1997.32s
+2026-10-13T14:26:59+0800 START compare_cervical_central_1000_SpatialESS_pilot_b20
+2026-10-13T14:27:00+0800 END compare_cervical_central_1000_SpatialESS_pilot_b20 completed 0.42s
+2026-10-13T14:27:00+0800 START breast_central_1000_SpatialESS_formal_b100
+2026-10-13T14:27:23+0800 END breast_central_1000_SpatialESS_formal_b100 completed 23.88s
+2026-10-13T14:27:26+0800 START breast_central_1000_SpatialCellChat_formal_b100
+2026-10-13T15:07:14+0800 END breast_central_1000_SpatialCellChat_formal_b100 completed 2388.12s
+2026-10-13T15:07:17+0800 START compare_breast_central_1000_SpatialESS_formal_b100
+2026-10-13T15:07:17+0800 END compare_breast_central_1000_SpatialESS_formal_b100 completed 0.42s
+2026-10-13T15:07:17+0800 START breast_central_5000_SpatialESS_formal_b100
+2026-10-13T15:07:57+0800 END breast_central_5000_SpatialESS_formal_b100 completed 40.26s
+2026-10-13T15:08:00+0800 START breast_central_25000_SpatialESS_formal_b100
+2026-10-13T15:10:01+0800 END breast_central_25000_SpatialESS_formal_b100 completed 121.51s
+2026-10-13T15:10:04+0800 START breast_central_50000_SpatialESS_formal_b100
+2026-10-13T15:13:51+0800 END breast_central_50000_SpatialESS_formal_b100 completed 226.86s
+2026-10-13T15:13:53+0800 START breast_central_100000_SpatialESS_formal_b100
+2026-10-13T15:22:32+0800 END breast_central_100000_SpatialESS_formal_b100 completed 518.76s
+2026-10-13T15:22:34+0800 START breast_full_SpatialESS_formal_b100
+2026-10-13T15:37:25+0800 END breast_full_SpatialESS_formal_b100 completed 890.59s
+2026-10-13T15:37:30+0800 START cervical_central_1000_SpatialESS_formal_b100
+2026-10-13T15:37:49+0800 END cervical_central_1000_SpatialESS_formal_b100 completed 19.32s
+2026-10-13T15:37:52+0800 START cervical_central_1000_SpatialCellChat_formal_b100
+2026-10-13T16:13:54+0800 END cervical_central_1000_SpatialCellChat_formal_b100 completed 2161.99s
+2026-10-13T16:13:57+0800 START compare_cervical_central_1000_SpatialESS_formal_b100
+2026-10-13T16:13:57+0800 END compare_cervical_central_1000_SpatialESS_formal_b100 completed 0.47s
+2026-10-13T16:13:57+0800 START cervical_central_5000_SpatialESS_formal_b100
+2026-10-13T16:14:37+0800 END cervical_central_5000_SpatialESS_formal_b100 completed 40.32s
+2026-10-13T16:14:40+0800 START cervical_central_25000_SpatialESS_formal_b100
+2026-10-13T16:16:58+0800 END cervical_central_25000_SpatialESS_formal_b100 completed 138.05s
+2026-10-13T16:17:01+0800 START cervical_central_50000_SpatialESS_formal_b100
+2026-10-13T16:20:41+0800 END cervical_central_50000_SpatialESS_formal_b100 completed 219.22s
+2026-10-13T16:20:43+0800 START cervical_central_100000_SpatialESS_formal_b100
+2026-10-13T16:29:48+0800 END cervical_central_100000_SpatialESS_formal_b100 completed 544.84s
+2026-10-13T16:29:51+0800 START cervical_full_SpatialESS_formal_b100
+2026-10-13T17:56:16+0800 END cervical_full_SpatialESS_formal_b100 completed 5185.08s
+2026-10-13T17:56:26+0800 START breast_stratified_50000_rep1_SpatialESS_formal_b100
+2026-10-13T18:00:38+0800 END breast_stratified_50000_rep1_SpatialESS_formal_b100 completed 251.72s
+2026-10-13T18:00:42+0800 START breast_block_50000_rep1_SpatialESS_formal_b100
+2026-10-13T18:05:09+0800 END breast_block_50000_rep1_SpatialESS_formal_b100 completed 267.02s
+2026-10-13T18:05:13+0800 START breast_stratified_50000_rep2_SpatialESS_formal_b100
+2026-10-13T18:09:28+0800 END breast_stratified_50000_rep2_SpatialESS_formal_b100 completed 254.92s
+2026-10-13T18:09:32+0800 START breast_block_50000_rep2_SpatialESS_formal_b100
+2026-10-13T18:14:17+0800 END breast_block_50000_rep2_SpatialESS_formal_b100 completed 285.02s
+2026-10-13T18:14:22+0800 START breast_stratified_50000_rep3_SpatialESS_formal_b100
+2026-10-13T18:18:37+0800 END breast_stratified_50000_rep3_SpatialESS_formal_b100 completed 255.58s
+2026-10-13T18:18:41+0800 START breast_block_50000_rep3_SpatialESS_formal_b100
+2026-10-13T18:23:27+0800 END breast_block_50000_rep3_SpatialESS_formal_b100 completed 285.23s
+2026-10-13T18:23:31+0800 START breast_central_5000_SpatialCellChat_formal_b100
+2026-10-13T19:16:05+0800 END breast_central_5000_SpatialCellChat_formal_b100 completed 3154.34s
+2026-10-13T19:16:09+0800 START compare_breast_central_5000_SpatialESS_formal_b100
+2026-10-13T19:16:09+0800 END compare_breast_central_5000_SpatialESS_formal_b100 completed 0.47s
+2026-10-13T19:16:09+0800 START cervical_stratified_50000_rep1_SpatialESS_formal_b100
+2026-10-13T19:20:06+0800 END cervical_stratified_50000_rep1_SpatialESS_formal_b100 completed 237.32s
+2026-10-13T19:20:12+0800 START cervical_block_50000_rep1_SpatialESS_formal_b100
+2026-10-13T19:24:41+0800 END cervical_block_50000_rep1_SpatialESS_formal_b100 completed 269.81s
+2026-10-13T19:24:47+0800 START cervical_stratified_50000_rep2_SpatialESS_formal_b100
+2026-10-13T19:28:44+0800 END cervical_stratified_50000_rep2_SpatialESS_formal_b100 completed 236.89s
+2026-10-13T19:28:49+0800 START cervical_block_50000_rep2_SpatialESS_formal_b100
+2026-10-13T19:33:13+0800 END cervical_block_50000_rep2_SpatialESS_formal_b100 completed 263.69s
+2026-10-13T19:33:18+0800 START cervical_stratified_50000_rep3_SpatialESS_formal_b100
+2026-10-13T19:37:24+0800 END cervical_stratified_50000_rep3_SpatialESS_formal_b100 completed 245.79s
+2026-10-13T19:37:29+0800 START cervical_block_50000_rep3_SpatialESS_formal_b100
+2026-10-13T19:41:54+0800 END cervical_block_50000_rep3_SpatialESS_formal_b100 completed 265.39s
+2026-10-13T19:41:59+0800 START cervical_central_5000_SpatialCellChat_formal_b100
+2026-10-13T20:25:43+0800 END cervical_central_5000_SpatialCellChat_formal_b100 completed 2623.92s
+2026-10-13T20:25:46+0800 START compare_cervical_central_5000_SpatialESS_formal_b100
+2026-10-13T20:25:46+0800 END compare_cervical_central_5000_SpatialESS_formal_b100 completed 0.42s
+2026-10-13T20:25:49+0800 QUEUE FINISHED COMPLETE

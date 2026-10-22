@@ -1,0 +1,25 @@
+{
+  "python": "3.13.13 | packaged by conda-forge | (main, Apr  8 2026, 02:00:33) [GCC 14.3.0]",
+  "cpu": 0,
+  "platform": "Linux-6.17.0-35-generic-x86_64-with-glibc2.39",
+  "threads": {
+    "OMP_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1",
+    "BLIS_NUM_THREADS": "1"
+  },
+  "rscript": "/home/dzf/miniforge3/envs/spatialcellchat-v3/bin/Rscript",
+  "address_space_limit_GiB": 96,
+  "reference_timeout_seconds": 43200,
+  "source_root": "/home/dzf/cellchat_acceleration/1/SpatialESS_submission_20261012_v0.1.4/github/SpatialESS",
+  "base_analysis": "/home/dzf/cellchat_acceleration/analysis/atera_validation_20261013",
+  "scripts_sha256": {
+    "compare_scale.py": "c1b8b15f640a31338c0efd8ffca75a28f266c7c8546d6fd1cca1a555dddcbb11",
+    "prepare_extension.R": "092d2b39b8944ea2c32b613d7b9885520045208c5611bca7fa28d78169e9211e",
+    "queue_scale_v2.py": "90ec822590cf78f134b139ccf6e809ad2c6a1533befa8eaa881648da219c7b4a",
+    "scale_common.py": "04206b878a6206f7b17b713739d6c34fc2e2f95e9ec38b8d84657cdb94588128",
+    "start_queue.sh": "640024f8d844f6ee615d1fcd4eb9b853a383dc37f1c563a7dd774056507f45da",
+    "summarize_scale.py": "831ef097d329dfa2b814c35389b56c80ce667e3b3d53f30fd8a9c9717e00df0c",
+    "worker.R": "2b4c384415aab48c81458d11b56b41ce189beba6f853c5681aa417658902b37e"
+  }
+}

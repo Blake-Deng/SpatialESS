@@ -1,0 +1,15 @@
+{
+  "status": "FINISHED_WITH_BUDGET_OR_VALIDATION_STOP",
+  "finished": "2026-10-15T12:06:04.324856+08:00",
+  "stopped_tissues": {
+    "breast": {
+      "first_stopped_size": 100000,
+      "reason": "reference failure/budget"
+    },
+    "cervical": {
+      "first_stopped_size": 100000,
+      "reason": "reference failure/budget"
+    }
+  },
+  "reached_end": []
+}

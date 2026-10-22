@@ -1,0 +1,83 @@
+2026-09-29T12:52:54+0800 CellChatDB.human: 1939 interactions 
+2026-09-29T12:52:55+0800 Loading /data/qqin/testess/workspace/GSE250346_lung_fibrosis/GSE250346_Seurat_GSE250346_CORRECTED_SEE_RDS_README_082024.rds 
+2026-09-29T12:53:47+0800 Cells: 1630319  metadata columns: sample, patient, cell_id, full_cell_id, sample_type, sample_affect, disease_status, percent_pathology, tma, run, final_CT, final_lineage, CNiche, TNiche, lumen_id, lumen_rank, x_centroid, y_centroid, adj_x_centroid, adj_y_centroid, super_adj_x_centroid, super_adj_y_centroid, nCount_RNA, nFeature_RNA, perc_negcontrolprobe, perc_negcontrolcodeword, perc_unassigned, perc_negcontrolorunassigned 
+2026-09-29T12:53:47+0800 Metadata mapping: section -> sample 
+2026-09-29T12:53:47+0800 Metadata mapping: cell_type -> final_CT 
+2026-09-29T12:53:47+0800 Metadata mapping: patient -> patient 
+2026-09-29T12:53:47+0800 Metadata mapping: condition -> disease_status 
+2026-09-29T12:53:47+0800 Metadata mapping: covariate -> sample_affect 
+2026-09-29T12:53:47+0800 Metadata mapping: covariate -> tma 
+2026-09-29T12:53:47+0800 Metadata mapping: covariate -> run 
+2026-09-29T12:53:51+0800 Counts: 343 genes x 1630319 cells, assay: RNA 
+2026-09-29T12:53:51+0800 Coordinates from metadata columns: x_centroid, y_centroid 
+2026-09-29T12:53:53+0800 Section index map (index -> name): 
+   1 -> THD0008
+   2 -> THD0011
+   3 -> TILD028LA
+   4 -> TILD049MA
+   5 -> TILD080LA
+   6 -> TILD111LA
+   7 -> TILD113LA
+   8 -> TILD117LA
+   9 -> TILD117MA1
+  10 -> TILD117MA2
+  11 -> TILD130LA
+  12 -> TILD167LA
+  13 -> TILD175MA
+  14 -> TILD299MA
+  15 -> TILD315MA
+  16 -> VUHD038
+  17 -> VUHD049
+  18 -> VUHD069
+  19 -> VUHD090
+  20 -> VUHD095
+  21 -> VUHD113
+  22 -> VUHD116A
+  23 -> VUHD116B
+  24 -> VUILD102LA
+  25 -> VUILD102MA
+  26 -> VUILD104MA1
+  27 -> VUILD104MA2
+  28 -> VUILD105MA1
+  29 -> VUILD105MA2
+  30 -> VUILD106MA
+  31 -> VUILD107MA
+  32 -> VUILD110LA
+  33 -> VUILD115MA
+  34 -> VUILD141MA
+  35 -> VUILD142MA
+  36 -> VUILD48LA1
+  37 -> VUILD48LA2
+  38 -> VUILD49LA
+  39 -> VUILD58MA
+  40 -> VUILD78LA
+  41 -> VUILD78MA
+  42 -> VUILD91LA
+  43 -> VUILD91MA
+  44 -> VUILD96LA
+  45 -> VUILD96MA
+2026-09-29T12:53:53+0800 Target sections: 6:TILD111LA, 33:VUILD115MA 
+2026-09-29T12:53:53+0800 [diag] TILD111LA cells: 29566 cell_types: 44 na_coords: 0 dup_coords: 0 zero_total_genes: 0 panel_genes_missing: 918 
+                       ct Freq
+                Capillary 6519
+             Alveolar FBs 4640
+           SMCs/Pericytes 2690
+ Interstitial Macrophages 2056
+   Activated Fibrotic FBs 1570
+2026-09-29T12:53:54+0800 [diag] VUILD115MA cells: 94540 cell_types: 44 na_coords: 0 dup_coords: 0 zero_total_genes: 0 panel_genes_missing: 918 
+                       ct  Freq
+             Alveolar FBs 20662
+ Interstitial Macrophages 10496
+             CD4+ T-cells  9801
+                      AT2  8418
+                   Venous  6622
+           used  (Mb) gc trigger   (Mb)   max used    (Mb)
+Ncells  2632864 140.7    8239074  440.1    4929004   263.3
+Vcells 15311389 116.9 1301791753 9931.9 2033977302 15518.1
+2026-09-29T12:53:55+0800 [rep 1 ] section 6 : TILD111LA seed.use: 7 -> log: /data/qqin/testess/workspace/GSE250346_lung_fibrosis/segfault_repro/logs/TILD111LA_rep1.log 
+unlimited
+2026-09-29T12:53:55+0800 [rep 1 ] section TILD111LA => exit 126 
+2026-09-29T12:53:55+0800 [rep 1 ] section 33 : VUILD115MA seed.use: 34 -> log: /data/qqin/testess/workspace/GSE250346_lung_fibrosis/segfault_repro/logs/VUILD115MA_rep1.log 
+unlimited
+2026-09-29T12:53:55+0800 [rep 1 ] section VUILD115MA => exit 126 
+2026-09-29T12:53:55+0800 DONE 

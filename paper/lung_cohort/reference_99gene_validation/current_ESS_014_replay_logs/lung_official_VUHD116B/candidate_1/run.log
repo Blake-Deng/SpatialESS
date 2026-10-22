@@ -1,0 +1,10 @@
+START lung_official_VUHD116B candidate 1 2026-10-01 01:52:48 
+          used (Mb) gc trigger  (Mb) max used  (Mb)
+Ncells 1481867 79.2    2774628 148.2  2204654 117.8
+Vcells 3196978 24.4    8388608  64.0  4382897  33.5
+                    case   variant repetition version cells genes groups lr
+1 lung_official_VUHD116B candidate          1   0.1.4 29147    99     39 37
+  nboot     seed inference_seconds graph_edges graph_bytes active
+1    20 20260831             0.837      829900    20099600  11119
+  significant_lt005 significant_le005    status
+1              1328              2037 completed

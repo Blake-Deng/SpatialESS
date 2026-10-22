@@ -1,0 +1,17 @@
+{
+  "tag": "prepare_matrix_breast",
+  "status": "completed",
+  "started": "2026-10-13T13:09:44+0800",
+  "runner_pid": 3821002,
+  "command": [
+    "/home/dzf/miniforge3/bin/python",
+    "/home/dzf/cellchat_acceleration/analysis/atera_validation_20261013/scripts/prepare_matrix.py",
+    "breast"
+  ],
+  "timeout_seconds": 7200,
+  "child_pid": 3821404,
+  "log": "/home/dzf/cellchat_acceleration/analysis/atera_validation_20261013/logs/prepare_matrix_breast.log",
+  "returncode": 0,
+  "finished": "2026-10-13T13:10:22+0800",
+  "elapsed_seconds": 38.11135244369507
+}

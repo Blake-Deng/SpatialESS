@@ -1,0 +1,9 @@
+{
+  "planned": 170,
+  "completed": 170,
+  "validated": 170,
+  "failed": 0,
+  "fidelity_fail": 0,
+  "pending": 0,
+  "table": "tables/SpatialESS_ablation_table.xlsx"
+}

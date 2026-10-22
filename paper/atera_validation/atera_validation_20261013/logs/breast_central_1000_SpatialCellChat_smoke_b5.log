@@ -1,0 +1,19 @@
+START 2026-10-13 13:11:37 breast central_1000 SpatialCellChat smoke N 250 genes 18028 LR 32 permutations 5 
+ℹ Create a SpatialCellChat object from a data matrixCreate a SpatialCellChat object from spatial imaging data... 
+Set cell identities for the new SpatialCellChat object 
+The cell groups used for SpatialCellChat analysis are  11q13 High Grade DCIS Cells 11q13 High Grade DCIS Cells (Mitotic) 11q13 High Grade DCIS Tumor Cells (G1/S) Basal-like Structured DCIS Cells CAFs, High Grade DCIS Associated CAFs, Low Grade DCIS Associated CXCL14+ Fibroblasts Dendritic Cells Endothelial Cells Macrophages Myeloid Cells Pericytes Plasma & Mast Cell Mixture T Lymphocytes 
+>>>  Analyzing spatial transcriptomic data and preferring to infer interactions between individual cells...
+>>>  Apply a predefined spatial distance threshold based on the interaction length(=30um)...
+>>> Contact range is set as 10um, to restrict the contact-dependent signaling.
+>>> Run CellChat on spatial transcriptomic data using distances as constraints <<< [2026-10-13 13:11:44.474832]
+>>>  The input L-R pairs have both secreted signaling and contact-dependent signaling. Run CellChat in a contact-dependent manner for `Cell-Cell Contact` signaling, and in a diffusion manner based on the `interaction.range` for other L-R pairs. 
+ℹ Future strategy in use: `sequential`
+>>>  The number of cells and L-R pairs in Dim(Prob.cell): 250 250 32 
+✔ CellChat inference is done. Parameter values are stored in `object@options$parameter` <<< [2026-10-13 13:11:59.391537]
+>>>  The cell groups used for averaging cell-cell communication are  11q13 High Grade DCIS Cells 11q13 High Grade DCIS Cells (Mitotic) 11q13 High Grade DCIS Tumor Cells (G1/S) Basal-like Structured DCIS Cells CAFs, High Grade DCIS Associated CAFs, Low Grade DCIS Associated CXCL14+ Fibroblasts Dendritic Cells Endothelial Cells Macrophages Myeloid Cells Pericytes Plasma & Mast Cell Mixture T Lymphocytes 
+>>> Compute group-level cell-cell communication... <<< [2026-10-13 13:11:59.80669] 
+>>>  compute the average signaling per cell group...
+ℹ Future strategy in use: `sequential`
+>>> Perform permutation test for group-level communication... <<< [2026-10-13 13:12:08.92399] 
+ℹ Future strategy in use: `sequential`
+✔Inference of group-level cell-cell communication is done. Parameter values are stored in `object@options$parameter` <<< [2026-10-13 13:12:11.205599]COMPLETE breast_central_1000_SpatialCellChat_smoke_b5 inference_seconds 33.818 records 30 

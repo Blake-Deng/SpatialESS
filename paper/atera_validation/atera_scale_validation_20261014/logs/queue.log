@@ -1,0 +1,61 @@
+2026-10-14T13:53:26+0800 QUEUE START CPU 0 reference_timeout 43200
+2026-10-14T13:53:26+0800 START prepare_extension timeout 7200
+2026-10-14T13:53:30+0800 END prepare_extension completed elapsed 4.23
+2026-10-14T13:53:30+0800 START breast_central_10000_SpatialESS_formal_b100 timeout 86400
+2026-10-14T13:53:31+0800 END breast_central_10000_SpatialESS_formal_b100 failed_exit_1 elapsed 1.17
+2026-10-14T13:53:31+0800 START breast_central_10000_SpatialCellChat_formal_b100 timeout 43200
+2026-10-14T13:53:32+0800 END breast_central_10000_SpatialCellChat_formal_b100 failed_exit_1 elapsed 1.17
+2026-10-14T13:53:32+0800 START cervical_central_10000_SpatialESS_formal_b100 timeout 86400
+2026-10-14T13:53:33+0800 END cervical_central_10000_SpatialESS_formal_b100 failed_exit_1 elapsed 1.17
+2026-10-14T13:53:33+0800 START cervical_central_10000_SpatialCellChat_formal_b100 timeout 43200
+2026-10-14T13:53:35+0800 END cervical_central_10000_SpatialCellChat_formal_b100 failed_exit_1 elapsed 1.22
+2026-10-14T13:53:35+0800 QUEUE FAILED TypeError("unsupported operand type(s) for %: 'PosixPath' and 'int'")
+2026-10-14T13:57:44+0800 QUEUE START CPU 0 reference_timeout 43200
+2026-10-14T13:57:44+0800 RESUME prepare_extension completed
+2026-10-14T13:57:44+0800 RETRY FAILED breast_central_10000_SpatialESS_formal_b100 failed_exit_1
+2026-10-14T13:57:44+0800 START breast_central_10000_SpatialESS_formal_b100 timeout 86400
+2026-10-14T13:58:57+0800 END breast_central_10000_SpatialESS_formal_b100 completed elapsed 73.68
+2026-10-14T13:58:57+0800 RETRY FAILED breast_central_10000_SpatialCellChat_formal_b100 failed_exit_1
+2026-10-14T13:58:57+0800 START breast_central_10000_SpatialCellChat_formal_b100 timeout 43200
+2026-10-14T14:24:22.244284+08:00 QUEUE START CPU 0 12h reference limit sequential stages, per-tissue stopping
+2026-10-14T14:24:22.245194+08:00 ADOPT breast_central_10000_SpatialCellChat_formal_b100 existing time process 258794
+2026-10-14T15:27:08.042070+08:00 END breast_central_10000_SpatialCellChat_formal_b100 completed seconds 5291.04
+2026-10-14T15:27:08.608421+08:00 START verify_extension timeout 7200
+2026-10-14T15:27:15.590039+08:00 END verify_extension completed seconds 6.98
+2026-10-14T15:27:16.533518+08:00 REUSE ESS breast_central_10000_SpatialESS_formal_b100 original results read only
+2026-10-14T15:27:16.918483+08:00 RESUME COMPLETED breast_central_10000_SpatialCellChat_formal_b100
+2026-10-14T15:27:16.918806+08:00 START compare_breast_central_10000_SpatialESS_formal_b100 timeout 600
+2026-10-14T15:27:17.388429+08:00 END compare_breast_central_10000_SpatialESS_formal_b100 completed seconds 0.47
+2026-10-14T15:27:17.979142+08:00 START cervical_central_10000_SpatialESS_formal_b100 timeout 86400
+2026-10-14T15:28:20.347061+08:00 END cervical_central_10000_SpatialESS_formal_b100 completed seconds 62.37
+2026-10-14T15:28:20.913358+08:00 START cervical_central_10000_SpatialCellChat_formal_b100 timeout 43200
+2026-10-14T16:31:09.812933+08:00 END cervical_central_10000_SpatialCellChat_formal_b100 completed seconds 3768.9
+2026-10-14T16:31:10.430477+08:00 START compare_cervical_central_10000_SpatialESS_formal_b100 timeout 600
+2026-10-14T16:31:11.103327+08:00 END compare_cervical_central_10000_SpatialESS_formal_b100 completed seconds 0.67
+2026-10-14T16:31:13.543082+08:00 REUSE ESS breast_central_25000_SpatialESS_formal_b100 original results read only
+2026-10-14T16:31:13.543554+08:00 START breast_central_25000_SpatialCellChat_formal_b100 timeout 43200
+2026-10-14T19:58:36.928107+08:00 END breast_central_25000_SpatialCellChat_formal_b100 completed seconds 12443.38
+2026-10-14T19:58:37.558123+08:00 START compare_breast_central_25000_SpatialESS_formal_b100 timeout 600
+2026-10-14T19:58:38.230699+08:00 END compare_breast_central_25000_SpatialESS_formal_b100 completed seconds 0.67
+2026-10-14T19:58:39.339192+08:00 REUSE ESS cervical_central_25000_SpatialESS_formal_b100 original results read only
+2026-10-14T19:58:39.339604+08:00 START cervical_central_25000_SpatialCellChat_formal_b100 timeout 43200
+2026-10-14T21:51:03.656608+08:00 END cervical_central_25000_SpatialCellChat_formal_b100 completed seconds 6744.32
+2026-10-14T21:51:04.246478+08:00 START compare_cervical_central_25000_SpatialESS_formal_b100 timeout 600
+2026-10-14T21:51:04.768218+08:00 END compare_cervical_central_25000_SpatialESS_formal_b100 completed seconds 0.52
+2026-10-14T21:51:07.880829+08:00 REUSE ESS breast_central_50000_SpatialESS_formal_b100 original results read only
+2026-10-14T21:51:07.881151+08:00 START breast_central_50000_SpatialCellChat_formal_b100 timeout 43200
+2026-10-15T07:37:41.309990+08:00 END breast_central_50000_SpatialCellChat_formal_b100 completed seconds 35193.43
+2026-10-15T07:37:41.816274+08:00 START compare_breast_central_50000_SpatialESS_formal_b100 timeout 600
+2026-10-15T07:37:42.288623+08:00 END compare_breast_central_50000_SpatialESS_formal_b100 completed seconds 0.47
+2026-10-15T07:37:43.827803+08:00 REUSE ESS cervical_central_50000_SpatialESS_formal_b100 original results read only
+2026-10-15T07:37:43.828006+08:00 START cervical_central_50000_SpatialCellChat_formal_b100 timeout 43200
+2026-10-15T11:54:56.868494+08:00 END cervical_central_50000_SpatialCellChat_formal_b100 completed seconds 15433.04
+2026-10-15T11:54:57.730006+08:00 START compare_cervical_central_50000_SpatialESS_formal_b100 timeout 600
+2026-10-15T11:54:58.302761+08:00 END compare_cervical_central_50000_SpatialESS_formal_b100 completed seconds 0.57
+2026-10-15T11:55:03.591897+08:00 REUSE ESS breast_central_100000_SpatialESS_formal_b100 original results read only
+2026-10-15T11:55:03.592277+08:00 START breast_central_100000_SpatialCellChat_formal_b100 timeout 43200
+2026-10-15T12:00:43.828067+08:00 END breast_central_100000_SpatialCellChat_formal_b100 allocation_failure_under_memory_budget seconds 340.24
+2026-10-15T12:00:46.471031+08:00 REUSE ESS cervical_central_100000_SpatialESS_formal_b100 original results read only
+2026-10-15T12:00:46.471333+08:00 START cervical_central_100000_SpatialCellChat_formal_b100 timeout 43200
+2026-10-15T12:06:03.284723+08:00 END cervical_central_100000_SpatialCellChat_formal_b100 allocation_failure_under_memory_budget seconds 316.81
+2026-10-15T12:06:04.875959+08:00 QUEUE FINISHED FINISHED_WITH_BUDGET_OR_VALIDATION_STOP

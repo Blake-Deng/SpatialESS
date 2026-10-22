@@ -1,0 +1,12 @@
+2026-10-15T22:02:11.471427+08:00 QUEUE START CPU 0 12h reference limit cervical 200k/400k: both ESS first, then two bounded reference attempts
+2026-10-15T22:02:11.472058+08:00 START verify_extension timeout 7200
+2026-10-15T22:03:15.259429+08:00 END verify_extension completed seconds 63.79
+2026-10-15T22:03:15.295118+08:00 START cervical_central_200000_SpatialESS_formal_b100 timeout 86400
+2026-10-15T22:25:18.306487+08:00 END cervical_central_200000_SpatialESS_formal_b100 completed seconds 1323.01
+2026-10-15T22:25:18.367779+08:00 START cervical_central_400000_SpatialESS_formal_b100 timeout 86400
+2026-10-15T23:06:05.422606+08:00 END cervical_central_400000_SpatialESS_formal_b100 completed seconds 2447.05
+2026-10-15T23:06:05.486469+08:00 START cervical_central_200000_SpatialCellChat_formal_b100 timeout 43200
+2026-10-15T23:06:42.021413+08:00 END cervical_central_200000_SpatialCellChat_formal_b100 allocation_failure_under_memory_budget seconds 36.53
+2026-10-15T23:06:42.084759+08:00 START cervical_central_400000_SpatialCellChat_formal_b100 timeout 43200
+2026-10-15T23:08:06.985901+08:00 END cervical_central_400000_SpatialCellChat_formal_b100 allocation_failure_under_memory_budget seconds 84.9
+2026-10-15T23:08:07.077023+08:00 QUEUE FINISHED FINISHED_WITH_FAILURES_OR_UNPAIRED_RESULTS

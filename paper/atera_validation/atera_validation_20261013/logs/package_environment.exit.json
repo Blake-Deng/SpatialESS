@@ -1,0 +1,17 @@
+{
+  "tag": "package_environment",
+  "status": "completed",
+  "started": "2026-10-13T13:09:38+0800",
+  "runner_pid": 3821002,
+  "command": [
+    "/home/dzf/miniforge3/envs/spatialcellchat-v3/bin/Rscript",
+    "-e",
+    ".libPaths(c(\"/home/dzf/cellchat_acceleration/analysis/atera_validation_20261013/lib\",.libPaths())); stopifnot(as.character(packageVersion(\"SpatialESS\"))==\"0.1.4\"); print(sessionInfo()); print(packageDescription(\"SpatialCellChat\")); print(body(SpatialCellChat::computeCommunProb)); print(body(SpatialCellChat::computeAvgCommunProb))"
+  ],
+  "timeout_seconds": 120,
+  "child_pid": 3821337,
+  "log": "/home/dzf/cellchat_acceleration/analysis/atera_validation_20261013/logs/package_environment.log",
+  "returncode": 0,
+  "finished": "2026-10-13T13:09:44+0800",
+  "elapsed_seconds": 5.783691644668579
+}

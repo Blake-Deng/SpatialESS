@@ -1,0 +1,2 @@
+tissue	fixture	phase	N	E	N_squared	mean_out_degree	density	offset_bytes	neighbor_bytes	distance_bytes	csr_core_array_bytes	additional_required_array_bytes	all_array_bytes	all_array_object_bytes	dense_float64_bytes	effective_radius_um	scale_distance
+breast	central_10000	formal	10000	211984	1e+08	21.1984	0.00211984	80008	847936	1695872	2623816	1855872	4479688	4479976	8e+08	35	2.04351143947184

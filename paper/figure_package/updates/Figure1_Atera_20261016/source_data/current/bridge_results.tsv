@@ -1,0 +1,7 @@
+condition	cells	bridge_version	engine_version	genes	lr	nboot	seed	pipeline_seconds	active	significant	status	peak_rss_GiB	scope
+raw	1000	0.1.4	0.1.4	967	1828	100	20260903	4.117	6930	1791	completed	0.2758941650390625	H5AD_export_plus_inference
+raw	5000	0.1.4	0.1.4	967	1828	100	20260903	14.547	24254	5706	completed	0.2990875244140625	H5AD_export_plus_inference
+raw	16247	0.1.4	0.1.4	967	1828	100	20260903	43.547	41294	10942	completed	0.348175048828125	H5AD_export_plus_inference
+sparkle	1000	0.1.4	0.1.4	967	1828	100	20260903	4.078	5806	1598	completed	0.27532958984375	H5AD_export_plus_inference
+sparkle	5000	0.1.4	0.1.4	967	1828	100	20260903	13.162	21971	4555	completed	0.2957038879394531	H5AD_export_plus_inference
+sparkle	16247	0.1.4	0.1.4	967	1828	100	20260903	38.53	37808	8417	completed	0.3385772705078125	H5AD_export_plus_inference

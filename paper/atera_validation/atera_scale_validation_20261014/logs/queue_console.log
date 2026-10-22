@@ -1,0 +1,27 @@
+2026-10-14T13:53:26+0800 QUEUE START CPU 0 reference_timeout 43200
+2026-10-14T13:53:26+0800 START prepare_extension timeout 7200
+2026-10-14T13:53:30+0800 END prepare_extension completed elapsed 4.23
+2026-10-14T13:53:30+0800 START breast_central_10000_SpatialESS_formal_b100 timeout 86400
+2026-10-14T13:53:31+0800 END breast_central_10000_SpatialESS_formal_b100 failed_exit_1 elapsed 1.17
+2026-10-14T13:53:31+0800 START breast_central_10000_SpatialCellChat_formal_b100 timeout 43200
+2026-10-14T13:53:32+0800 END breast_central_10000_SpatialCellChat_formal_b100 failed_exit_1 elapsed 1.17
+2026-10-14T13:53:32+0800 START cervical_central_10000_SpatialESS_formal_b100 timeout 86400
+2026-10-14T13:53:33+0800 END cervical_central_10000_SpatialESS_formal_b100 failed_exit_1 elapsed 1.17
+2026-10-14T13:53:33+0800 START cervical_central_10000_SpatialCellChat_formal_b100 timeout 43200
+2026-10-14T13:53:35+0800 END cervical_central_10000_SpatialCellChat_formal_b100 failed_exit_1 elapsed 1.22
+2026-10-14T13:53:35+0800 QUEUE FAILED TypeError("unsupported operand type(s) for %: 'PosixPath' and 'int'")
+Traceback (most recent call last):
+  File "/home/dzf/cellchat_acceleration/analysis/atera_scale_validation_20261014/scripts/queue_scale.py", line 193, in <module>
+    main()
+    ~~~~^^
+  File "/home/dzf/cellchat_acceleration/analysis/atera_scale_validation_20261014/scripts/queue_scale.py", line 165, in main
+    write_json(ROOT / 'reports/stage_%d.json' % size, stages[-1])
+               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~
+TypeError: unsupported operand type(s) for %: 'PosixPath' and 'int'
+2026-10-14T13:57:44+0800 QUEUE START CPU 0 reference_timeout 43200
+2026-10-14T13:57:44+0800 RESUME prepare_extension completed
+2026-10-14T13:57:44+0800 RETRY FAILED breast_central_10000_SpatialESS_formal_b100 failed_exit_1
+2026-10-14T13:57:44+0800 START breast_central_10000_SpatialESS_formal_b100 timeout 86400
+2026-10-14T13:58:57+0800 END breast_central_10000_SpatialESS_formal_b100 completed elapsed 73.68
+2026-10-14T13:58:57+0800 RETRY FAILED breast_central_10000_SpatialCellChat_formal_b100 failed_exit_1
+2026-10-14T13:58:57+0800 START breast_central_10000_SpatialCellChat_formal_b100 timeout 43200

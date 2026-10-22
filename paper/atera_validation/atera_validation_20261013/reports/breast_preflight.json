@@ -1,0 +1,6 @@
+{
+  "tissue": "breast",
+  "strict_pass": true,
+  "probability_key_gate": true,
+  "note": "Strict failures remain explicit; p-value exceptions do not imply equivalence."
+}

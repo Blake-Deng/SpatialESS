@@ -1,0 +1,385 @@
+R version 4.5.3 (2026-03-11)
+Platform: x86_64-conda-linux-gnu
+Running under: Ubuntu 24.04.4 LTS
+
+Matrix products: default
+BLAS/LAPACK: /data/dzf/home_migrated_20261003/miniforge3/envs/spatialcellchat-v3/lib/libopenblasp-r0.3.33.so;  LAPACK version 3.12.0
+
+locale:
+ [1] LC_CTYPE=C.UTF-8       LC_NUMERIC=C           LC_TIME=C.UTF-8       
+ [4] LC_COLLATE=C.UTF-8     LC_MONETARY=C.UTF-8    LC_MESSAGES=C.UTF-8   
+ [7] LC_PAPER=C.UTF-8       LC_NAME=C              LC_ADDRESS=C          
+[10] LC_TELEPHONE=C         LC_MEASUREMENT=C.UTF-8 LC_IDENTIFICATION=C   
+
+time zone: Asia/Shanghai
+tzcode source: system (glibc)
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+loaded via a namespace (and not attached):
+[1] compiler_4.5.3
+Package: SpatialCellChat
+Type: Package
+Title: Inference and analysis of cell-cell communication from spatial
+        transcriptomics data
+Version: 0.1.0
+Author: Suoqin Jin, Xiangzheng Cheng, Ye Su
+Maintainer: Xiangzheng Cheng <xzcheng@whu.edu.cn>, Suoqin Jin
+        <suoqin.jin@gmail.com>
+Description: an open source R tool that infers, visualizes and analyzes
+        the cell-cell communication networks from spatial
+        transcriptomics data.
+Depends: R (>= 4.3.0), dplyr, igraph
+License: GPL-3
+Encoding: UTF-8
+LazyData: true
+Imports: ALRA, cli, colorspace, sf, purrr, stringr, future,
+        future.apply, pbapply, irlba, NMF (>= 0.23.0), ggalluvial,
+        svglite, Matrix, MERINGUE, ggrepel, ggplot2, circlize (>=
+        0.4.12), RColorBrewer, cowplot, methods, ComplexHeatmap,
+        RSpectra, Rfast, Rcpp, reticulate, scales, sna, forcats,
+        reshape2, FNN, shape, Seurat (>= 4.0.0), spatstat.sparse,
+        magrittr, patchwork, plyr, ggpubr, ggnetwork, BiocGenerics,
+        BiocNeighbors, ggnewscale, progressr, uwot, ks, rlang
+LinkingTo: Rcpp, RcppEigen
+Suggests: rmarkdown, knitr, roxygen2, SingleCellExperiment,
+        SummarizedExperiment, gg.gap, wordcloud, raster, SeuratObject,
+        metR, oce, plotly, rstudioapi, scattermore, shiny, spdep,
+        tidyr, RcppML, gtools, scatterpie, rliger, SNFtool, pryr,
+        RcppEigen, Rtsne, expm, progress
+RoxygenNote: 7.3.2
+VignetteBuilder: knitr
+NeedsCompilation: yes
+Packaged: 2026-02
+Built: R 4.5.3; x86_64-conda-linux-gnu; 2026-07-31 11:22:48 UTC; unix
+
+-- File: /data/dzf/home_migrated_20261003/miniforge3/envs/spatialcellchat-v3/lib/R/library/SpatialCellChat/Meta/package.rds 
+{
+    if (raw.use) {
+        data <- object@data.signaling
+        data@x <- data@x/max(data@x)
+        data.use <- as.matrix(data)
+    }
+    else {
+        data <- object@data.project
+        data.use <- data/max(data)
+    }
+    if (is.null(LR.use)) {
+        pairLR.use <- object@LR$LRsig
+    }
+    else {
+        if (length(unique(LR.use$annotation)) > 1) {
+            LR.use$annotation <- factor(LR.use$annotation, levels = c("Secreted Signaling", 
+                "ECM-Receptor", "Non-protein Signaling", "Cell-Cell Contact"))
+            LR.use <- LR.use[order(LR.use$annotation), , drop = FALSE]
+            LR.use$annotation <- as.character(LR.use$annotation)
+        }
+        pairLR.use <- LR.use
+    }
+    complex_input <- object@DB$complex
+    cofactor_input <- object@DB$cofactor
+    ptm = Sys.time()
+    pairLRsig <- pairLR.use
+    group <- object@idents
+    geneL <- as.character(pairLRsig$ligand)
+    geneR <- as.character(pairLRsig$receptor)
+    nLR <- nrow(pairLRsig)
+    numCluster <- nlevels(group)
+    if (numCluster != length(unique(group))) {
+        stop(cli.symbol(2), "Please check `unique(object@idents)` and ensure that the factor levels are correct!\n         You may need to drop unused levels using 'droplevels' function. e.g.,\n         `meta$labels = droplevels(meta$labels, exclude = setdiff(levels(meta$labels),unique(meta$labels)))`")
+    }
+    nC <- ncol(data.use)
+    cat(cli.symbol(), "Analyzing spatial transcriptomic data and preferring to infer interactions between individual cells...\n")
+    data.spatial <- BiocGenerics::as.data.frame(object@images$coordinates)
+    ratio <- object@images$spatial.factors[["ratio"]]
+    if (is.null(tol)) 
+        tol <- object@images$spatial.factors[["tol"]]
+    else NULL
+    res <- computeCellDistance(coordinates = data.spatial, ratio = ratio, 
+        interaction.range = interaction.range, contact.range = contact.range, 
+        tol = tol)
+    d.spatial <- res$d.spatial
+    adj.contact <- res$adj.contact
+    gc()
+    if (distance.use) {
+        cat(paste0(cli.symbol(), "Run CellChat on spatial transcriptomic data using distances as constraints <<< [", 
+            Sys.time(), "]\n"))
+        d.spatial@x <- d.spatial@x * scale.distance
+        d.min <- min(d.spatial@x, na.rm = F)
+        if (d.min < 1) {
+            cat(cli.symbol(), "The suggested minimum value of scaled distances is in [1,2], and the calculated value here is ", 
+                d.min, "\n")
+            stop(cli.symbol(2), "Please increase the value of `scale.distance` and use a value that is slighly smaller than ", 
+                format(1/d.min, digits = 2), "\n")
+        }
+        P.spatial <- createPspatialFrom_dspatial(d.spatial, distance.use = T)
+        d.spatial@x <- d.spatial@x/scale.distance
+    }
+    else {
+        cat(paste0(cli.symbol(), "Run CellChat on transcriptomic imaging data without distances as constraints <<< [", 
+            Sys.time(), "]\n"))
+        P.spatial <- createPspatialFrom_dspatial(d.spatial, distance.use = F)
+    }
+    rm(d.spatial)
+    gc()
+    all.contact.dependent <- FALSE
+    all.diffusible <- FALSE
+    if (contact.dependent.forced == TRUE) {
+        cat(cli.symbol(), "Force to run CellChat in a `contact-dependent` manner for all L-R pairs including secreted signaling.\n")
+        P.spatial <- P.spatial * adj.contact
+        nLR1 <- nLR
+        all.contact.dependent <- TRUE
+    }
+    else {
+        if (contact.dependent == TRUE && length(unique(pairLRsig$annotation)) > 
+            0) {
+            if (all(unique(pairLRsig$annotation) == c("Cell-Cell Contact"))) {
+                cat(cli.symbol(), "All the input L-R pairs are `Cell-Cell Contact` signaling. Run CellChat in a contact-dependent manner. \n")
+                P.spatial <- P.spatial * adj.contact
+                nLR1 <- nLR
+                all.contact.dependent <- TRUE
+            }
+            else if (all(unique(pairLRsig$annotation) %in% c("Secreted Signaling", 
+                "ECM-Receptor", "Non-protein Signaling"))) {
+                cat(cli.symbol(), "Molecules of all the input L-R pairs are diffusible. Run CellChat in a diffusion manner based on the `interaction.range`.\n")
+                nLR1 <- nLR
+                all.diffusible <- TRUE
+            }
+            else {
+                cat(cli.symbol(), "The input L-R pairs have both secreted signaling and contact-dependent signaling. Run CellChat in a contact-dependent manner for `Cell-Cell Contact` signaling, and in a diffusion manner based on the `interaction.range` for other L-R pairs. \n")
+                nLR1 <- max(which(pairLRsig$annotation %in% c("Secreted Signaling", 
+                  "ECM-Receptor", "Non-protein Signaling")))
+            }
+        }
+        else {
+            cat(cli.symbol(), "Run CellChat in a diffusion manner based on the `interaction.range` for all L-R pairs. \n")
+            cat(cli.symbol(3), "Set`contact.dependent = TRUE` if preferring a contact-dependent manner for `Cell-Cell Contact` signaling. \n")
+            nLR1 <- nLR
+        }
+    }
+    dataLavg <- computeExpr_LR(geneL, data.use, complex_input)
+    dataRavg <- computeExpr_LR(geneR, data.use, complex_input)
+    dataRavg.co.A.receptor <- computeExpr_coreceptor(cofactor_input, 
+        data.use, pairLRsig, type = "A")
+    dataRavg.co.I.receptor <- computeExpr_coreceptor(cofactor_input, 
+        data.use, pairLRsig, type = "I")
+    dataRavg <- dataRavg * dataRavg.co.A.receptor/dataRavg.co.I.receptor
+    rm(dataRavg.co.A.receptor, dataRavg.co.I.receptor)
+    gc()
+    Prob.cell_ <- my_future_lapply(X = 1:nLR, FUN = function(i) {
+        x_ <- as(matrix(dataLavg[i, ], nrow = 1), "TsparseMatrix")
+        y_ <- as(matrix(dataRavg[i, ], nrow = 1), "TsparseMatrix")
+        dataLR <- Matrix::crossprod(x_, y_)
+        P1 <- HillFunctionFordataLR(dataLR = dataLR, Kh = Kh, 
+            n = n)
+        P1_Pspatial <- P1 * P.spatial
+        rm(P1)
+        gc()
+        if (!use.AGAN) {
+            if (i > nLR1) {
+                P1_Pspatial <- P1_Pspatial * adj.contact
+            }
+            Pnull.cell = P1_Pspatial
+            dimnames(Pnull.cell) <- list(NULL, NULL)
+            return(Pnull.cell)
+        }
+        else {
+            if (i > nLR1) {
+                P1_Pspatial <- P1_Pspatial * adj.contact
+            }
+            if (sum(P1_Pspatial) == 0) {
+                Pnull.cell = P1_Pspatial
+                dimnames(Pnull.cell) <- list(NULL, NULL)
+                return(Pnull.cell)
+            }
+            else {
+                data.agonist <- computeExpr_agonist(data.use = data.use, 
+                  pairLRsig, cofactor_input, index.agonist = i, 
+                  Kh = Kh, n = n)
+                P_ <- myElementwiseProduct(P1_Pspatial, data.agonist)
+                data.antagonist <- computeExpr_antagonist(data.use = data.use, 
+                  pairLRsig, cofactor_input, index.antagonist = i, 
+                  Kh = Kh, n = n)
+                Pnull.cell <- myElementwiseProduct(P_, data.antagonist)
+                rm(P_)
+                dimnames(Pnull.cell) <- list(NULL, NULL)
+                return(Pnull.cell)
+            }
+        }
+    }, simplify = F)
+    Prob.cell <- my_as_sparse3Darray(Prob.cell_)
+    cat(cli.symbol(), "The number of cells and L-R pairs in Dim(Prob.cell):", 
+        dim(Prob.cell), "\n")
+    dimnames(Prob.cell) <- list(colnames(data.use), colnames(data.use), 
+        rownames(pairLRsig))
+    names(Prob.cell_) <- rownames(pairLRsig)
+    Tmp <- list(prob.cell = Prob.cell_, Lavg = dataLavg, Ravg = dataRavg)
+    net <- list(prob.cell = Prob.cell, tmp = Tmp)
+    execution.time = Sys.time() - ptm
+    object@options$run.time <- as.numeric(execution.time, units = "secs")
+    object@images[["result.computeCellDistance"]] <- res
+    object@options$parameter <- list(raw.use = raw.use, ratio = ratio, 
+        tol = tol, Kh = Kh, n = n, nLR = nLR, nLR1 = nLR1, scale.distance = scale.distance, 
+        use.AGAN = use.AGAN, distance.use = distance.use, interaction.range = interaction.range, 
+        contact.dependent = contact.dependent, contact.range = contact.range, 
+        contact.dependent.forced = contact.dependent.forced, 
+        all.contact.dependent = all.contact.dependent, all.diffusible = all.diffusible)
+    object@net <- net
+    cat(paste0(cli.symbol(symbol = "success"), " CellChat inference is done. Parameter values are stored in `object@options$parameter` <<< [", 
+        Sys.time(), "]", "\n"))
+    return(object)
+}
+{
+    if (is.null(group.by)) {
+        group <- object@idents
+    }
+    else {
+        if (!(group.by %in% colnames(object@meta))) {
+            stop("The 'group.by' is not a column name in the `object@meta`, which will be used for cell grouping.")
+        }
+        else {
+            group <- object@meta[[group.by]]
+        }
+        if (!is.factor(group)) {
+            group <- factor(group)
+        }
+    }
+    cat(cli.symbol(), "The cell groups used for averaging cell-cell communication are ", 
+        cli::col_red(levels(group)), "\n")
+    numCluster <- nlevels(group)
+    if (numCluster != length(unique(group))) {
+        stop("Please check `unique(object@idents)` and ensure that the factor levels are correct!\n         You may need to drop unused levels using 'droplevels' function. e.g.,\n         `meta$labels = droplevels(meta$labels, exclude = setdiff(levels(meta$labels),unique(meta$labels)))`")
+    }
+    if (object@options$parameter$raw.use) {
+        data <- object@data.signaling
+        data@x <- data@x/max(data@x)
+        data.use <- as.matrix(data)
+    }
+    else {
+        data <- object@data.project
+        data.use <- data/max(data)
+    }
+    nC <- ncol(data.use)
+    if (is.null(object@net$prob.cell)) {
+        stop(cli.symbol(2), "Please run `computeCommunProb` to compute the communication probability/strength between any interacting individual cells! ")
+    }
+    else {
+        prob.cell <- object@net$prob.cell
+        prob.cell_ <- object@net$tmp$prob.cell
+    }
+    LRsig <- dimnames(prob.cell)[[3]]
+    nLR <- length(LRsig)
+    interaction_input <- object@DB$interaction
+    complex_input <- object@DB$complex
+    cofactor_input <- object@DB$cofactor
+    pairLRsig <- interaction_input[LRsig, , drop = FALSE]
+    dataLavg <- object@net$tmp$Lavg
+    dataRavg <- object@net$tmp$Ravg
+    avg.type <- match.arg(avg.type)
+    if (avg.type == "avg") {
+        computeAvgCommunProb_LR <- computeAvgCommunProb_LR_Avg
+    }
+    else if (avg.type == "sum") {
+        computeAvgCommunProb_LR <- computeAvgCommunProb_LR_Sum
+    }
+    gc()
+    if (colocalization.use) {
+        data.spatial <- object@images$coordinates
+        pval.colo = computeColocalization(coordinates = data.spatial, 
+            group = group, nboot = nboot, seed.use = seed.use)
+    }
+    else {
+        pval.colo <- matrix(0, nrow = numCluster, ncol = numCluster)
+    }
+    cat(paste0(cli.symbol(), "Compute group-level cell-cell communication... <<< [", 
+        Sys.time(), "]"), "\n")
+    Prob <- array(0, dim = c(numCluster, numCluster, nLR))
+    Pval <- array(1, dim = c(numCluster, numCluster, nLR))
+    dimnames(Prob) <- list(levels(group), levels(group), rownames(pairLRsig))
+    dimnames(Pval) <- dimnames(Prob)
+    set.seed(seed.use)
+    prob.sum <- purrr::map_dbl(.x = prob.cell_, .f = function(Mat) {
+        return(length(Mat@x))
+    })
+    names(prob.sum) <- LRsig
+    object@net$tmp$LRsig.CCC.counts <- prob.sum
+    LRsig.use.idx <- which(prob.sum > 0)
+    object@net$tmp$LRsig.use.idx <- LRsig.use.idx
+    gc()
+    if (length(LRsig.use.idx) < 1) {
+        stop("Each LR pair does not have any cell-level links/interactions.")
+    }
+    cat(cli.symbol(), "compute the average signaling per cell group...\n")
+    Prob.avg_ <- my_future_sapply(X = seq_len(length(LRsig.use.idx)), 
+        FUN = function(x) {
+            i <- LRsig.use.idx[[x]]
+            prob.cell.i <- prob.cell_[[i]]
+            dataLR_temp <- cbind(dataLavg[i, ], dataRavg[i, ])
+            Prob.avg <- computeAvgCommunProb_LR(prob.cell.i, 
+                group = group, dataLR = dataLR_temp, min.percent = min.percent, 
+                min.cells.sr = min.cells.sr)
+            Prob.avg[pval.colo > thresh.colo] <- 0
+            gc()
+            return(Prob.avg)
+        }, simplify = F)
+    for (x in seq_len(length(LRsig.use.idx))) {
+        i <- LRsig.use.idx[[x]]
+        Prob[, , i] <- Prob.avg_[[x]]
+    }
+    prob.sum <- apply(Prob > 0, 3, sum)
+    object@net$tmp$LRsig.GGC.counts <- prob.sum
+    LRsig.use.idx <- which(prob.sum > 0)
+    if (do.permutation) {
+        cat(paste0(cli.symbol(), "Perform permutation test for group-level communication... <<< [", 
+            Sys.time(), "]"), "\n")
+        permutation <- replicate(nboot, sample.int(nC, size = nC))
+        Pval_ <- my_future_lapply(X = seq_len(length(LRsig.use.idx)), 
+            FUN = function(x) {
+                i <- LRsig.use.idx[[x]]
+                prob.cell.i <- prob.cell_[[i]]
+                dataLR_temp <- cbind(dataLavg[i, ], dataRavg[i, 
+                  ])
+                Pnull <- as.vector(Prob[, , i])
+                Pboot <- sapply(X = 1:nboot, FUN = function(nE) {
+                  groupboot <- group[permutation[, nE]]
+                  Pboot.avg <- computeAvgCommunProb_LR(prob.cell.i, 
+                    group = groupboot, dataLR = dataLR_temp, 
+                    min.percent = min.percent, min.cells.sr = min.cells.sr)
+                  return(as.vector(Pboot.avg))
+                })
+                gc()
+                Pboot <- matrix(unlist(Pboot), nrow = length(Pnull), 
+                  ncol = nboot, byrow = FALSE)
+                nReject <- rowSums(Pboot - Pnull > 0)
+                p = nReject/nboot
+                Pval.i <- matrix(p, nrow = numCluster, ncol = numCluster, 
+                  byrow = FALSE)
+                return(Pval.i)
+            }, simplify = F, hint.message = "do permutation...")
+        for (x in seq_len(length(LRsig.use.idx))) {
+            i <- LRsig.use.idx[[x]]
+            Pval[, , i] <- Pval_[[x]]
+        }
+        Pval[Prob == 0] <- 1
+    }
+    else {
+        Pval <- NULL
+    }
+    object@net$prob <- Prob
+    object@net$pval <- Pval
+    object@options$parameter$min.percent <- min.percent
+    object@options$parameter$min.cells.sr <- min.cells.sr
+    object@options$parameter$do.permutation <- do.permutation
+    object@options$parameter$nboot <- nboot
+    object@options$parameter$avg.type <- avg.type
+    object@options$parameter$seed.use <- seed.use
+    object@options$parameter$colocalization.use <- colocalization.use
+    object@options$parameter$thresh.colo <- thresh.colo
+    if (colocalization.use) {
+        object@images$colocalization <- pval.colo
+    }
+    cat(paste0(cli.symbol(symbol = "success"), "Inference of group-level cell-cell communication is done. Parameter values are stored in `object@options$parameter` <<< [", 
+        Sys.time(), "]"))
+    return(object)
+}

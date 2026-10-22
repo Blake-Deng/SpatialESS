@@ -1,0 +1,46 @@
+case	method	status	failure_reason	stage	reference_version
+lung_signaling_THD0008	unmodified_official	completed			0.1.0
+lung_signaling_THD0011	unmodified_official	completed			0.1.0
+lung_signaling_TILD028LA	unmodified_official	completed			0.1.0
+lung_signaling_TILD049MA	unmodified_official	completed			0.1.0
+lung_signaling_TILD080LA	unmodified_official	completed			0.1.0
+lung_signaling_TILD111LA	unmodified_official	completed			0.1.0
+lung_signaling_TILD113LA	unmodified_official	completed			0.1.0
+lung_signaling_TILD117LA	dimensions_only_official	completed			0.1.0
+lung_signaling_TILD117MA1	unmodified_official	completed			0.1.0
+lung_signaling_TILD117MA2	unmodified_official	completed			0.1.0
+lung_signaling_TILD130LA	unmodified_official	completed			0.1.0
+lung_signaling_TILD167LA	unmodified_official	completed			0.1.0
+lung_signaling_TILD175MA	unmodified_official	completed			0.1.0
+lung_signaling_TILD299MA	unmodified_official	completed			0.1.0
+lung_signaling_TILD315MA	unmodified_official	completed			0.1.0
+lung_signaling_VUHD038	unmodified_official	completed			0.1.0
+lung_signaling_VUHD049	unmodified_official	completed			0.1.0
+lung_signaling_VUHD069	unmodified_official	completed			0.1.0
+lung_signaling_VUHD090	unmodified_official	completed			0.1.0
+lung_signaling_VUHD095	unmodified_official	completed			0.1.0
+lung_signaling_VUHD113	unmodified_official	completed			0.1.0
+lung_signaling_VUHD116A	unmodified_official	completed			0.1.0
+lung_signaling_VUHD116B	unmodified_official	completed			0.1.0
+lung_signaling_VUILD102LA	unmodified_official	completed			0.1.0
+lung_signaling_VUILD102MA	unmodified_official	completed			0.1.0
+lung_signaling_VUILD104MA1	unmodified_official	completed			0.1.0
+lung_signaling_VUILD104MA2	unmodified_official	completed			0.1.0
+lung_signaling_VUILD105MA1	unmodified_official	completed			0.1.0
+lung_signaling_VUILD105MA2	unmodified_official	completed			0.1.0
+lung_signaling_VUILD106MA	official_failed_no_completed_reference	failed	FN1-CD44 full sparse outer product	computeCommunProb	0.1.0
+lung_signaling_VUILD107MA	unmodified_official	completed			0.1.0
+lung_signaling_VUILD110LA	official_failed_no_completed_reference	failed	FN1-CD44 full sparse outer product	computeCommunProb	0.1.0
+lung_signaling_VUILD115MA	official_failed_no_completed_reference	failed	FN1-CD44 full sparse outer product	computeCommunProb	0.1.0
+lung_signaling_VUILD141MA	unmodified_official	completed			0.1.0
+lung_signaling_VUILD142MA	unmodified_official	completed			0.1.0
+lung_signaling_VUILD48LA1	unmodified_official	completed			0.1.0
+lung_signaling_VUILD48LA2	unmodified_official	completed			0.1.0
+lung_signaling_VUILD49LA	unmodified_official	completed			0.1.0
+lung_signaling_VUILD58MA	unmodified_official	completed			0.1.0
+lung_signaling_VUILD78LA	unmodified_official	completed			0.1.0
+lung_signaling_VUILD78MA	unmodified_official	completed			0.1.0
+lung_signaling_VUILD91LA	unmodified_official	completed			0.1.0
+lung_signaling_VUILD91MA	unmodified_official	completed			0.1.0
+lung_signaling_VUILD96LA	unmodified_official	completed			0.1.0
+lung_signaling_VUILD96MA	unmodified_official	completed			0.1.0

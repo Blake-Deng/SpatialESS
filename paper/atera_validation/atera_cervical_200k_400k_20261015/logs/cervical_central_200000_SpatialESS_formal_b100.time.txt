@@ -1,0 +1,23 @@
+	Command being timed: "/home/dzf/miniforge3/envs/spatialcellchat-v3/bin/Rscript /home/dzf/cellchat_acceleration/analysis/atera_cervical_200k_400k_20261015/scripts/worker.R /home/dzf/cellchat_acceleration/analysis/atera_cervical_200k_400k_20261015 cervical central_200000 SpatialESS formal 100 cervical_central_200000_SpatialESS_formal_b100"
+	User time (seconds): 1314.75
+	System time (seconds): 4.01
+	Percent of CPU this job got: 99%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 21:59.80
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 3446992
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 5
+	Minor (reclaiming a frame) page faults: 973081
+	Voluntary context switches: 127
+	Involuntary context switches: 9404
+	Swaps: 0
+	File system inputs: 672
+	File system outputs: 37312
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0

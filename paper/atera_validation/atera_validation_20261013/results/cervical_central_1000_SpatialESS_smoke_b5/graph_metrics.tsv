@@ -1,0 +1,2 @@
+tissue	fixture	phase	N	E	N_squared	mean_out_degree	density	offset_bytes	neighbor_bytes	distance_bytes	csr_core_array_bytes	additional_required_array_bytes	all_array_bytes	all_array_object_bytes	dense_float64_bytes	effective_radius_um	scale_distance
+cervical	central_1000	smoke	250	9190	62500	36.76	0.14704	2008	36760	73520	112288	77520	189808	190096	5e+05	35	2.29750351419133

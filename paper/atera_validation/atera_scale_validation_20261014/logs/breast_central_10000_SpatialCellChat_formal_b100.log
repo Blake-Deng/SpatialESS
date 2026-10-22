@@ -1,0 +1,26 @@
+START 2026-10-14 13:58:59 breast central_10000 SpatialCellChat formal N 10000 genes 18028 LR 3081 permutations 100 
+ℹ Create a SpatialCellChat object from a data matrixCreate a SpatialCellChat object from spatial imaging data... 
+Set cell identities for the new SpatialCellChat object 
+The cell groups used for SpatialCellChat analysis are  11q13 High Grade DCIS Cells 11q13 High Grade DCIS Cells (Mitotic) 11q13 High Grade DCIS Tumor Cells (G1/S) Apocrine Cells Basal-like Structured DCIS Cells CAFs, High Grade DCIS Associated CAFs, Low Grade DCIS Associated CXCL14+ Fibroblasts Dendritic Cells Endothelial Cells Macrophages Mast Cells Myeloid Cells Myoepithelial Cells Pericytes Plasma & Mast Cell Mixture Plasma Cells T Lymphocytes 
+>>>  Analyzing spatial transcriptomic data and preferring to infer interactions between individual cells...
+>>>  Apply a predefined spatial distance threshold based on the interaction length(=30um)...
+ ■■■■■■■■■                         27% |  ETA:  5s
+ ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■  100% |  ETA:  0s
+>>> Contact range is set as 10um, to restrict the contact-dependent signaling.
+>>> Run CellChat on spatial transcriptomic data using distances as constraints <<< [2026-10-14 13:59:16.211437]
+>>>  The input L-R pairs have both secreted signaling and contact-dependent signaling. Run CellChat in a contact-dependent manner for `Cell-Cell Contact` signaling, and in a diffusion manner based on the `interaction.range` for other L-R pairs. 
+ℹ Future strategy in use: `sequential`
+>>>  The number of cells and L-R pairs in Dim(Prob.cell): 10000 10000 3081 
+✔ CellChat inference is done. Parameter values are stored in `object@options$parameter` <<< [2026-10-14 14:49:19.603163]
+>>>  The cell groups used for averaging cell-cell communication are  11q13 High Grade DCIS Cells 11q13 High Grade DCIS Cells (Mitotic) 11q13 High Grade DCIS Tumor Cells (G1/S) Apocrine Cells Basal-like Structured DCIS Cells CAFs, High Grade DCIS Associated CAFs, Low Grade DCIS Associated CXCL14+ Fibroblasts Dendritic Cells Endothelial Cells Macrophages Mast Cells Myeloid Cells Myoepithelial Cells Pericytes Plasma & Mast Cell Mixture Plasma Cells T Lymphocytes 
+>>> Compute group-level cell-cell communication... <<< [2026-10-14 14:49:22.312213] 
+>>>  compute the average signaling per cell group...
+ℹ Future strategy in use: `sequential`
+>>> Perform permutation test for group-level communication... <<< [2026-10-14 15:15:11.179995] 
+ℹ Future strategy in use: `sequential`
+✔Inference of group-level cell-cell communication is done. Parameter values are stored in `object@options$parameter` <<< [2026-10-14 15:27:02.20576]Warning messages:
+1: In asMethod(object) :
+  sparse->dense coercion: allocating vector of size 1.3 GiB
+2: In asMethod(object) :
+  sparse->dense coercion: allocating vector of size 1.3 GiB
+COMPLETE breast_central_10000_SpatialCellChat_formal_b100 inference_seconds 5282.15 records 8628 

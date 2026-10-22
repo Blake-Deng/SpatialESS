@@ -1,0 +1,2 @@
+sample_id	cells	groups	lr	records	probability_seconds	permutation_seconds	end_to_end_seconds	patch
+TILD117LA	36707	44	37	21998	3360.487	131.4	3491.999	computeCellDistance_dims_NC

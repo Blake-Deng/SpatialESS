@@ -1,0 +1,10 @@
+{
+  "package_version": "0.1.0",
+  "full_panel_signaling_override": true,
+  "workflow": "fixed_LR_computational_benchmark",
+  "stages": {
+    "reference_preparation_seconds": 0.005,
+    "reference_individual_seconds": 16.802,
+    "reference_aggregation_permutation_seconds": 11.815
+  }
+}

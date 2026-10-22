@@ -1,0 +1,10 @@
+START lung_official_TILD049MA candidate 1 2026-10-01 01:51:35 
+          used (Mb) gc trigger  (Mb) max used  (Mb)
+Ncells 1463865 78.2    2774628 148.2  2186652 116.8
+Vcells 2770483 21.2    8388608  64.0  4008492  30.6
+                     case   variant repetition version cells genes groups lr
+1 lung_official_TILD049MA candidate          1   0.1.4 11140    99     44 37
+  nboot     seed inference_seconds graph_edges graph_bytes active
+1    20 20260831             0.373      278092     6902592  10924
+  significant_lt005 significant_le005    status
+1              1473              2371 completed

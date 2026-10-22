@@ -1,0 +1,14 @@
+{
+  "started": "2026-10-12T23:19:02+0800",
+  "queue_pid": 3410892,
+  "cpu": 0,
+  "thread_controls": {
+    "OMP_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1",
+    "BLIS_NUM_THREADS": "1"
+  },
+  "rscript": "/home/dzf/miniforge3/envs/spatialcellchat-v3/bin/Rscript",
+  "platform": "linux",
+  "address_space_limit_GiB": 64
+}

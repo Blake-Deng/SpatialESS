@@ -1,0 +1,24 @@
+check	status	note
+LMM full keys retained	PASS	
+LMM saved field estimate	PASS	Only text-serialization precision allowed
+LMM saved field q_value	PASS	Only text-serialization precision allowed
+LMM saved field std_error	PASS	Only text-serialization precision allowed
+LMM saved field nonzero_units	PASS	Only text-serialization precision allowed
+LMM saved field total_units	PASS	Only text-serialization precision allowed
+LMM saved field patient_count	PASS	Only text-serialization precision allowed
+Warning fits excluded from primary FDR	PASS	
+No zero or invalid q in displayed volcano	PASS	
+28 selected heatmap rows preserved	PASS	
+12 forest features retained	PASS	
+Stable display IDs	PASS	
+Volcano eight archived labels	PASS	
+Feature CI from saved columns	PASS	
+Support denominator	PASS	
+Patient identity and slice count	PASS	
+Saved patient means	PASS	
+No double log transform	PASS	
+CSR definitions retained	PASS	
+No self-edges in radius graph counts	PASS	
+Fidelity exception preserved	PASS	
+Volcano leader full-key identity	PASS	
+Heatmap zero center	PASS	

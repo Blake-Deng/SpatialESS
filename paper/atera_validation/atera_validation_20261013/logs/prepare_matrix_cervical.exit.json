@@ -1,0 +1,17 @@
+{
+  "tag": "prepare_matrix_cervical",
+  "status": "completed",
+  "started": "2026-10-13T13:49:28+0800",
+  "runner_pid": 3821002,
+  "command": [
+    "/home/dzf/miniforge3/bin/python",
+    "/home/dzf/cellchat_acceleration/analysis/atera_validation_20261013/scripts/prepare_matrix.py",
+    "cervical"
+  ],
+  "timeout_seconds": 7200,
+  "child_pid": 3839630,
+  "log": "/home/dzf/cellchat_acceleration/analysis/atera_validation_20261013/logs/prepare_matrix_cervical.log",
+  "returncode": 0,
+  "finished": "2026-10-13T13:51:45+0800",
+  "elapsed_seconds": 137.7009265422821
+}

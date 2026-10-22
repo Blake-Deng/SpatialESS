@@ -1,0 +1,36 @@
+{
+  "rscript": "/home/dzf/miniforge3/envs/spatialcellchat-v3/bin/Rscript",
+  "python": "/home/dzf/miniforge3/bin/python",
+  "source_root": "/home/dzf/cellchat_acceleration/1/SpatialESS_submission_20261012_v0.1.4/github/SpatialESS",
+  "base_analysis": "/home/dzf/cellchat_acceleration/analysis/atera_validation_20261013",
+  "previous_scale_analysis": "/home/dzf/cellchat_acceleration/analysis/atera_scale_validation_20261014",
+  "version": "0.1.4",
+  "cpu": 0,
+  "tissues": ["cervical"],
+  "paired_sizes": [200000, 400000],
+  "extension_sizes": [],
+  "nboot": 100,
+  "seed_use": 1,
+  "reference_timeout_seconds": 43200,
+  "ess_timeout_seconds": 86400,
+  "address_space_limit_GiB": 96,
+  "threads": {
+    "OMP_NUM_THREADS": "1", "OPENBLAS_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1", "BLIS_NUM_THREADS": "1"
+  },
+  "parameters": {
+    "ratio": 1, "tol": 5, "interaction.range": 30,
+    "contact.range": 10, "Kh": 0.5, "n": 1,
+    "use.AGAN": true, "contact.dependent": true,
+    "contact.dependent.forced": false, "min.percent": 0.1,
+    "min.cells.sr": 5
+  },
+  "agreement_probability_tolerance": 1e-15,
+  "significance_rule": "raw permutation p < 0.05",
+  "sampling_rule": "Nearest N eligible cells to the arithmetic mean of all eligible cervical centroids; squared Euclidean distance, original cell order breaks ties; no random sampling.",
+  "stage_policy": "Prepare nested central 200k and 400k; run SpatialESS at both sizes first, then attempt SpatialCellChat at each size independently under the same 96 GiB address-space budget. Preserve all failures, and compare only completed pairs. This is an explicitly requested extension beyond the previous per-tissue stopping boundary.",
+  "maximum_new_reference_tasks": 2,
+  "maximum_reference_wall_budget_hours": 24,
+  "memory_budget_definition": "96 GiB virtual address space per worker, not a 96 GiB RSS cap",
+  "figure_policy": "The delivered Figure 1 is a pre-run snapshot: cervical 200k and 400k remain not attempted until real results are reviewed. Queue progress is saved separately."
+}

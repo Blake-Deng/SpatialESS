@@ -1,0 +1,2 @@
+tag	tissue	fixture	engine	phase	N	genes	lr	groups	nboot	seed_use	loading_seconds	inference_seconds	active_records	retained_records	raw_p_below_005	graph_edges	input_md5	comparison_scope
+cervical_central_5000_SpatialCellChat_formal_b100	cervical	central_5000	SpatialCellChat	formal	5000	18028	3081	23	100	1	0.21	2621.913	7392	7392	3476		fb9253189ba3aaf634b7b275720cd9ad	fixed LR; full measured panel; no overexpression selection

@@ -1,0 +1,28 @@
+check	status
+Author A asset unchanged	PASS
+Atera performance embedded in Figure 1	PASS
+Atera 50k comparison notes present	PASS
+D/E use the original method and cohort legends	PASS
+D/E contain the requested original blue/orange method identity	PASS
+F-H shared spatial-series and all-pair legend labels present	PASS
+Figure 1 has one page	PASS
+Figure 1A has one page	PASS
+Panel I uses requested equally spaced labels with 200k followed by 700k	PASS
+Panel I retains source rows and hides four requested categories	PASS
+Panel I hides 169,940 category while D/E retain the completed measurement	PASS
+Panel I cervical 200k and 400k show terminal SpatialESS run states	PASS
+Panel I marks 700k reference failed while retaining the allocation failure	PASS
+Panel I has no explanatory input-size axis label	PASS
+Panel I uses the reference-failed legend without obsolete status labels	PASS
+Panel I nominal categories have equal x spacing	PASS
+Atera full-scale N retained in I source data	PASS
+Composed SVG retains editable data-panel text	PASS
+Composed SVG keeps A and data as vector paths	PASS
+Composed SVG contains no raster replacement	PASS
+Atera D/E panel source has all 46 observations/states	PASS
+Figure 1 canvas is 180 x 250 mm	PASS
+Figure 1 text stays inside page	PASS
+Figure 1 PDF fonts are embedded and non-Type-3	PASS
+Figure 1 full-size PNG is 600 dpi	PASS
+Figure 1A full-width PNG is 600 dpi	PASS
+Atera paired table retains all ten strict passes	PASS

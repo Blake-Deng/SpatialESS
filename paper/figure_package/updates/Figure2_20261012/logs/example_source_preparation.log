@@ -1,0 +1,7 @@
+display_id condition  nonzero_slices  total_slices
+       I06   Control               5            10
+       I06   Disease              34            35
+       I15   Control               2            10
+       I15   Disease              30            35
+       I19   Control               1            10
+       I19   Disease              34            35

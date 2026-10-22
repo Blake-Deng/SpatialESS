@@ -1,0 +1,37 @@
+Loading corrected Seurat object
+ℹ Create a SpatialCellChat object from a data matrixCreate a SpatialCellChat object from spatial imaging data... 
+Set cell identities for the new SpatialCellChat object 
+The cell groups used for SpatialCellChat analysis are  Activated Fibrotic FBs Adventitial FBs Alveolar FBs Alveolar Macrophages Arteriole AT1 AT2 B cells Basal Basophils Capillary CD4+ T-cells CD8+ T-cells cDCs Goblet Inflammatory FBs Interstitial Macrophages KRT5-/KRT17+ Langerhans cells Lymphatic Macrophages - IFN-activated Mast Migratory DCs Monocytes/MDMs Multiciliated Myofibroblasts Neutrophils NK/NKT pDCs Plasma PNEC Proliferating Airway Proliferating AT2 Proliferating B cells Proliferating FBs Proliferating Myeloid Proliferating NK/NKT Proliferating T-cells RASC Secretory SMCs/Pericytes SPP1+ Macrophages Subpleural FBs Transitional AT2 Tregs Venous 
+>>>  Analyzing spatial transcriptomic data and preferring to infer interactions between individual cells...
+>>>  Apply a predefined spatial distance threshold based on the interaction length(=30um)...
+ ■■                                 2% |  ETA:  1m
+ ■■■                                5% |  ETA:  1m
+ ■■■■                              10% |  ETA:  1m
+ ■■■■■■                            17% |  ETA:  1m
+ ■■■■■■■■                          24% |  ETA: 42s
+ ■■■■■■■■■■                        31% |  ETA: 36s
+ ■■■■■■■■■■■■                      38% |  ETA: 31s
+ ■■■■■■■■■■■■■■■                   45% |  ETA: 27s
+ ■■■■■■■■■■■■■■■■■                 53% |  ETA: 23s
+ ■■■■■■■■■■■■■■■■■■■               60% |  ETA: 19s
+ ■■■■■■■■■■■■■■■■■■■■■             67% |  ETA: 16s
+ ■■■■■■■■■■■■■■■■■■■■■■■           74% |  ETA: 12s
+ ■■■■■■■■■■■■■■■■■■■■■■■■■         81% |  ETA:  9s
+ ■■■■■■■■■■■■■■■■■■■■■■■■■■■       88% |  ETA:  6s
+ ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■    95% |  ETA:  2s
+>>> Contact range is set as 10um, to restrict the contact-dependent signaling.
+>>> Run CellChat on spatial transcriptomic data using distances as constraints <<< [2026-09-01 11:27:51.453372]
+>>>  The input L-R pairs have both secreted signaling and contact-dependent signaling. Run CellChat in a contact-dependent manner for `Cell-Cell Contact` signaling, and in a diffusion manner based on the `interaction.range` for other L-R pairs. 
+ℹ Future strategy in use: `sequential`
+>>>  The number of cells and L-R pairs in Dim(Prob.cell): 52992 52992 37 
+✔ CellChat inference is done. Parameter values are stored in `object@options$parameter` <<< [2026-09-01 12:47:29.029516]
+>>>  The cell groups used for averaging cell-cell communication are  Activated Fibrotic FBs Adventitial FBs Alveolar FBs Alveolar Macrophages Arteriole AT1 AT2 B cells Basal Basophils Capillary CD4+ T-cells CD8+ T-cells cDCs Goblet Inflammatory FBs Interstitial Macrophages KRT5-/KRT17+ Langerhans cells Lymphatic Macrophages - IFN-activated Mast Migratory DCs Monocytes/MDMs Multiciliated Myofibroblasts Neutrophils NK/NKT pDCs Plasma PNEC Proliferating Airway Proliferating AT2 Proliferating B cells Proliferating FBs Proliferating Myeloid Proliferating NK/NKT Proliferating T-cells RASC Secretory SMCs/Pericytes SPP1+ Macrophages Subpleural FBs Transitional AT2 Tregs Venous 
+>>> Compute group-level cell-cell communication... <<< [2026-09-01 12:47:30.10357] 
+>>>  compute the average signaling per cell group...
+ℹ Future strategy in use: `sequential`
+>>> Perform permutation test for group-level communication... <<< [2026-09-01 12:48:03.066329] 
+ℹ Future strategy in use: `sequential`
+✔Inference of group-level cell-cell communication is done. Parameter values are stored in `object@options$parameter` <<< [2026-09-01 12:49:42.849227]  sample_id cells groups lr records probability_seconds permutation_seconds
+1 TILD299MA 52992     46 37   23150             4855.76             133.819
+  end_to_end_seconds
+1           4989.679

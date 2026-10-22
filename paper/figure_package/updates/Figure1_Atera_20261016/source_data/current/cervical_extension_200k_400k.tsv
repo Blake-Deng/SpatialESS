@@ -1,0 +1,5 @@
+tissue	fixture	N	engine	status	genes	lr	nboot	seed_use	whole_process_seconds	inference_seconds	peak_RSS_GB_decimal	returncode	active_records	input_md5	tag
+cervical	central_200000	200000	SpatialESS	completed	18028	3081	100	1	1319.8	1308.95	3.529719808	0	144290	8b8b9ff95a22f6f817a96ab051927807	cervical_central_200000_SpatialESS_formal_b100
+cervical	central_200000	200000	SpatialCellChat	allocation_failure_under_memory_budget	18028	3081	100	1	36.49		33.293033472	1			cervical_central_200000_SpatialCellChat_formal_b100
+cervical	central_400000	400000	SpatialESS	completed	18028	3081	100	1	2440.91	2423.322	6.170734592	0	158502	5febae955c35ed6aba286565c12fd63e	cervical_central_400000_SpatialESS_formal_b100
+cervical	central_400000	400000	SpatialCellChat	allocation_failure_under_memory_budget	18028	3081	100	1	84.85		65.585041408	1			cervical_central_400000_SpatialCellChat_formal_b100

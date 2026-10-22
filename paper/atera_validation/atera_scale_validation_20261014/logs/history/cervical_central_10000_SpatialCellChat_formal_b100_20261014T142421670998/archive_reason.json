@@ -1,0 +1,4 @@
+{
+  "reason": "Startup-only failure before inference; isolated 0.1.4 library path corrected.",
+  "time": "2026-10-14T14:24:21.671411+08:00"
+}

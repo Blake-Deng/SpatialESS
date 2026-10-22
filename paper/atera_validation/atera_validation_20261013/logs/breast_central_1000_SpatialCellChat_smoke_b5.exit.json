@@ -1,0 +1,28 @@
+{
+  "tag": "breast_central_1000_SpatialCellChat_smoke_b5",
+  "status": "completed",
+  "started": "2026-10-13T13:11:36+0800",
+  "runner_pid": 3821002,
+  "command": [
+    "/home/dzf/miniforge3/envs/spatialcellchat-v3/bin/Rscript",
+    "/home/dzf/cellchat_acceleration/analysis/atera_validation_20261013/scripts/worker.R",
+    "/home/dzf/cellchat_acceleration/analysis/atera_validation_20261013",
+    "breast",
+    "central_1000",
+    "SpatialCellChat",
+    "smoke",
+    "5",
+    "breast_central_1000_SpatialCellChat_smoke_b5"
+  ],
+  "timeout_seconds": 3600,
+  "tissue": "breast",
+  "fixture": "central_1000",
+  "engine": "SpatialCellChat",
+  "phase": "smoke",
+  "nboot": 5,
+  "child_pid": 3822302,
+  "log": "/home/dzf/cellchat_acceleration/analysis/atera_validation_20261013/logs/breast_central_1000_SpatialCellChat_smoke_b5.log",
+  "returncode": 0,
+  "finished": "2026-10-13T13:12:11+0800",
+  "elapsed_seconds": 35.057414054870605
+}

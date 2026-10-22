@@ -1,0 +1,28 @@
+{
+  "tag": "cervical_central_1000_SpatialCellChat_pilot_b20",
+  "status": "completed",
+  "started": "2026-10-13T13:53:41+0800",
+  "runner_pid": 3821002,
+  "command": [
+    "/home/dzf/miniforge3/envs/spatialcellchat-v3/bin/Rscript",
+    "/home/dzf/cellchat_acceleration/analysis/atera_validation_20261013/scripts/worker.R",
+    "/home/dzf/cellchat_acceleration/analysis/atera_validation_20261013",
+    "cervical",
+    "central_1000",
+    "SpatialCellChat",
+    "pilot",
+    "20",
+    "cervical_central_1000_SpatialCellChat_pilot_b20"
+  ],
+  "timeout_seconds": 3600,
+  "tissue": "cervical",
+  "fixture": "central_1000",
+  "engine": "SpatialCellChat",
+  "phase": "pilot",
+  "nboot": 20,
+  "child_pid": 3841478,
+  "log": "/home/dzf/cellchat_acceleration/analysis/atera_validation_20261013/logs/cervical_central_1000_SpatialCellChat_pilot_b20.log",
+  "returncode": 0,
+  "finished": "2026-10-13T14:26:58+0800",
+  "elapsed_seconds": 1997.3216021060944
+}

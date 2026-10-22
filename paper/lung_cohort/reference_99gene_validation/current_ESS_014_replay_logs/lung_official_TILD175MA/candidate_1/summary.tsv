@@ -1,0 +1,2 @@
+"case"	"variant"	"repetition"	"version"	"cells"	"genes"	"groups"	"lr"	"nboot"	"seed"	"inference_seconds"	"graph_edges"	"graph_bytes"	"active"	"significant_lt005"	"significant_le005"	"status"
+"lung_official_TILD175MA"	"candidate"	1	"0.1.4"	35887	99	44	37	20	20260831	1.18	1060606	25522520	20806	2100	3335	"completed"

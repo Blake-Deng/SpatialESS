@@ -1,0 +1,17 @@
+{
+  "tag": "prepare_extension",
+  "status": "completed",
+  "started": "2026-10-14T13:53:26+0800",
+  "command": [
+    "/home/dzf/miniforge3/envs/spatialcellchat-v3/bin/Rscript",
+    "/home/dzf/cellchat_acceleration/analysis/atera_scale_validation_20261014/scripts/prepare_extension.R",
+    "/home/dzf/cellchat_acceleration/analysis/atera_scale_validation_20261014",
+    "/home/dzf/cellchat_acceleration/analysis/atera_validation_20261013"
+  ],
+  "timeout_seconds": 7200,
+  "runner_pid": 252636,
+  "child_pid": 252639,
+  "returncode": 0,
+  "finished": "2026-10-14T13:53:30+0800",
+  "elapsed_seconds": 4.233704566955566
+}

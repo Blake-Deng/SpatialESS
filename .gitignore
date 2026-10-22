@@ -8,6 +8,12 @@
 *.RDS
 !paper/provenance/**/*.rds
 !paper/provenance/**/*.RDS
+!paper/atera_validation/**/*.rds
+!paper/atera_validation/**/*.RDS
+!paper/lung_cohort/**/*.rds
+!paper/lung_cohort/**/*.RDS
+!paper/ablation/**/*.rds
+!paper/ablation/**/*.RDS
 *.h5
 *.h5ad
 *.zip

@@ -1,0 +1,10 @@
+         case  phase  variant repetition nboot reference_variant active_records
+1 cosmx_50000 formal no_reuse          5    20              full          18484
+  active_keys_equal max_probability_error probabilities_bitwise_equal
+1              TRUE                     0                        TRUE
+  max_pvalue_error pvalues_exactly_equal significant_disagreements_lt005
+1                0                  TRUE                               0
+  significant_disagreements_le005 active_edge_counts_equal graph_equal
+1                               0                     TRUE        TRUE
+  graph_max_distance_error status
+1                       NA   PASS

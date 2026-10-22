@@ -1,0 +1,131 @@
+check	passed	detail
+Figure2A numerical data unchanged	True	
+Figure2A_labels numerical labels and targets unchanged	True	
+Arrow physical position retained on taller page	True	
+Figure2B numerical data unchanged	True	
+Figure2C numerical data unchanged	True	
+Figure2E numerical data unchanged	True	
+Example order and IDs	True	
+All slices and patients retained	True	
+Zero-inclusive response transformed once	True	
+I15 support equals model table	True	
+I06 support equals model table	True	
+I19 support equals model table	True	
+Patient summary 14:Myofibroblasts:14:Myofibroblasts:18:COL1A1_ITGA3_ITGB1 THD0008	True	
+Patient summary 14:Myofibroblasts:14:Myofibroblasts:18:COL1A1_ITGA3_ITGB1 THD0011	True	
+Patient summary 14:Myofibroblasts:14:Myofibroblasts:18:COL1A1_ITGA3_ITGB1 TILD028	True	
+Patient summary 14:Myofibroblasts:14:Myofibroblasts:18:COL1A1_ITGA3_ITGB1 TILD049	True	
+Patient summary 14:Myofibroblasts:14:Myofibroblasts:18:COL1A1_ITGA3_ITGB1 TILD080	True	
+Patient summary 14:Myofibroblasts:14:Myofibroblasts:18:COL1A1_ITGA3_ITGB1 TILD111	True	
+Patient summary 14:Myofibroblasts:14:Myofibroblasts:18:COL1A1_ITGA3_ITGB1 TILD113	True	
+Patient summary 14:Myofibroblasts:14:Myofibroblasts:18:COL1A1_ITGA3_ITGB1 TILD117	True	
+Patient summary 14:Myofibroblasts:14:Myofibroblasts:18:COL1A1_ITGA3_ITGB1 TILD130	True	
+Patient summary 14:Myofibroblasts:14:Myofibroblasts:18:COL1A1_ITGA3_ITGB1 TILD167	True	
+Patient summary 14:Myofibroblasts:14:Myofibroblasts:18:COL1A1_ITGA3_ITGB1 TILD175	True	
+Patient summary 14:Myofibroblasts:14:Myofibroblasts:18:COL1A1_ITGA3_ITGB1 TILD299	True	
+Patient summary 14:Myofibroblasts:14:Myofibroblasts:18:COL1A1_ITGA3_ITGB1 TILD315	True	
+Patient summary 14:Myofibroblasts:14:Myofibroblasts:18:COL1A1_ITGA3_ITGB1 VUHD038	True	
+Patient summary 14:Myofibroblasts:14:Myofibroblasts:18:COL1A1_ITGA3_ITGB1 VUHD049	True	
+Patient summary 14:Myofibroblasts:14:Myofibroblasts:18:COL1A1_ITGA3_ITGB1 VUHD069	True	
+Patient summary 14:Myofibroblasts:14:Myofibroblasts:18:COL1A1_ITGA3_ITGB1 VUHD090	True	
+Patient summary 14:Myofibroblasts:14:Myofibroblasts:18:COL1A1_ITGA3_ITGB1 VUHD095	True	
+Patient summary 14:Myofibroblasts:14:Myofibroblasts:18:COL1A1_ITGA3_ITGB1 VUHD113	True	
+Patient summary 14:Myofibroblasts:14:Myofibroblasts:18:COL1A1_ITGA3_ITGB1 VUHD116	True	
+Patient summary 14:Myofibroblasts:14:Myofibroblasts:18:COL1A1_ITGA3_ITGB1 VUILD102	True	
+Patient summary 14:Myofibroblasts:14:Myofibroblasts:18:COL1A1_ITGA3_ITGB1 VUILD104	True	
+Patient summary 14:Myofibroblasts:14:Myofibroblasts:18:COL1A1_ITGA3_ITGB1 VUILD105	True	
+Patient summary 14:Myofibroblasts:14:Myofibroblasts:18:COL1A1_ITGA3_ITGB1 VUILD106	True	
+Patient summary 14:Myofibroblasts:14:Myofibroblasts:18:COL1A1_ITGA3_ITGB1 VUILD107	True	
+Patient summary 14:Myofibroblasts:14:Myofibroblasts:18:COL1A1_ITGA3_ITGB1 VUILD110	True	
+Patient summary 14:Myofibroblasts:14:Myofibroblasts:18:COL1A1_ITGA3_ITGB1 VUILD115	True	
+Patient summary 14:Myofibroblasts:14:Myofibroblasts:18:COL1A1_ITGA3_ITGB1 VUILD141	True	
+Patient summary 14:Myofibroblasts:14:Myofibroblasts:18:COL1A1_ITGA3_ITGB1 VUILD142	True	
+Patient summary 14:Myofibroblasts:14:Myofibroblasts:18:COL1A1_ITGA3_ITGB1 VUILD48	True	
+Patient summary 14:Myofibroblasts:14:Myofibroblasts:18:COL1A1_ITGA3_ITGB1 VUILD49	True	
+Patient summary 14:Myofibroblasts:14:Myofibroblasts:18:COL1A1_ITGA3_ITGB1 VUILD58	True	
+Patient summary 14:Myofibroblasts:14:Myofibroblasts:18:COL1A1_ITGA3_ITGB1 VUILD78	True	
+Patient summary 14:Myofibroblasts:14:Myofibroblasts:18:COL1A1_ITGA3_ITGB1 VUILD91	True	
+Patient summary 14:Myofibroblasts:14:Myofibroblasts:18:COL1A1_ITGA3_ITGB1 VUILD96	True	
+Patient summary 14:Subpleural FBs:14:Subpleural FBs:15:FN1_ITGAV_ITGB1 THD0008	True	
+Patient summary 14:Subpleural FBs:14:Subpleural FBs:15:FN1_ITGAV_ITGB1 THD0011	True	
+Patient summary 14:Subpleural FBs:14:Subpleural FBs:15:FN1_ITGAV_ITGB1 TILD028	True	
+Patient summary 14:Subpleural FBs:14:Subpleural FBs:15:FN1_ITGAV_ITGB1 TILD049	True	
+Patient summary 14:Subpleural FBs:14:Subpleural FBs:15:FN1_ITGAV_ITGB1 TILD080	True	
+Patient summary 14:Subpleural FBs:14:Subpleural FBs:15:FN1_ITGAV_ITGB1 TILD111	True	
+Patient summary 14:Subpleural FBs:14:Subpleural FBs:15:FN1_ITGAV_ITGB1 TILD113	True	
+Patient summary 14:Subpleural FBs:14:Subpleural FBs:15:FN1_ITGAV_ITGB1 TILD117	True	
+Patient summary 14:Subpleural FBs:14:Subpleural FBs:15:FN1_ITGAV_ITGB1 TILD130	True	
+Patient summary 14:Subpleural FBs:14:Subpleural FBs:15:FN1_ITGAV_ITGB1 TILD167	True	
+Patient summary 14:Subpleural FBs:14:Subpleural FBs:15:FN1_ITGAV_ITGB1 TILD175	True	
+Patient summary 14:Subpleural FBs:14:Subpleural FBs:15:FN1_ITGAV_ITGB1 TILD299	True	
+Patient summary 14:Subpleural FBs:14:Subpleural FBs:15:FN1_ITGAV_ITGB1 TILD315	True	
+Patient summary 14:Subpleural FBs:14:Subpleural FBs:15:FN1_ITGAV_ITGB1 VUHD038	True	
+Patient summary 14:Subpleural FBs:14:Subpleural FBs:15:FN1_ITGAV_ITGB1 VUHD049	True	
+Patient summary 14:Subpleural FBs:14:Subpleural FBs:15:FN1_ITGAV_ITGB1 VUHD069	True	
+Patient summary 14:Subpleural FBs:14:Subpleural FBs:15:FN1_ITGAV_ITGB1 VUHD090	True	
+Patient summary 14:Subpleural FBs:14:Subpleural FBs:15:FN1_ITGAV_ITGB1 VUHD095	True	
+Patient summary 14:Subpleural FBs:14:Subpleural FBs:15:FN1_ITGAV_ITGB1 VUHD113	True	
+Patient summary 14:Subpleural FBs:14:Subpleural FBs:15:FN1_ITGAV_ITGB1 VUHD116	True	
+Patient summary 14:Subpleural FBs:14:Subpleural FBs:15:FN1_ITGAV_ITGB1 VUILD102	True	
+Patient summary 14:Subpleural FBs:14:Subpleural FBs:15:FN1_ITGAV_ITGB1 VUILD104	True	
+Patient summary 14:Subpleural FBs:14:Subpleural FBs:15:FN1_ITGAV_ITGB1 VUILD105	True	
+Patient summary 14:Subpleural FBs:14:Subpleural FBs:15:FN1_ITGAV_ITGB1 VUILD106	True	
+Patient summary 14:Subpleural FBs:14:Subpleural FBs:15:FN1_ITGAV_ITGB1 VUILD107	True	
+Patient summary 14:Subpleural FBs:14:Subpleural FBs:15:FN1_ITGAV_ITGB1 VUILD110	True	
+Patient summary 14:Subpleural FBs:14:Subpleural FBs:15:FN1_ITGAV_ITGB1 VUILD115	True	
+Patient summary 14:Subpleural FBs:14:Subpleural FBs:15:FN1_ITGAV_ITGB1 VUILD141	True	
+Patient summary 14:Subpleural FBs:14:Subpleural FBs:15:FN1_ITGAV_ITGB1 VUILD142	True	
+Patient summary 14:Subpleural FBs:14:Subpleural FBs:15:FN1_ITGAV_ITGB1 VUILD48	True	
+Patient summary 14:Subpleural FBs:14:Subpleural FBs:15:FN1_ITGAV_ITGB1 VUILD49	True	
+Patient summary 14:Subpleural FBs:14:Subpleural FBs:15:FN1_ITGAV_ITGB1 VUILD58	True	
+Patient summary 14:Subpleural FBs:14:Subpleural FBs:15:FN1_ITGAV_ITGB1 VUILD78	True	
+Patient summary 14:Subpleural FBs:14:Subpleural FBs:15:FN1_ITGAV_ITGB1 VUILD91	True	
+Patient summary 14:Subpleural FBs:14:Subpleural FBs:15:FN1_ITGAV_ITGB1 VUILD96	True	
+Patient summary 4:pDCs:4:pDCs:11:HLA-DRA_CD4 THD0008	True	
+Patient summary 4:pDCs:4:pDCs:11:HLA-DRA_CD4 THD0011	True	
+Patient summary 4:pDCs:4:pDCs:11:HLA-DRA_CD4 TILD028	True	
+Patient summary 4:pDCs:4:pDCs:11:HLA-DRA_CD4 TILD049	True	
+Patient summary 4:pDCs:4:pDCs:11:HLA-DRA_CD4 TILD080	True	
+Patient summary 4:pDCs:4:pDCs:11:HLA-DRA_CD4 TILD111	True	
+Patient summary 4:pDCs:4:pDCs:11:HLA-DRA_CD4 TILD113	True	
+Patient summary 4:pDCs:4:pDCs:11:HLA-DRA_CD4 TILD117	True	
+Patient summary 4:pDCs:4:pDCs:11:HLA-DRA_CD4 TILD130	True	
+Patient summary 4:pDCs:4:pDCs:11:HLA-DRA_CD4 TILD167	True	
+Patient summary 4:pDCs:4:pDCs:11:HLA-DRA_CD4 TILD175	True	
+Patient summary 4:pDCs:4:pDCs:11:HLA-DRA_CD4 TILD299	True	
+Patient summary 4:pDCs:4:pDCs:11:HLA-DRA_CD4 TILD315	True	
+Patient summary 4:pDCs:4:pDCs:11:HLA-DRA_CD4 VUHD038	True	
+Patient summary 4:pDCs:4:pDCs:11:HLA-DRA_CD4 VUHD049	True	
+Patient summary 4:pDCs:4:pDCs:11:HLA-DRA_CD4 VUHD069	True	
+Patient summary 4:pDCs:4:pDCs:11:HLA-DRA_CD4 VUHD090	True	
+Patient summary 4:pDCs:4:pDCs:11:HLA-DRA_CD4 VUHD095	True	
+Patient summary 4:pDCs:4:pDCs:11:HLA-DRA_CD4 VUHD113	True	
+Patient summary 4:pDCs:4:pDCs:11:HLA-DRA_CD4 VUHD116	True	
+Patient summary 4:pDCs:4:pDCs:11:HLA-DRA_CD4 VUILD102	True	
+Patient summary 4:pDCs:4:pDCs:11:HLA-DRA_CD4 VUILD104	True	
+Patient summary 4:pDCs:4:pDCs:11:HLA-DRA_CD4 VUILD105	True	
+Patient summary 4:pDCs:4:pDCs:11:HLA-DRA_CD4 VUILD106	True	
+Patient summary 4:pDCs:4:pDCs:11:HLA-DRA_CD4 VUILD107	True	
+Patient summary 4:pDCs:4:pDCs:11:HLA-DRA_CD4 VUILD110	True	
+Patient summary 4:pDCs:4:pDCs:11:HLA-DRA_CD4 VUILD115	True	
+Patient summary 4:pDCs:4:pDCs:11:HLA-DRA_CD4 VUILD141	True	
+Patient summary 4:pDCs:4:pDCs:11:HLA-DRA_CD4 VUILD142	True	
+Patient summary 4:pDCs:4:pDCs:11:HLA-DRA_CD4 VUILD48	True	
+Patient summary 4:pDCs:4:pDCs:11:HLA-DRA_CD4 VUILD49	True	
+Patient summary 4:pDCs:4:pDCs:11:HLA-DRA_CD4 VUILD58	True	
+Patient summary 4:pDCs:4:pDCs:11:HLA-DRA_CD4 VUILD78	True	
+Patient summary 4:pDCs:4:pDCs:11:HLA-DRA_CD4 VUILD91	True	
+Patient summary 4:pDCs:4:pDCs:11:HLA-DRA_CD4 VUILD96	True	
+I19 retained with original slice scores	True	
+Fixed final dimensions 180x208 mm	True	
+All PDF text inside page	True	[]
+A-E panel letters present	True	
+Singular spelled out	True	
+All six support count labels visible	True	
+All C annotation headers identified	True	
+C headers above data with clearance	True	
+Arial embedded as editable TrueType	True	
+SVG has editable text	True	
+Eight original volcano leaders retained	True	
+PNG final size at 600 dpi	True	(4251, 4913)
+All earlier numerical checks pass	True	

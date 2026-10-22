@@ -1,0 +1,37 @@
+{
+  "tag": "cervical_central_200000_SpatialESS_formal_b100",
+  "status": "completed",
+  "started": "2026-10-15T22:03:15.295373+08:00",
+  "started_epoch": 1792072995.2953906,
+  "command": [
+    "/home/dzf/miniforge3/envs/spatialcellchat-v3/bin/Rscript",
+    "/home/dzf/cellchat_acceleration/analysis/atera_cervical_200k_400k_20261015/scripts/worker.R",
+    "/home/dzf/cellchat_acceleration/analysis/atera_cervical_200k_400k_20261015",
+    "cervical",
+    "central_200000",
+    "SpatialESS",
+    "formal",
+    "100",
+    "cervical_central_200000_SpatialESS_formal_b100"
+  ],
+  "timeout_seconds": 86400,
+  "runner_pid": 1695140,
+  "tissue": "cervical",
+  "fixture": "central_200000",
+  "engine": "SpatialESS",
+  "phase": "formal",
+  "nboot": 100,
+  "child_pid": 1695574,
+  "heartbeat": "2026-10-15T22:25:00.424443+08:00",
+  "r_pid": 1695579,
+  "observed_R_high_water_RSS_KiB": 3447556,
+  "returncode": 0,
+  "finished": "2026-10-15T22:25:18.305936+08:00",
+  "elapsed_seconds": 1323.0105934143066,
+  "measurements": {
+    "peak_RSS_KiB": 3446992,
+    "peak_RSS_GB_decimal": 3.529719808,
+    "whole_process_seconds": 1319.8,
+    "reported_exit_status": 0
+  }
+}

@@ -1,0 +1,2 @@
+Error: as.character(packageVersion("SpatialESS")) == "0.1.4" is not TRUE
+Execution halted

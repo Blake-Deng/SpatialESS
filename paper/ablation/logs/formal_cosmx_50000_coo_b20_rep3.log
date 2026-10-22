@@ -1,0 +1,15 @@
+START cosmx_50000_coo_b20_rep3 2026-10-12 23:56:52 package: /home/dzf/cellchat_acceleration/analysis/component_ablation_20261012/lib/SpatialESS 
+          used (Mb) gc trigger  (Mb) max used  (Mb)
+Ncells 1603992 85.7    3111270 166.2  2165880 115.7
+Vcells 9699242 74.0   14753582 112.6 10225625  78.1
+         case variant  phase repetition cells genes  lr nboot     seed
+1 cosmx_50000     coo formal          3 50000   419 373    20 20260803
+  directed_edges inference_seconds graph_seconds observed_seconds
+1         904992              8.98         0.203         2.586466
+  permutation_seconds output_seconds primary_graph_array_bytes
+1            5.958412    0.000424722                  14479872
+  graph_object_bytes active_records significant_lt005 significant_le005 version
+1           26121592          18484             12512             14217   0.1.4
+     status
+1 completed
+FINISH cosmx_50000_coo_b20_rep3 2026-10-12 23:57:02 

@@ -1,0 +1,11 @@
+2026-10-16T09:51:52+08:00 START cervical_full_715512_SpatialCellChat_formal_b100
+START 2026-10-16 09:52:06 cervical full SpatialCellChat formal N 715512 genes 18028 LR 3081 permutations 100 
+ℹ Create a SpatialCellChat object from a data matrixCreate a SpatialCellChat object from spatial imaging data... 
+Set cell identities for the new SpatialCellChat object 
+The cell groups used for SpatialCellChat analysis are  B Cells Cancer Associated Fibroblasts Cytotoxic T Cells Dendritic Cells Detachment Differentiating Tumor Cells Dyskeratotic Tumor Cells Endocervical Ciliated Cells Endocervical Columnar Cells Endothelial Cells Exhausted T Cells Hypoxic Tumor Cells Interstitial Fibroblasts Macrophages Mast Cells Metabolic Invasive Basal Cells Migratory Invasive Basal Cells Naive & Memory T Cells Neutrophils OR4F17+ Cells Parabasal Tumor Cells Plasma Cells Proliferative Parabasal Cells Regulatory T Cells Smooth Muscle Stroma & Smooth Muscle 
+Error: cannot allocate vector of size 96.1 Gb
+In addition: Warning message:
+In asMethod(object) :
+  sparse->dense coercion: allocating vector of size 96.1 GiB
+Execution halted
+2026-10-16T09:52:52+08:00 END cervical_full_715512_SpatialCellChat_formal_b100 status=allocation_failure_under_96_GiB_virtual_memory_budget returncode=1

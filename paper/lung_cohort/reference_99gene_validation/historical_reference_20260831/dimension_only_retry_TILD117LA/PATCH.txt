@@ -1,0 +1,3 @@
+Patch: SpatialCellChat::computeCellDistance sparseMatrix dims only
+Change: dims = c(NC, NC)
+Unchanged: distances, thresholds, LR formulas, permutations, seed

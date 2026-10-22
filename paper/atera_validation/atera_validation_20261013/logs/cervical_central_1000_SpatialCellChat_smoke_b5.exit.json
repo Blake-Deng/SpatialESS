@@ -1,0 +1,28 @@
+{
+  "tag": "cervical_central_1000_SpatialCellChat_smoke_b5",
+  "status": "completed",
+  "started": "2026-10-13T13:52:59+0800",
+  "runner_pid": 3821002,
+  "command": [
+    "/home/dzf/miniforge3/envs/spatialcellchat-v3/bin/Rscript",
+    "/home/dzf/cellchat_acceleration/analysis/atera_validation_20261013/scripts/worker.R",
+    "/home/dzf/cellchat_acceleration/analysis/atera_validation_20261013",
+    "cervical",
+    "central_1000",
+    "SpatialCellChat",
+    "smoke",
+    "5",
+    "cervical_central_1000_SpatialCellChat_smoke_b5"
+  ],
+  "timeout_seconds": 3600,
+  "tissue": "cervical",
+  "fixture": "central_1000",
+  "engine": "SpatialCellChat",
+  "phase": "smoke",
+  "nboot": 5,
+  "child_pid": 3841137,
+  "log": "/home/dzf/cellchat_acceleration/analysis/atera_validation_20261013/logs/cervical_central_1000_SpatialCellChat_smoke_b5.log",
+  "returncode": 0,
+  "finished": "2026-10-13T13:53:30+0800",
+  "elapsed_seconds": 30.688851833343506
+}

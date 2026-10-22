@@ -1,0 +1,18 @@
+                                                                 check status                                                           detail
+                                        User Figure 1A asset unchanged   PASS 92c19a82c3dd3667720db50139d0d043b7d95cad3795d410c54eb5ab5722ec52
+                                                       Figure1B x axis   PASS               SpatialCellChat probability (log10): 1 occurrences
+                                                       Figure1B y axis   PASS                    SpatialESS probability (log10): 1 occurrences
+                                                Figure1D/E annotations   PASS                 50k: SpatialCellChat / SpatialESS: 2 occurrences
+                                                       Figure1I status   PASS                            SpatialCellChat failed: 1 occurrences
+                                                       Figure1I status   PASS                                   SpatialESS only: 1 occurrences
+                                    Old Figure 1 abbreviations removed   PASS                                                                 
+                                Full method names in legend and I rows   PASS                                                                 
+                                           Original page size retained   PASS                                                                 
+                                                 Data text inside page   PASS                                                                 
+                                      Ordinary data text at least 5 pt   PASS                            minimum ordinary data text = 5.000 pt
+                                         PDF fonts embedded; no Type 3   PASS  [('Type0', 'BTCBPR+ArialMT'), ('Type0', 'FHMNPP+Arial-BoldMT')]
+                              Editable SVG text; no raster replacement   PASS                                                                 
+                                                      600 dpi data PNG   PASS                                                     (4251, 4488)
+All source inputs and Figure 1 panel values byte-identical to baseline   PASS                                                         65 files
+                                   Original theme and layout unchanged   PASS                                                                 
+                                 Protected A slot empty in data master   PASS                                                                 

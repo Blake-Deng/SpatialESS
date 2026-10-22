@@ -144,8 +144,16 @@ License: GPL-3.
 ## Manuscript data and verification records
 
 The public research materials are indexed in
-[docs/SUBMISSION_CONTENTS.md](docs/SUBMISSION_CONTENTS.md). They include figure
-source data and plotting scripts, Supplementary Table 1, annotation provenance
-and saved-record verification code under `paper/`. Manuscript Word drafts are
-retained locally for author review. Figure 1A has a readable editable replacement,
-with the original asset preserved, as documented in the figure QA report.
+[docs/SUBMISSION_CONTENTS.md](docs/SUBMISSION_CONTENTS.md), with current figures
+and the additional experiment archive in
+[docs/MANUSCRIPT_MATERIALS_20261022.md](docs/MANUSCRIPT_MATERIALS_20261022.md).
+The current [figure index](paper/figure_package/README.md) links the main Figure 1
+with Atera scaling, the revised Figure 2, editable masters, source workbooks and
+plotting code. Figure 1A retains the author-supplied workflow without internal
+edits. Supplementary figures and the existing sensitivity analysis are retained.
+
+The added materials include complete 343-gene lung cohort fits and zero-fill
+definitions, separate 99-gene reference validation, Atera preprocessing and run
+records, and component ablations. Archived annotation evidence and unavailable
+environment information are explicitly identified. Manuscript Word drafts and
+large raw expression matrices are retained outside this repository.

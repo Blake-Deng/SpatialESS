@@ -1,0 +1,9 @@
+{
+  "status": "COMPLETE",
+  "finished": "2026-10-13T20:25:49+0800",
+  "included_tissues": [
+    "breast",
+    "cervical"
+  ],
+  "failed_tasks": []
+}

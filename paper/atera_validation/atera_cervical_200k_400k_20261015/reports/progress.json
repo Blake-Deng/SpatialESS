@@ -1,0 +1,20 @@
+{
+  "status": "FINISHED_WITH_FAILURES_OR_UNPAIRED_RESULTS",
+  "finished": "2026-10-15T23:08:07.048810+08:00",
+  "outcomes": [
+    {
+      "tissue": "cervical",
+      "size": 200000,
+      "ess_completed": true,
+      "reference_completed": false,
+      "strict_agreement": false
+    },
+    {
+      "tissue": "cervical",
+      "size": 400000,
+      "ess_completed": true,
+      "reference_completed": false,
+      "strict_agreement": false
+    }
+  ]
+}

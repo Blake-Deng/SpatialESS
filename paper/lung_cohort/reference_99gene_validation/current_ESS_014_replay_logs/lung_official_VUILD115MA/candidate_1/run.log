@@ -1,0 +1,10 @@
+START lung_official_VUILD115MA candidate 1 2026-10-01 01:53:46 
+          used (Mb) gc trigger  (Mb) max used  (Mb)
+Ncells 1547265 82.7    2774628 148.2  2270052 121.3
+Vcells 4740471 36.2   10146329  77.5  5926390  45.3
+                      case   variant repetition version cells genes groups lr
+1 lung_official_VUILD115MA candidate          1   0.1.4 94540    99     44 37
+  nboot     seed inference_seconds graph_edges graph_bytes active
+1    20 20260831             2.989     2435020    60049152  20196
+  significant_lt005 significant_le005    status
+1              2197              3267 completed

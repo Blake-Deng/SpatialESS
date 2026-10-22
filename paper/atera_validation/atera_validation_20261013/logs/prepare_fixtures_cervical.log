@@ -1,0 +1,20 @@
+LOAD sparse binary cervical 610286536 nonzeros
+[1] TRUE
+            used   (Mb) gc trigger    (Mb)  max used   (Mb)
+Ncells   2299752  122.9    4336285   231.6   2342003  125.1
+Vcells 931126027 7104.0 1342888070 10245.5 931158929 7104.2
+Warning message:
+Excluded 153 of 3234 LR records with incomplete ligand/receptor components; retained 3081. See $audit and $missing_genes (or result$lr_filter when lr_missing = 'filter'). 
+FIXTURE central_1000 cells 1000 groups 21 LR 3081 
+FIXTURE central_5000 cells 5000 groups 23 LR 3081 
+FIXTURE central_25000 cells 25000 groups 24 LR 3081 
+FIXTURE central_50000 cells 50000 groups 24 LR 3081 
+FIXTURE central_100000 cells 100000 groups 25 LR 3081 
+FIXTURE full cells 715512 groups 26 LR 3081 
+FIXTURE stratified_50000_rep1 cells 50000 groups 26 LR 3081 
+FIXTURE block_50000_rep1 cells 50000 groups 25 LR 3081 
+FIXTURE stratified_50000_rep2 cells 50000 groups 26 LR 3081 
+FIXTURE block_50000_rep2 cells 50000 groups 25 LR 3081 
+FIXTURE stratified_50000_rep3 cells 50000 groups 26 LR 3081 
+FIXTURE block_50000_rep3 cells 50000 groups 25 LR 3081 
+FIXTURES COMPLETE cervical 

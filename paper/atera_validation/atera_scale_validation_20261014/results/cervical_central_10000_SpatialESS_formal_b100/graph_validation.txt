@@ -1,0 +1,10 @@
+             offsets_valid      terminal_offset_valid 
+                      TRUE                       TRUE 
+        neighbors_in_range finite_nonnegative_weights 
+                      TRUE                       TRUE 
+             no_self_edges      no_cross_sample_edges 
+                      TRUE                       TRUE 
+       compartment_barrier 
+                      TRUE 
+attr(,"valid")
+[1] TRUE

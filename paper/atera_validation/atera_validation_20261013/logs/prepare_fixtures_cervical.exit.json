@@ -1,0 +1,18 @@
+{
+  "tag": "prepare_fixtures_cervical",
+  "status": "completed",
+  "started": "2026-10-13T13:51:45+0800",
+  "runner_pid": 3821002,
+  "command": [
+    "/home/dzf/miniforge3/envs/spatialcellchat-v3/bin/Rscript",
+    "/home/dzf/cellchat_acceleration/analysis/atera_validation_20261013/scripts/prepare_fixtures.R",
+    "/home/dzf/cellchat_acceleration/analysis/atera_validation_20261013",
+    "cervical"
+  ],
+  "timeout_seconds": 7200,
+  "child_pid": 3840586,
+  "log": "/home/dzf/cellchat_acceleration/analysis/atera_validation_20261013/logs/prepare_fixtures_cervical.log",
+  "returncode": 0,
+  "finished": "2026-10-13T13:52:57+0800",
+  "elapsed_seconds": 71.64007568359375
+}

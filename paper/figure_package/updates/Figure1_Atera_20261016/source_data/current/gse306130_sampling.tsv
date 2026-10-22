@@ -1,0 +1,5 @@
+sample	selected_cells	clustering_parent_cells	clustering_seed	label_method
+4_SCC	1000	5000	20260828	PCA_kmeans_on_fixed_parent_then_barcode_subset
+6_BCC	1000	5000	20260829	PCA_kmeans_on_fixed_parent_then_barcode_subset
+23_SCC	1000	5000	20260830	PCA_kmeans_on_fixed_parent_then_barcode_subset
+35_BCC	1000	5000	20260831	PCA_kmeans_on_fixed_parent_then_barcode_subset

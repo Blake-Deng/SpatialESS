@@ -1,0 +1,29 @@
+{
+  "methods": {
+    "SpatialESS": {"color": "#2166AC", "filled": true},
+    "SpatialCellChat": {"color": "#C43B53", "filled": false}
+  },
+  "cohorts": [
+    {"dataset": "CosMx", "tissue": "CancerousLiver", "label": "CosMx", "marker": "o", "linestyle": "-"},
+    {"dataset": "Atera", "tissue": "breast", "label": "Atera breast", "marker": "s", "linestyle": "--"},
+    {"dataset": "Atera", "tissue": "cervical", "label": "Atera cervical", "marker": "^", "linestyle": ":"}
+  ],
+  "endpoint_labels_axes": {
+    "time": {
+      "SpatialCellChat:CosMx": [0.98, 0.80],
+      "SpatialCellChat:Atera breast": [0.98, 0.96],
+      "SpatialCellChat:Atera cervical": [0.98, 0.65],
+      "SpatialESS:CosMx": [0.98, 0.20],
+      "SpatialESS:Atera breast": [0.98, 0.43],
+      "SpatialESS:Atera cervical": [0.98, 0.55]
+    },
+    "memory": {
+      "SpatialCellChat:CosMx": [0.98, 0.79],
+      "SpatialCellChat:Atera breast": [0.98, 0.96],
+      "SpatialCellChat:Atera cervical": [0.98, 0.64],
+      "SpatialESS:CosMx": [0.98, 0.26],
+      "SpatialESS:Atera breast": [0.71, 0.50],
+      "SpatialESS:Atera cervical": [0.98, 0.53]
+    }
+  }
+}

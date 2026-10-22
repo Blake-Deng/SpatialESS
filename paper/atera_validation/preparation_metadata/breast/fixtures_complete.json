@@ -1,0 +1,13 @@
+{
+  "status": "COMPLETE",
+  "fixtures": 12,
+  "cells": 169940,
+  "genes": 18028,
+  "lr": 3081,
+  "database_total_lr": 3234,
+  "central_rule": "Nearest cells to arithmetic mean of all eligible centroids; squared Euclidean distance, original order breaks ties; no randomness.",
+  "stratified_rule": "Largest-remainder proportional quotas from all eligible official groups; sorted group order breaks ties; independent R sample.int within groups and final shuffle.",
+  "block_rule": "Nearest observed centroid to (x quartile, median y) is anchor; nearest N centroids by squared distance; original order breaks ties.",
+  "expression_scope": "All 18028 measured Gene Expression rows; normalization uses all measured expression rows; full rows are shared by both engines.",
+  "lr_rule": "all_measured_mandatory_components_no_overexpression_filter"
+}

@@ -1,0 +1,37 @@
+check	pass	detail
+Public tree is complete	True	
+Pinned public revision	True	
+Public manifest git blob: SUBMISSION_SHA256.tsv	True	
+Public manifest git blob: paper/figure_package/PACKAGE_SHA256.tsv	True	
+Complete primary feature universe	True	
+Valid primary fits	True	
+Valid singular fits	True	
+BH significant primary fits	True	
+45 sections / 35 patients	True	
+692338 nonzero scores	True	
+Unique section-feature score keys	True	
+Scores restricted to fixed universe	True	
+SPP1-CD44 nonzero section support	True	Counter({'Disease': 29})
+SPP1-CD44 descriptive patient support	True	
+Figure 2D identities	True	
+Figure 2 workbook matches D identities	True	
+Figure 1A author asset unchanged	True	
+Existing supplementary S4 matches final review	True	
+Current Figure1 pdf present	True	
+Current Figure1 svg present	True	
+Current Figure1 png present	True	
+Current Figure2 pdf present	True	
+Current Figure2 svg present	True	
+Current Figure2 png present	True	
+Ten strict Atera comparisons	True	
+Atera measured genes/LR/permutations retained	True	
+Atera maximum probability error	True	
+Cervical 200000 SpatialESS resource log	True	
+Cervical 200000 SpatialCellChat resource log	True	
+Cervical 400000 SpatialESS resource log	True	
+Cervical 400000 SpatialCellChat resource log	True	
+Atera full cervical reference failure log	True	
+170 validated ablation runs	True	
+Archived spacexr evidence	True	
+No expression containers or compiled outputs	True	
+No individual file exceeds GitHub 100 MB limit	True	

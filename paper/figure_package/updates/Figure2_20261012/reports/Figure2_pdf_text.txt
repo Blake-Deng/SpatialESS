@@ -1,0 +1,104 @@
+A Primary LMM associations                                                                                               B Primary-cohort effect sizes
+                                             Control higher         PF higher     Not significant
+                                                                                                                                                      I19 HLA-DRA-CD4                                                      +2.53
+                                                                                                                                                      I03 COL1A1-CD44                                                      +2.03
+                     25
+                                                                                                                                                    I21 HLA-DQA1-CD4                                                       +1.87
+                                                                                   I19 HLA-DRA-CD4
+                                                                                                                                               I14 FN1-(ITGAV+ITGB6)                                                       +1.70
+   −log10(BH q)
+
+
+
+                     20                                                            I21 HLA-DQA1-CD4                                            I15 FN1-(ITGAV+ITGB1)                                                       +1.64
+                                                                                   I03 COL1A1-CD44                                         I05 COL1A1-(ITGA3+ITGB1)                                                        +1.44
+                     15
+                                                                                   I22 HLA-DQB1-CD4                                                 I22 HLA-DQB1-CD4                                                       +1.43
+                                                                                   I12 CSPG4-(ITGA3+ITGB1)                                  I12 CSPG4-(ITGA3+ITGB1)                                                        +1.34
+                     10
+                                                                                                                                                      I07 COL1A2-CD44                                                      +1.30
+                                                                                   I05 COL1A1-(ITGA3+ITGB1)
+                                                                                                                                           I08 COL1A2-(ITGA3+ITGB1)                                                        +1.27
+                      5                                                            I15 FN1-(ITGAV+ITGB1)
+                                                                                                                                                         I25 SPP1-CD44                                                     +1.27
+                                                                                   I14 FN1-(ITGAV+ITGB6)                                         I28 SCGB3A2-MARCO                                                         +1.26
+                      0
+                           -1           0           1           2           3                                                                                                  0           1         2           3
+                                PF − Control effect (× 0.001)                                                                                                                   PF − Control effect (× 0.001; 95% CI)
+                          39,570 valid fits; 5,147 BH q < 0.05                                                                                       ● non-singular ○ singular | labels: PF − Control × 0.001
+
+
+C Communication effects and model comparison
+Pathway                           ID         Ligand–receptor                                        Sender = receiver group                           LMM               OLS              Nonzero-slice       Patient            Singular
+                                                                                                                                                                                           fraction           ICC
+
+CD45                              I01        PTPRC-MRC1                                             pDCs                                             1.15            1.15
+CD86                              I02        CD86-CTLA4                                             Tregs                                            1.26            1.26
+                                  I03        COL1A1-CD44                                            Prolif. T-cells                                  1.48            1.51
+                                  I04        COL1A1-CD44                                            Prolif. AT2                                      1.30            1.26
+                                  I05        COL1A1-(ITGA3+ITGB1)                                   Prolif. AT2                                      1.36            1.36
+                                  I06        COL1A1-(ITGA3+ITGB1)                                   Myofibroblasts                                   1.08            1.09
+COLLAGEN                          I07        COL1A2-CD44                                            Prolif. T-cells                                  1.20            1.24
+                                  I08        COL1A2-(ITGA3+ITGB1)                                   Myofibroblasts                                   0.99            0.97
+                                  I09        COL1A2-CD44                                            IFN-activated Mph                                 1.11           1.10
+                                  I10        COL1A2-(ITGA3+ITGB1)                                   KRT5-/KRT17+                                     1.49            1.49
+                                  I11        COL4A3-CD44                                            cDCs                                             0.92            0.92
+CSPG4                             I12        CSPG4-(ITGA3+ITGB1)                                    KRT5-/KRT17+                                     1.37            1.37
+                                  I13        CSPG4-(ITGA3+ITGB1)                                    Transitional AT2                                 1.22            1.22
+                                  I14        FN1-(ITGAV+ITGB6)                                      Myofibroblasts                                   1.08            1.08
+                                  I15        FN1-(ITGAV+ITGB1)                                      Subpleural FBs                                   1.37            1.38
+FN1                               I16        FN1-(ITGAV+ITGB1)                                      KRT5-/KRT17+                                     1.28            1.28
+                                  I17        FN1-(ITGAV+ITGB6)                                      KRT5-/KRT17+                                     1.16            1.16
+                                  I18        FN1-(ITGA3+ITGB1)                                      KRT5-/KRT17+                                     1.01            1.01
+                                  I19        HLA-DRA-CD4                                            pDCs                                             1.66            1.68
+                                  I20        HLA-DRA-CD4                                            Prolif. T-cells                                  1.65            1.66
+MHC-II                            I21        HLA-DQA1-CD4                                           pDCs                                             1.56            1.56
+                                  I22        HLA-DQB1-CD4                                           pDCs                                             1.40            1.44
+                                  I23        HLA-DQA1-CD4                                           Prolif. T-cells                                  1.45            1.46
+PECAM1                            I24        PECAM1-PECAM1                                          KRT5-/KRT17+                                     1.58            1.58
+                                  I25        SPP1-CD44                                              KRT5-/KRT17+                                     1.19            1.19
+SPP1                              I26        SPP1-(ITGAV+ITGB1)                                     Alveolar Mph                                     -1.44           -1.46
+                                  I27        SPP1-(ITGAV+ITGB1)                                     KRT5-/KRT17+                                     1.12             1.11
+UGRP1                             I28        SCGB3A2-MARCO                                          Transitional AT2                                 1.30            1.24
+
+                                                                                Effect / SD                                                • q < 0.05; bars: 0–1; ■ singular
+                                                                                                               −1    0        1            Nonzero-slice fraction = nonzero / 45
+
+
+
+D Slices and patient summaries                                                                                              Small: slices Open: patient means; nonzero / total slices
+
+                                  FN1-(ITGAV+ITGB1) | I15                                                COL1A1-(ITGA3+ITGB1) | I06                                                      HLA-DRA-CD4 | I19
+                                Subpleural FBs → Subpleural FBs                                           Myofibroblasts → Myofibroblasts                                                      pDCs → pDCs
+
+                          × 0.001                                                                    × 0.001                                                                  × 0.001
+                     4                                                                                                                                                   6
+                                                                                                5
+      log1p(score)
+
+
+
+
+                     2                                                                        2.5                                                                        3
+
+
+                     0                                                                          0                                                                        0
+                                   Control                         PF                                       Control                       PF                                          Control                     PF
+                                2/10 nonzero                  30/35 nonzero                              5/10 nonzero                34/35 nonzero                                 1/10 nonzero              34/35 nonzero
+
+
+
+
+E Pathway / sender–receiver representatives                                                                                         Effect / SD; area: −log10(feature q), capped at 10
+
+                         VEGF
+                         SPP1                                                                                                                                                                                    −1    0    1
+                       PECAM1
+                        MHC-II
+                          FN1                                                                                                                                                                                2         5         10
+                     COLLAGEN
+                         CD45
+                          CCL
+                                             Act. FBs               Act. FBs            Act. FBs                Alv. FBs              Alv. FBs                B cells               CD4+ T
+                                            → Act. FBs              → CD8+ T          → Interst. Mph           → Act. FBs             → Tregs                → Venous               → Tregs
+

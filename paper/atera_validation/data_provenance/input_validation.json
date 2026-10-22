@@ -1,0 +1,212 @@
+[
+  {
+    "dataset": "cervical",
+    "expected_cells": 717576,
+    "designed_gene_targets": 18028,
+    "checks": [
+      {
+        "check": "matrix_dimensions",
+        "status": "PASS",
+        "detail": "shape=(27104, 717576); barcodes=717576"
+      },
+      {
+        "check": "feature_dimensions",
+        "status": "PASS",
+        "detail": "features=27104"
+      },
+      {
+        "check": "unique_barcodes",
+        "status": "PASS",
+        "detail": "barcodes=717576"
+      },
+      {
+        "check": "sparse_pointer_structure",
+        "status": "PASS",
+        "detail": "indptr=717577; nnz=610630745; index_dtype=int64"
+      },
+      {
+        "check": "sparse_array_lengths",
+        "status": "PASS",
+        "detail": "nnz=610630745"
+      },
+      {
+        "check": "sparse_index_bounds",
+        "status": "PASS",
+        "detail": "valid range: [0, 27104)"
+      },
+      {
+        "check": "finite_nonnegative_counts",
+        "status": "PASS",
+        "detail": "checked all 610630745 stored values"
+      },
+      {
+        "check": "coordinate_fields",
+        "status": "PASS",
+        "detail": "missing=[]; columns=['cell_id', 'x_centroid', 'y_centroid', 'transcript_counts', 'control_probe_counts', 'genomic_control_counts', 'control_codeword_counts', 'unassigned_codeword_counts', 'deprecated_codeword_counts', 'total_counts', 'cell_area', 'nucleus_area', 'nucleus_count', 'segmentation_method']"
+      },
+      {
+        "check": "unique_coordinate_barcodes",
+        "status": "PASS",
+        "detail": "coordinate_rows=717576"
+      },
+      {
+        "check": "coordinate_barcode_set",
+        "status": "PASS",
+        "detail": "matrix=717576; coordinates=717576"
+      },
+      {
+        "check": "finite_coordinates",
+        "status": "PASS",
+        "detail": "Original centroids; no coordinate transformation applied"
+      },
+      {
+        "check": "annotation_fields",
+        "status": "PASS",
+        "detail": "['cell_id', 'group', 'color']"
+      },
+      {
+        "check": "annotation_barcodes_in_matrix",
+        "status": "PASS",
+        "detail": "extra_annotation_cells=0"
+      },
+      {
+        "check": "annotation_mapping",
+        "status": "WARNING",
+        "detail": "Inspect duplicate memberships/missing labels before inference; do not silently impute or collapse."
+      }
+    ],
+    "inference_run": false,
+    "matrix_shape": [
+      27104,
+      717576
+    ],
+    "matrix_nnz": 610630745,
+    "expression_gene_count": 18028,
+    "feature_types": {
+      "Gene Expression": 18028,
+      "Negative Control Codeword": 6390,
+      "Unassigned Codeword": 2543,
+      "Negative Control Probe": 81,
+      "Genomic Control": 62
+    },
+    "duplicate_expression_gene_names": 0,
+    "coordinate_order_matches_matrix": true,
+    "coordinate_columns": [
+      "cell_id",
+      "x_centroid",
+      "y_centroid"
+    ],
+    "annotation_rows": 717283,
+    "annotation_unique_cells": 717283,
+    "duplicate_annotation_rows": 0,
+    "matrix_cells_without_annotation": 293,
+    "annotation_cells_without_matrix": 0,
+    "annotation_groups": 26,
+    "status": "WARNING"
+  },
+  {
+    "dataset": "breast",
+    "expected_cells": 170057,
+    "designed_gene_targets": 18028,
+    "checks": [
+      {
+        "check": "matrix_dimensions",
+        "status": "PASS",
+        "detail": "shape=(27104, 170057); barcodes=170057"
+      },
+      {
+        "check": "feature_dimensions",
+        "status": "PASS",
+        "detail": "features=27104"
+      },
+      {
+        "check": "unique_barcodes",
+        "status": "PASS",
+        "detail": "barcodes=170057"
+      },
+      {
+        "check": "sparse_pointer_structure",
+        "status": "PASS",
+        "detail": "indptr=170058; nnz=307315666; index_dtype=int64"
+      },
+      {
+        "check": "sparse_array_lengths",
+        "status": "PASS",
+        "detail": "nnz=307315666"
+      },
+      {
+        "check": "sparse_index_bounds",
+        "status": "PASS",
+        "detail": "valid range: [0, 27104)"
+      },
+      {
+        "check": "finite_nonnegative_counts",
+        "status": "PASS",
+        "detail": "checked all 307315666 stored values"
+      },
+      {
+        "check": "coordinate_fields",
+        "status": "PASS",
+        "detail": "missing=[]; columns=['cell_id', 'x_centroid', 'y_centroid', 'transcript_counts', 'control_probe_counts', 'genomic_control_counts', 'control_codeword_counts', 'unassigned_codeword_counts', 'deprecated_codeword_counts', 'total_counts', 'cell_area', 'nucleus_area', 'nucleus_count', 'segmentation_method']"
+      },
+      {
+        "check": "unique_coordinate_barcodes",
+        "status": "PASS",
+        "detail": "coordinate_rows=170057"
+      },
+      {
+        "check": "coordinate_barcode_set",
+        "status": "PASS",
+        "detail": "matrix=170057; coordinates=170057"
+      },
+      {
+        "check": "finite_coordinates",
+        "status": "PASS",
+        "detail": "Original centroids; no coordinate transformation applied"
+      },
+      {
+        "check": "annotation_fields",
+        "status": "PASS",
+        "detail": "['cell_id', 'group', 'color']"
+      },
+      {
+        "check": "annotation_barcodes_in_matrix",
+        "status": "PASS",
+        "detail": "extra_annotation_cells=0"
+      },
+      {
+        "check": "annotation_mapping",
+        "status": "WARNING",
+        "detail": "Inspect duplicate memberships/missing labels before inference; do not silently impute or collapse."
+      }
+    ],
+    "inference_run": false,
+    "matrix_shape": [
+      27104,
+      170057
+    ],
+    "matrix_nnz": 307315666,
+    "expression_gene_count": 18028,
+    "feature_types": {
+      "Gene Expression": 18028,
+      "Negative Control Codeword": 6390,
+      "Unassigned Codeword": 2543,
+      "Negative Control Probe": 81,
+      "Genomic Control": 62
+    },
+    "duplicate_expression_gene_names": 0,
+    "coordinate_order_matches_matrix": true,
+    "coordinate_columns": [
+      "cell_id",
+      "x_centroid",
+      "y_centroid"
+    ],
+    "annotation_rows": 170045,
+    "annotation_unique_cells": 170045,
+    "duplicate_annotation_rows": 0,
+    "matrix_cells_without_annotation": 12,
+    "annotation_cells_without_matrix": 0,
+    "annotation_groups": 19,
+    "status": "WARNING"
+  }
+]

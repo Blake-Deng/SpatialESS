@@ -1,0 +1,20 @@
+LOAD sparse binary breast 306979154 nonzeros
+[1] TRUE
+            used   (Mb) gc trigger   (Mb)  max used   (Mb)
+Ncells   1754173   93.7    3111281  166.2   2264006  121.0
+Vcells 466240943 3557.2  673846361 5141.1 466273845 3557.4
+Warning message:
+Excluded 153 of 3234 LR records with incomplete ligand/receptor components; retained 3081. See $audit and $missing_genes (or result$lr_filter when lr_missing = 'filter'). 
+FIXTURE central_1000 cells 1000 groups 16 LR 3081 
+FIXTURE central_5000 cells 5000 groups 17 LR 3081 
+FIXTURE central_25000 cells 25000 groups 18 LR 3081 
+FIXTURE central_50000 cells 50000 groups 19 LR 3081 
+FIXTURE central_100000 cells 100000 groups 19 LR 3081 
+FIXTURE full cells 169940 groups 19 LR 3081 
+FIXTURE stratified_50000_rep1 cells 50000 groups 19 LR 3081 
+FIXTURE block_50000_rep1 cells 50000 groups 19 LR 3081 
+FIXTURE stratified_50000_rep2 cells 50000 groups 19 LR 3081 
+FIXTURE block_50000_rep2 cells 50000 groups 19 LR 3081 
+FIXTURE stratified_50000_rep3 cells 50000 groups 19 LR 3081 
+FIXTURE block_50000_rep3 cells 50000 groups 18 LR 3081 
+FIXTURES COMPLETE breast 

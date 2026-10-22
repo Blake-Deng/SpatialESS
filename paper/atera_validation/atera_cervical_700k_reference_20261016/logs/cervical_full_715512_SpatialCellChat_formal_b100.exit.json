@@ -1,0 +1,43 @@
+{
+  "tag": "cervical_full_715512_SpatialCellChat_formal_b100",
+  "status": "allocation_failure_under_96_GiB_virtual_memory_budget",
+  "started": "2026-10-16T09:51:52+08:00",
+  "input": "/home/dzf/cellchat_acceleration/analysis/atera_cervical_700k_reference_20261016/inputs/cervical/full.rds",
+  "input_cells": 715512,
+  "nominal_figure_category": "700k",
+  "genes": 18028,
+  "lr_records": 3081,
+  "nboot": 100,
+  "seed_use": 1,
+  "cpu_affinity": 0,
+  "threads": {
+    "OMP_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1",
+    "BLIS_NUM_THREADS": "1"
+  },
+  "address_space_limit_GiB": 96,
+  "timeout_seconds": 43200,
+  "command": [
+    "/usr/bin/time",
+    "-v",
+    "-o",
+    "/home/dzf/cellchat_acceleration/analysis/atera_cervical_700k_reference_20261016/logs/cervical_full_715512_SpatialCellChat_formal_b100.time.txt",
+    "/home/dzf/miniforge3/envs/spatialcellchat-v3/bin/Rscript",
+    "/home/dzf/cellchat_acceleration/analysis/atera_cervical_700k_reference_20261016/scripts/worker.R",
+    "/home/dzf/cellchat_acceleration/analysis/atera_cervical_700k_reference_20261016",
+    "cervical",
+    "full",
+    "SpatialCellChat",
+    "formal",
+    "100",
+    "cervical_full_715512_SpatialCellChat_formal_b100"
+  ],
+  "pid": 2371199,
+  "returncode": 1,
+  "finished": "2026-10-16T09:52:52+08:00",
+  "elapsed_seconds": 31.89,
+  "peak_RSS_GB_decimal": 12.961091584,
+  "runner_elapsed_seconds": 60.002,
+  "whole_process_seconds": 31.89
+}\n

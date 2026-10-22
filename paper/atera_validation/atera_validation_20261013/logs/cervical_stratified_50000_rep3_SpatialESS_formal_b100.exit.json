@@ -1,0 +1,28 @@
+{
+  "tag": "cervical_stratified_50000_rep3_SpatialESS_formal_b100",
+  "status": "completed",
+  "started": "2026-10-13T19:33:18+0800",
+  "runner_pid": 3821002,
+  "command": [
+    "/home/dzf/miniforge3/envs/spatialcellchat-v3/bin/Rscript",
+    "/home/dzf/cellchat_acceleration/analysis/atera_validation_20261013/scripts/worker.R",
+    "/home/dzf/cellchat_acceleration/analysis/atera_validation_20261013",
+    "cervical",
+    "stratified_50000_rep3",
+    "SpatialESS",
+    "formal",
+    "100",
+    "cervical_stratified_50000_rep3_SpatialESS_formal_b100"
+  ],
+  "timeout_seconds": 86400,
+  "tissue": "cervical",
+  "fixture": "stratified_50000_rep3",
+  "engine": "SpatialESS",
+  "phase": "formal",
+  "nboot": 100,
+  "child_pid": 3801248,
+  "log": "/home/dzf/cellchat_acceleration/analysis/atera_validation_20261013/logs/cervical_stratified_50000_rep3_SpatialESS_formal_b100.log",
+  "returncode": 0,
+  "finished": "2026-10-13T19:37:24+0800",
+  "elapsed_seconds": 245.79295778274536
+}

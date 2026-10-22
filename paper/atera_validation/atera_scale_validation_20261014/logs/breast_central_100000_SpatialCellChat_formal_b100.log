@@ -1,0 +1,76 @@
+START 2026-10-15 11:55:09 breast central_100000 SpatialCellChat formal N 100000 genes 18028 LR 3081 permutations 100 
+ℹ Create a SpatialCellChat object from a data matrixCreate a SpatialCellChat object from spatial imaging data... 
+Set cell identities for the new SpatialCellChat object 
+The cell groups used for SpatialCellChat analysis are  11q13 High Grade DCIS Cells 11q13 High Grade DCIS Cells (Mitotic) 11q13 High Grade DCIS Tumor Cells (G1/S) Apocrine Cells Basal-like Structured DCIS Cells CAFs, High Grade DCIS Associated CAFs, Low Grade DCIS Associated CXCL14+ Fibroblasts Dendritic Cells Endothelial Cells Luminal-like Amorphous DCIS Cells Macrophages Mast Cells Myeloid Cells Myoepithelial Cells Pericytes Plasma & Mast Cell Mixture Plasma Cells T Lymphocytes 
+>>>  Analyzing spatial transcriptomic data and preferring to infer interactions between individual cells...
+>>>  Apply a predefined spatial distance threshold based on the interaction length(=30um)...
+ ■                                  1% |  ETA:  4m
+ ■■                                 3% |  ETA:  4m
+ ■■                                 5% |  ETA:  3m
+ ■■■                                7% |  ETA:  3m
+ ■■■■                               8% |  ETA:  3m
+ ■■■■                              10% |  ETA:  3m
+ ■■■■■                             12% |  ETA:  3m
+ ■■■■■                             14% |  ETA:  3m
+ ■■■■■■                            15% |  ETA:  3m
+ ■■■■■■                            17% |  ETA:  2m
+ ■■■■■■■                           19% |  ETA:  2m
+ ■■■■■■■                           21% |  ETA:  2m
+ ■■■■■■■■                          23% |  ETA:  2m
+ ■■■■■■■■                          24% |  ETA:  2m
+ ■■■■■■■■■                         26% |  ETA:  2m
+ ■■■■■■■■■                         28% |  ETA:  2m
+ ■■■■■■■■■■                        29% |  ETA:  2m
+ ■■■■■■■■■■                        31% |  ETA:  2m
+ ■■■■■■■■■■■                       33% |  ETA:  2m
+ ■■■■■■■■■■■                       34% |  ETA:  2m
+ ■■■■■■■■■■■■                      36% |  ETA:  2m
+ ■■■■■■■■■■■■                      37% |  ETA:  2m
+ ■■■■■■■■■■■■■                     39% |  ETA:  2m
+ ■■■■■■■■■■■■■                     40% |  ETA:  2m
+ ■■■■■■■■■■■■■                     41% |  ETA:  2m
+ ■■■■■■■■■■■■■■                    43% |  ETA:  2m
+ ■■■■■■■■■■■■■■                    44% |  ETA:  2m
+ ■■■■■■■■■■■■■■■                   46% |  ETA:  2m
+ ■■■■■■■■■■■■■■■                   47% |  ETA:  2m
+ ■■■■■■■■■■■■■■■■                  49% |  ETA:  2m
+ ■■■■■■■■■■■■■■■■                  50% |  ETA:  2m
+ ■■■■■■■■■■■■■■■■■                 52% |  ETA:  2m
+ ■■■■■■■■■■■■■■■■■                 53% |  ETA:  1m
+ ■■■■■■■■■■■■■■■■■                 55% |  ETA:  1m
+ ■■■■■■■■■■■■■■■■■■                56% |  ETA:  1m
+ ■■■■■■■■■■■■■■■■■■                58% |  ETA:  1m
+ ■■■■■■■■■■■■■■■■■■■               59% |  ETA:  1m
+ ■■■■■■■■■■■■■■■■■■■               61% |  ETA:  1m
+ ■■■■■■■■■■■■■■■■■■■■              62% |  ETA:  1m
+ ■■■■■■■■■■■■■■■■■■■■              64% |  ETA:  1m
+ ■■■■■■■■■■■■■■■■■■■■■             65% |  ETA:  1m
+ ■■■■■■■■■■■■■■■■■■■■■             67% |  ETA:  1m
+ ■■■■■■■■■■■■■■■■■■■■■             68% |  ETA:  1m
+ ■■■■■■■■■■■■■■■■■■■■■■            70% |  ETA:  1m
+ ■■■■■■■■■■■■■■■■■■■■■■            71% |  ETA:  1m
+ ■■■■■■■■■■■■■■■■■■■■■■■           73% |  ETA:  1m
+ ■■■■■■■■■■■■■■■■■■■■■■■           74% |  ETA: 50s
+ ■■■■■■■■■■■■■■■■■■■■■■■■          75% |  ETA: 47s
+ ■■■■■■■■■■■■■■■■■■■■■■■■          77% |  ETA: 44s
+ ■■■■■■■■■■■■■■■■■■■■■■■■          78% |  ETA: 42s
+ ■■■■■■■■■■■■■■■■■■■■■■■■■         80% |  ETA: 39s
+ ■■■■■■■■■■■■■■■■■■■■■■■■■         81% |  ETA: 36s
+ ■■■■■■■■■■■■■■■■■■■■■■■■■■        83% |  ETA: 33s
+ ■■■■■■■■■■■■■■■■■■■■■■■■■■        84% |  ETA: 31s
+ ■■■■■■■■■■■■■■■■■■■■■■■■■■■       86% |  ETA: 28s
+ ■■■■■■■■■■■■■■■■■■■■■■■■■■■       87% |  ETA: 25s
+ ■■■■■■■■■■■■■■■■■■■■■■■■■■■■      89% |  ETA: 22s
+ ■■■■■■■■■■■■■■■■■■■■■■■■■■■■      90% |  ETA: 20s
+ ■■■■■■■■■■■■■■■■■■■■■■■■■■■■      91% |  ETA: 17s
+ ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■     92% |  ETA: 15s
+ ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■     94% |  ETA: 13s
+ ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■     95% |  ETA: 10s
+ ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■    96% |  ETA:  7s
+ ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■    98% |  ETA:  4s
+ ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■   99% |  ETA:  2s
+Error: cannot allocate vector of size 8.3 Mb
+In addition: Warning message:
+In asMethod(object) :
+  sparse->dense coercion: allocating vector of size 13.4 GiB
+Execution halted

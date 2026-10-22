@@ -17,3 +17,5 @@
 
 ^paper$
 ^SUBMISSION_SHA256\.tsv$
+^README_GITHUB_UPDATE\.md$
+^UPLOAD_GUIDE_.*\.md$

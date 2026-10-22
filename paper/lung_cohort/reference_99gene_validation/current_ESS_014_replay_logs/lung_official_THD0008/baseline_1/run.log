@@ -1,0 +1,10 @@
+START lung_official_THD0008 baseline 1 2026-10-01 01:51:20 
+          used (Mb) gc trigger  (Mb) max used  (Mb)
+Ncells 1521954 81.3    2774628 148.2  2244741 119.9
+Vcells 4304783 32.9   10146329  77.5  5490702  41.9
+                   case  variant repetition version cells genes groups lr nboot
+1 lung_official_THD0008 baseline          1   0.1.3 69227    99     46 37    20
+      seed inference_seconds graph_edges graph_bytes active significant_lt005
+1 20260831             2.464     2007334    48457880  21332              2515
+  significant_le005    status
+1              3648 completed

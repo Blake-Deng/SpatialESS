@@ -1,0 +1,31 @@
+{
+  "analysis": "Atera cervical full-input SpatialCellChat attempt",
+  "input_cells": 715512,
+  "nominal_figure_category": "700k",
+  "genes": 18028,
+  "lr_records": 3081,
+  "nboot": 100,
+  "seed_use": 1,
+  "cpu_affinity": 0,
+  "thread_environment": {
+    "OMP_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1",
+    "BLIS_NUM_THREADS": "1"
+  },
+  "address_space_limit_GiB": 96,
+  "timeout_seconds": 43200,
+  "parameters": {
+    "ratio": 1,
+    "tol": 5,
+    "interaction.range": 30,
+    "contact.range": 10,
+    "Kh": 0.5,
+    "n": 1,
+    "use.AGAN": true,
+    "contact.dependent": true,
+    "contact.dependent.forced": false,
+    "min.percent": 0.1,
+    "min.cells.sr": 5
+  }
+}

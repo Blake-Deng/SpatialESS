@@ -1,0 +1,15 @@
+START cervical_center_5000_default_no_hash_b100_rep5 2026-10-12 23:38:40 package: /home/dzf/cellchat_acceleration/analysis/component_ablation_20261012/lib/SpatialESS 
+          used (Mb) gc trigger  (Mb) max used  (Mb)
+Ncells 1561454 83.4    3111270 166.2  2126354 113.6
+Vcells 3365512 25.7    8388608  64.0  4743362  36.2
+                          case variant  phase repetition cells genes   lr nboot
+1 cervical_center_5000_default no_hash formal          5  5000   730 1076   100
+  seed directed_edges inference_seconds graph_seconds observed_seconds
+1    1         149990             6.151         0.168        0.3842096
+  permutation_seconds output_seconds primary_graph_array_bytes
+1            5.367976     6.0655e-05                   1839888
+  graph_object_bytes active_records significant_lt005 significant_le005 version
+1            3523752             11                10                10   0.1.4
+     status
+1 completed
+FINISH cervical_center_5000_default_no_hash_b100_rep5 2026-10-12 23:38:46 

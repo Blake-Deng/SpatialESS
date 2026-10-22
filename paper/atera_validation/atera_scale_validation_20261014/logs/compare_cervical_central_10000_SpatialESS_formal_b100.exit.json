@@ -1,0 +1,28 @@
+{
+  "tag": "compare_cervical_central_10000_SpatialESS_formal_b100",
+  "status": "completed",
+  "started": "2026-10-14T16:31:10.430667+08:00",
+  "started_epoch": 1791966670.4306788,
+  "command": [
+    "/home/dzf/miniforge3/bin/python",
+    "/home/dzf/cellchat_acceleration/analysis/atera_scale_validation_20261014/scripts/compare_scale.py",
+    "cervical_central_10000_SpatialESS_formal_b100",
+    "cervical_central_10000_SpatialCellChat_formal_b100"
+  ],
+  "timeout_seconds": 600,
+  "runner_pid": 281583,
+  "tissue": "cervical",
+  "fixture": "central_10000",
+  "operation": "comparison",
+  "child_pid": 564153,
+  "heartbeat": "2026-10-14T16:31:10.437061+08:00",
+  "returncode": 0,
+  "finished": "2026-10-14T16:31:11.102691+08:00",
+  "elapsed_seconds": 0.6722357273101807,
+  "measurements": {
+    "peak_RSS_KiB": 117192,
+    "peak_RSS_GB_decimal": 0.120004608,
+    "whole_process_seconds": 0.61,
+    "reported_exit_status": 0
+  }
+}

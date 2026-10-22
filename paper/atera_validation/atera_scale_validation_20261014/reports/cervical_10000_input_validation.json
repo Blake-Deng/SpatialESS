@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "tissue": "cervical",
+  "N": 10000,
+  "genes": 18028,
+  "lr": 3081,
+  "nboot": 100,
+  "seed_use": 1,
+  "central_center": [4631.43106439753, 4251.51114521028],
+  "exact_prefix_of_central_25000": true,
+  "exact_extension_of_central_5000": true,
+  "full_coordinate_center_rule_verified": true,
+  "sampling": "Nearest squared Euclidean distance to full eligible mean; original index breaks ties; no randomness.",
+  "input_md5": "b8a4a69cd5009edb28ea9805d5cfed78"
+}

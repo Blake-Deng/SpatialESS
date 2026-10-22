@@ -1,0 +1,17 @@
+{
+  "size": 25000,
+  "outcomes": [
+    {
+      "tissue": "breast",
+      "size": 25000,
+      "reference_completed": true,
+      "strict_agreement": true
+    },
+    {
+      "tissue": "cervical",
+      "size": 25000,
+      "reference_completed": true,
+      "strict_agreement": true
+    }
+  ]
+}

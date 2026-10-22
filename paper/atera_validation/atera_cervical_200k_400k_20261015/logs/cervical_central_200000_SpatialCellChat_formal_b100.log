@@ -1,0 +1,10 @@
+START 2026-10-15 23:06:10 cervical central_200000 SpatialCellChat formal N 200000 genes 18028 LR 3081 permutations 100 
+ℹ Create a SpatialCellChat object from a data matrixCreate a SpatialCellChat object from spatial imaging data... 
+Set cell identities for the new SpatialCellChat object 
+The cell groups used for SpatialCellChat analysis are  B Cells Cancer Associated Fibroblasts Cytotoxic T Cells Dendritic Cells Detachment Differentiating Tumor Cells Dyskeratotic Tumor Cells Endocervical Ciliated Cells Endothelial Cells Exhausted T Cells Hypoxic Tumor Cells Interstitial Fibroblasts Macrophages Mast Cells Metabolic Invasive Basal Cells Migratory Invasive Basal Cells Naive & Memory T Cells Neutrophils OR4F17+ Cells Parabasal Tumor Cells Plasma Cells Proliferative Parabasal Cells Regulatory T Cells Smooth Muscle Stroma & Smooth Muscle 
+>>>  Analyzing spatial transcriptomic data and preferring to infer interactions between individual cells...
+Error: cannot allocate vector of size 298.0 Gb
+In addition: Warning message:
+In asMethod(object) :
+  sparse->dense coercion: allocating vector of size 26.9 GiB
+Execution halted

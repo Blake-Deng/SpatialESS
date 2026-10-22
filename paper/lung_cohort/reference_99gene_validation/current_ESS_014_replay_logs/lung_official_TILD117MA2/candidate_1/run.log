@@ -1,0 +1,10 @@
+START lung_official_TILD117MA2 candidate 1 2026-10-01 01:52:02 
+          used (Mb) gc trigger  (Mb) max used  (Mb)
+Ncells 1487997 79.5    2774628 148.2  2210784 118.1
+Vcells 3426055 26.2    8388608  64.0  4611974  35.2
+                      case   variant repetition version cells genes groups lr
+1 lung_official_TILD117MA2 candidate          1   0.1.4 35271    99     45 37
+  nboot     seed inference_seconds graph_edges graph_bytes active
+1    20 20260831             1.133      817820    20592880  20170
+  significant_lt005 significant_le005    status
+1              1887              3053 completed

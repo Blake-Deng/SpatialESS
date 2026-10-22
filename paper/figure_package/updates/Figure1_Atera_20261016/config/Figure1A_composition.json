@@ -1,0 +1,30 @@
+{
+  "user_source": "assets/Figure1A_user_original.pdf",
+  "sha256": "92c19a82c3dd3667720db50139d0d043b7d95cad3795d410c54eb5ab5722ec52",
+  "source_pdf_sha256_matches_workflow_comparison": true,
+  "destination_mm": [
+    2,
+    2,
+    176,
+    78.52
+  ],
+  "keep_proportion": true,
+  "internal_modification": false,
+  "minimum_displayed_source_font_pt_approx": 4.375649174818281,
+  "figure1_canvas_mm": [
+    180,
+    250
+  ],
+  "standalone_figure1A_canvas_mm": [
+    180,
+    82.52
+  ],
+  "deliverables": [
+    "figures/Figure1.pdf",
+    "figures/Figure1.svg",
+    "figures/Figure1.png",
+    "figures/Figure1A.pdf",
+    "figures/Figure1A.svg",
+    "figures/Figure1A.png"
+  ]
+}

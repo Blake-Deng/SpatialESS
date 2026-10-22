@@ -1,0 +1,314 @@
+{
+  "props": {
+    "pageProps": {
+      "dataset": {
+        "title": "Preview Data: Atera In Situ Gene Expression, FFPE Human Breast Cancer",
+        "publishedAt": "2026-06-02T19:22:58.509Z",
+        "alert": {
+          "message": "This preview dataset was generated using development versions of the pre-designed panel, user guides, and analysis software. It may be replaced with data generated using the final workflow in the future.",
+          "link": {
+            "url": " ",
+            "label": " "
+          }
+        },
+        "product": {
+          "name": "Atera",
+          "platforms": [
+            {
+              "name": "Atera",
+              "productFamilies": [],
+              "technology": "In Situ",
+              "image": "",
+              "path": "platforms/en/atera.json",
+              "slug": "atera"
+            }
+          ],
+          "instruments": [
+            {
+              "shortDescription": "A high-throughput single-cell spatial imaging platform with automated in situ hybridization, imaging, and on-instrument decoding.",
+              "platforms": [
+                {
+                  "name": "Atera",
+                  "productFamilies": [],
+                  "technology": "In Situ",
+                  "image": "",
+                  "path": "platforms/en/atera.json",
+                  "slug": "atera"
+                }
+              ],
+              "name": "Atera",
+              "supportImage": "https://cdn.10xgenomics.com/image/upload/v1651769650/support/documents/documentation_default.png",
+              "url": "",
+              "image": "",
+              "marketoProductOfInterest": "Atera",
+              "marketoLastTouchOfferName": "Atera",
+              "path": "instruments/en/atera.json",
+              "slug": "atera"
+            }
+          ],
+          "path": "products/en/atera.json",
+          "slug": "atera"
+        },
+        "software": {
+          "name": "Atera Onboard Analysis",
+          "shortDescription": "Atera Instrument Software enables run set up, Atera Onboard Analysis data generation, and data egress.",
+          "description": "Atera Instrument Software enables run set up, Atera Onboard Analysis data generation, and data egress.",
+          "headline": "Atera Instrument Software enables run set up, Atera Onboard Analysis data generation, and data egress.",
+          "supportLink": "/support/software/atera-onboard-analysis/latest",
+          "supportImage": "https://cdn.10xgenomics.com/image/upload/f_auto,q_auto/v1788295782/software-support/atera-instrument-sw/Atera_onboard_analysis_thumbnail.png",
+          "hero": "https://cdn.10xgenomics.com/image/upload/f_auto,q_auto/v1788295782/software-support/atera-instrument-sw/Atera_onboard_analysis_thumbnail.png",
+          "platforms": [
+            {
+              "name": "Atera",
+              "productFamilies": [],
+              "technology": "In Situ",
+              "image": "",
+              "path": "platforms/en/atera.json",
+              "slug": "atera"
+            }
+          ],
+          "productFamilies": [
+            {
+              "name": "Gene Expression",
+              "path": "product-families/en/gene-expression.json",
+              "slug": "gene-expression"
+            }
+          ],
+          "type": "Pipeline",
+          "path": "software/en/atera-onboard-analysis.json",
+          "slug": "atera-onboard-analysis"
+        },
+        "pipeline": "dev",
+        "chemistries": [
+          "Preproduction"
+        ],
+        "species": [
+          "Human"
+        ],
+        "developmentStages": [
+          "Adult"
+        ],
+        "diseaseStates": [
+          "Breast cancer"
+        ],
+        "biomaterialTypes": [],
+        "anatomicalEntities": [
+          "Breast"
+        ],
+        "cellsOrNuclei": [
+          "Cells"
+        ],
+        "preservationMethods": [
+          "FFPE"
+        ],
+        "instruments": [
+          {
+            "shortDescription": "A high-throughput single-cell spatial imaging platform with automated in situ hybridization, imaging, and on-instrument decoding.",
+            "platforms": [
+              {
+                "name": "Atera",
+                "productFamilies": [],
+                "technology": "In Situ",
+                "image": "",
+                "path": "platforms/en/atera.json",
+                "slug": "atera"
+              }
+            ],
+            "name": "Atera",
+            "supportImage": "https://cdn.10xgenomics.com/image/upload/v1651769650/support/documents/documentation_default.png",
+            "url": "",
+            "image": "",
+            "marketoProductOfInterest": "Atera",
+            "marketoLastTouchOfferName": "Atera",
+            "path": "instruments/en/atera.json",
+            "slug": "atera"
+          }
+        ],
+        "files": [
+          {
+            "title": "Breast cancer",
+            "resourceId": "WTA_Preview_FFPE_Breast_Cancer",
+            "fileset": {
+              "outputs": [
+                {
+                  "filename": "outs.zip",
+                  "title": "Output Bundle (full)"
+                },
+                {
+                  "filename": "xe_outs.zip",
+                  "title": "Xenium Explorer Output Bundle"
+                }
+              ],
+              "inputs": [
+                {
+                  "title": "Supplemental: Gene Groups (CSV)",
+                  "filename": "gene_groups.csv"
+                },
+                {
+                  "title": "Supplemental: Cell Groups (CSV)",
+                  "filename": "cell_groups.csv"
+                },
+                {
+                  "title": "Supplemental: Post-Run H&E Image (OME-TIFF)",
+                  "filename": "he_image.ome.tif"
+                },
+                {
+                  "title": "Supplemental: H&E Image Alignment File (CSV)",
+                  "filename": "he_alignment.csv"
+                },
+                {
+                  "title": "Supplemental: Keypoints Alignment File (CSV)",
+                  "filename": "keypoints.csv"
+                }
+              ],
+              "summaries": [
+                {
+                  "filename": "analysis_summary.html",
+                  "title": "Summary"
+                }
+              ],
+              "slug": "atera-preview",
+              "path": "dataset-filesets/atera-preview.json"
+            }
+          }
+        ],
+        "webDemo": "https://explorer.10xgenomics.com/?image=s3%2F10x.files%2Fxenium%2Fpreview%2FWTA_Preview_FFPE_Breast_Cancer%2Fexperiment.xenium&layers=cell~image~feature&cell_bt=cell&cell_c=groups&cell_g=10&cell_o=0.8&ct_c=Viridis&ct_o=0.8&ct_s=2_13006&cell_v=filled&z=0&projection_name=Zm9jdXMtdjI%3D&off=&mi_v=true&axes=true&highlight=true&nav=true&rotation=0&target=12084.39_22638.68&tt_off=false&zoom=0.17&feature=icon&feature_off=0_37~39_429~431_679~681_1359~1361_1521~1523_1927~1929_2325~2327_3212~3214_3223~3225_3230~3233_3235~3237_3619~3621_3625~3627_4542~4544_4602~4604_4612~4614_5463~5465_5681~5683_6883~6885_7749~7751_7829~7831_7893~7895_8054~8056_8366~8368_9301~9303_9397~9399_9441~9443_9870~9872_11445~11447_11797~11799_12020~12022_12040~12042_12092~12094_12104~12106_13490~13492_13960~13962_15074~15076_15215~15217_15465~15467_16353~16355_16882~16884_27104&feature_psc=3&feature_ps=circles&feature_selected=38~430~680~1360~1522~1928~2326~3213~3224~3231_3232~3236~3620~3626~4543~4603~4613~5464~5682~6884~7750~7830~7894~8055~8367~9302~9398~9442~9871~11446~11798~12021~12041~12093~12105~13491~13961~15075~15216~15466~16354~16883&bin=10&d_c=Inferno&d_o=0.8&ii_minmax=&ii_colors=&ii_gamma=&ii_b=0&ii_c=1&ii_n=H%26E%20Image&ii_o=0.5&ii_p=s3%2F10x.files%2Fxenium%2Fpreview%2FWTA_Preview_FFPE_Breast_Cancer%2Fhe_image.ome.tif&ii_t=kTGlvf4Gjj%2B%2FBH3WnZz0P3D9HceDn7fAvwR91p2c9L%2BRMaW9%2FgaOP%2FcWLASXf%2FtAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPA%2F&ii_v=false&ii_colormap=&ii_on=0&sel_o=0.5&sel_v=outlined",
+        "body": "**Overview**\n\nThis human FFPE breast cancer data showcases results using the preproduction version of the Atera Whole Transcriptome Assay (WTA), which is currently under development. The assay was designed to closely match the Chromium Flex Apex assay in terms of content and sensitivity, and includes 18,028 genes. The number of probes per gene were optimized to maximize sensitivity of lowly expressed genes and avoid optical crowding risk for highly expressed genes. The 10x Genomics in situ multimodal cell segmentation solution was used to generate cell segmentation boundaries. Analysis from this dataset was presented in the AACR poster available [here](/library/d97c85ce-559c-4df5-a2cd-d227eeea10e4).\n\n**How to view data**\n\nInteractively explore this dataset with the web demo (\"Open web demo\" above), a preview of the upcoming desktop version of visualization software.\n\nThis preview dataset can also be opened in Xenium Explorer software (v4.1.1), but you may experience performance issues due to the large dataset size. See the [Getting Started with Xenium Explorer page](/support/software/xenium-explorer/latest) for general guidance navigating the web demo interface and these [instructions](/support/software/xenium-explorer/latest/tutorials/xe-image-alignment) to explore the aligned H&E image in the demo.\n\nDownload the files to explore further on your desktop. This preview dataset was converted to closely resemble [Xenium Onboard Analysis v4 file formats](/support/software/xenium-onboard-analysis/latest/analysis/xoa-output-understanding-outputs) for compatibility with existing analysis packages. It has been tested with seurat v5.4.0, scanpy v1.12.0, and spatialdata v0.7.2 + spatialdata_io v0.6.0. However due to minor differences in formats, it is not compatible with Xenium Ranger and not guaranteed to be compatible with other untested community-developed tools. Atera's official output data format will be optimized to integrate with the broader bioinformatics ecosystem and reduce data management overhead. Future Atera data releases will showcase the new file format to help customers transition.\n\n**Biomaterials**\n\nFFPE tissue blocks were purchased from BioIVT (breast cancer, DCIS: G3 (T1c N0 M0)).\n\n**Analysis metrics**\n\n| Metric | Breast Cancer |\n| --- | --- |\n| Median transcripts per cell | 2,116 |\n| Cells detected | 170,057 |\n| Nuclear transcripts per 100 \u00b5m\u00b2 | 4,549.2 |\n| Total high quality decoded transcripts | 624,095,990 |\n| Region area (\u00b5m\u00b2) | 58,944,371.2 |\n\n**Custom Cell Groups**\n\nDifferentially expressed genes from the graph-based clustering results were exported to annotate cell types. Major cell groups were annotated based on [Kumar et al. (2023)](https://www.nature.com/articles/s41586-023-06252-9). High-grade versus low-grade DCIS (ductal carcinoma in situ) tumor cells were annotated based on molecular markers, myoepithelial cell number, and spatial localization. Similarly, cancer-associated fibroblasts (CAFs; low-grade or high-grade DCIS-associated) were annotated based on their spatial location. H&E proved insufficient for identifying structured basal-like DCIS which was staged as 'normal' by a pathologist, therefore, we exclusively utilized molecular markers. Cycling cells were validated using the `CellCycleScoring` function in Seurat. Apocrine cells were identified by histology and _PIP_ expression (encodes prolactin-induced protein). High-grade 11q13-positive DCIS cells were identified by high collective expression of genes found on the 11q13 locus.\n\n**Custom Gene Groups**\n\nFor the 11q13 Amplicon gene group, we list 12 genes located within the 11q13 chromosomal locus that are upregulated in high-grade DCIS cells. For all other gene groups, marker genes were derived from differential expression results generated by graph-based clustering. Genes were ranked using a composite score of log<sub>2</sub>(fold change) \u00d7 log<sub>2</sub>(mean counts + 1), retaining only genes with an adjusted p-value < 0.05. For immune cell types, the resulting ranked lists were further refined against published literature and cell atlas resources to retain only markers with established specificity for the relevant cell type.\n",
+        "mdx": {
+          "compiledSource": "\"use strict\";\nconst {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];\nconst {useMDXComponents: _provideComponents} = arguments[0];\nfunction _createMdxContent(props) {\n  const _components = {\n    a: \"a\",\n    code: \"code\",\n    em: \"em\",\n    p: \"p\",\n    strong: \"strong\",\n    table: \"table\",\n    tbody: \"tbody\",\n    td: \"td\",\n    th: \"th\",\n    thead: \"thead\",\n    tr: \"tr\",\n    ..._provideComponents(),\n    ...props.components\n  };\n  return _jsxs(_Fragment, {\n    children: [_jsx(_components.p, {\n      children: _jsx(_components.strong, {\n        children: \"Overview\"\n      })\n    }), \"\\n\", _jsxs(_components.p, {\n      children: [\"This human FFPE breast cancer data showcases results using the preproduction version of the Atera Whole Transcriptome Assay (WTA), which is currently under development. The assay was designed to closely match the Chromium Flex Apex assay in terms of content and sensitivity, and includes 18,028 genes. The number of probes per gene were optimized to maximize sensitivity of lowly expressed genes and avoid optical crowding risk for highly expressed genes. The 10x Genomics in situ multimodal cell segmentation solution was used to generate cell segmentation boundaries. Analysis from this dataset was presented in the AACR poster available \", _jsx(_components.a, {\n        href: \"/library/d97c85ce-559c-4df5-a2cd-d227eeea10e4\",\n        children: \"here\"\n      }), \".\"]\n    }), \"\\n\", _jsx(_components.p, {\n      children: _jsx(_components.strong, {\n        children: \"How to view data\"\n      })\n    }), \"\\n\", _jsx(_components.p, {\n      children: \"Interactively explore this dataset with the web demo (\\\"Open web demo\\\" above), a preview of the upcoming desktop version of visualization software.\"\n    }), \"\\n\", _jsxs(_components.p, {\n      children: [\"This preview dataset can also be opened in Xenium Explorer software (v4.1.1), but you may experience performance issues due to the large dataset size. See the \", _jsx(_components.a, {\n        href: \"/support/software/xenium-explorer/latest\",\n        children: \"Getting Started with Xenium Explorer page\"\n      }), \" for general guidance navigating the web demo interface and these \", _jsx(_components.a, {\n        href: \"/support/software/xenium-explorer/latest/tutorials/xe-image-alignment\",\n        children: \"instructions\"\n      }), \" to explore the aligned H&E image in the demo.\"]\n    }), \"\\n\", _jsxs(_components.p, {\n      children: [\"Download the files to explore further on your desktop. This preview dataset was converted to closely resemble \", _jsx(_components.a, {\n        href: \"/support/software/xenium-onboard-analysis/latest/analysis/xoa-output-understanding-outputs\",\n        children: \"Xenium Onboard Analysis v4 file formats\"\n      }), \" for compatibility with existing analysis packages. It has been tested with seurat v5.4.0, scanpy v1.12.0, and spatialdata v0.7.2 + spatialdata_io v0.6.0. However due to minor differences in formats, it is not compatible with Xenium Ranger and not guaranteed to be compatible with other untested community-developed tools. Atera's official output data format will be optimized to integrate with the broader bioinformatics ecosystem and reduce data management overhead. Future Atera data releases will showcase the new file format to help customers transition.\"]\n    }), \"\\n\", _jsx(_components.p, {\n      children: _jsx(_components.strong, {\n        children: \"Biomaterials\"\n      })\n    }), \"\\n\", _jsx(_components.p, {\n      children: \"FFPE tissue blocks were purchased from BioIVT (breast cancer, DCIS: G3 (T1c N0 M0)).\"\n    }), \"\\n\", _jsx(_components.p, {\n      children: _jsx(_components.strong, {\n        children: \"Analysis metrics\"\n      })\n    }), \"\\n\", _jsxs(_components.table, {\n      children: [_jsx(_components.thead, {\n        children: _jsxs(_components.tr, {\n          children: [_jsx(_components.th, {\n            children: \"Metric\"\n          }), _jsx(_components.th, {\n            children: \"Breast Cancer\"\n          })]\n        })\n      }), _jsxs(_components.tbody, {\n        children: [_jsxs(_components.tr, {\n          children: [_jsx(_components.td, {\n            children: \"Median transcripts per cell\"\n          }), _jsx(_components.td, {\n            children: \"2,116\"\n          })]\n        }), _jsxs(_components.tr, {\n          children: [_jsx(_components.td, {\n            children: \"Cells detected\"\n          }), _jsx(_components.td, {\n            children: \"170,057\"\n          })]\n        }), _jsxs(_components.tr, {\n          children: [_jsx(_components.td, {\n            children: \"Nuclear transcripts per 100 \u00b5m\u00b2\"\n          }), _jsx(_components.td, {\n            children: \"4,549.2\"\n          })]\n        }), _jsxs(_components.tr, {\n          children: [_jsx(_components.td, {\n            children: \"Total high quality decoded transcripts\"\n          }), _jsx(_components.td, {\n            children: \"624,095,990\"\n          })]\n        }), _jsxs(_components.tr, {\n          children: [_jsx(_components.td, {\n            children: \"Region area (\u00b5m\u00b2)\"\n          }), _jsx(_components.td, {\n            children: \"58,944,371.2\"\n          })]\n        })]\n      })]\n    }), \"\\n\", _jsx(_components.p, {\n      children: _jsx(_components.strong, {\n        children: \"Custom Cell Groups\"\n      })\n    }), \"\\n\", _jsxs(_components.p, {\n      children: [\"Differentially expressed genes from the graph-based clustering results were exported to annotate cell types. Major cell groups were annotated based on \", _jsx(_components.a, {\n        href: \"https://www.nature.com/articles/s41586-023-06252-9\",\n        children: \"Kumar et al. (2023)\"\n      }), \". High-grade versus low-grade DCIS (ductal carcinoma in situ) tumor cells were annotated based on molecular markers, myoepithelial cell number, and spatial localization. Similarly, cancer-associated fibroblasts (CAFs; low-grade or high-grade DCIS-associated) were annotated based on their spatial location. H&E proved insufficient for identifying structured basal-like DCIS which was staged as 'normal' by a pathologist, therefore, we exclusively utilized molecular markers. Cycling cells were validated using the \", _jsx(_components.code, {\n        children: \"CellCycleScoring\"\n      }), \" function in Seurat. Apocrine cells were identified by histology and \", _jsx(_components.em, {\n        children: \"PIP\"\n      }), \" expression (encodes prolactin-induced protein). High-grade 11q13-positive DCIS cells were identified by high collective expression of genes found on the 11q13 locus.\"]\n    }), \"\\n\", _jsx(_components.p, {\n      children: _jsx(_components.strong, {\n        children: \"Custom Gene Groups\"\n      })\n    }), \"\\n\", _jsxs(_components.p, {\n      children: [\"For the 11q13 Amplicon gene group, we list 12 genes located within the 11q13 chromosomal locus that are upregulated in high-grade DCIS cells. For all other gene groups, marker genes were derived from differential expression results generated by graph-based clustering. Genes were ranked using a composite score of log\", _jsx(\"sub\", {\n        children: \"2\"\n      }), \"(fold change) \u00d7 log\", _jsx(\"sub\", {\n        children: \"2\"\n      }), \"(mean counts + 1), retaining only genes with an adjusted p-value < 0.05. For immune cell types, the resulting ranked lists were further refined against published literature and cell atlas resources to retain only markers with established specificity for the relevant cell type.\"]\n    })]\n  });\n}\nfunction MDXContent(props = {}) {\n  const {wrapper: MDXLayout} = {\n    ..._provideComponents(),\n    ...props.components\n  };\n  return MDXLayout ? _jsx(MDXLayout, {\n    ...props,\n    children: _jsx(_createMdxContent, {\n      ...props\n    })\n  }) : _createMdxContent(props);\n}\nreturn {\n  default: MDXContent\n};\n",
+          "frontmatter": {},
+          "scope": {}
+        },
+        "path": "datasets/atera-wta-ffpe-human-breast-cancer.md",
+        "slug": "atera-wta-ffpe-human-breast-cancer"
+      },
+      "filesetMap": {
+        "Breast cancer": {
+          "outputs": [
+            {
+              "bytes": 55238489095,
+              "md5sum": "23d39dfbc76bb168362ba2fec0cd347d",
+              "title": "Output Bundle (full)",
+              "url": "https://s3-us-west-2.amazonaws.com/10x.files/samples/atera/dev/WTA_Preview_FFPE_Breast_Cancer/WTA_Preview_FFPE_Breast_Cancer_outs.zip"
+            },
+            {
+              "bytes": 43215041248,
+              "md5sum": "383ccbd4709672859cb3d80534bb5e5d",
+              "title": "Xenium Explorer Output Bundle",
+              "url": "https://s3-us-west-2.amazonaws.com/10x.files/samples/atera/dev/WTA_Preview_FFPE_Breast_Cancer/WTA_Preview_FFPE_Breast_Cancer_xe_outs.zip"
+            }
+          ],
+          "inputs": [],
+          "summaries": [
+            {
+              "bytes": 10300838,
+              "md5sum": "b58a7cb08c86760a1eb2e8fa13c76981",
+              "title": "Summary",
+              "url": "https://cf.10xgenomics.com/samples/atera/dev/WTA_Preview_FFPE_Breast_Cancer/WTA_Preview_FFPE_Breast_Cancer_analysis_summary.html"
+            }
+          ],
+          "slug": "atera-preview",
+          "path": "dataset-filesets/atera-preview.json"
+        }
+      },
+      "groupedOutputMap": {
+        "Breast cancer": {
+          "general": [
+            {
+              "bytes": 55238489095,
+              "md5sum": "23d39dfbc76bb168362ba2fec0cd347d",
+              "title": "Output Bundle (full)",
+              "url": "https://s3-us-west-2.amazonaws.com/10x.files/samples/atera/dev/WTA_Preview_FFPE_Breast_Cancer/WTA_Preview_FFPE_Breast_Cancer_outs.zip"
+            },
+            {
+              "bytes": 43215041248,
+              "md5sum": "383ccbd4709672859cb3d80534bb5e5d",
+              "title": "Xenium Explorer Output Bundle",
+              "url": "https://s3-us-west-2.amazonaws.com/10x.files/samples/atera/dev/WTA_Preview_FFPE_Breast_Cancer/WTA_Preview_FFPE_Breast_Cancer_xe_outs.zip"
+            }
+          ],
+          "geneExpression": [],
+          "bcr": [],
+          "tcr": [],
+          "supplemental": [
+            {
+              "bytes": 3653,
+              "md5sum": "7a60bd5c85dbe27b594f6ff0605f56de",
+              "title": "Supplemental: Gene Groups (CSV)",
+              "url": "https://cf.10xgenomics.com/samples/atera/dev/WTA_Preview_FFPE_Breast_Cancer/WTA_Preview_FFPE_Breast_Cancer_gene_groups.csv"
+            },
+            {
+              "bytes": 7914867,
+              "md5sum": "ab44df12e61a50c875524a7966241533",
+              "title": "Supplemental: Cell Groups (CSV)",
+              "url": "https://cf.10xgenomics.com/samples/atera/dev/WTA_Preview_FFPE_Breast_Cancer/WTA_Preview_FFPE_Breast_Cancer_cell_groups.csv"
+            },
+            {
+              "bytes": 17732417252,
+              "md5sum": "9d84d77ceace686c84b6bac9a08d5d22",
+              "title": "Supplemental: Post-Run H&E Image (OME-TIFF)",
+              "url": "https://cf.10xgenomics.com/samples/atera/dev/WTA_Preview_FFPE_Breast_Cancer/WTA_Preview_FFPE_Breast_Cancer_he_image.ome.tif"
+            },
+            {
+              "bytes": 124,
+              "md5sum": "aa9fc04476bfb3efb1bbb0d8022009c3",
+              "title": "Supplemental: H&E Image Alignment File (CSV)",
+              "url": "https://cf.10xgenomics.com/samples/atera/dev/WTA_Preview_FFPE_Breast_Cancer/WTA_Preview_FFPE_Breast_Cancer_he_alignment.csv"
+            },
+            {
+              "bytes": 929,
+              "md5sum": "2dcacdfceed06bd34a7864dfedd8bddf",
+              "title": "Supplemental: Keypoints Alignment File (CSV)",
+              "url": "https://cf.10xgenomics.com/samples/atera/dev/WTA_Preview_FFPE_Breast_Cancer/WTA_Preview_FFPE_Breast_Cancer_keypoints.csv"
+            }
+          ]
+        }
+      },
+      "groupedSamples": {
+        "sample": [
+          "Breast cancer"
+        ]
+      },
+      "visualizationFiles": {
+        "loupeBrowserRaw": [],
+        "loupeBrowserSample": [],
+        "loupeVdj": [],
+        "xeniumExplorer": [
+          {
+            "bytes": 55238489095,
+            "md5sum": "23d39dfbc76bb168362ba2fec0cd347d",
+            "title": "Output Bundle (full)",
+            "url": "https://s3-us-west-2.amazonaws.com/10x.files/samples/atera/dev/WTA_Preview_FFPE_Breast_Cancer/WTA_Preview_FFPE_Breast_Cancer_outs.zip",
+            "sample": "Breast cancer"
+          }
+        ],
+        "xeniumExplorerSubset": [
+          {
+            "bytes": 43215041248,
+            "md5sum": "383ccbd4709672859cb3d80534bb5e5d",
+            "title": "Xenium Explorer Output Bundle",
+            "url": "https://s3-us-west-2.amazonaws.com/10x.files/samples/atera/dev/WTA_Preview_FFPE_Breast_Cancer/WTA_Preview_FFPE_Breast_Cancer_xe_outs.zip",
+            "sample": "Breast cancer"
+          }
+        ]
+      }
+    },
+    "__N_SSG": true
+  },
+  "page": "/datasets/[slug]",
+  "query": {
+    "slug": "atera-wta-ffpe-human-breast-cancer"
+  },
+  "buildId": "6RbEPG-W7hxXKVptswhUk",
+  "isFallback": false,
+  "isExperimentalCompile": false,
+  "gsp": true,
+  "locale": "en",
+  "locales": [
+    "en",
+    "cn",
+    "jp"
+  ],
+  "defaultLocale": "en",
+  "scriptLoader": []
+}

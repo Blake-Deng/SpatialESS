@@ -1,0 +1,22 @@
+Loading corrected Seurat object
+ℹ Create a SpatialCellChat object from a data matrixCreate a SpatialCellChat object from spatial imaging data... 
+Set cell identities for the new SpatialCellChat object 
+The cell groups used for SpatialCellChat analysis are  Activated Fibrotic FBs Adventitial FBs Alveolar FBs Alveolar Macrophages Arteriole AT1 AT2 B cells Basal Basophils Capillary CD4+ T-cells CD8+ T-cells cDCs Inflammatory FBs Interstitial Macrophages Lymphatic Macrophages - IFN-activated Mast Migratory DCs Monocytes/MDMs Multiciliated Myofibroblasts Neutrophils NK/NKT pDCs Plasma PNEC Proliferating AT2 Proliferating FBs Proliferating Myeloid Proliferating NK/NKT Proliferating T-cells RASC SMCs/Pericytes SPP1+ Macrophages Subpleural FBs Transitional AT2 Tregs Venous 
+>>>  Analyzing spatial transcriptomic data and preferring to infer interactions between individual cells...
+>>>  Apply a predefined spatial distance threshold based on the interaction length(=30um)...
+>>> Contact range is set as 10um, to restrict the contact-dependent signaling.
+>>> Run CellChat on spatial transcriptomic data using distances as constraints <<< [2026-08-31 21:13:23.595238]
+>>>  The input L-R pairs have both secreted signaling and contact-dependent signaling. Run CellChat in a contact-dependent manner for `Cell-Cell Contact` signaling, and in a diffusion manner based on the `interaction.range` for other L-R pairs. 
+ℹ Future strategy in use: `sequential`
+>>>  The number of cells and L-R pairs in Dim(Prob.cell): 5941 5941 37 
+✔ CellChat inference is done. Parameter values are stored in `object@options$parameter` <<< [2026-08-31 21:14:18.48282]
+>>>  The cell groups used for averaging cell-cell communication are  Activated Fibrotic FBs Adventitial FBs Alveolar FBs Alveolar Macrophages Arteriole AT1 AT2 B cells Basal Basophils Capillary CD4+ T-cells CD8+ T-cells cDCs Inflammatory FBs Interstitial Macrophages Lymphatic Macrophages - IFN-activated Mast Migratory DCs Monocytes/MDMs Multiciliated Myofibroblasts Neutrophils NK/NKT pDCs Plasma PNEC Proliferating AT2 Proliferating FBs Proliferating Myeloid Proliferating NK/NKT Proliferating T-cells RASC SMCs/Pericytes SPP1+ Macrophages Subpleural FBs Transitional AT2 Tregs Venous 
+>>> Compute group-level cell-cell communication... <<< [2026-08-31 21:14:19.264852] 
+>>>  compute the average signaling per cell group...
+ℹ Future strategy in use: `sequential`
+>>> Perform permutation test for group-level communication... <<< [2026-08-31 21:14:48.746312] 
+ℹ Future strategy in use: `sequential`
+✔Inference of group-level cell-cell communication is done. Parameter values are stored in `object@options$parameter` <<< [2026-08-31 21:15:27.724467]  sample_id cells groups lr records probability_seconds permutation_seconds
+1   VUHD038  5941     40 37    3642              60.612              69.242
+  end_to_end_seconds
+1            130.222

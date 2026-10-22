@@ -1,0 +1,15 @@
+START cosmx_5000_dense_b5_rep0 2026-10-12 23:19:15 package: /home/dzf/cellchat_acceleration/analysis/component_ablation_20261012/lib/SpatialESS 
+          used (Mb) gc trigger  (Mb) max used  (Mb)
+Ncells 1636264 87.4    3111270 166.2  2400931 128.3
+Vcells 2930863 22.4    8388608  64.0  5449954  41.6
+        case variant phase repetition cells genes lr nboot     seed
+1 cosmx_5000   dense  tiny          0   250   419 30     5 20260803
+  directed_edges inference_seconds graph_seconds observed_seconds
+1           4308             0.036         0.001       0.01365355
+  permutation_seconds output_seconds primary_graph_array_bytes
+1          0.00242405      2.677e-06                     5e+05
+  graph_object_bytes active_records significant_lt005 significant_le005 version
+1             523472              4                 1                 1   0.1.4
+     status
+1 completed
+FINISH cosmx_5000_dense_b5_rep0 2026-10-12 23:19:15 

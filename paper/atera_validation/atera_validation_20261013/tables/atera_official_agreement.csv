@@ -1,0 +1,9 @@
+ess_tag,reference_tag,tissue,fixture,phase,N,genes,lr,nboot,ess_active,reference_active,matched,ess_only,reference_only,active_jaccard,max_absolute_probability_error,max_absolute_pvalue_error,exact_pvalue_fraction,significance_disagreements,probability_pearson_raw,same_input_contract,finite,strict_pass
+breast_central_1000_SpatialESS_formal_b100,breast_central_1000_SpatialCellChat_formal_b100,breast,central_1000,formal,1000,18028,3081,100,5497,5497,5497,0,0,1.0,1.0408340855860844e-16,0.0,1.0,0,1.0,True,True,True
+breast_central_1000_SpatialESS_pilot_b20,breast_central_1000_SpatialCellChat_pilot_b20,breast,central_1000,pilot,1000,18028,3081,20,5497,5497,5497,0,0,1.0,1.0408340855860844e-16,0.0,1.0,0,1.0,True,True,True
+breast_central_1000_SpatialESS_smoke_b5,breast_central_1000_SpatialCellChat_smoke_b5,breast,central_1000,smoke,250,18028,32,5,30,30,30,0,0,1.0,0.0,0.0,1.0,0,0.9999999999999998,True,True,True
+breast_central_5000_SpatialESS_formal_b100,breast_central_5000_SpatialCellChat_formal_b100,breast,central_5000,formal,5000,18028,3081,100,7575,7575,7575,0,0,1.0,1.0408340855860844e-16,0.0,1.0,0,0.9999999999999998,True,True,True
+cervical_central_1000_SpatialESS_formal_b100,cervical_central_1000_SpatialCellChat_formal_b100,cervical,central_1000,formal,1000,18028,3081,100,5072,5072,5072,0,0,1.0,1.006139616066548e-16,0.0,1.0,0,1.0,True,True,True
+cervical_central_1000_SpatialESS_pilot_b20,cervical_central_1000_SpatialCellChat_pilot_b20,cervical,central_1000,pilot,1000,18028,3081,20,5072,5072,5072,0,0,1.0,1.006139616066548e-16,0.0,1.0,0,1.0,True,True,True
+cervical_central_1000_SpatialESS_smoke_b5,cervical_central_1000_SpatialCellChat_smoke_b5,cervical,central_1000,smoke,250,18028,32,5,61,61,61,0,0,1.0,0.0,0.0,1.0,0,1.0,True,True,True
+cervical_central_5000_SpatialESS_formal_b100,cervical_central_5000_SpatialCellChat_formal_b100,cervical,central_5000,formal,5000,18028,3081,100,7392,7392,7392,0,0,1.0,1.006139616066548e-16,0.0,1.0,0,1.0,True,True,True

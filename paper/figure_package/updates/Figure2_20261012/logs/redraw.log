@@ -1,0 +1,10 @@
+Figure2A	source_data/archived/lmm.tsv.gz;source_data/archived/volcano_labels.tsv.gz	feature_id;estimate;q_value;status	n=39570
+Figure2B	source_data/archived/forest.tsv.gz	feature_id;display_id;estimate;lower;upper;singular	n=12
+Figure2C	source_data/archived/effect_heatmap.tsv.gz;source_data/archived/selected_interactions.tsv.gz	feature_id;display_id;standardized_effect;glm_standardized_effect;q_value;glm_q;support_fraction;icc;singular	n=28
+Figure2D_slices	source_data/archived/figure2_examples_slice_scores.tsv.gz	feature_id;sample_id;patient_id;condition;log1p_score	n=135
+Figure2D_patients	source_data/archived/figure2_examples_patient_scores.tsv.gz	feature_id;patient_id;condition;log1p_score	n=105
+Figure2D_feature_identities	source_data/archived/selected_interactions.tsv.gz	feature_id;display_id;ligand;receptor;sender_group_name;receiver_group_name	n=3
+Figure2E	source_data/archived/pathway_pair_representatives.tsv.gz	feature_id;pathway_name;sender_group_name;receiver_group_name;standardized_effect;q_value	n=52
+Figure2A_labels	source_data/archived/volcano_labels.tsv.gz;source_data/archived/lmm.tsv.gz	feature_id;display_id;ligand;receptor;estimate;q_value	n=8
+Exported Figure2: [180. 208.] mm
+Figure 2 only completed; models and other figures untouched.

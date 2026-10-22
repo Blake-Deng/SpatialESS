@@ -1,0 +1,23 @@
+                                                                  check  passed
+                                               Author A asset unchanged    True
+                                 Atera performance embedded in Figure 1    True
+                                     Atera 50k comparison notes present    True
+                          D/E six explicit series legend labels present    True
+            D/E each curve directly labelled at its last measured point    True
+           F-H shared spatial-series and all-pair legend labels present    True
+                                                  Figure 1 has one page    True
+                                                 Figure 1A has one page    True
+                  Panel I uses equally spaced nominal input-size labels    True
+Panel I preserves all source run states and marks two sub-1k exclusions    True
+                        Panel I nominal categories have equal x spacing    True
+                       Atera all full-scale N included in I source data    True
+                          Composed SVG retains editable data-panel text    True
+                          Composed SVG keeps A and data as vector paths    True
+                            Composed SVG contains no raster replacement    True
+                  Atera D/E panel source has all 46 observations/states    True
+                                        Figure 1 canvas is 180 x 250 mm    True
+                                        Figure 1 text stays inside page    True
+                         Figure 1 PDF fonts are embedded and non-Type-3    True
+                                      Figure 1 full-size PNG is 600 dpi    True
+                                    Figure 1A full-width PNG is 600 dpi    True
+                       Atera paired table retains all ten strict passes    True

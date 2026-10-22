@@ -1,0 +1,15 @@
+START cervical_stratified_5000_default_coo_b100_rep5 2026-10-12 23:40:17 package: /home/dzf/cellchat_acceleration/analysis/component_ablation_20261012/lib/SpatialESS 
+          used (Mb) gc trigger  (Mb) max used  (Mb)
+Ncells 1561461 83.4    3111270 166.2  2126363 113.6
+Vcells 3395412 26.0    8388608  64.0  4773264  36.5
+                              case variant  phase repetition cells genes   lr
+1 cervical_stratified_5000_default     coo formal          5  5000   730 1076
+  nboot seed directed_edges inference_seconds graph_seconds observed_seconds
+1   100    1           1142             7.146         0.012        0.2262061
+  permutation_seconds output_seconds primary_graph_array_bytes
+1            6.647813     8.2615e-05                     18272
+  graph_object_bytes active_records significant_lt005 significant_le005 version
+1             469192            130                91                92   0.1.4
+     status
+1 completed
+FINISH cervical_stratified_5000_default_coo_b100_rep5 2026-10-12 23:40:24 

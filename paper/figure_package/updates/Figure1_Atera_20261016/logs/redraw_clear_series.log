@@ -1,0 +1,14 @@
+Figure1B	source_data/current/cosmx_50000_paired.tsv	probability_official;probability_ess	n=18484
+Figure1C	source_data/current/official_fidelity.tsv	N;probability_pearson;max_probability_difference;exact_pvalue_fraction;active_jaccard;significant_disagreements_le005	n=6
+Figure1D	source_data/current/cosmx_scaling.tsv;source_data/current/atera_scale_performance.tsv	dataset;tissue;fixture;N;engine;status;whole_process_seconds	n=46
+Figure1E	source_data/current/cosmx_scaling.tsv;source_data/current/atera_scale_performance.tsv	dataset;tissue;fixture;N;engine;status;peak_RSS_GB_decimal	n=46
+Figure1F	source_data/current/spatial_sparsity.tsv	N;N_squared;E;fixture;sampling_design	n=14
+Figure1G	source_data/current/spatial_sparsity.tsv	N;E;mean_out_degree;fixture	n=14
+Figure1H	source_data/current/spatial_sparsity.tsv	N;graph_density;fixture	n=14
+Figure1I	source_data/current/cosmx_scaling.tsv	cells;ESS_status;official_status;official_failure_reason	n=9
+Figure1B_marginals	source_data/current/cosmx_50000_paired.tsv	probability_official;probability_ess	n=24
+Figure1Atera_performance	source_data/current/atera_scale_performance.tsv	tissue;fixture;N;engine;status;whole_process_seconds;peak_RSS_GB_decimal;inference_seconds	n=28
+Figure1I_completion	current/cosmx_scaling.tsv;current/atera_scale_performance.tsv	dataset;tissue;N;method;status;displayed_in_panel;axis_category;axis_position	n=46
+Figure1C_Atera_agreement	source_data/current/atera_scale_agreement.tsv	tissue;N;active_jaccard;max_absolute_probability_error;exact_pvalue_fraction;significance_disagreements;strict_pass	n=10
+Exported Figure1_data: [180. 250.] mm
+Figure 1 label revision exported; PDF composition and visual QA still required.

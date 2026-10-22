@@ -1,0 +1,10 @@
+                          case  phase  variant repetition nboot
+1 cervical_center_5000_default formal no_reuse          4   100
+  reference_variant active_records active_keys_equal max_probability_error
+1              full             11              TRUE                     0
+  probabilities_bitwise_equal max_pvalue_error pvalues_exactly_equal
+1                        TRUE                0                  TRUE
+  significant_disagreements_lt005 significant_disagreements_le005
+1                               0                               0
+  active_edge_counts_equal graph_equal graph_max_distance_error status
+1                     TRUE        TRUE                       NA   PASS

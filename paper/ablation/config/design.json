@@ -1,0 +1,13 @@
+{
+  "seed_for_run_order": 20261012,
+  "repetitions": 5,
+  "timeout_seconds": 7200,
+  "address_space_limit_GiB": 64,
+  "rscript": "/home/dzf/miniforge3/envs/spatialcellchat-v3/bin/Rscript",
+  "variants": ["full", "no_hash", "coo", "no_reuse", "dense"],
+  "core_cases": ["cosmx_5000", "cosmx_10000", "cosmx_25000", "cervical_center_5000_default", "cervical_stratified_5000_default"],
+  "permutation_diagnostic": {"case": "cosmx_10000", "nboot": [100, 500], "variants": ["full", "no_reuse"]},
+  "extension_cases": ["cosmx_50000"],
+  "baseline_release": "/home/dzf/cellchat_acceleration/1/SpatialESS_submission_20261012_v0.1.4/github/SpatialESS",
+  "threads": {"OMP_NUM_THREADS": "1", "OPENBLAS_NUM_THREADS": "1", "MKL_NUM_THREADS": "1", "BLIS_NUM_THREADS": "1"}
+}

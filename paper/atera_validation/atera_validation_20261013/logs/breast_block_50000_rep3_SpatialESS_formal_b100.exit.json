@@ -1,0 +1,28 @@
+{
+  "tag": "breast_block_50000_rep3_SpatialESS_formal_b100",
+  "status": "completed",
+  "started": "2026-10-13T18:18:41+0800",
+  "runner_pid": 3821002,
+  "command": [
+    "/home/dzf/miniforge3/envs/spatialcellchat-v3/bin/Rscript",
+    "/home/dzf/cellchat_acceleration/analysis/atera_validation_20261013/scripts/worker.R",
+    "/home/dzf/cellchat_acceleration/analysis/atera_validation_20261013",
+    "breast",
+    "block_50000_rep3",
+    "SpatialESS",
+    "formal",
+    "100",
+    "breast_block_50000_rep3_SpatialESS_formal_b100"
+  ],
+  "timeout_seconds": 86400,
+  "tissue": "breast",
+  "fixture": "block_50000_rep3",
+  "engine": "SpatialESS",
+  "phase": "formal",
+  "nboot": 100,
+  "child_pid": 2787195,
+  "log": "/home/dzf/cellchat_acceleration/analysis/atera_validation_20261013/logs/breast_block_50000_rep3_SpatialESS_formal_b100.log",
+  "returncode": 0,
+  "finished": "2026-10-13T18:23:27+0800",
+  "elapsed_seconds": 285.2331385612488
+}

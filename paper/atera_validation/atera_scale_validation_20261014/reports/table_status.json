@@ -1,0 +1,31 @@
+{
+  "updated": "2026-10-15T12:06:04.789547+08:00",
+  "completed_reference_extension": 6,
+  "strict_extension_pairs": 6,
+  "boundaries": [
+    {
+      "tissue": "breast",
+      "maximum_reference_completed_N": 50000,
+      "maximum_strictly_validated_N": 50000,
+      "first_reference_uncompleted_N": 100000,
+      "first_uncompleted_state": "allocation_failure_under_memory_budget",
+      "current_running_N": null,
+      "remaining_not_attempted_scales": "full",
+      "full_tissue_reference_completed": false,
+      "actual_performance_limit_established": false,
+      "interpretation": "Completion boundary under the fixed 12-hour/96-GiB virtual-address budget; not a universal engine limit."
+    },
+    {
+      "tissue": "cervical",
+      "maximum_reference_completed_N": 50000,
+      "maximum_strictly_validated_N": 50000,
+      "first_reference_uncompleted_N": 100000,
+      "first_uncompleted_state": "allocation_failure_under_memory_budget",
+      "current_running_N": null,
+      "remaining_not_attempted_scales": "full",
+      "full_tissue_reference_completed": false,
+      "actual_performance_limit_established": false,
+      "interpretation": "Completion boundary under the fixed 12-hour/96-GiB virtual-address budget; not a universal engine limit."
+    }
+  ]
+}

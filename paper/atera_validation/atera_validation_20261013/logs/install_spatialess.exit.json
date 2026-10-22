@@ -1,0 +1,22 @@
+{
+  "tag": "install_spatialess",
+  "status": "completed",
+  "started": "2026-10-13T13:09:10+0800",
+  "runner_pid": 3821002,
+  "command": [
+    "/home/dzf/miniforge3/envs/spatialcellchat-v3/bin/R",
+    "CMD",
+    "INSTALL",
+    "--preclean",
+    "--no-multiarch",
+    "-l",
+    "/home/dzf/cellchat_acceleration/analysis/atera_validation_20261013/lib",
+    "/home/dzf/cellchat_acceleration/analysis/atera_validation_20261013/source/SpatialESS"
+  ],
+  "timeout_seconds": 1800,
+  "child_pid": 3821012,
+  "log": "/home/dzf/cellchat_acceleration/analysis/atera_validation_20261013/logs/install_spatialess.log",
+  "returncode": 0,
+  "finished": "2026-10-13T13:09:38+0800",
+  "elapsed_seconds": 27.934648513793945
+}

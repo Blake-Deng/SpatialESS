@@ -1,0 +1,10 @@
+START lung_official_THD0011 candidate 1 2026-10-01 01:51:29 
+          used (Mb) gc trigger  (Mb) max used  (Mb)
+Ncells 1478087 79.0    2774628 148.2  2200874 117.6
+Vcells 3056447 23.4    8388608  64.0  4242366  32.4
+                   case   variant repetition version cells genes groups lr
+1 lung_official_THD0011 candidate          1   0.1.4 25364    99     42 37
+  nboot     seed inference_seconds graph_edges graph_bytes active
+1    20 20260831             0.595      582856    14704752   9413
+  significant_lt005 significant_le005    status
+1              1167              1821 completed

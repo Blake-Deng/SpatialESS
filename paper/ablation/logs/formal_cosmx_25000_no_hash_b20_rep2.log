@@ -1,0 +1,15 @@
+START cosmx_25000_no_hash_b20_rep2 2026-10-12 23:25:40 package: /home/dzf/cellchat_acceleration/analysis/component_ablation_20261012/lib/SpatialESS 
+          used (Mb) gc trigger  (Mb) max used  (Mb)
+Ncells 1578993 84.4    3111270 166.2  2143893 114.5
+Vcells 6173850 47.2   10146329  77.5  7561654  57.7
+         case variant  phase repetition cells genes  lr nboot     seed
+1 cosmx_25000 no_hash formal          2 25000   419 373    20 20260803
+  directed_edges inference_seconds graph_seconds observed_seconds
+1         440698             8.406         4.177        0.7117393
+  permutation_seconds output_seconds primary_graph_array_bytes
+1            2.972912    0.001466546                   5488384
+  graph_object_bytes active_records significant_lt005 significant_le005 version
+1           11417912          16310             10105             11830   0.1.4
+     status
+1 completed
+FINISH cosmx_25000_no_hash_b20_rep2 2026-10-12 23:25:48 

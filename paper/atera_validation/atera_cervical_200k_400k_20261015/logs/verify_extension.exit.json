@@ -1,0 +1,27 @@
+{
+  "tag": "verify_extension",
+  "status": "completed",
+  "started": "2026-10-15T22:02:11.472132+08:00",
+  "started_epoch": 1792072931.4721448,
+  "command": [
+    "/home/dzf/miniforge3/envs/spatialcellchat-v3/bin/Rscript",
+    "/home/dzf/cellchat_acceleration/analysis/atera_cervical_200k_400k_20261015/scripts/prepare_extension.R",
+    "/home/dzf/cellchat_acceleration/analysis/atera_cervical_200k_400k_20261015",
+    "/home/dzf/cellchat_acceleration/analysis/atera_validation_20261013"
+  ],
+  "timeout_seconds": 7200,
+  "runner_pid": 1695140,
+  "child_pid": 1695149,
+  "heartbeat": "2026-10-15T22:03:11.481987+08:00",
+  "r_pid": 1695150,
+  "observed_R_high_water_RSS_KiB": 11847088,
+  "returncode": 0,
+  "finished": "2026-10-15T22:03:15.258970+08:00",
+  "elapsed_seconds": 63.78686451911926,
+  "measurements": {
+    "peak_RSS_KiB": 11846792,
+    "peak_RSS_GB_decimal": 12.131115008,
+    "whole_process_seconds": 63.73,
+    "reported_exit_status": 0
+  }
+}

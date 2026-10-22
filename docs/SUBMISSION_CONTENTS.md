@@ -1,15 +1,25 @@
 # Manuscript data and verification records
 
 These materials accompany SpatialESS 0.1.4. The engine and model source match
-revision 626ffecdd4cd632a462a037edd903cf67d062c54. No new communication inference,
-permutations or cohort fits were run for this update. Manuscript Word drafts are
-retained locally for author review and are not part of this public data snapshot.
+revision 626ffecdd4cd632a462a037edd903cf67d062c54. The 2026-10-22 update assembles
+additional saved experiments and current figure masters, audited against public
+main `f92dff98f9019300f8fe5086d8a011eed4f089d8`; it does not rerun inference,
+permutations or cohort fits. Manuscript Word drafts are retained locally for
+author review and are not part of this public data snapshot.
+
+Start with [the current manuscript-materials index](MANUSCRIPT_MATERIALS_20261022.md).
 
 - `paper/figure_package/`: main data figures, S1-S4, vector PDF/SVG, plotting
   scripts, source workbook and per-panel CSV files.
 - `paper/tables/`: Supplementary Table 1 in TSV, CSV and XLSX formats.
 - `paper/provenance/`: archived ovarian pairs, bridge comparisons, RCTD labels
   and scripts, lung metadata mapping evidence, input hashes and verification logs.
+- `paper/atera_validation/`: Atera preview-data preparation, exact sampled IDs,
+  database/parameter contracts, scale comparisons, successful and failed attempts.
+- `paper/ablation/`: component variants, 170 validated technical runs, timings,
+  peak RSS, numerical verification and source snapshots.
+- `paper/lung_cohort/`: complete 343-gene primary models/scores/metadata and a
+  separate 99-gene official-reference archive.
 - `results/`: current 0.1.4 inference records and archived cohort fits, with
   their original configuration and measurement scopes.
 
@@ -19,11 +29,13 @@ Install the R package from the repository root:
 R CMD INSTALL .
 ```
 
-Regenerate figures from frozen tables (no inference):
+Regenerate current main figures from their frozen tables (no inference):
 
 ```sh
-python -m pip install -r paper/figure_package/requirements.txt
-python paper/figure_package/scripts/run_all.py
+python -m pip install -r paper/figure_package/updates/Figure1_Atera_20261016/requirements.txt
+python paper/figure_package/updates/Figure1_Atera_20261016/scripts/redraw.py --figure1-only
+python paper/figure_package/updates/Figure1_Atera_20261016/scripts/compose_figure1.py
+python paper/figure_package/updates/Figure2_20261012/scripts/redraw.py --figure2-only
 ```
 
 Verify saved historical pairs and current ovarian linkage, writing this run
@@ -32,6 +44,7 @@ into a separate output directory:
 ```sh
 Rscript paper/provenance/verify_archived_records.R . /tmp/SpatialESS-record-verification
 python paper/provenance/ovarian/recheck_label_transfer.py
+python paper/provenance/github_update_20261022/verify_addendum.py
 python paper/verify_manifest.py
 ```
 
@@ -57,7 +70,12 @@ verification environments remain archived separately. The figure pipeline was
 also rerun after the Figure 1 presentation correction. The revised workflow and
 export checks are documented in `paper/figure_package/reports/QA_REPORT.md`.
 
-The original RCTD annotation sessionInfo was not saved. The complete Figure 1
-master now contains a readable editable workflow; the original 2.59 pt reference
-composition is preserved only for provenance. A persistent archive DOI has not
-yet been assigned.
+The current Figure 1 proportionally places the original author workflow without
+internal edits; older workflow replacements are historical exports. Main Figure
+2D uses I15/I06/I19, whereas S4D retains I03/I21/I19. Use the current captions
+and full feature-key mappings.
+
+The original RCTD annotation sessionInfo was not saved. The archived DESCRIPTION
+identifies spacexr 2.2.1, which does not substantiate the draft's 2.2.16. See the
+ovarian environment note before naming an exact original-run version. A
+persistent archive DOI has not yet been assigned.

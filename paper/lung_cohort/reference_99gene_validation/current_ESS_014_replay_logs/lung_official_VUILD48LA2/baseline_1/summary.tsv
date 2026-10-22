@@ -1,0 +1,2 @@
+"case"	"variant"	"repetition"	"version"	"cells"	"genes"	"groups"	"lr"	"nboot"	"seed"	"inference_seconds"	"graph_edges"	"graph_bytes"	"active"	"significant_lt005"	"significant_le005"	"status"
+"lung_official_VUILD48LA2"	"baseline"	1	"0.1.3"	30302	99	40	37	20	20260831	0.892	700228	17644752	16153	1616	2522	"completed"

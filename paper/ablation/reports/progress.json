@@ -1,0 +1,11 @@
+{
+  "planned": 170,
+  "completed": 170,
+  "validated": 170,
+  "failed": 0,
+  "fidelity_fail": 0,
+  "pending": 0,
+  "table": "tables/SpatialESS_ablation_table.xlsx",
+  "status": "COMPLETE",
+  "finished": "2026-10-13T00:07:23+0800"
+}

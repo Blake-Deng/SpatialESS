@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "finished": "2026-10-12T23:21:21+0800",
+  "checks": "Vanilla vs Full; all variants vs Full; exact graph edges/distances",
+  "cases": [
+    "tiny filtered CosMx",
+    "CosMx 5k",
+    "Xenium central 5k",
+    "Xenium stratified 5k"
+  ]
+}

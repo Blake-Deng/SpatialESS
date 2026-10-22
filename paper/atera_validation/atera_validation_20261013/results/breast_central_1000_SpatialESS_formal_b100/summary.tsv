@@ -1,0 +1,2 @@
+tag	tissue	fixture	engine	phase	N	genes	lr	groups	nboot	seed_use	loading_seconds	inference_seconds	active_records	retained_records	raw_p_below_005	graph_edges	input_md5	comparison_scope
+breast_central_1000_SpatialESS_formal_b100	breast	central_1000	SpatialESS	formal	1000	18028	3081	16	100	1	0.0499999999999999	22.538	5497	5497	2334	15496	9a09ea9de262b2ed55b40643842cf426	fixed LR; full measured panel; no overexpression selection

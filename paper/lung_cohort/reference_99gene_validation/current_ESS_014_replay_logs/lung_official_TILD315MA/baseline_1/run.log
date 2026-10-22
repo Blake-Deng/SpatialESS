@@ -1,0 +1,10 @@
+START lung_official_TILD315MA baseline 1 2026-10-01 01:52:21 
+          used (Mb) gc trigger  (Mb) max used  (Mb)
+Ncells 1490087 79.6    2774628 148.2  2212874 118.2
+Vcells 3500822 26.8    8388608  64.0  4686741  35.8
+                     case  variant repetition version cells genes groups lr
+1 lung_official_TILD315MA baseline          1   0.1.3 37361    99     45 37
+  nboot     seed inference_seconds graph_edges graph_bytes active
+1    20 20260831             1.165      861990    21727080  19394
+  significant_lt005 significant_le005    status
+1              1624              2635 completed

@@ -1,0 +1,21 @@
+Loading corrected Seurat object
+ℹ Create a SpatialCellChat object from a data matrixCreate a SpatialCellChat object from spatial imaging data... 
+Set cell identities for the new SpatialCellChat object 
+The cell groups used for SpatialCellChat analysis are  Activated Fibrotic FBs Adventitial FBs Alveolar FBs Alveolar Macrophages Arteriole AT1 AT2 B cells Basal Basophils Capillary CD4+ T-cells CD8+ T-cells cDCs Goblet Inflammatory FBs Interstitial Macrophages KRT5-/KRT17+ Langerhans cells Lymphatic Macrophages - IFN-activated Mast Migratory DCs Monocytes/MDMs Multiciliated Myofibroblasts Neutrophils NK/NKT pDCs Plasma PNEC Proliferating Airway Proliferating AT2 Proliferating FBs Proliferating Myeloid Proliferating T-cells RASC Secretory SMCs/Pericytes SPP1+ Macrophages Subpleural FBs Transitional AT2 Tregs Venous 
+>>>  Analyzing spatial transcriptomic data and preferring to infer interactions between individual cells...
+>>>  Apply a predefined spatial distance threshold based on the interaction length(=30um)...
+ ■■                                 3% |  ETA: 40s
+ ■■■■                              10% |  ETA: 39s
+ ■■■■■■■■                          24% |  ETA: 24s
+ ■■■■■■■■■■■■                      37% |  ETA: 18s
+ ■■■■■■■■■■■■■■■■                  50% |  ETA: 14s
+ ■■■■■■■■■■■■■■■■■■■■              64% |  ETA:  9s
+ ■■■■■■■■■■■■■■■■■■■■■■■■          77% |  ETA:  6s
+ ■■■■■■■■■■■■■■■■■■■■■■■■■■■■      91% |  ETA:  2s
+>>> Contact range is set as 10um, to restrict the contact-dependent signaling.
+>>> Run CellChat on spatial transcriptomic data using distances as constraints <<< [2026-09-01 05:53:44.96646]
+>>>  The input L-R pairs have both secreted signaling and contact-dependent signaling. Run CellChat in a contact-dependent manner for `Cell-Cell Contact` signaling, and in a diffusion manner based on the `interaction.range` for other L-R pairs. 
+ℹ Future strategy in use: `sequential`
+Warning: Caught simpleError. Canceling all iterations ...
+Error: non-conformable matrix dimensions in .Arith.Csparse(e1, e2, .Generic, class. = "dgCMatrix")
+Execution halted
