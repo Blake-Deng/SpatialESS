@@ -1,17 +1,20 @@
-# SpatialESS candidate distribution 2026 10 23
+# SpatialESS materials revision 2026 10 23 r1
 
-This branch prepares a data and plotting revision of SpatialESS 0.1.4. It does
+This published archive contains a data and plotting revision of SpatialESS 0.1.4. It does
 not rerun LR inference, fit new association models, or change scientific results.
 The engine, statistical definitions, CI and regression tests are retained.
-The historical release `zenodo-2026.10.22` and DOI
-https://doi.org/10.5281/zenodo.23567248 remain unchanged. The new companion has
-not been published and has no new version DOI. Do not cite the old DOI as the
-archive of this candidate's newly added files.
+This materials version is `materials-2026.10.23-r1` and is archived at
+https://doi.org/10.5281/zenodo.23591306. It supersedes the 2026-10-23 materials
+deposit at https://doi.org/10.5281/zenodo.23587822; both earlier Zenodo versions,
+including `zenodo-2026.10.22` at https://doi.org/10.5281/zenodo.23567248, remain
+in the same version series.
 
 ## Downloads and assembly
 
-The two actual candidate files are `SpatialESS_software_20261023.tar.gz` and
-`SpatialESS_reproduction_20261023.tar.gz`. The software archive contains the
+Download the [source ZIP](https://zenodo.org/records/23591306/files/SpatialESS-materials-2026.10.23-r1.zip)
+and [companion reproduction tar](https://zenodo.org/records/23591306/files/SpatialESS_reproduction_20261023_r1.tar.gz);
+verify them with the [SHA-256 manifest](https://zenodo.org/records/23591306/files/ZENODO_SHA256SUMS_20261023_r1.txt).
+The software source archive contains the
 repository source, real fixture, frozen source snapshots, scripts, configurations,
 available environment records and historical execution logs. The companion
 contains deduplicated result tables, serialized results, Source Data, figures
@@ -94,7 +97,7 @@ is a real regression input and is retained in the software archive.
 | Supplementary Data 4 | `paper/submission_materials/Supplementary_Data_4_Lung_Support.tsv.gz` | All 50,040 primary feature records and zero-inclusive counts |
 | Source Data Figure 1 | `paper/submission_materials/Source_Data_Figure1.xlsx` | Supplied final panel workbook; dated figure folder retains its exact workbook too |
 | Source Data Figure 2 | `paper/submission_materials/Source_Data_Figure2.zip` | Supplied panel CSVs, identities and counts; workbooks are not assumed interchangeable |
-| Supplementary Software 1 | `SpatialESS_software_20261023.tar.gz` | Source, scripts, configuration, database snapshots, contracts, environment evidence and logs; result inputs are supplied in the companion |
+| Supplementary Software 1 | `SpatialESS-materials-2026.10.23-r1.zip` | Source, tests, scripts, configuration, database snapshots, contracts, environment evidence and logs; result inputs are supplied in the companion |
 | Current figures | `paper/figure_package/updates/Figure1_Atera_20261016/figures/`, `.../Figure2_20261012/figures/` | Original PDF/SVG/PNG exports retained |
 | Supplementary figures | `paper/figure_package/figures/FigureS1` through `FigureS4` | Original inputs and entries retained; sensitivity S5 retained separately |
 
@@ -106,7 +109,7 @@ that an archived script is portable or was executed in this validation.
 
 ## TSTA and sensitivity evidence
 
-TSTA sources are at https://doi.org/10.5281/zenodo.17664023. The candidate includes
+TSTA sources are at https://doi.org/10.5281/zenodo.17664023. The archive includes
 all-sample summaries, metadata, input manifests, validation reports, scripts,
 source and two representative output folders, not all 1,258 result RDS objects.
 The aggregate checks give 1,258 completed samples, 132 studies, 37 cancer labels
@@ -133,19 +136,14 @@ CPU snapshots collected after experiments are not per-run hardware evidence.
 The archived spacexr DESCRIPTION says 2.2.1; the manuscript's 2.2.16 and original
 RCTD sessionInfo remain unresolved and were not silently changed.
 
-## Publication gate
+## Published files
 
-Proposed release: `materials-2026.10.23` (not created). Both candidate package
-hashes and exact sizes are in the delivery `SHA256SUMS.txt`/`FILES.tsv`.
-A future fixed URL would be the repository's release download path for this
-exact tag and filename; it is not a live download until published.
-Use New version of Zenodo record 23567248/concept 23567247. Explicitly upload
-and verify the companion: GitHub release attachments are not assumed to be
-collected by the webhook. If Zenodo's automatic source snapshot supplies the
-software tree adequately, do not upload an identical extra source archive.
-After public file-by-file size/hash validation, update the manuscript availability
-paragraphs, README, CITATION.cff and .zenodo.json together using the real new
-version DOI. This candidate retains the historical DOI metadata pending approval.
+The source ZIP and companion reproduction tar are both attached to the public
+Zenodo version. `ZENODO_SHA256SUMS_20261023_r1.txt` lists the SHA-256 digest of
+each exact downloaded file. The source ZIP is generated from Git tag
+`materials-2026.10.23-r1`; the companion contains deduplicated results and
+figure/data materials. The GitHub release archive and Zenodo files are checked
+separately; GitHub release attachments are not assumed to be copied by Zenodo.
 
 The saved section matrix can be exported without inference or fitting:
 

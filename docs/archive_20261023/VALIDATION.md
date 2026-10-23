@@ -21,7 +21,7 @@ contract available. Full logs and structured results are delivered separately.
 | Original hardware/RCTD historical environment | Static evidence only | Not reconstructed; limitations retained |
 | Raw dataset preparation and full LR inference | Not run | Public raw inputs/appropriate compute needed |
 | New model fitting, BH or balanced-subset inference | Not run | Saved results retained |
-| New Zenodo publication | Not performed | User confirmation still required |
+| New Zenodo publication | Outside this validation run | The verified archives were subsequently published in Zenodo version materials-2026.10.23-r1 (DOI 10.5281/zenodo.23591306) |
 
 Python environment used: 3.12.14, numpy 2.5.4, pandas 2.2.3, matplotlib 3.11.2,
 Pillow 13.0.0, PyMuPDF 1.26.7, openpyxl 3.1.5. R 4.5.2 and a local C++ toolchain

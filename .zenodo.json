@@ -6,7 +6,7 @@
   ],
   "title": "SpatialESS: Efficient Edge-First Spatial Cell-Cell Communication",
   "version": "0.1.4",
-  "description": "SpatialESS 0.1.4 implements spatial cell-cell communication inference using a CSR radius graph and streamed ligand-receptor scoring and permutation tests. It includes patient-aware multi-sample analysis with random-intercept linear mixed models. This release bundles software, analysis datasets, figure files, and verification records.",
+  "description": "SpatialESS 0.1.4 implements spatial cell-cell communication inference using a CSR radius graph and streamed ligand-receptor scoring and permutation tests. It includes patient-aware multi-sample analysis with random-intercept linear mixed models. Materials revision materials-2026.10.23-r1 is archived at https://doi.org/10.5281/zenodo.23591306 and bundles the software source, figure scripts, saved research materials, and verification records.",
   "access_right": "open",
   "license": "gpl-3.0-or-later",
   "upload_type": "software",

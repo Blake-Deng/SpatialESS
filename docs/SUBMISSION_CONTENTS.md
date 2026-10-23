@@ -1,4 +1,4 @@
-Current candidate package mapping and publication status: [REPRODUCE_20261023.md](REPRODUCE_20261023.md). The historical inventory below describes the earlier publication.
+Current public package mapping and publication status: [REPRODUCE_20261023.md](REPRODUCE_20261023.md). The historical inventory below describes earlier versions and remains useful for path provenance.
 
 # Manuscript data and verification records
 
@@ -80,5 +80,5 @@ labels and full feature-key mappings.
 The original RCTD annotation sessionInfo was not saved. The archived DESCRIPTION
 identifies spacexr 2.2.1, which does not substantiate the draft's 2.2.16. See the
 ovarian environment note before naming an exact original-run version. A
-The Zenodo archive is published: version DOI 10.5281/zenodo.23567248;
+The historical 2026-10-22 Zenodo archive was published as version DOI 10.5281/zenodo.23567248;
 concept DOI 10.5281/zenodo.23567247.

@@ -1,8 +1,6 @@
-> Candidate branch `archive/closure-20261023`: portable figure inputs and a companion materials archive are prepared locally. The new materials are not yet published. The DOI below identifies the historical 2026-10-22 release. See [the current guide](docs/REPRODUCE_20261023.md).
-
 # SpatialESS
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23567247.svg)](https://doi.org/10.5281/zenodo.23567247)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23591306.svg)](https://doi.org/10.5281/zenodo.23591306)
 
 SpatialESS 0.1.4 implements spatial cell-cell communication inference using a
 CSR radius graph and streamed ligand-receptor scoring and permutation tests.
@@ -11,7 +9,11 @@ mixed model. Numerical validation targets the tested SpatialCellChat V3 workflow
 
 ## Cite the archived release
 
-SpatialESS 0.1.4 archive: [version DOI 10.5281/zenodo.23567248](https://doi.org/10.5281/zenodo.23567248). The project concept DOI, which points to the latest archived version, is [10.5281/zenodo.23567247](https://doi.org/10.5281/zenodo.23567247).
+SpatialESS 0.1.4 and its materials revision `materials-2026.10.23-r1` are archived at [version DOI 10.5281/zenodo.23591306](https://doi.org/10.5281/zenodo.23591306). The preceding materials version [10.5281/zenodo.23587822](https://doi.org/10.5281/zenodo.23587822) and the 2026-10-22 release [10.5281/zenodo.23567248](https://doi.org/10.5281/zenodo.23567248) remain available as historical versions. The project concept DOI, which resolves to the latest version, is [10.5281/zenodo.23567247](https://doi.org/10.5281/zenodo.23567247).
+
+## Archived manuscript materials
+
+Download the [source archive](https://zenodo.org/records/23591306/files/SpatialESS-materials-2026.10.23-r1.zip), the [reproduction archive](https://zenodo.org/records/23591306/files/SpatialESS_reproduction_20261023_r1.tar.gz), and the [SHA-256 manifest](https://zenodo.org/records/23591306/files/ZENODO_SHA256SUMS_20261023_r1.txt). Follow [the reproduction guide](docs/REPRODUCE_20261023.md). Manuscript text and Word drafts are not included.
 
 ## Installation
 

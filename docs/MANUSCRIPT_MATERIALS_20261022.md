@@ -58,4 +58,4 @@ python3 paper/verify_manifest.py
 sha256sum --check --quiet SHA256SUMS.txt
 ```
 
-The 2026-10-23 candidate adds saved TSTA feasibility summaries and representative outputs under `paper/tsta/`, and the saved cohort-sensitivity analysis under `paper/cohort_sensitivity/`. The companion package must be mounted before inspecting result paths. See [the current distribution guide](REPRODUCE_20261023.md) for scope, missing items and the exact supplement mapping. No manuscript Word drafts are distributed.
+The 2026-10-23 materials archive adds saved TSTA feasibility summaries and representative outputs under `paper/tsta/`, and the saved cohort-sensitivity analysis under `paper/cohort_sensitivity/`. These materials are in the public version at [DOI 10.5281/zenodo.23591306](https://doi.org/10.5281/zenodo.23591306); mount the companion package before inspecting result paths. See [the current distribution guide](REPRODUCE_20261023.md) for scope, known gaps and the exact supplement mapping. No manuscript Word drafts are distributed.
