@@ -1,0 +1,11 @@
+{
+  "features": 50040,
+  "primary_hits": 5147,
+  "agreement_labels": 3808,
+  "primary_nonsingular": 22262,
+  "primary_nonsingular_hits": 3266,
+  "subset_reBH_hits": 3476,
+  "fn1_feature_id": "14:Subpleural FBs:14:Subpleural FBs:15:FN1_ITGAV_ITGB1",
+  "col1a1_feature_id": "14:Myofibroblasts:14:Myofibroblasts:18:COL1A1_ITGA3_ITGB1",
+  "selected_28_patient_hc3_hits": 24
+}

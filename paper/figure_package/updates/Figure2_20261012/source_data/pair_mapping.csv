@@ -1,8 +1,0 @@
-pair_id,pair,sender,receiver
-P1,Activated Fibrotic FBs -> Activated Fibrotic FBs,Activated Fibrotic FBs,Activated Fibrotic FBs
-P2,Activated Fibrotic FBs -> CD8+ T-cells,Activated Fibrotic FBs,CD8+ T-cells
-P3,Activated Fibrotic FBs -> Interstitial Macrophages,Activated Fibrotic FBs,Interstitial Macrophages
-P4,Alveolar FBs -> Activated Fibrotic FBs,Alveolar FBs,Activated Fibrotic FBs
-P5,Alveolar FBs -> Tregs,Alveolar FBs,Tregs
-P6,B cells -> Venous,B cells,Venous
-P7,CD4+ T-cells -> Tregs,CD4+ T-cells,Tregs

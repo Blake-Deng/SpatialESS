@@ -1,0 +1,12 @@
+PASS: full-universe R/Python HC3 estimates, intervals, p and BH q match.
+
+                         not_primary_hit 
+                                   34423 
+                 primary_fit_unavailable 
+                                   10470 
+       primary_hit_sensitivity_dependent 
+                                    1322 
+     primary_hit_sensitivity_unavailable 
+                                      17 
+supported_by_run_and_patient_sensitivity 
+                                    3808 

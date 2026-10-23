@@ -1,2 +1,0 @@
-ess_tag	reference_tag	tissue	fixture	phase	N	genes	lr	nboot	ess_active	reference_active	matched	ess_only	reference_only	active_jaccard	max_absolute_probability_error	max_absolute_pvalue_error	exact_pvalue_fraction	significance_disagreements	probability_pearson_raw	same_input_contract	finite	strict_pass
-breast_central_5000_SpatialESS_formal_b100	breast_central_5000_SpatialCellChat_formal_b100	breast	central_5000	formal	5000	18028	3081	100	7575	7575	7575	0	0	1.0	1.0408340855860843e-16	0.0	1.0	0	0.9999999999999998	True	True	True

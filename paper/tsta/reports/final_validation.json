@@ -1,0 +1,9 @@
+{
+  "checked_at": "2026-10-15T16:40:17.874038+08:00",
+  "denominator_samples": 1258,
+  "completed": 1258,
+  "all_completed_sample_metadata_checks_pass": true,
+  "incomplete": [],
+  "inference_comparison": "not performed; SpatialESS-only feasibility run",
+  "spatial_unit": "multicellular Visium spots; per-sample expression clusters"
+}

@@ -58,6 +58,4 @@ python3 paper/verify_manifest.py
 sha256sum --check --quiet SHA256SUMS.txt
 ```
 
-No TSTA/SecAct biological claims, raw matrices or manuscript Word drafts are
-introduced by this update. Those analyses should be separately archived if used
-in a future manuscript version.
+The 2026-10-23 candidate adds saved TSTA feasibility summaries and representative outputs under `paper/tsta/`, and the saved cohort-sensitivity analysis under `paper/cohort_sensitivity/`. The companion package must be mounted before inspecting result paths. See [the current distribution guide](REPRODUCE_20261023.md) for scope, missing items and the exact supplement mapping. No manuscript Word drafts are distributed.

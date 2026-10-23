@@ -1,2 +1,0 @@
-"case"	"variant"	"repetition"	"version"	"cells"	"genes"	"groups"	"lr"	"nboot"	"seed"	"inference_seconds"	"graph_edges"	"graph_bytes"	"active"	"significant_lt005"	"significant_le005"	"status"
-"lung_official_VUHD069"	"candidate"	1	"0.1.4"	19976	99	43	37	20	20260831	0.583	447258	11346232	10229	1142	1807	"completed"

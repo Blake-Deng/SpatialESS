@@ -1,2 +1,0 @@
-"case"	"variant"	"repetition"	"version"	"cells"	"genes"	"groups"	"lr"	"nboot"	"seed"	"inference_seconds"	"graph_edges"	"graph_bytes"	"active"	"significant_lt005"	"significant_le005"	"status"
-"lung_official_VUILD58MA"	"candidate"	1	"0.1.4"	56733	99	44	37	20	20260831	1.383	1642248	39656880	15682	1998	3167	"completed"

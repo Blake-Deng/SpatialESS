@@ -1,5 +1,0 @@
-sample_id	cells	groups	last_cell	last_cell_group	last_min_positive_distance	last_neighbors_le_35	max_outer_product_nnz	lr_exceeding_int32_nnz
-TILD117LA	36707	44	TILD117LA_aaaajpge-1	Alveolar FBs	228.478725570179	0	471149055	0
-VUILD106MA	124717	47	VUILD106MA_aaaccgmd-1	Alveolar FBs	12.2101551557307	18	4955880084	3
-VUILD110LA	122815	46	VUILD110LA_aaacainb-1	SMCs/Pericytes	6.95742311696725	23	4386914951	4
-VUILD115MA	94540	44	VUILD115MA_aaabkggb-1	SMCs/Pericytes	15.7920623011776	15	2617359480	2

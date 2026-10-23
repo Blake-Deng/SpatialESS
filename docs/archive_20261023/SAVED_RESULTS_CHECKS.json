@@ -1,0 +1,62 @@
+[
+  {
+    "check": "TSTA 1258 samples / 132 studies / 37 cancers / 3648329 spots",
+    "passed": true
+  },
+  {
+    "check": "Primary 39570 valid / 5147 discoveries / 17308 singular",
+    "passed": true
+  },
+  {
+    "check": "Sensitivity retains 4904 and 5021 primary discoveries",
+    "passed": true
+  },
+  {
+    "check": "Saved cross-analysis descriptive support 3808",
+    "passed": true
+  },
+  {
+    "check": "Data 4 50040 unique full keys",
+    "passed": true
+  },
+  {
+    "check": "Data4 matches primary estimate",
+    "passed": true
+  },
+  {
+    "check": "Data4 matches primary std_error",
+    "passed": true
+  },
+  {
+    "check": "Data4 matches primary q_value",
+    "passed": true
+  },
+  {
+    "check": "Data4 matches primary nonzero_units",
+    "passed": true
+  },
+  {
+    "check": "Data4 matches primary total_units",
+    "passed": true
+  },
+  {
+    "check": "Data4 matches primary patient_count",
+    "passed": true
+  },
+  {
+    "check": "SPP1 CD44 unique full key",
+    "passed": true
+  },
+  {
+    "check": "SPP1 CD44 manuscript counts and statistics",
+    "passed": true
+  },
+  {
+    "check": "cervical full barcode order identical after decompression",
+    "passed": true
+  },
+  {
+    "check": "breast full barcode order identical after decompression",
+    "passed": true
+  }
+]

@@ -1,0 +1,42 @@
+{
+  "status": "FAILED",
+  "sample_id": "TSTA_0001",
+  "pid": 1290770,
+  "cpu": 4,
+  "started": "2026-10-15T14:14:58+08:00",
+  "command": [
+    "/usr/bin/time",
+    "-v",
+    "-o",
+    "/home/dzf/cellchat_acceleration/analysis/tsta_spatialess_20261015/logs/TSTA_0001.1792044898.time.txt",
+    "/usr/bin/timeout",
+    "--signal=TERM",
+    "--kill-after=30s",
+    "28800s",
+    "/usr/bin/prlimit",
+    "--as=34359738368",
+    "--core=0",
+    "/usr/bin/taskset",
+    "-c",
+    "4",
+    "/home/dzf/miniforge3/envs/spatialcellchat-v3/bin/Rscript",
+    "--vanilla",
+    "/home/dzf/cellchat_acceleration/analysis/tsta_spatialess_20261015/scripts/worker.R",
+    "/home/dzf/cellchat_acceleration/analysis/tsta_spatialess_20261015",
+    "TSTA_0001"
+  ],
+  "log": "/home/dzf/cellchat_acceleration/analysis/tsta_spatialess_20261015/logs/TSTA_0001.1792044898.log",
+  "time_log": "/home/dzf/cellchat_acceleration/analysis/tsta_spatialess_20261015/logs/TSTA_0001.1792044898.time.txt",
+  "returncode": 1,
+  "finished": "2026-10-15T14:15:02+08:00",
+  "supervisor_elapsed_seconds": 4.001120998524129,
+  "time_metrics": {
+    "whole_process_seconds": 3.52,
+    "peak_rss_kib": 420572,
+    "peak_rss_GB_decimal": 0.430665728
+  },
+  "failure_tail": [
+    "Error: nrow(item) == 1L is not TRUE",
+    "Execution halted"
+  ]
+}

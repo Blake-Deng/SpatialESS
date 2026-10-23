@@ -1,0 +1,1 @@
+../../../../../man/spatialess.Rd

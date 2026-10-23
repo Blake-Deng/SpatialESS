@@ -1,2 +1,0 @@
-ess_tag	reference_tag	tissue	fixture	phase	N	genes	lr	nboot	ess_active	reference_active	matched	ess_only	reference_only	active_jaccard	max_absolute_probability_error	max_absolute_pvalue_error	exact_pvalue_fraction	significance_disagreements	probability_pearson_raw	same_input_contract	finite	strict_pass
-cervical_central_1000_SpatialESS_pilot_b20	cervical_central_1000_SpatialCellChat_pilot_b20	cervical	central_1000	pilot	1000	18028	3081	20	5072	5072	5072	0	0	1.0	1.0061396160665481e-16	0.0	1.0	0	1.0	True	True	True

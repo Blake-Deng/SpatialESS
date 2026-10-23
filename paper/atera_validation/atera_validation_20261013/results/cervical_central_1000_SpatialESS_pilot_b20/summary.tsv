@@ -1,2 +1,0 @@
-tag	tissue	fixture	engine	phase	N	genes	lr	groups	nboot	seed_use	loading_seconds	inference_seconds	active_records	retained_records	raw_p_below_005	graph_edges	input_md5	comparison_scope
-cervical_central_1000_SpatialESS_pilot_b20	cervical	central_1000	SpatialESS	pilot	1000	18028	3081	21	20	1	0.037	6.174	5072	5072	1372	43498	9625d371f69c89637340a6a73273b610	fixed LR; full measured panel; no overexpression selection

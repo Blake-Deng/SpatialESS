@@ -1,0 +1,20 @@
+{
+  "creators": [
+    {
+      "name": "Deng, Zifeng"
+    }
+  ],
+  "title": "SpatialESS: Efficient Edge-First Spatial Cell-Cell Communication",
+  "version": "0.1.4",
+  "description": "SpatialESS 0.1.4 with portable figure-generation entry points and a deduplicated companion archive of saved validation, cohort and TSTA feasibility materials. This materials revision does not rerun the inference engine or statistical models.",
+  "access_right": "open",
+  "license": "gpl-3.0-or-later",
+  "upload_type": "software",
+  "language": "eng",
+  "keywords": [
+    "spatial transcriptomics",
+    "cell-cell communication",
+    "R",
+    "reproducibility"
+  ]
+}

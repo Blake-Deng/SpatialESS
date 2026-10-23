@@ -1,7 +1,0 @@
-"sender_group_name"	"receiver_group_name"	"interaction_name"	"probability_official"	"probability_ess"	"pvalue_official"	"pvalue_ess"	"case"
-"Cluster_18"	"Cluster_14"	"VEGFB_VEGFR1"	"0.024403134333324084"	"0.024403134333324084"	"0"	"0"	"cervical_center_1000_default"
-"Cluster_18"	"Cluster_18"	"VEGFB_VEGFR1"	"0.01843136260742408"	"0.01843136260742408"	"0"	"0"	"cervical_center_1000_default"
-"Cluster_14"	"Cluster_14"	"PECAM1_PECAM1"	"0.11737585257327526"	"0.11737585257327526"	"0"	"0"	"cervical_center_1000_default"
-"Cluster_14"	"Cluster_18"	"PECAM1_PECAM1"	"0.031960259619080812"	"0.031960259619080812"	"0"	"0"	"cervical_center_1000_default"
-"Cluster_18"	"Cluster_14"	"PECAM1_PECAM1"	"0.031960259619080812"	"0.031960259619080812"	"0"	"0"	"cervical_center_1000_default"
-"Cluster_18"	"Cluster_18"	"PECAM1_PECAM1"	"0.12977988589567116"	"0.12977988589567113"	"0"	"0"	"cervical_center_1000_default"

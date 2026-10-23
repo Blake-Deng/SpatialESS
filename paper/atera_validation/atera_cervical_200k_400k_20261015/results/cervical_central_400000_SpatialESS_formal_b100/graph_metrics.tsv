@@ -1,2 +1,0 @@
-tissue	fixture	phase	N	E	N_squared	mean_out_degree	density	offset_bytes	neighbor_bytes	distance_bytes	csr_core_array_bytes	additional_required_array_bytes	all_array_bytes	all_array_object_bytes	dense_float64_bytes	effective_radius_um	scale_distance
-cervical	central_400000	formal	400000	19999632	1.6e+11	49.99908	0.0001249977	3200008	79998528	159997056	243195592	166397056	409592648	409592936	1.28e+12	35	2.29750351419133

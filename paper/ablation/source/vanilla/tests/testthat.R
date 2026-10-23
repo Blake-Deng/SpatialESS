@@ -1,5 +1,1 @@
-library(testthat)
-library(SpatialESS)
-
-test_check("SpatialESS")
-
+../../../../../tests/testthat.R

@@ -1,0 +1,4 @@
+35 patients: 9 Control, 26 PF; patient response=mean(log1p(slice score)); HC3 df=31
+Balanced 9-vs-9 run-adjusted effect stability completed
+Patient HC3 hits: 7468 Welch hits: 9024
+Patient sensitivity COMPLETE

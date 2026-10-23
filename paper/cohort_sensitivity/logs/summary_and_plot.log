@@ -1,0 +1,7 @@
+           model         label  features  valid_features  bh_hits  primary_hits_retained  primary_hit_retention_fraction  common_valid  effect_spearman  direction_agreement  valid_singular  selected_28_hits
+     primary_lmm   Primary LMM     50040           39570     5147                   5147                        1.000000         39570         1.000000             1.000000         17308.0                28
+run_adjusted_lmm       Run LMM     50040           39431     5444                   4904                        0.952788         38842         0.991692             0.980099         17809.0                28
+tma_adjusted_lmm       TMA LMM     50040           39445     6267                   5021                        0.975520         38799         0.989463             0.978144         20431.0                28
+ patient_run_hc3   Patient HC3     50040           41718     7468                   3918                        0.761220         39442         0.985041             0.971224             NaN                24
+   patient_welch Patient Welch     50040           41718     9024                   3936                        0.764717         39442         0.992713             0.981771             NaN                23
+Figure and reports complete

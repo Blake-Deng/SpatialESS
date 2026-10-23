@@ -1,0 +1,1 @@
+../../../../../man/summarize_prepared_trimean.Rd

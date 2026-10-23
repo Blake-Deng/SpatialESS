@@ -1,0 +1,52 @@
+{
+  "Figure1": [
+    "paper/figure_package/updates/Figure1_Atera_20261016/source_data/current/cosmx_scaling.tsv",
+    "paper/figure_package/updates/Figure1_Atera_20261016/source_data/current/official_fidelity.tsv",
+    "paper/figure_package/updates/Figure1_Atera_20261016/source_data/current/spatial_sparsity.tsv",
+    "paper/figure_package/updates/Figure1_Atera_20261016/source_data/current/cosmx_50000_paired.tsv",
+    "paper/figure_package/updates/Figure1_Atera_20261016/source_data/current/atera_scale_performance.tsv",
+    "paper/figure_package/updates/Figure1_Atera_20261016/source_data/current/cervical_700k_reference_attempt.tsv",
+    "paper/figure_package/updates/Figure1_Atera_20261016/source_data/current/cervical_extension_200k_400k.tsv",
+    "paper/figure_package/updates/Figure1_Atera_20261016/source_data/current/atera_scale_agreement.tsv",
+    "paper/figure_package/updates/Figure1_Atera_20261016/assets/Figure1A_user_original.pdf"
+  ],
+  "Figure2": [
+    "paper/figure_package/updates/Figure2_20261012/source_data/archived/lmm.tsv.gz",
+    "paper/figure_package/updates/Figure2_20261012/source_data/archived/selected_interactions.tsv.gz",
+    "paper/figure_package/updates/Figure2_20261012/source_data/archived/effect_heatmap.tsv.gz",
+    "paper/figure_package/updates/Figure2_20261012/source_data/archived/forest.tsv.gz",
+    "paper/figure_package/updates/Figure2_20261012/source_data/archived/figure2_examples_slice_scores.tsv.gz",
+    "paper/figure_package/updates/Figure2_20261012/source_data/archived/figure2_examples_patient_scores.tsv.gz",
+    "paper/figure_package/updates/Figure2_20261012/source_data/archived/volcano_labels.tsv.gz",
+    "paper/figure_package/updates/Figure2_20261012/source_data/archived/pathway_pair_representatives.tsv.gz",
+    "paper/figure_package/updates/Figure2_20261012/source_data/archived/sample_metadata.tsv.gz",
+    "paper/figure_package/updates/Figure2_20261012/source_data/current/patient_random_intercept_lmm.tsv.gz",
+    "paper/figure_package/updates/Figure2_20261012/source_data/Figure2D_nonzero_counts.csv"
+  ],
+  "S1": [
+    "paper/figure_package/source_data/archived/bridge_regression.tsv.gz",
+    "paper/figure_package/source_data/archived/sparkle_probability_records.tsv.gz",
+    "paper/figure_package/source_data/archived/sparkle_fidelity.tsv.gz",
+    "paper/figure_package/source_data/archived/raw_corrected_transitions.tsv.gz"
+  ],
+  "S2": [
+    "paper/figure_package/source_data/current/official_fidelity.tsv",
+    "paper/figure_package/source_data/archived/cervical_spatial_metadata.tsv.gz",
+    "paper/figure_package/source_data/archived/cervical_fidelity.tsv.gz",
+    "paper/figure_package/source_data/current/cervical_center_1000_default_paired.tsv",
+    "paper/figure_package/source_data/current/cervical_center_5000_default_paired.tsv",
+    "paper/figure_package/source_data/current/cervical_stratified_1000_default_paired.tsv",
+    "paper/figure_package/source_data/current/cervical_stratified_5000_default_paired.tsv"
+  ],
+  "S3": [
+    "paper/figure_package/source_data/current/spatial_sparsity.tsv"
+  ],
+  "S4": [
+    "paper/figure_package/source_data/archived/selected_interactions.tsv.gz",
+    "paper/figure_package/source_data/archived/effect_heatmap.tsv.gz",
+    "paper/figure_package/source_data/archived/patient_examples.tsv.gz",
+    "paper/figure_package/source_data/archived/pathway_pair_representatives.tsv.gz",
+    "paper/figure_package/source_data/archived/model_summary.tsv.gz",
+    "paper/figure_package/source_data/archived/lmm_glm_summary.tsv.gz"
+  ]
+}

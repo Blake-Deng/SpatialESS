@@ -1,2 +1,0 @@
-tissue	fixture	phase	N	E	N_squared	mean_out_degree	density	offset_bytes	neighbor_bytes	distance_bytes	csr_core_array_bytes	additional_required_array_bytes	all_array_bytes	all_array_object_bytes	dense_float64_bytes	effective_radius_um	scale_distance
-cervical	block_50000_rep3	formal	50000	2399880	2.5e+09	47.9976	0.000959952	400008	9599520	19199040	29198568	19999040	49197608	49197896	2e+10	35	2.29750351419133

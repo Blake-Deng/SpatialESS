@@ -1,8 +1,0 @@
-metric	value
-"slices"	45
-"patients"	35
-"features"	50040
-"possible_slice_feature_rows"	2251800
-"nonzero_rows"	692338
-"implicit_zero_rows"	1559462
-"max_response_sd_error"	4.98732999343332e-18

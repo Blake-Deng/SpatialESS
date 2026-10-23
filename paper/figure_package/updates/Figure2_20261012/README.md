@@ -1,3 +1,5 @@
+Current portable commands and companion inputs: [distribution guide](../../../../docs/REPRODUCE_20261023.md). Old commands below document the original package.
+
 # Revised Figure 2
 
 Only Figure 2 is updated. Original package figures and manuscript files remain intact.

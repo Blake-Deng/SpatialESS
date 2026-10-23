@@ -1,2 +1,0 @@
-tag	tissue	fixture	N	nominal_category	engine	phase	genes	lr	nboot	seed_use	status	returncode	whole_process_seconds	peak_RSS_GB_decimal	address_space_limit_GiB	requested_allocation_GiB	failure_reason	reference_result_generated	input
-cervical_full_715512_SpatialCellChat_formal_b100	cervical	full	715512	700k	SpatialCellChat	formal	18028	3081	100	1	allocation_failure_under_96_GiB_virtual_memory_budget	1	31.89	12.961091584	96	96.1	cannot allocate vector of size 96.1 Gb	False	/home/dzf/cellchat_acceleration/analysis/atera_cervical_700k_reference_20261016/inputs/cervical/full.rds

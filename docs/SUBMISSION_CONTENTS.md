@@ -1,3 +1,5 @@
+Current candidate package mapping and publication status: [REPRODUCE_20261023.md](REPRODUCE_20261023.md). The historical inventory below describes the earlier publication.
+
 # Manuscript data and verification records
 
 These materials accompany SpatialESS 0.1.4. The engine and model source match

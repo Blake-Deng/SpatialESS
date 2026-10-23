@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "pilot": "TSTA_0001",
+  "N": 3813,
+  "E": 64154,
+  "check": "Every saved CSR neighbor set agrees with an independent direct all-pair distance oracle, including boundary tolerance.",
+  "nboot": 100,
+  "active_records": 21910,
+  "checked": "2026-10-15T14:19:29+0800"
+}

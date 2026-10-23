@@ -1,7 +1,0 @@
-tissue	raw_cells	eligible_cells	unique_excluded_cells	exclusion_reason_combination	cells
-breast	170057	169940	117	counts_below_threshold;features_below_threshold	80
-breast	170057	169940	117	features_below_threshold	25
-breast	170057	169940	117	missing_official_annotation;counts_below_threshold;features_below_threshold	12
-cervical	717576	715512	2064	counts_below_threshold;features_below_threshold	1341
-cervical	717576	715512	2064	features_below_threshold	430
-cervical	717576	715512	2064	missing_official_annotation;counts_below_threshold;features_below_threshold	293

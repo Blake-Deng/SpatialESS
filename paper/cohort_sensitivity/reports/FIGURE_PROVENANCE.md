@@ -1,0 +1,12 @@
+# Supplementary Figure 5 provenance
+
+| panel   | source_file                                           | columns                                                                      | filter_and_unit                          | statistical_rule                                                      |   observations |
+|:--------|:------------------------------------------------------|:-----------------------------------------------------------------------------|:-----------------------------------------|:----------------------------------------------------------------------|---------------:|
+| a       | data/sample_metadata.tsv                              | condition; run                                                               | 45 slices (9 Control and 26 PF patients) | counts                                                                |              6 |
+| b       | data/primary_lmm.tsv.gz; data/run_adjusted_lmm.tsv.gz | feature_id; estimate; response_sd; status                                    | common status=ok, full keys              | coefficient / original across-slice SD; count hexbin                  |          38842 |
+| c       | data/selected_28_sensitivity.tsv                      | feature_id; display_id; *_estimate; *_q_value; *_status; primary_response_sd | original 28 IDs unchanged                | zero-centred scale, display cap ±2; each model's full-universe BH     |            140 |
+| d       | data/primary_lmm.tsv.gz                               | status; singular; q_value                                                    | status=ok                                | primary global-BH q<0.05                                              |          39570 |
+| e       | data/selected_patient_distributions.tsv               | feature_id; patient_id; condition; mean_log1p                                | original I15 and I06; all 35 patients    | mean(log1p(slice score)), including zeros; x-only jitter seed20261012 |             70 |
+| f       | data/selected_28_sensitivity.tsv                      | feature_id; *_estimate; *_std_error; *_ci_lower; *_ci_upper                  | original I15 and I06; all 5 models       | 95% intervals, no multiplicity adjustment; score-unit multiplier1000  |             10 |
+
+Per-panel CSV files are in data/panels. No communication inference, primary feature selection or original data figure was changed.

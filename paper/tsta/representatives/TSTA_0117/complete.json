@@ -1,0 +1,10 @@
+{
+  "status": "COMPLETE",
+  "sample_id": "TSTA_0117",
+  "N": 906,
+  "E": 10780,
+  "groups": 2,
+  "lr": 534,
+  "inference_seconds": 0.693,
+  "finished": "2026-10-15T14:28:14+0800"
+}

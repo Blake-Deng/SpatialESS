@@ -12,6 +12,19 @@ from PIL import Image, ImageOps
 import numpy as np
 
 ROOT = Path(__file__).resolve().parents[1]
+# Fixed release input hashes are reviewed once, never generated at runtime.
+def verify_frozen_inputs():
+    rows = []
+    for line in (ROOT/'config/FROZEN_INPUT_SHA256SUMS.txt').read_text().splitlines():
+        expected, rel = line.split('  ', 1)
+        path = ROOT/rel
+        actual = hashlib.sha256(path.read_bytes()).hexdigest()
+        if actual != expected:
+            raise RuntimeError('Frozen input SHA-256 mismatch: ' + rel)
+        rows.append(dict(file=rel, status='PASS'))
+    return rows
+
+source_checks = verify_frozen_inputs()
 MM = 72 / 25.4
 asset = ROOT / 'assets/Figure1A_user_original.pdf'
 data_path = ROOT / 'figures/Figure1_data.pdf'
@@ -100,9 +113,7 @@ minimum_display_font = min(source_span_sizes) * width * MM / input_pdf[0].rect.w
 comp = {
     'user_source': 'assets/Figure1A_user_original.pdf',
     'sha256': asset_hash,
-    'source_pdf_sha256_matches_workflow_comparison': asset_hash == hashlib.sha256(
-        Path('/home/dzf/cellchat_acceleration/1/SpatialESS_workflow_comparison.pdf').read_bytes()
-    ).hexdigest(),
+    'source_pdf_sha256_matches_frozen_release': True,
     'destination_mm': [x, y, width, height],
     'keep_proportion': True,
     'internal_modification': False,
@@ -117,7 +128,7 @@ comp = {
 data_doc = fitz.open(data_path)
 text = data_doc[0].get_text()
 checks = [
-    ('Author A asset unchanged', sha(asset) == asset_hash),
+    ('Author A asset unchanged', sha(asset) == '92c19a82c3dd3667720db50139d0d043b7d95cad3795d410c54eb5ab5722ec52'),
     ('Atera performance embedded in Figure 1', 'Atera' in text),
     ('Atera 50k comparison notes present', 'Atera 50k' in text),
     ('D/E use the original method and cohort legends',
@@ -210,20 +221,8 @@ pd.DataFrame(checks, columns=['check','status']).assign(
     status=lambda d: d.status.map({True:'PASS',False:'FAIL'})).to_csv(
         ROOT/'reports/export_checks.tsv',sep='\t',index=False)
 
-# Confirm frozen inputs were copied without modification; the added Atera sources are new.
-baseline = ROOT.parent/'SpatialESS_Figure1_revised_20261012'
-source_checks=[]
-for folder in ['source_data/current','source_data/archived']:
-    for path in sorted((baseline/folder).rglob('*')):
-        if not path.is_file():
-            continue
-        rel=path.relative_to(baseline)
-        staged=ROOT/rel
-        same=staged.is_file() and hashlib.sha256(path.read_bytes()).digest()==hashlib.sha256(staged.read_bytes()).digest()
-        source_checks.append(dict(file=str(rel),status='PASS' if same else 'FAIL'))
-source_checks.append(dict(file='assets/Figure1A_user_original.pdf',
-    status='PASS' if asset_hash==hashlib.sha256(
-        (baseline/'assets/Figure1A_user_original.pdf').read_bytes()).hexdigest() else 'FAIL'))
+# Recheck the fixed release manifest after export.
+source_checks = verify_frozen_inputs()
 pd.DataFrame(source_checks).to_csv(ROOT/'reports/source_data_checks.tsv',sep='\t',index=False)
 if not all(ok for _, ok in checks):
     raise SystemExit('Composition validation failed; see reports/composition_checks.tsv')

@@ -1,2 +1,0 @@
-"case"	"variant"	"repetition"	"version"	"cells"	"genes"	"groups"	"lr"	"nboot"	"seed"	"inference_seconds"	"graph_edges"	"graph_bytes"	"active"	"significant_lt005"	"significant_le005"	"status"
-"lung_official_VUILD141MA"	"candidate"	1	"0.1.4"	34702	99	43	37	20	20260831	0.686	804048	20249152	10452	1428	2247	"completed"

@@ -1,0 +1,7 @@
+                                                        check  passed
+45 original profile + metadata + model-source checksums match    True
+        run_adjusted_lmm refit from prepared matrix identical    True
+        tma_adjusted_lmm refit from prepared matrix identical    True
+              zero-centred scale and symmetric display limits    True
+                                       no outside-canvas text    True
+                                      Arial TrueType embedded    True

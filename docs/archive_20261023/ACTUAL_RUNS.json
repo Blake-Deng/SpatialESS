@@ -1,0 +1,80 @@
+[
+  {
+    "check": "software_manifest",
+    "exit_code": 0,
+    "expected": 0,
+    "passed": true
+  },
+  {
+    "check": "companion_manifest",
+    "exit_code": 0,
+    "expected": 0,
+    "passed": true
+  },
+  {
+    "check": "isolated_Figure1",
+    "exit_code": 0,
+    "expected": 0,
+    "passed": true
+  },
+  {
+    "check": "fixed_hash_rejects_tamper",
+    "exit_code": 1,
+    "expected": 1,
+    "passed": true
+  },
+  {
+    "check": "isolated_Figure2",
+    "exit_code": 0,
+    "expected": 0,
+    "passed": true
+  },
+  {
+    "check": "isolated_S1",
+    "exit_code": 0,
+    "expected": 0,
+    "passed": true
+  },
+  {
+    "check": "isolated_S2",
+    "exit_code": 0,
+    "expected": 0,
+    "passed": true
+  },
+  {
+    "check": "isolated_S3",
+    "exit_code": 0,
+    "expected": 0,
+    "passed": true
+  },
+  {
+    "check": "isolated_S4",
+    "exit_code": 0,
+    "expected": 0,
+    "passed": true
+  },
+  {
+    "check": "R_build",
+    "exit_code": 0,
+    "expected": 0,
+    "passed": true
+  },
+  {
+    "check": "R_install",
+    "exit_code": 0,
+    "expected": 0,
+    "passed": true
+  },
+  {
+    "check": "R_regression_tests",
+    "exit_code": 0,
+    "expected": 0,
+    "passed": true
+  },
+  {
+    "check": "ablation_source_install",
+    "exit_code": 0,
+    "expected": 0,
+    "passed": true
+  }
+]

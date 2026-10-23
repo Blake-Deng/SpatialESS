@@ -1,2 +1,0 @@
-"case"	"variant"	"repetition"	"version"	"cells"	"genes"	"groups"	"lr"	"nboot"	"seed"	"inference_seconds"	"graph_edges"	"graph_bytes"	"active"	"significant_lt005"	"significant_le005"	"status"
-"lung_official_VUHD113"	"baseline"	1	"0.1.3"	12870	99	35	37	20	20260831	0.362	186870	5285752	7407	853	1389	"completed"

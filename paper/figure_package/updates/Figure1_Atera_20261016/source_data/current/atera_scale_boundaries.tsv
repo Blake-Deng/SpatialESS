@@ -1,3 +1,0 @@
-tissue	maximum_reference_completed_N	maximum_strictly_validated_N	first_reference_uncompleted_N	first_uncompleted_state	current_running_N	remaining_not_attempted_scales	full_tissue_reference_completed	actual_performance_limit_established	interpretation
-breast	50000	50000	100000	allocation_failure_under_memory_budget		full	False	False	Completion boundary under the fixed 12-hour/96-GiB virtual-address budget; not a universal engine limit.
-cervical	50000	50000	100000	allocation_failure_under_memory_budget		full	False	False	Completion boundary under the fixed 12-hour/96-GiB virtual-address budget; not a universal engine limit.

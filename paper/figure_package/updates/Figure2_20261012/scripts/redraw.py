@@ -53,122 +53,121 @@ def source(panel, data, files, columns, key, units, transform='none',
                      result_version=version))
     print(f'{panel}\t{files}\t{columns}\tn={len(data)}', flush=True)
 
-SC = read('cosmx_scaling.tsv', True)
-FID = read('official_fidelity.tsv', True)
-SP = read('spatial_sparsity.tsv', True)
-PAIR = read('cosmx_50000_paired.tsv', True)
-COS = FID[FID['case'].str.startswith('cosmx_')].copy()
-COS['N'] = COS['case'].str.split('_').str[-1].astype(int)
-COS = COS.sort_values('N')
-LMM = old('lmm')
-SEL = old('selected_interactions')
-HM = old('effect_heatmap').set_index('feature_id').loc[SEL.feature_id].reset_index()
-FOREST = old('forest')
-EX = old('patient_examples').sort_values(['ligand','receptor','feature_id'])
-SS, PS = old('slice_scores'), old('patient_scores')
-if args.figure2_only:
-    EX = SEL.set_index('display_id').loc[['I15', 'I06', 'I19']].reset_index()
-    SS = old('figure2_examples_slice_scores')
-    PS = old('figure2_examples_patient_scores')
-LAB = old('volcano_labels').head(8).copy()
-BUBBLES = old('pathway_pair_representatives')
-EFFECT_LIMIT=max(np.nanmax(np.abs(HM[['standardized_effect','glm_standardized_effect']].values)),
-                 np.nanmax(np.abs(BUBBLES.standardized_effect)))
-BUBBLE_AREA_PER_UNIT = 4.4
-META = old('sample_metadata')
-VALID = LMM[LMM.status == 'ok'].copy()
-IDS = SEL.set_index('feature_id')['display_id']
-LAB['display_id'] = LAB.feature_id.map(IDS)
-EX['display_id'] = EX.feature_id.map(IDS)
+def load_figure_inputs(target):
+    """Read and validate only inputs consumed by the selected figure."""
+    global BUBBLES, BUBBLE_AREA_PER_UNIT, COS, EFFECT_LIMIT, EX, FID, FOREST, HM, IDS, LAB, LMM, META, PAIR, PS, SC, SEL, SP, SS, VALID, col, current_lmm, g, key, mapping, plotted_lmm
+    if target == 'Figure2':
+        LMM = old('lmm')
 
-# Compare frozen plotting coefficients to the released model table by full key.
-current_lmm = read('patient_random_intercept_lmm.tsv.gz', True).set_index('feature_id')
-plotted_lmm = LMM.set_index('feature_id')
-check('LMM full keys retained', set(current_lmm.index)==set(plotted_lmm.index))
-for col in ['estimate','q_value','std_error','nonzero_units','total_units','patient_count']:
-    check('LMM saved field '+col,
-          np.allclose(current_lmm.loc[plotted_lmm.index,col],plotted_lmm[col],
-                      rtol=1e-12,atol=0,equal_nan=True), 'Only text-serialization precision allowed')
-check('Warning fits excluded from primary FDR', LMM.loc[LMM.status!='ok','q_value'].isna().all())
-check('No zero or invalid q in displayed volcano', ((VALID.q_value>0)&(VALID.q_value<=1)).all())
-check('28 selected heatmap rows preserved',len(HM)==28 and HM.feature_id.tolist()==SEL.feature_id.tolist())
-check('12 forest features retained',len(FOREST)==12 and FOREST.feature_id.is_unique)
-check('Stable display IDs', HM.display_id.tolist()==SEL.display_id.tolist())
-check('Volcano eight archived labels', LAB.display_id.notna().all())
-check('Feature CI from saved columns', np.isfinite(FOREST[['lower','upper']]).all().all())
-check('Support denominator', (SEL.total_units==len(META)).all() and
-      np.allclose(SEL.support_fraction,SEL.nonzero_units/SEL.total_units))
-check('Patient identity and slice count', META.patient_id.nunique()==35 and len(META)==45)
-check('Saved patient means', all(np.isclose(g.log1p_score.mean(),
-      PS.loc[(PS.feature_id==key[0])&(PS.patient_id==key[1]),'log1p_score'].iloc[0])
-      for key,g in SS.groupby(['feature_id','patient_id'])))
-check('No double log transform', np.allclose(np.log1p(SS.score),SS.log1p_score))
-check('CSR definitions retained', (SP.validation_status=='PASS').all() and
-      np.allclose(SP.N**2,SP.N_squared) and np.allclose(SP.E/SP.N,SP.mean_out_degree) and
-      np.allclose(SP.E/SP.N_squared,SP.graph_density) and
-      (SP.csr_total_bytes==SP.offset_bytes+SP.neighbor_bytes+SP.distance_bytes).all())
-check('No self-edges in radius graph counts', (SP.self_edges==0).all())
-check('Fidelity exception preserved', len(FID)==66 and FID.strict_fidelity_pass.sum()==65)
-mapping = SEL[['feature_id','display_id','interaction_name','sender_group_name',
-               'receiver_group_name','ligand','receptor','pathway_name']].copy()
-mapping['LR_display'] = mapping.apply(lr_label,axis=1)
-mapping['sender_display'] = mapping.sender_group_name.map(abbrev)
-mapping['receiver_display'] = mapping.receiver_group_name.map(abbrev)
-mapping.to_csv(ROOT/'source_data/feature_mapping.csv',index=False)
-pd.DataFrame(list(ABBREVIATIONS.items()),columns=['original','display']).to_csv(
-    ROOT/'source_data/abbreviations.csv',index=False)
+        SEL = old('selected_interactions')
 
-for panel,data,files,cols,key,units,transform,rule in [
- ('Figure1B',PAIR,'current/cosmx_50000_paired.tsv','probability_official;probability_ess',
-  'sender_group_name;receiver_group_name;interaction_name','probability','log10 for strictly positive values',
-  'Full-key pairing; count nonpositive, NA and unpaired records; Pearson on original probability'),
- ('Figure1C',COS,'current/official_fidelity.tsv','N;probability_pearson;max_probability_difference;exact_pvalue_fraction;active_jaccard;significant_disagreements_le005',
-  'case','metric-specific','none','Six completed CosMx pairs; calls use raw p <= 0.05'),
- ('Figure1D',SC,'current/cosmx_scaling.tsv','cells;ESS_wall_seconds;official_wall_seconds;*_status',
-  'cells','seconds','log10 x and y','Curves: completed only; median of saved repeats, no inferred error bars'),
- ('Figure1E',SC,'current/cosmx_scaling.tsv','cells;ESS_peak_rss_GiB;official_peak_rss_gib;*_status',
-  'cells','GiB','log10 x and y','Completed only; failed resources not plotted'),
- ('Figure1F',SP,'current/spatial_sparsity.tsv','N;N_squared;E;fixture;sampling_design',
-  'fixture','ordered pairs / directed non-self edges','log10 x and y','All 14 PASS spatial fixtures'),
- ('Figure1G',SP,'current/spatial_sparsity.tsv','N;E;mean_out_degree;fixture',
-  'fixture','neighbors per cell','horizontal bars + endpoint + numeric label; fixture labels include N',
-  'All 14 fixtures; original fixture order within platform; no duplication by LR filter'),
- ('Figure1H',SP,'current/spatial_sparsity.tsv','N;graph_density;fixture',
-  'fixture','E / N squared','log10 x and y','All fixtures; only nested CosMx values connected'),
- ('Figure1I',SC,'current/cosmx_scaling.tsv','cells;ESS_status;official_status;official_failure_reason',
-  'cells','completion status','none','Paired filled; ESS-only open; official failed cross'),
- ('Figure2A',VALID,'archived/lmm.tsv.gz;archived/volcano_labels.tsv.gz','feature_id;estimate;q_value;status',
-  'feature_id','log1p-score contrast PF minus Control; BH q','-log10(q); effect ticks show x10^-3',
-  'status == ok; all valid points; original eight labels; no refitting or BH recomputation'),
- ('Figure2B',FOREST,'archived/forest.tsv.gz','feature_id;display_id;estimate;lower;upper;singular',
-  'feature_id','log1p-score contrast','effect ticks show x10^-3','Exact archived 12 features'),
- ('Figure2C',HM,'archived/effect_heatmap.tsv.gz;archived/selected_interactions.tsv.gz',
-  'feature_id;display_id;standardized_effect;glm_standardized_effect;q_value;glm_q;support_fraction;icc;singular',
-  'feature_id','effect / response SD; nonzero-slice fraction; ICC','zero-centered effect fill; no new clipping',
-  'Exact archived 28 rows; LMM/OLS share color range; dot q < .05; support denominator 45'),
- ('Figure2D_slices',SS,'archived/slice_scores.tsv.gz','feature_id;sample_id;patient_id;condition;log1p_score',
-  'feature_id;sample_id','saved log1p score','no y transform; fixed x jitter seed 13','All 45 slices per original feature'),
- ('Figure2D_patients',PS,'archived/patient_scores.tsv.gz','feature_id;patient_id;condition;log1p_score',
-  'feature_id;patient_id','mean saved log1p score','fixed x jitter seed 19','All 35 patients per original feature'),
- ('Figure2D_feature_identities',EX,'archived/patient_examples.tsv.gz',
-  'feature_id;display_id;ligand;receptor;sender_group_name;receiver_group_name',
-  'feature_id','feature identity','none','Three archived examples; exact saved identities'),
- ('Figure2E',BUBBLES,'archived/pathway_pair_representatives.tsv.gz',
-  'feature_id;pathway_name;sender_group_name;receiver_group_name;standardized_effect;q_value',
-  'feature_id','effect / SD; feature-level BH q','area = min(-log10(q),10)',
-  'Archived 52 pathway/cell-pair representatives; no pathway-level enrichment inference')]:
-    if args.figure2_only and not panel.startswith('Figure2'):
-        continue
-    if args.figure2_only and panel.startswith('Figure2D'):
-        files = {'Figure2D_slices': 'archived/figure2_examples_slice_scores.tsv.gz',
-                 'Figure2D_patients': 'archived/figure2_examples_patient_scores.tsv.gz',
-                 'Figure2D_feature_identities': 'archived/selected_interactions.tsv.gz'}[panel]
-        rule = 'Full-key selected I15, I06, I19; all original slices/patients retained'
-    source(panel,data,'source_data/'+files.replace(';',';source_data/'),cols,key,units,transform,rule,
-           interval='saved lower/upper Wald columns' if panel in ['Figure2B','Figure2D_effects'] else 'none',
-           version='ESS 0.1.4 / identified saved V3' if panel.startswith('Figure1') else '2026-09-07 frozen LMM')
+        HM = old('effect_heatmap').set_index('feature_id').loc[SEL.feature_id].reset_index()
 
-pd.DataFrame(PROV).to_csv(ROOT/'reports/PANEL_INVENTORY.tsv',sep='\t',index=False)
+        FOREST = old('forest')
+
+        EX = SEL.set_index('display_id').loc[['I15', 'I06', 'I19']].reset_index()
+
+        SS = old('figure2_examples_slice_scores')
+
+        PS = old('figure2_examples_patient_scores')
+
+        LAB = old('volcano_labels').head(8).copy()
+
+        BUBBLES = old('pathway_pair_representatives')
+
+        EFFECT_LIMIT=max(np.nanmax(np.abs(HM[['standardized_effect','glm_standardized_effect']].values)),
+                         np.nanmax(np.abs(BUBBLES.standardized_effect)))
+
+        BUBBLE_AREA_PER_UNIT = 4.4
+
+        META = old('sample_metadata')
+
+        VALID = LMM[LMM.status == 'ok'].copy()
+
+        IDS = SEL.set_index('feature_id')['display_id']
+
+        LAB['display_id'] = LAB.feature_id.map(IDS)
+
+        EX['display_id'] = EX.feature_id.map(IDS)
+
+        current_lmm = read('patient_random_intercept_lmm.tsv.gz', True).set_index('feature_id')
+
+        plotted_lmm = LMM.set_index('feature_id')
+
+        check('LMM full keys retained', set(current_lmm.index)==set(plotted_lmm.index))
+
+        for col in ['estimate','q_value','std_error','nonzero_units','total_units','patient_count']:
+            check('LMM saved field '+col,
+                  np.allclose(current_lmm.loc[plotted_lmm.index,col],plotted_lmm[col],
+                              rtol=1e-12,atol=0,equal_nan=True), 'Only text-serialization precision allowed')
+
+        check('Warning fits excluded from primary FDR', LMM.loc[LMM.status!='ok','q_value'].isna().all())
+
+        check('No zero or invalid q in displayed volcano', ((VALID.q_value>0)&(VALID.q_value<=1)).all())
+
+        check('28 selected heatmap rows preserved',len(HM)==28 and HM.feature_id.tolist()==SEL.feature_id.tolist())
+
+        check('12 forest features retained',len(FOREST)==12 and FOREST.feature_id.is_unique)
+
+        check('Stable display IDs', HM.display_id.tolist()==SEL.display_id.tolist())
+
+        check('Volcano eight archived labels', LAB.display_id.notna().all())
+
+        check('Feature CI from saved columns', np.isfinite(FOREST[['lower','upper']]).all().all())
+
+        check('Support denominator', (SEL.total_units==len(META)).all() and
+              np.allclose(SEL.support_fraction,SEL.nonzero_units/SEL.total_units))
+
+        check('Patient identity and slice count', META.patient_id.nunique()==35 and len(META)==45)
+
+        check('No double log transform', np.allclose(np.log1p(SS.score),SS.log1p_score))
+
+        mapping = SEL[['feature_id','display_id','interaction_name','sender_group_name',
+                       'receiver_group_name','ligand','receptor','pathway_name']].copy()
+
+        mapping['LR_display'] = mapping.apply(lr_label,axis=1)
+
+        mapping['sender_display'] = mapping.sender_group_name.map(abbrev)
+
+        mapping['receiver_display'] = mapping.receiver_group_name.map(abbrev)
+
+        mapping.to_csv(ROOT/'source_data/feature_mapping.csv',index=False)
+
+        for panel,data,files,cols,key,units,transform,rule in [
+         ('Figure2A',VALID,'archived/lmm.tsv.gz;archived/volcano_labels.tsv.gz','feature_id;estimate;q_value;status',
+          'feature_id','log1p-score contrast PF minus Control; BH q','-log10(q); effect ticks show x10^-3',
+          'status == ok; all valid points; original eight labels; no refitting or BH recomputation'),
+         ('Figure2B',FOREST,'archived/forest.tsv.gz','feature_id;display_id;estimate;lower;upper;singular',
+          'feature_id','log1p-score contrast','effect ticks show x10^-3','Exact archived 12 features'),
+         ('Figure2C',HM,'archived/effect_heatmap.tsv.gz;archived/selected_interactions.tsv.gz',
+          'feature_id;display_id;standardized_effect;glm_standardized_effect;q_value;glm_q;support_fraction;icc;singular',
+          'feature_id','effect / response SD; nonzero-slice fraction; ICC','zero-centered effect fill; no new clipping',
+          'Exact archived 28 rows; LMM/OLS share color range; dot q < .05; support denominator 45'),
+         ('Figure2D_slices',SS,'archived/slice_scores.tsv.gz','feature_id;sample_id;patient_id;condition;log1p_score',
+          'feature_id;sample_id','saved log1p score','no y transform; fixed x jitter seed 13','All 45 slices per original feature'),
+         ('Figure2D_patients',PS,'archived/patient_scores.tsv.gz','feature_id;patient_id;condition;log1p_score',
+          'feature_id;patient_id','mean saved log1p score','fixed x jitter seed 19','All 35 patients per original feature'),
+         ('Figure2D_feature_identities',EX,'archived/patient_examples.tsv.gz',
+          'feature_id;display_id;ligand;receptor;sender_group_name;receiver_group_name',
+          'feature_id','feature identity','none','Three archived examples; exact saved identities'),
+         ('Figure2E',BUBBLES,'archived/pathway_pair_representatives.tsv.gz',
+          'feature_id;pathway_name;sender_group_name;receiver_group_name;standardized_effect;q_value',
+          'feature_id','effect / SD; feature-level BH q','area = min(-log10(q),10)',
+          'Archived 52 pathway/cell-pair representatives; no pathway-level enrichment inference'),
+        ]:
+            if args.figure2_only and not panel.startswith('Figure2'):
+                continue
+            if args.figure2_only and panel.startswith('Figure2D'):
+                files = {'Figure2D_slices': 'archived/figure2_examples_slice_scores.tsv.gz',
+                         'Figure2D_patients': 'archived/figure2_examples_patient_scores.tsv.gz',
+                         'Figure2D_feature_identities': 'archived/selected_interactions.tsv.gz'}[panel]
+                rule = 'Full-key selected I15, I06, I19; all original slices/patients retained'
+            source(panel,data,'source_data/'+files.replace(';',';source_data/'),cols,key,units,transform,rule,
+                   interval='saved lower/upper Wald columns' if panel in ['Figure2B','Figure2D_effects'] else 'none',
+                   version='ESS 0.1.4 / identified saved V3' if panel.startswith('Figure1') else '2026-09-07 frozen LMM')
+
+        return
+    raise ValueError("Unknown figure: " + target)
 
 def concise(x):
     if pd.isna(x): return 'NA'
@@ -289,8 +288,6 @@ def scaling(ax, what):
 SERIES=['CosMx central','Xenium central','Xenium stratified','Visium HD ovarian']
 SCOL=[C['ESS'],C['positive'],C['positive'],C['green']]
 SMARK=['o','^','v','D']
-SP['series']=np.select([SP.fixture.str.startswith('cosmx'),SP.fixture.str.startswith('cervical_center'),
-                       SP.fixture.str.startswith('cervical_stratified')],SERIES[:3],default=SERIES[3])
 
 def spatial(ax, field):
     for series,color,marker in zip(SERIES,SCOL,SMARK):
@@ -967,44 +964,18 @@ def fig_s4():
     text_mm(f,x+94,y+h-8,'Intervals describe the condition contrast,\nnot adjusted group means.',size=5.8)
     save(f);plt.close(f)
 
-if args.figure2_only:
-    fig2()
-    pd.DataFrame(PROV).to_csv(ROOT/'reports/PANEL_INVENTORY.tsv',sep='\t',index=False)
-    pd.DataFrame(CHECKS).to_csv(ROOT/'reports/data_checks.tsv',sep='\t',index=False)
-    with pd.ExcelWriter(ROOT/'source_data/Figure2_Source_Data.xlsx',engine='openpyxl') as writer:
-        pd.DataFrame(PROV).to_excel(writer,sheet_name='Provenance',index=False)
-        mapping.to_excel(writer,sheet_name='Feature_IDs',index=False)
-        for p in sorted((ROOT/'source_data/panels').glob('Figure2*.csv')):
-            pd.read_csv(p).to_excel(writer,sheet_name=p.stem[:31],index=False)
-        pd.read_csv(ROOT/'source_data/Figure2D_nonzero_counts.csv').to_excel(writer,sheet_name='D_nonzero_slice_counts',index=False)
-    (ROOT/'logs/environment.json').write_text(json.dumps(dict(
-        python=sys.version,platform=platform.platform(),numpy=np.__version__,pandas=pd.__version__,
-        matplotlib=mpl.__version__,font=FONT,font_path=FONT_PATH),indent=2)+'\n')
-    print('Figure 2 only completed; models and other figures untouched.',flush=True)
-    sys.exit(0)
-theme_preview()
-if args.theme_only:
-    print('Theme-only preview completed.',flush=True)
-    sys.exit(0)
-fig1();fig2()
-if args.main_only:
-    pd.DataFrame(PROV).to_csv(ROOT/'reports/PANEL_INVENTORY.tsv',sep='\t',index=False)
-    pd.DataFrame(CHECKS).to_csv(ROOT/'reports/data_checks.tsv',sep='\t',index=False)
-    print('Main-only design preview completed.',flush=True)
-    sys.exit(0)
-fig_s1();fig_s2();fig_s3();fig_s4()
+load_figure_inputs('Figure2')
+fig2()
 pd.DataFrame(PROV).to_csv(ROOT/'reports/PANEL_INVENTORY.tsv',sep='\t',index=False)
 pd.DataFrame(CHECKS).to_csv(ROOT/'reports/data_checks.tsv',sep='\t',index=False)
-pd.DataFrame([dict(semantic=k,hex=v) for k,v in C.items()]).to_csv(ROOT/'config/palette.tsv',sep='\t',index=False)
-with pd.ExcelWriter(ROOT/'source_data/Source_Data.xlsx',engine='openpyxl') as writer:
+with pd.ExcelWriter(ROOT/'source_data/Figure2_Source_Data.xlsx',engine='openpyxl') as writer:
     pd.DataFrame(PROV).to_excel(writer,sheet_name='Provenance',index=False)
     mapping.to_excel(writer,sheet_name='Feature_IDs',index=False)
-    for p in sorted((ROOT/'source_data/panels').glob('*.csv')):
-        if p.stem not in {'FigureS1CD','Figure2D_effects'}:
-            pd.read_csv(p).to_excel(writer,sheet_name=p.stem[:31],index=False)
-    FID.to_excel(writer,sheet_name='All_66_official_comparisons',index=False)
-    pd.read_csv(ROOT/'source_data/pair_mapping.csv').to_excel(writer,sheet_name='Sender_receiver_IDs',index=False)
+    for p in sorted((ROOT/'source_data/panels').glob('Figure2*.csv')):
+        pd.read_csv(p).to_excel(writer,sheet_name=p.stem[:31],index=False)
+    pd.read_csv(ROOT/'source_data/Figure2D_nonzero_counts.csv').to_excel(writer,sheet_name='D_nonzero_slice_counts',index=False)
 (ROOT/'logs/environment.json').write_text(json.dumps(dict(
     python=sys.version,platform=platform.platform(),numpy=np.__version__,pandas=pd.__version__,
     matplotlib=mpl.__version__,font=FONT,font_path=FONT_PATH),indent=2)+'\n')
-print('All data panels exported; composition and visual QA still required.',flush=True)
+print('Figure 2 only completed; models and other figures untouched.',flush=True)
+sys.exit(0)

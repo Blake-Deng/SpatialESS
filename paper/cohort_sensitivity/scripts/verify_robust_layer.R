@@ -1,0 +1,21 @@
+args <- commandArgs(trailingOnly = TRUE)
+stopifnot(length(args) == 1L)
+out <- normalizePath(args[1])
+source(file.path(out, "scripts/robust_cohort_inference.R"))
+prepared <- readRDS(file.path(out, "data/prepared_slice_scores.rds"))
+fit <- fit_patient_run_hc3(prepared)
+read_table <- function(name) read.delim(gzfile(file.path(out, "data", name)), check.names = FALSE)
+python <- read_table("patient_run_hc3.tsv.gz")
+stopifnot(identical(fit$results$feature_id, python$feature_id), identical(fit$results$status, python$status))
+cols <- c("estimate", "std_error", "p_value", "q_value", "ci_lower", "ci_upper")
+check <- data.frame(quantity = cols, maximum_difference = vapply(cols, function(column) {
+  max(abs(fit$results[[column]] - python[[column]]), na.rm = TRUE)
+}, numeric(1)))
+stopifnot(all(check$maximum_difference < 1e-10))
+write.table(check, file.path(out, "reports/robust_layer_cross_language_validation.tsv"),
+            sep = "\t", row.names = FALSE, quote = FALSE)
+labels <- classify_cohort_evidence(read_table("primary_lmm.tsv.gz"),
+                                  read_table("run_adjusted_lmm.tsv.gz"), fit$results)
+data.table::fwrite(labels, file.path(out, "data/cohort_evidence_labels.tsv.gz"), sep = "\t", na = "NA")
+cat("PASS: full-universe R/Python HC3 estimates, intervals, p and BH q match.\n")
+print(table(labels$evidence_label))

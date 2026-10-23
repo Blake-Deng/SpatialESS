@@ -1,0 +1,29 @@
+2026-10-15T14:28:02+0800 TSTA_0117 READ_COUNTS 
+           used  (Mb) gc trigger  (Mb) max used  (Mb)
+Ncells  3532502 188.7    6504101 347.4  5063991 270.5
+Vcells 15355726 117.2   43736416 333.7 34705734 264.8
+          used  (Mb) gc trigger  (Mb) max used  (Mb)
+Ncells 3534081 188.8    6504101 347.4  5063991 270.5
+Vcells 6272377  47.9   42947664 327.7 52362086 399.5
+2026-10-15T14:28:06+0800 TSTA_0117 EXPRESSION_CLUSTERING 
+Warning messages:
+1: In simpleLoess(y, x, w, span, degree = degree, parametric = parametric,  :
+  pseudoinverse used at -2.9785
+2: In simpleLoess(y, x, w, span, degree = degree, parametric = parametric,  :
+  neighborhood radius 0.32242
+3: In simpleLoess(y, x, w, span, degree = degree, parametric = parametric,  :
+  reciprocal condition number  0
+4: In simpleLoess(y, x, w, span, degree = degree, parametric = parametric,  :
+  There are other near singularities as well. 0.031008
+          used  (Mb) gc trigger  (Mb) max used  (Mb)
+Ncells 3670691 196.1    6504101 347.4  5358571 286.2
+Vcells 6573172  50.2   27486506 209.8 52362086 399.5
+2026-10-15T14:28:07+0800 TSTA_0117 LR_COVERAGE 
+Warning message:
+Excluded 2700 of 3234 LR records with incomplete ligand/receptor components; retained 534. See $audit and $missing_genes (or result$lr_filter when lr_missing = 'filter'). 
+          used  (Mb) gc trigger  (Mb) max used  (Mb)
+Ncells 3824629 204.3    6504101 347.4  6504101 347.4
+Vcells 8545875  65.2   27486506 209.8 52362086 399.5
+2026-10-15T14:28:13+0800 TSTA_0117 SPATIALESS_INFERENCE_100_PERMUTATIONS 
+2026-10-15T14:28:14+0800 TSTA_0117 VALIDATE_AND_SAVE 
+2026-10-15T14:28:14+0800 TSTA_0117 COMPLETE 

@@ -1,3 +1,5 @@
+> Candidate branch `archive/closure-20261023`: portable figure inputs and a companion materials archive are prepared locally. The new materials are not yet published. The DOI below identifies the historical 2026-10-22 release. See [the current guide](docs/REPRODUCE_20261023.md).
+
 # SpatialESS
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23567247.svg)](https://doi.org/10.5281/zenodo.23567247)

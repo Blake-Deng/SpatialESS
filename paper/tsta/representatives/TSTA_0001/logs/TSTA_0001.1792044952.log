@@ -1,0 +1,20 @@
+2026-10-15T14:15:55+0800 TSTA_0001 READ_COUNTS 
+           used  (Mb) gc trigger   (Mb)  max used   (Mb)
+Ncells  3549418 189.6    6514115  347.9   5063991  270.5
+Vcells 49947041 381.1  137844738 1051.7 141848949 1082.3
+           used  (Mb) gc trigger   (Mb)  max used   (Mb)
+Ncells  3550997 189.7    6514115  347.9   5063991  270.5
+Vcells 35141043 268.2  217650448 1660.6 253955380 1937.6
+2026-10-15T14:16:05+0800 TSTA_0001 EXPRESSION_CLUSTERING 
+           used  (Mb) gc trigger   (Mb)  max used   (Mb)
+Ncells  3685538 196.9    6514115  347.9   6514115  347.9
+Vcells 35514094 271.0  174120359 1328.5 253955380 1937.6
+2026-10-15T14:16:13+0800 TSTA_0001 LR_COVERAGE 
+Warning message:
+Excluded 666 of 3234 LR records with incomplete ligand/receptor components; retained 2568. See $audit and $missing_genes (or result$lr_filter when lr_missing = 'filter'). 
+           used  (Mb) gc trigger   (Mb)  max used   (Mb)
+Ncells  3832045 204.7    6514115  347.9   6514115  347.9
+Vcells 56688469 432.5  174120359 1328.5 253955380 1937.6
+2026-10-15T14:16:24+0800 TSTA_0001 SPATIALESS_INFERENCE_100_PERMUTATIONS 
+2026-10-15T14:17:13+0800 TSTA_0001 VALIDATE_AND_SAVE 
+2026-10-15T14:17:13+0800 TSTA_0001 COMPLETE 

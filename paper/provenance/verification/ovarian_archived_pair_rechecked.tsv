@@ -1,2 +1,0 @@
-case	comparison	reference_active	candidate_active	active_jaccard	probability_pearson	max_abs_probability_difference	pvalue_exact_fraction	max_abs_pvalue_difference	significant_reference_lt005	significant_candidate_lt005	significance_disagreements
-sparkle_16247	archived_official_pair	37808	37808	1	1	4.98732999343332e-18	1	0	8417	8417	0

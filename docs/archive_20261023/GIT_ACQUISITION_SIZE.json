@@ -1,0 +1,6 @@
+{
+  "head": "b4133b1ba87afd16dc57f776445b4c332b83ef8e",
+  "fresh_bare_clone_disk_bytes": 177168361,
+  "fresh_clone_object_bytes": 177140832,
+  "count_objects": "count: 0\nsize: 0\nin-pack: 4068\npacks: 1\nsize-pack: 172973\nprune-packable: 0\ngarbage: 0\nsize-garbage: 0\n"
+}

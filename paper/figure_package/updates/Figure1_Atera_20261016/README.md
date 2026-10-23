@@ -1,3 +1,5 @@
+Current portable commands and companion inputs: [distribution guide](../../../../docs/REPRODUCE_20261023.md). Old commands below document the original package.
+
 # SpatialESS Figure 1 with Atera scaling
 
 This revision enlarges the author-supplied Figure 1A to a full-width top row and redraws panels D, E and I with the saved CosMx and Atera benchmark measurements. Panel C also reports the 10 paired Atera consistency checks. The original workflow PDF is placed as an unchanged vector asset; its source SHA-256 matches `SpatialESS_workflow_comparison.pdf`.
