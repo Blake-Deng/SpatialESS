@@ -15,8 +15,18 @@ The demo was tested on the following server environment:
 
 The test ran on a server with NVIDIA GPUs available, but neither installation nor the demo used a GPU. Other R versions supported by the package may work, but were not tested for this demo. Installation and runtime below are measurements from the server listed above, not general performance guarantees.
 
-## Install
+## Desktop validation
 
+The demo was independently tested on an Apple M3 Pro running R 4.5.2. SpatialESS was installed into a temporary local R library and removed after validation; no package installation or demo process remained after testing.
+
+With required R dependencies already available, the temporary SpatialESS installation took approximately 18 s. The installed package occupied approximately 0.66 MiB.
+
+The six-cell synthetic demo was run five times successfully. Whole-process runtime, including R startup, ranged from 0.50 to 0.95 s, with a median of 0.66 s. Peak resident memory was approximately 247 MiB. No GPU or other specialized hardware was required.
+
+These measurements describe this small demonstration only and should not be interpreted as performance estimates for the full spatial transcriptomics analyses reported in the manuscript.
+
+## Install
+Measured desktop installation time was approximately 18 s on an Apple M3 Pro with R 4.5.2, with required R dependencies already available. The temporary installed package occupied approximately 0.66 MiB.
 Install `remotes` if needed, then install the fixed SpatialESS materials tag:
 
 ```r
@@ -40,7 +50,7 @@ Rscript demo.R
 
 The actual output from a successful run is saved in [`expected_output.txt`](expected_output.txt). It reports ligand–receptor coverage, identifies the missing `unmeasured` receptor-complex subunit and filters `L_RC`. The warning about filtering `L_RC` is expected: only `L` and `R` are present in this two-gene example. The remaining `L_R` interaction produces four group-pair records: A→A, A→B, B→A and B→B. The permutation seed and inference parameters are unchanged from the upstream example.
 
-Measured demo runtime: **2.13 seconds** (server environment above; R startup included).
+Measured desktop demo runtime: median 0.66 s across five successful runs (range, 0.50–0.95 s), including R startup, on an Apple M3 Pro with R 4.5.2. Peak resident memory was approximately 247 MiB.
 
 ## Use your own data
 
