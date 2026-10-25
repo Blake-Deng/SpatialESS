@@ -1,5 +1,11 @@
 # Results
 
+For tables and saved records, download and mount the companion data package
+as described in the [reproduction guide](REPRODUCE.md). The paths below are
+logical paths after mounting, rather than directly browsable GitHub files.
+The self-contained [condition-support analysis](../paper/lung_cohort/condition_support/README.md)
+includes its own inputs, classifications and validation records.
+
 SpatialESS version: **0.1.4**. Inference and resource measurement series: 2026-09-30 through 2026-10-01. Each configuration has its own input checksum, LR table and parameter contract.
 
 | Table | Contents |
@@ -16,7 +22,7 @@ SpatialESS version: **0.1.4**. Inference and resource measurement series: 2026-0
 | gse250346_lmm_summary.tsv | Completed primary cohort model summary |
 | lmm_provenance.tsv | Model source, fitting date and cohort input scope |
 
-All table paths are relative to `results/tables/`. `results/records/<case>.rds` stores each current result; `results/contracts/<case>.rds` stores its LR, parameters and diagnostics.
+All table paths below refer to the mounted `results/tables/` directory. `results/records/<case>.rds` stores each current result; `results/contracts/<case>.rds` stores its LR, parameters and diagnostics.
 
 ## Dataset coverage
 

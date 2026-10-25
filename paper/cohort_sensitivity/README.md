@@ -1,13 +1,17 @@
-# Saved cohort sensitivity evidence
+# Cohort model sensitivity
 
-This collection was recovered from the local 2026-10-20 review deliverables.
-Use the companion mount and [current guide](../../docs/REPRODUCE_20261023.md).
-The 50,040-feature model tables, fit states, 45-section score RDS, patient omission
-summaries and original logs are retained. The manuscript's 4,904/5,021 retained
-primary discoveries and 3,808 descriptive cross-analysis support count match
-these saved tables. No new inference or statistical fit was run.
+The saved analysis includes 50,040-feature model tables, fit states, the
+45-section score RDS, patient-omission summaries and execution logs. Download
+and mount the companion data package using the
+[reproduction guide](../../docs/REPRODUCE.md).
 
-The all-feature balanced-effect summary and plain score TSV were not found.
-Selected balanced summaries and all 1,000 patient selections are retained.
-Historical scripts are supplied with their input contracts and recorded paths;
-do not interpret their presence as a successful new end-to-end analysis.
+The 4,904/5,021 retained primary discoveries and 3,808 descriptive cross-analysis
+support count match the saved sensitivity tables. Selected balanced summaries
+and all 1,000 patient selections are retained. The all-feature balanced-effect
+table is unavailable. Scripts include their input contracts and recorded paths;
+full reruns require the stated inputs and environment configuration.
+
+The [condition-support analysis](../lung_cohort/condition_support/README.md)
+provides a score TSV, descriptive support labels and one-section-per-patient
+checks. These labels are distinct from the model sensitivity results and do
+not introduce new condition-association tests or BH correction.

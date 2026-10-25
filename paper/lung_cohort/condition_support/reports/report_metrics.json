@@ -1,0 +1,46 @@
+{
+  "threshold_40_changed_vs_50": 2727,
+  "threshold_60_changed_vs_50": 2553,
+  "stability_summary_columns": [
+    "category",
+    "main_count",
+    "original_primary_hits",
+    "50pct_always_same",
+    "all_thresholds_all_choices_same",
+    "one_slice_class_count_range"
+  ],
+  "stability_summary": [
+    [
+      "PF-restricted",
+      2061,
+      1311,
+      1081,
+      632,
+      "1502\u20131770"
+    ],
+    [
+      "Control-restricted",
+      1,
+      1,
+      0,
+      0,
+      "0\u20133"
+    ],
+    [
+      "Cross-condition shared",
+      7567,
+      930,
+      6365,
+      4955,
+      "6719\u20137226"
+    ],
+    [
+      "Other",
+      40411,
+      2905,
+      40176,
+      37373,
+      "41238\u201341645"
+    ]
+  ]
+}

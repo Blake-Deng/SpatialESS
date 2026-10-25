@@ -5,6 +5,10 @@ This archive documents the 10x Genomics Atera WTA FFPE breast and cervical
 it is not a biological validation cohort or a test of a released commercial
 workflow.
 
+Code and method records are available here. Saved data and result tables
+are supplied in the companion package; use the
+[reproduction guide](../../docs/REPRODUCE.md) to download and mount them.
+
 ## Inputs and preprocessing
 
 The prepared inputs contain 18,028 measured Gene Expression rows. Per-cell

@@ -1,10 +1,13 @@
 # SpatialESS component ablation, 2026-10-12
 
-An independent experiment from the SpatialESS 0.1.4 submission snapshot. Original
-package and manuscript files are not modified. All variants retain the object
+A component experiment using SpatialESS 0.1.4. The installable package and
+manuscript source are separate from these experimental variants. All variants retain the object
 protection fixes, molecular formula, group filters, self-edge convention and
 permutation tail criterion. No new biological model or significance filtering
 is introduced.
+
+Saved outputs are in the companion data package; follow the
+[reproduction guide](../../docs/REPRODUCE.md) to download and mount it.
 
 ## Inputs and runs
 
@@ -68,34 +71,17 @@ exact summary/run sheets. Internal inference timing excludes input loading and
 output serialization. Actual numeric-array graph bytes are measured separately;
 they are not RSS. Ratios are finalized only once both groups are complete.
 
-## Background execution and outputs
+## Source and execution
 
-Tmux session: `spatialess_ablation_20261012`.
-
-```sh
-tmux attach -t spatialess_ablation_20261012
-```
-
-Resume safely from this directory:
+From the repository root, install the supplied vanilla and instrumented sources:
 
 ```sh
-python3 -u scripts/run_queue.py
+Rscript tools/install_ablation.R .
 ```
 
-The queue updates `tables/SpatialESS_ablation_table.xlsx`, `.docx`, `.md`,
-`ablation_summary.tsv`, `.csv` and `ablation_runs.tsv` after each completed job.
-`reports/progress.json`, `reports/table_status.json` and `logs/queue.log` expose
-progress. At the end it writes `SpatialESS_ablation_results.zip`, containing
-the final table, scripts, source variants, design, validation records and logs.
-Prepared expression inputs remain local and are not put in the downloadable ZIP.
-
-To rebuild in an R environment with Rcpp and Matrix:
-
-```sh
-Rscript -e 'Rcpp::compileAttributes("source/instrumented")'
-R CMD INSTALL --preclean -l lib_vanilla source/vanilla
-R CMD INSTALL --preclean -l lib source/instrumented
-```
-
-This experiment has not been added to the submission manuscript or GitHub
-package. Performance conclusions must follow the completed measurements.
+The queue script `scripts/run_queue.py` uses GNU time, Linux CPU affinity,
+resource limits and the recorded experimental paths. Rerunning inference
+requires the prepared expression fixtures and configuration for your system.
+The companion includes the saved tables, validation records, parameters and
+logs. Technical repetitions measure performance under these settings; they
+are not biological replicates.

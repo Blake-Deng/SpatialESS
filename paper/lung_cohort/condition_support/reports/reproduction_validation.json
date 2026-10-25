@@ -1,0 +1,35 @@
+{
+  "passed": true,
+  "python": "3.11.2",
+  "numpy": "1.26.0",
+  "pandas": "2.2.3",
+  "openpyxl": "3.1.5",
+  "platform": "macOS-27.0.1-arm64-arm-64bit",
+  "main_analysis_checks_passed": 72,
+  "independent_probability_validation_passed": true,
+  "all_features": 50040,
+  "exact_choices": 768,
+  "thresholds": [
+    40,
+    50,
+    60
+  ],
+  "saved_result_tables_reproduced": [
+    "all_50040_feature_classification.tsv.gz",
+    "exact_slice_selections.tsv.gz",
+    "existing_examples_classification.tsv",
+    "heterotypic_feature_classification.tsv.gz",
+    "one_slice_class_count_summary.tsv",
+    "one_slice_counts_by_selection.tsv.gz",
+    "one_slice_expected_transitions.tsv",
+    "one_slice_stability_summary.tsv",
+    "patient_sampling_units.tsv",
+    "random_slice_selections.tsv.gz",
+    "threshold_class_counts.tsv",
+    "threshold_transitions.tsv"
+  ],
+  "comparison_rtol": 2e-14,
+  "comparison_atol": 2e-16,
+  "supplied_inputs_scripts_and_reports_preserved": true,
+  "byte_identical_supplied_files": 28
+}

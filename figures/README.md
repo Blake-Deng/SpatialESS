@@ -1,6 +1,9 @@
 # Result figures
 
-Benchmark_resources: current SpatialESS original-harness measurements; official measurements are from the identified reference experiment. Only completed observations are plotted. Failure status and reason remain in cosmx_scaling.tsv; no failed time or RSS is plotted.
+Download and mount the companion data package using the
+[reproduction guide](../docs/REPRODUCE.md) to access exports and source tables.
+
+Benchmark_resources: SpatialESS original-harness measurements; official measurements are from the identified reference experiment. Only completed observations are plotted. Failure status and reason remain in cosmx_scaling.tsv; no failed time or RSS is plotted.
 
 Spatial_neighborhoods: measured directed graph edges, mean outgoing degree and graph density under the tested settings. The dashed pair-space reference is N squared.
 

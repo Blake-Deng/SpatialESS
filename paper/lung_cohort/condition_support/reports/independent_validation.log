@@ -1,0 +1,27 @@
+{
+  "passed": true,
+  "independent_method": "Poisson-binomial PMF from each patient's fraction of positive saved sections",
+  "maximum_absolute_probability_errors_vs_768_choice_enumeration": {
+    "40": {
+      "pf_restricted": 1.1102230246251565e-16,
+      "control_restricted": 1.1102230246251565e-16,
+      "shared": 1.1102230246251565e-16,
+      "other": 1.8041124150158794e-16
+    },
+    "50": {
+      "pf_restricted": 1.1102230246251565e-16,
+      "control_restricted": 6.938893903907228e-17,
+      "shared": 1.1102230246251565e-16,
+      "other": 1.8041124150158794e-16
+    },
+    "60": {
+      "pf_restricted": 1.1102230246251565e-16,
+      "control_restricted": 0.0,
+      "shared": 1.1102230246251565e-16,
+      "other": 1.8041124150158794e-16
+    }
+  },
+  "original_statistical_calls_and_effect_signs_unchanged": true,
+  "all_50040_features_checked_at_all_3_thresholds": true,
+  "note": "Tiny floating-point TSV serialization differences do not represent new estimation; original input is included byte-for-byte."
+}

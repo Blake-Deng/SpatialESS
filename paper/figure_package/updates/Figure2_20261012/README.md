@@ -1,36 +1,38 @@
-Current portable commands and companion inputs: [distribution guide](../../../../docs/REPRODUCE_20261023.md). Old commands below document the original package.
+# Figure 2: patient-aware pulmonary-fibrosis score analysis
 
-# Revised Figure 2
+Panel C displays 28 selected features with support counts, patient ICC and
+singular-fit annotations. Panel D uses examples I15, I06 and I19, matched by
+complete feature keys. Supplementary Figure S4D uses I03, I21 and I19.
+Model estimates and q values come from the saved primary cohort analysis.
 
-Only Figure 2 is updated. Original package figures and manuscript files remain intact.
+## Files
 
-- `figures/Figure2.pdf`: editable PDF master.
-- `figures/Figure2.svg`: editable SVG, including text.
-- `figures/Figure2.png`: 600 dpi preview.
-- `source_data/Figure2_Source_Data.xlsx`: exact per-panel source tables and feature mapping.
-- `reports/QA_REPORT.md`: verification and visual inspection notes.
+Download and mount the companion data package using the
+[reproduction guide](../../../../docs/REPRODUCE.md) to access:
 
-Regenerate the supplied saved sources:
+- `figures/Figure2.pdf`, `.svg`, `.png`: figure masters and preview.
+- `source_data/Figure2_Source_Data.xlsx`: source tables and feature mapping.
+- `reports/QA_REPORT.md`: verification and visual inspection records.
+
+## Reproduce
+
+From the repository root, install `requirements-reproduce.txt`, then run:
 
 ```sh
-python3 -m pip install -r requirements.txt
-OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python scripts/redraw.py --figure2-only
+python3 tools/redraw.py Figure2 --materials ../SpatialESS_reproduction_20261023
 ```
 
-The three example matrices can be re-extracted from a full saved score table with:
+To extract example matrices from a complete saved score table, run from this
+figure directory:
 
 ```sh
-python scripts/prepare_example_sources.py --score-table /path/to/slice_scores.tsv.gz
+python3 scripts/prepare_example_sources.py --score-table /path/to/slice_scores.tsv.gz
 ```
 
-That input is a slice-by-feature gzip TSV with `sample_id` and the complete feature
-keys as columns. Exact input checksums are recorded in reports. No LR inference,
-primary model fitting or multiple-testing correction is performed by these scripts.
-
-Run commands from this dated figure directory. The `preview/` directory is
-provided for generated previews. The original export environment is in `logs/`;
-the dependency list is shared with the current Figure 1 environment.
-
-Supplementary Figure 4D retains I03, I21 and I19 and is a separate archived
-interval display. It should not be described as showing all three updated
-main Figure 2D examples (I15, I06, I19).
+The score input is a section-by-feature gzip TSV with `sample_id` and complete
+feature keys as columns. A score table is included in
+`paper/lung_cohort/condition_support/inputs/` at the repository root.
+The scripts plot saved values without LR inference, primary model fitting
+or multiple-testing correction. The
+[condition-support analysis](../../../lung_cohort/condition_support/README.md)
+describes support labels separately from condition-association statistics.

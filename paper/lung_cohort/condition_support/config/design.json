@@ -1,0 +1,23 @@
+{
+  "analysis": "Post hoc descriptive condition-support classification",
+  "threshold_percentages": [40, 50, 60],
+  "main_threshold_percentage": 50,
+  "presence_rule": "raw saved section communication score > 0",
+  "baseline_patient_rule": "at least one of a patient's saved sections has score > 0",
+  "restriction_rule": "support >= threshold in the named condition and zero supported patients in the other condition",
+  "shared_rule": "support >= threshold in both conditions",
+  "unit": "complete sender -> receiver x ligand-receptor feature_id",
+  "random_resampling": {
+    "repetitions": 1000,
+    "seed": 20261024,
+    "rng": "numpy.random.Generator(PCG64)",
+    "rule": "independently sample one available section uniformly for each patient, with new draws in each repetition"
+  },
+  "exact_sensitivity": "enumerate the full Cartesian product of one-section-per-patient choices; all choices are equally weighted",
+  "primary_inference": "retain saved estimate, std_error, statistic, p_value, q_value, CI, status and singular; no refitting or new BH",
+  "original_sources": {
+    "SD4_Lung_Support.tsv.gz": "/home/dzf/spatialess_submission_audit_20261023/Supplementary_Data_4_Lung_Support.tsv.gz",
+    "slice_scores.tsv.gz": "/home/dzf/cellchat_acceleration/1/SpatialESS_submission_20261012_v0.1.4/github/SpatialESS/paper/cohort_sensitivity/data/slice_scores.tsv.gz",
+    "sample_metadata.tsv": "/home/dzf/cellchat_acceleration/1/SpatialESS_submission_20261012_v0.1.4/github/SpatialESS/paper/cohort_sensitivity/data/sample_metadata.tsv"
+  }
+}

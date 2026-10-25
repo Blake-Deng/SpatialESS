@@ -1,0 +1,73 @@
+check	passed	detail
+unique full feature keys	True	
+fixed feature universe	True	
+unique slice identifiers	True	
+identical slice identifiers	True	
+45 x 50040 scores	True	
+complete finite nonnegative saved scores	True	
+saved nonzero record count	True	
+constant condition within patient	True	
+only two original condition labels	True	
+35 patients: 26 PF and 9 Control	True	
+SD4 support reproduced: pf_nonzero_patients	True	
+SD4 support reproduced: control_nonzero_patients	True	
+SD4 support reproduced: pf_nonzero_slices	True	
+SD4 support reproduced: control_nonzero_slices	True	
+SD4 denominators	True	
+original primary counts	True	
+finite exact one-slice choice space	True	
+each resample has exactly one section per patient	True	
+exact probabilities sum to one at 40%	True	
+random probabilities sum to one at 40%	True	
+exact probabilities sum to one at 50%	True	
+random probabilities sum to one at 50%	True	
+exact probabilities sum to one at 60%	True	
+random probabilities sum to one at 60%	True	
+random labels independently match exact selection lookup	True	
+original column preserved: feature_id	True	
+original column preserved: sender_group_name	True	
+original column preserved: receiver_group_name	True	
+original column preserved: interaction_name	True	
+original column preserved: ligand	True	
+original column preserved: receptor	True	
+original column preserved: coefficient	True	
+original column preserved: estimate	True	
+original column preserved: std_error	True	
+original column preserved: statistic	True	
+original column preserved: p_value	True	
+original column preserved: nonzero_units	True	
+original column preserved: total_units	True	
+original column preserved: patient_count	True	
+original column preserved: zero_fraction	True	
+original column preserved: response_sd	True	
+original column preserved: singular	True	
+original column preserved: response_scale	True	
+original column preserved: random_effect_variance	True	
+original column preserved: residual_variance	True	
+original column preserved: max_gradient	True	
+original column preserved: optimizer	True	
+original column preserved: optimizer_attempts	True	
+original column preserved: convergence_message	True	
+original column preserved: fit_error	True	
+original column preserved: status	True	
+original column preserved: q_value	True	
+original column preserved: pathway_name	True	
+original column preserved: annotation	True	
+original column preserved: ci95_lower	True	
+original column preserved: ci95_upper	True	
+original column preserved: standardized_effect_beta_over_SD	True	
+original column preserved: nonzero_slice_fraction	True	
+original column preserved: homotypic_group	True	
+original column preserved: display_id	True	
+original column preserved: control_nonzero_slices	True	
+original column preserved: control_total_slices	True	
+original column preserved: control_nonzero_patients	True	
+original column preserved: control_total_patients	True	
+original column preserved: pf_nonzero_slices	True	
+original column preserved: pf_total_slices	True	
+original column preserved: pf_nonzero_patients	True	
+original column preserved: pf_total_patients	True	
+original column preserved: run_adjusted_q	True	
+original column preserved: patient_hc3_q	True	
+original column preserved: evidence_label	True	
+four classes exhaust main universe	True	

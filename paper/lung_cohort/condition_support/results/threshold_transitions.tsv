@@ -1,0 +1,49 @@
+from_threshold	to_threshold	from_class	to_class	features	primary_q_lt_005
+50	40	PF-restricted	PF-restricted	2061	1311
+50	40	PF-restricted	Control-restricted	0	0
+50	40	PF-restricted	Cross-condition shared	0	0
+50	40	PF-restricted	Other	0	0
+50	40	Control-restricted	PF-restricted	0	0
+50	40	Control-restricted	Control-restricted	1	1
+50	40	Control-restricted	Cross-condition shared	0	0
+50	40	Control-restricted	Other	0	0
+50	40	Cross-condition shared	PF-restricted	0	0
+50	40	Cross-condition shared	Control-restricted	0	0
+50	40	Cross-condition shared	Cross-condition shared	7567	930
+50	40	Cross-condition shared	Other	0	0
+50	40	Other	PF-restricted	933	0
+50	40	Other	Control-restricted	8	7
+50	40	Other	Cross-condition shared	1786	391
+50	40	Other	Other	37684	2507
+50	50	PF-restricted	PF-restricted	2061	1311
+50	50	PF-restricted	Control-restricted	0	0
+50	50	PF-restricted	Cross-condition shared	0	0
+50	50	PF-restricted	Other	0	0
+50	50	Control-restricted	PF-restricted	0	0
+50	50	Control-restricted	Control-restricted	1	1
+50	50	Control-restricted	Cross-condition shared	0	0
+50	50	Control-restricted	Other	0	0
+50	50	Cross-condition shared	PF-restricted	0	0
+50	50	Cross-condition shared	Control-restricted	0	0
+50	50	Cross-condition shared	Cross-condition shared	7567	930
+50	50	Cross-condition shared	Other	0	0
+50	50	Other	PF-restricted	0	0
+50	50	Other	Control-restricted	0	0
+50	50	Other	Cross-condition shared	0	0
+50	50	Other	Other	40411	2905
+50	60	PF-restricted	PF-restricted	1170	1096
+50	60	PF-restricted	Control-restricted	0	0
+50	60	PF-restricted	Cross-condition shared	0	0
+50	60	PF-restricted	Other	891	215
+50	60	Control-restricted	PF-restricted	0	0
+50	60	Control-restricted	Control-restricted	0	0
+50	60	Control-restricted	Cross-condition shared	0	0
+50	60	Control-restricted	Other	1	1
+50	60	Cross-condition shared	PF-restricted	0	0
+50	60	Cross-condition shared	Control-restricted	0	0
+50	60	Cross-condition shared	Cross-condition shared	5906	654
+50	60	Cross-condition shared	Other	1661	276
+50	60	Other	PF-restricted	0	0
+50	60	Other	Control-restricted	0	0
+50	60	Other	Cross-condition shared	0	0
+50	60	Other	Other	40411	2905

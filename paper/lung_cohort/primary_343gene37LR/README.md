@@ -7,6 +7,11 @@ and 37 computable ligand-receptor records. The patient-level model was
 `log1p(score) ~ condition + (1 | patient)` with global Benjamini-Hochberg
 correction over valid fits.
 
+The result files listed below are available through the companion data package.
+Follow the [reproduction guide](../../../docs/REPRODUCE.md) to download and mount it.
+The [condition-support analysis](../condition_support/README.md) includes a
+self-contained score table, descriptive classifications and section-selection checks.
+
 ## Files and score reconstruction
 
 - `complete_lmm_all_50040_features.tsv.gz`: all 50,040 feature fits,

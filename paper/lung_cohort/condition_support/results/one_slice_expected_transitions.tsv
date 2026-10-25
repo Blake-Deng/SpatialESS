@@ -1,0 +1,49 @@
+threshold_percent	from_class	to_class	exact_expected_features_per_choice	features_ever_in_target
+40	PF-restricted	PF-restricted	2296.3828125	2994
+40	PF-restricted	Control-restricted	0.0	0
+40	PF-restricted	Cross-condition shared	0.0	0
+40	PF-restricted	Other	697.6171875	1300
+40	Control-restricted	PF-restricted	0.0	0
+40	Control-restricted	Control-restricted	6.5	9
+40	Control-restricted	Cross-condition shared	0.0	0
+40	Control-restricted	Other	2.5	5
+40	Cross-condition shared	PF-restricted	0.0	0
+40	Cross-condition shared	Control-restricted	0.0	0
+40	Cross-condition shared	Cross-condition shared	8657.828125	9353
+40	Cross-condition shared	Other	695.171875	1405
+40	Other	PF-restricted	122.62630208333333	294
+40	Other	Control-restricted	4.229166666666667	17
+40	Other	Cross-condition shared	0.0	0
+40	Other	Other	37557.14453125	37684
+50	PF-restricted	PF-restricted	1544.2526041666667	2061
+50	PF-restricted	Control-restricted	0.0	0
+50	PF-restricted	Cross-condition shared	0.0	0
+50	PF-restricted	Other	516.7473958333334	980
+50	Control-restricted	PF-restricted	0.0	0
+50	Control-restricted	Control-restricted	0.5	1
+50	Control-restricted	Cross-condition shared	0.0	0
+50	Control-restricted	Other	0.5	1
+50	Cross-condition shared	PF-restricted	0.0	0
+50	Cross-condition shared	Control-restricted	0.0	0
+50	Cross-condition shared	Cross-condition shared	6985.908854166667	7567
+50	Cross-condition shared	Other	581.0911458333334	1202
+50	Other	PF-restricted	93.74869791666667	232
+50	Other	Control-restricted	0.5416666666666666	3
+50	Other	Cross-condition shared	0.0	0
+50	Other	Other	40316.709635416664	40411
+60	PF-restricted	PF-restricted	851.078125	1170
+60	PF-restricted	Control-restricted	0.0	0
+60	PF-restricted	Cross-condition shared	0.0	0
+60	PF-restricted	Other	318.921875	538
+60	Control-restricted	PF-restricted	0.0	0
+60	Control-restricted	Control-restricted	0.0	0
+60	Control-restricted	Cross-condition shared	0.0	0
+60	Control-restricted	Other	0.0	0
+60	Cross-condition shared	PF-restricted	0.0	0
+60	Cross-condition shared	Control-restricted	0.0	0
+60	Cross-condition shared	Cross-condition shared	5436.5234375	5906
+60	Cross-condition shared	Other	469.4765625	951
+60	Other	PF-restricted	55.684895833333336	145
+60	Other	Control-restricted	0.0	0
+60	Other	Cross-condition shared	0.0	0
+60	Other	Other	42908.315104166664	42964

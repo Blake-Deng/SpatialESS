@@ -1,0 +1,169 @@
+# SpatialESS
+
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23591306.svg)](https://doi.org/10.5281/zenodo.23591306)
+
+SpatialESS 0.1.4 implements spatial cell-cell communication inference using a
+CSR radius graph and streamed ligand-receptor scoring and permutation tests.
+It provides patient-aware multi-sample analysis with a random-intercept linear
+mixed model. Numerical validation targets the tested SpatialCellChat V3 workflow.
+
+## Cite the archived release
+
+SpatialESS 0.1.4 and its materials revision `materials-2026.10.23-r1` are archived at [version DOI 10.5281/zenodo.23591306](https://doi.org/10.5281/zenodo.23591306). The preceding materials version [10.5281/zenodo.23587822](https://doi.org/10.5281/zenodo.23587822) and the 2026-10-22 release [10.5281/zenodo.23567248](https://doi.org/10.5281/zenodo.23567248) remain available as historical versions. The project concept DOI, which resolves to the latest version, is [10.5281/zenodo.23567247](https://doi.org/10.5281/zenodo.23567247).
+
+## Archived manuscript materials
+
+Download the [source archive](https://zenodo.org/records/23591306/files/SpatialESS-materials-2026.10.23-r1.zip), the [reproduction archive](https://zenodo.org/records/23591306/files/SpatialESS_reproduction_20261023_r1.tar.gz), and the [SHA-256 manifest](https://zenodo.org/records/23591306/files/ZENODO_SHA256SUMS_20261023_r1.txt). Follow [the reproduction guide](docs/REPRODUCE_20261023.md). Manuscript text and Word drafts are not included.
+
+## Installation
+
+Requires R >= 4.1 and a C++17 compiler. From this repository:
+
+```sh
+Rscript -e 'install.packages(c("Rcpp", "Matrix", "lme4", "testthat"))'
+R CMD INSTALL .
+Rscript examples/lr_panel_example.R
+```
+
+Restart R after installation and confirm `packageVersion("SpatialESS")` is
+`0.1.4`. The example uses synthetic data and does not require CellChat.
+
+## Single-sample analysis
+
+`expression` is a non-negative gene-by-cell sparse matrix with unique gene
+and cell names. Coordinates and cell-type labels must follow its cell order.
+Coordinate units must agree with the spatial parameters.
+
+```r
+library(SpatialESS)
+
+# db is one compatible CellChatDB object, used for all three database tables.
+coverage <- filter_cellchat_lr(
+  lr = db$interaction,
+  genes = rownames(expression),
+  complex = db$complex,
+  cofactor = db$cofactor
+)
+write.csv(coverage$audit, "lr_coverage.csv", row.names = FALSE)
+write.csv(coverage$missing_genes, "lr_missing_genes.csv", row.names = FALSE)
+
+result <- spatialess(
+  expression = expression,
+  coordinates = coordinates,
+  group = cell_type,
+  lr = coverage$lr,
+  complex = db$complex,
+  cofactor = db$cofactor,
+  tol = 5,
+  interaction.range = 30,
+  contact.range = 10,
+  nboot = 100,
+  seed.use = 1
+)
+head(result$records)
+```
+
+All mandatory ligand/receptor subunits must be measured. Excluded interactions
+produce a warning and an explicit audit; missing genes are not imputed.
+Alternatively use `lr_missing = "filter"` in `spatialess()` and inspect
+`result$lr_filter`. The default is `lr_missing = "error"`.
+Coverage filtering does not select spatially variable or significant LR.
+See [input requirements](docs/INPUTS.md).
+
+## Multi-patient analysis
+
+The primary model retains individual slices and accounts for shared patient
+identity:
+
+```text
+log1p(score) ~ condition + (1 | patient)
+```
+
+```r
+prepared <- prepare_multisample_communication(
+  results = sample_results,
+  sample_metadata = sample_metadata,
+  unit = "sample"
+)
+fit <- fit_multisample_communication_lmm(
+  prepared = prepared,
+  design = ~ condition,
+  coefficient = "conditiondisease",
+  patient_col = "patient_id",
+  min_units = 6,
+  min_nonzero = 2,
+  REML = FALSE
+)
+```
+
+The coefficient must match the actual levels in your metadata. Estimates are
+reported on the original log1p-score scale. BH correction applies only to fits
+with `status == "ok"`; convergence-warning fits are excluded. A singular fit
+is a boundary estimate of patient variance and is recorded explicitly.
+See [model interpretation](docs/MULTISAMPLE_LMM.md).
+
+## Results
+
+The [result index](docs/RESULTS.md) links to the current inference outputs,
+resource measurements, official-comparator metrics, spatial graph summaries
+and cohort model tables. Every table records its measurement scope and source.
+Runtime and memory are measured observations; dense matrix size is theoretical
+storage and is not peak RSS.
+
+```text
+R/, src/, man/       package interfaces, C++ kernels and reference documentation
+tests/               unit tests and official-reference fixtures
+examples/            runnable synthetic example
+benchmarks/          configurable runners
+results/             current tables, compact records and parameter contracts
+figures/             figures generated from the included tables
+docs/                inputs, model interpretation and result provenance
+```
+
+To reproduce a prepared sample:
+
+```sh
+Rscript benchmarks/run_prepared.R fixture.rds output_directory
+```
+
+The fixture is an R list of named arguments for `spatialess()`. Large raw data
+are not included. [Reproduction notes](docs/REPRODUCE.md) describe the input
+manifest and checksum verification.
+
+## SPARKLE
+
+The separate SpatialESS-SPARKLE repository bundles this same engine and a
+sparse H5AD bridge. SPARKLE is independent upstream correction software and
+must be cited separately when used.
+
+## Scope and checks
+
+Historical installation, examples and R CMD check are recorded in
+`results/checks.tsv`. A fresh macOS R 4.5.2 check completed with `Status: OK`
+and 711 passing tests (zero failures, warnings or skips); its logs are in
+`paper/provenance/editorial_checks_20261012/`. See the
+[GitHub Actions runs](https://github.com/Blake-Deng/SpatialESS/actions/workflows/R-CMD-check.yml)
+for the R package status of each public commit. Submission checksums and saved
+ovarian/bridge records were independently verified locally; the portable
+verification commands are listed in docs/SUBMISSION_CONTENTS.md.
+Numerical agreement is not biological ground truth, and the tested execution
+strategy does not establish compatibility with every communication model.
+
+License: GPL-3.
+
+## Manuscript data and verification records
+
+The public research materials are indexed in
+[docs/SUBMISSION_CONTENTS.md](docs/SUBMISSION_CONTENTS.md), with current figures
+and the additional experiment archive in
+[docs/MANUSCRIPT_MATERIALS_20261022.md](docs/MANUSCRIPT_MATERIALS_20261022.md).
+The current [figure index](paper/figure_package/README.md) links the main Figure 1
+with Atera scaling, the revised Figure 2, editable masters, source workbooks and
+plotting code. Figure 1A retains the author-supplied workflow without internal
+edits. Supplementary figures and the existing sensitivity analysis are retained.
+
+The added materials include complete 343-gene lung cohort fits and zero-fill
+definitions, separate 99-gene reference validation, Atera preprocessing and run
+records, and component ablations. Archived annotation evidence and unavailable
+environment information are explicitly identified. Manuscript Word drafts and
+large raw expression matrices are retained outside this repository.
