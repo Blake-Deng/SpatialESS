@@ -1,7 +1,7 @@
 # SpatialESS
 
 [![R-CMD-check](https://github.com/Blake-Deng/SpatialESS/actions/workflows/R-CMD-check.yml/badge.svg)](https://github.com/Blake-Deng/SpatialESS/actions/workflows/R-CMD-check.yml)
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23591306.svg)](https://doi.org/10.5281/zenodo.23641420)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23641420.svg)](https://doi.org/10.5281/zenodo.23641420)
 
 SpatialESS is an R package for spatial cell–cell communication inference. It
 uses sparse radius graphs and streamed ligand–receptor scoring and permutation
