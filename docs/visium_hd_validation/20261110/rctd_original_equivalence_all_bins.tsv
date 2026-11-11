@@ -1,0 +1,7 @@
+"bin_size_um"	"mode"	"input_bins"	"eligible_bins"	"original_fitted_bins"	"wrapper_fitted_bins"	"shared_genes"	"max_abs_weight_difference"	"max_abs_annotation_max_weight_difference"	"weight_tolerance"	"annotation_status_disagreements"	"dominant_type_disagreements"	"native_classification_equal"	"native_pair_max_difference"	"wrapper_seconds"	"original_seconds"	"status"	"error"
+"8"	"full"	"64"	"64"	"64"	"64"	"18021"	"3.33066907387547e-16"	"3.33066907387547e-16"	"1e-08"	"0"	"0"	"TRUE"	"NA"	"60.439"	"55.491"	"pass"	""
+"8"	"doublet"	"64"	"64"	"64"	"64"	"18021"	"0"	"0"	"1e-08"	"0"	"0"	"TRUE"	"0"	"95.8"	"96.034"	"pass"	""
+"16"	"full"	"100"	"100"	"100"	"100"	"18021"	"2.22044604925031e-16"	"2.22044604925031e-16"	"1e-08"	"0"	"0"	"TRUE"	"NA"	"99.913"	"96.447"	"pass"	""
+"16"	"doublet"	"100"	"100"	"100"	"100"	"18021"	"1.11022302462516e-16"	"1.11022302462516e-16"	"1e-08"	"0"	"0"	"TRUE"	"0"	"170.016"	"167.728"	"pass"	""
+"32"	"full"	"25"	"25"	"25"	"25"	"18021"	"1.11022302462516e-16"	"1.11022302462516e-16"	"1e-08"	"0"	"0"	"TRUE"	"NA"	"40.362"	"39.142"	"pass"	""
+"32"	"doublet"	"25"	"25"	"25"	"25"	"18021"	"1.11022302462516e-16"	"1.11022302462516e-16"	"1e-08"	"0"	"0"	"TRUE"	"0"	"64.964"	"66.894"	"pass"	""

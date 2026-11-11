@@ -1666,3 +1666,10 @@ benchmarks/*.html
 !tests/testthat/fixtures/v3_percent_boundary.rds
 /paper/ablation/lib/
 /paper/ablation/lib_vanilla/
+
+# Local compilation and editor files
+.DS_Store
+*.o
+*.so
+*.dll
+*.dylib

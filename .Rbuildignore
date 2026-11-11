@@ -24,3 +24,13 @@
 ^local_runs$
 ^docs/archive_20261023$
 ^SpatialESS-demo$
+
+^docs/archive_20261111_checksums$
+^SYMLINKS\.tsv$
+^CHECKSUMS\.md$
+
+^figures$
+^benchmarks$
+^\.zenodo\.json$
+^CITATION\.cff$
+^requirements-reproduce\.txt$
