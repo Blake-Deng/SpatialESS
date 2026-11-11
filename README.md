@@ -1,6 +1,6 @@
 # SpatialESS + SPARKLE
 
-SpatialESSSPARKLE 0.1.4 connects sparse H5AD expression to SpatialESS 0.1.4. The complete engine, including patient-aware GLM/LMM analysis, is bundled in `vendor/SpatialESS`.
+SpatialESSSPARKLE 0.1.4.9002 connects sparse H5AD expression to SpatialESS 0.1.4.9002. The complete engine, including patient-aware GLM/LMM analysis, is bundled in `vendor/SpatialESS`.
 
 SPARKLE is independent upstream RNA-leakage correction software. This repository supplies the bridge and inference workflow; see [attribution](docs/SPARKLE_ATTRIBUTION.md).
 
@@ -34,12 +34,26 @@ The ovarian scFFPE reference and its official barcode annotation used in the
 validation study are tissue-matched benchmark resources. They are not required
 for users whose H5AD already contains cell-type labels.
 
+## Visium HD bin8 / bin16 / bin32 (development)
+
+The patched `vendor/SpatialESS` engine provides native binned-data reading,
+raw-count aggregation, independent RCTD fits and optional dominant-bin
+communication analysis. After installing this bundle, use
+`SpatialESS::read_visium_hd()` and `SpatialESS::run_visium_hd_rctd()` or the
+[server command](docs/VISIUM_HD_RCTD.md). The existing H5AD bridge remains a
+separate entry point for corrected expression with annotations. Binned RCTD
+requires raw UMI counts and an annotated single-cell reference.
+
+See [the scientific method audit](docs/VISIUM_HD_METHODS_EVIDENCE_20261110.md) for raw-count and feature-ID requirements, complete tissue masks, and publication validation limits.
+
+Real-data engineering checks and their limits are recorded in the [bundled server validation summary](vendor/SpatialESS/docs/visium_hd_validation/20261110/README.md).
+
 ## Installation
 
 A C++17 compiler, R >= 4.1 and Python >= 3.9 are required. The validated SpatialESS engine is bundled in this repository and installed locally by the setup script.
 
 ```bash
-git clone https://github.com/Blake-Deng/SpatialESS-SPARKLE.git
+git clone --branch SPARKLE --single-branch https://github.com/Blake-Deng/SpatialESS.git SpatialESS-SPARKLE
 cd SpatialESS-SPARKLE
 
 conda env create -f environment.yml
@@ -180,4 +194,4 @@ Use the bundled `SpatialESS::prepare_multisample_communication()` and `SpatialES
 
 Current RAW and corrected-input bridge measurements are in `results/tables/bridge_results.tsv`. Direct-inference records, official comparator metrics and cohort fits are indexed by the [bundled result catalog](vendor/SpatialESS/docs/RESULTS.md).
 
-Local checks are in `results/checks.tsv`. GitHub cloud Actions are **NOT RUN** for this source ZIP.
+Historical local checks are in `results/checks.tsv`. Current cloud checks are defined in `.github/workflows`; see the corresponding pull request and repository Actions tab for their results.

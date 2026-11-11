@@ -17,3 +17,10 @@ results/full_outputs/
 
 *.orig
 benchmarks/*.html
+
+# Local compilation and editor files
+.DS_Store
+*.o
+*.so
+*.dll
+*.dylib

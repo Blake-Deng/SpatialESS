@@ -1,0 +1,4 @@
+"bin_size_um"	"shared_gene_ids_before_RCTD_internal_filtering"	"spatial_full_gene_umi"	"spatial_shared_gene_umi"	"spatial_nonshared_gene_umi"	"spatial_nonshared_gene_umi_fraction"	"reference_full_gene_umi"	"reference_shared_gene_umi"	"reference_nonshared_gene_umi"	"reference_nonshared_gene_umi_fraction"
+"8"	"18021"	"629442"	"616481"	"12961"	"0.0205912538407034"	"17893362"	"17872509"	"20853"	"0.00116540424320483"
+"16"	"18021"	"629442"	"616481"	"12961"	"0.0205912538407034"	"17893362"	"17872509"	"20853"	"0.00116540424320483"
+"32"	"18021"	"629442"	"616481"	"12961"	"0.0205912538407034"	"17893362"	"17872509"	"20853"	"0.00116540424320483"

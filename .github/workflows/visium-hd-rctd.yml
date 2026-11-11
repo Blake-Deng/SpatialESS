@@ -1,0 +1,144 @@
+name: Visium HD original RCTD
+
+on:
+  push:
+    branches: [main, SPARKLE]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  visium-hd-rctd:
+    name: Original spacexr and native readers (R 4.5)
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    env:
+      OMP_NUM_THREADS: "1"
+      OPENBLAS_NUM_THREADS: "1"
+      MKL_NUM_THREADS: "1"
+      VECLIB_MAXIMUM_THREADS: "1"
+      NUMEXPR_NUM_THREADS: "1"
+      NOT_CRAN: "true"
+      # RSPM supplies Linux R binaries. If arrow must install from source,
+      # request its prebuilt C++ library rather than compiling libarrow.
+      LIBARROW_BINARY: "true"
+      SPACEXR_SHA: ccc43442cd5b4e3b05cddeeff32afdfce0d9d483
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Locate the SpatialESS engine
+        id: engine
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p visium-hd-ci
+          if [[ -f vendor/SpatialESS/DESCRIPTION ]]; then
+            engine=vendor/SpatialESS
+          elif [[ -f DESCRIPTION ]] && grep -q '^Package: SpatialESS$' DESCRIPTION; then
+            engine=.
+          else
+            echo 'No SpatialESS engine found.' >&2
+            exit 1
+          fi
+          printf 'path=%s\n' "$engine" >> "$GITHUB_OUTPUT"
+          printf 'ENGINE_DIR=%s\n' "$engine" >> "$GITHUB_ENV"
+          printf 'engine=%s\ncommit=%s\n' "$engine" "$GITHUB_SHA" > visium-hd-ci/source.txt
+
+      - uses: r-lib/actions/setup-r@v2
+        with:
+          r-version: "4.5"
+          use-public-rspm: true
+          Ncpus: 1
+
+      - name: Install engine dependencies and the pinned original backend
+        uses: r-lib/actions/setup-r-dependencies@v2
+        with:
+          working-directory: ${{ steps.engine.outputs.path }}
+          # Do not resolve the unqualified optional spacexr Suggests entry:
+          # Bioconductor has a different package/API with the same name.
+          dependencies: 'c("Depends", "Imports", "LinkingTo")'
+          extra-packages: |
+            any::testthat
+            any::hdf5r
+            any::arrow
+            github::dmcable/spacexr@ccc43442cd5b4e3b05cddeeff32afdfce0d9d483
+          cache-version: visium-hd-original-spacexr-v1
+
+      - name: Verify the exact backend and record the environment
+        shell: Rscript {0}
+        run: |
+          out <- file.path(Sys.getenv("GITHUB_WORKSPACE"), "visium-hd-ci")
+          dir.create(out, recursive = TRUE, showWarnings = FALSE)
+          writeLines(capture.output(sessionInfo()), file.path(out, "sessionInfo-before-tests.txt"))
+          packages <- c("spacexr", "hdf5r", "arrow", "testthat", "Matrix", "Rcpp")
+          available <- vapply(packages, requireNamespace, logical(1), quietly = TRUE)
+          versions <- data.frame(package = packages, version = vapply(packages, function(package) {
+            if (requireNamespace(package, quietly = TRUE)) as.character(packageVersion(package)) else "MISSING"
+          }, character(1)))
+          engine <- normalizePath(Sys.getenv("ENGINE_DIR"), mustWork = TRUE)
+          engine_desc <- read.dcf(file.path(engine, "DESCRIPTION"))
+          versions <- rbind(data.frame(package = "SpatialESS (source)", version = engine_desc[1, "Version"]), versions)
+          write.table(versions, file.path(out, "package_versions.tsv"), sep = "\t", quote = TRUE, row.names = FALSE)
+          stopifnot(all(available), getRversion() >= "4.5", getRversion() < "4.6")
+          backend <- packageDescription("spacexr")
+          writeLines(capture.output(print(backend)), file.path(out, "spacexr-description.txt"))
+          stopifnot(as.character(packageVersion("spacexr")) == "2.2.1")
+          stopifnot(identical(tolower(backend[["RemoteSha"]]), tolower(Sys.getenv("SPACEXR_SHA"))))
+          stopifnot(all(c("Reference", "SpatialRNA", "create.RCTD", "run.RCTD", "fitPixels") %in% getNamespaceExports("spacexr")))
+          stopifnot(all(vapply(c("fitBulk", "choose_sigma_c"), function(name) {
+            is.function(getFromNamespace(name, "spacexr"))
+          }, logical(1))))
+          writeLines(capture.output(arrow::arrow_info()), file.path(out, "arrow-info.txt"))
+          writeLines(capture.output(sessionInfo()), file.path(out, "sessionInfo-before-tests.txt"))
+
+      - name: Run every Visium HD test with no skips
+        shell: Rscript {0}
+        run: |
+          out <- file.path(Sys.getenv("GITHUB_WORKSPACE"), "visium-hd-ci")
+          engine <- normalizePath(Sys.getenv("ENGINE_DIR"), mustWork = TRUE)
+          writeLines("running", file.path(out, "status.txt"))
+          expected_files <- list.files(file.path(engine, "tests", "testthat"),
+                                       pattern = "^test-visium-hd.*[.]R$", full.names = FALSE)
+          stopifnot(length(expected_files) >= 6L)
+          results <- tryCatch(
+            testthat::test_local(engine, filter = "visium-hd", reporter = "summary",
+                                 stop_on_failure = FALSE, stop_on_warning = FALSE),
+            error = function(error) {
+              writeLines(conditionMessage(error), file.path(out, "fatal-error.txt"))
+              writeLines("failed", file.path(out, "status.txt"))
+              stop(error)
+            }
+          )
+          saveRDS(results, file.path(out, "test-results.rds"))
+          summary <- as.data.frame(results)
+          metrics <- c("nb", "failed", "skipped", "error", "warning", "passed")
+          stopifnot(nrow(summary) > 0L, all(metrics %in% names(summary)))
+          write.table(summary[, c("file", "test", metrics)], file.path(out, "tests.tsv"),
+                      sep = "\t", quote = TRUE, row.names = FALSE)
+          totals <- colSums(summary[, metrics, drop = FALSE])
+          write.table(data.frame(metric = names(totals), value = as.numeric(totals)),
+                      file.path(out, "totals.tsv"), sep = "\t", quote = TRUE, row.names = FALSE)
+          writeLines(capture.output(sessionInfo()), file.path(out, "sessionInfo-after-tests.txt"))
+          print(totals)
+          all_files_ran <- setequal(unique(basename(summary$file)), expected_files)
+          backend_smoke_ran <- any(summary$test == "Installed original spacexr can fit synthetic Visium HD bins")
+          success <- all_files_ran && backend_smoke_ran && totals[["passed"]] > 0 &&
+                     all(totals[c("failed", "error", "skipped", "warning")] == 0)
+          writeLines(if (success) "passed" else "failed", file.path(out, "status.txt"))
+          if (!success) stop("Visium HD CI requires all related files and the original-backend smoke test, with zero failures, errors, skips or warnings.")
+
+      - name: Upload Visium HD test evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: visium-hd-original-rctd-${{ github.run_id }}-${{ github.run_attempt }}
+          path: visium-hd-ci/
+          if-no-files-found: error
+          retention-days: 30
