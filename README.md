@@ -194,4 +194,4 @@ Use the bundled `SpatialESS::prepare_multisample_communication()` and `SpatialES
 
 Current RAW and corrected-input bridge measurements are in `results/tables/bridge_results.tsv`. Direct-inference records, official comparator metrics and cohort fits are indexed by the [bundled result catalog](vendor/SpatialESS/docs/RESULTS.md).
 
-Local checks are in `results/checks.tsv`. GitHub cloud Actions are **NOT RUN** for this source ZIP.
+Historical local checks are in `results/checks.tsv`. Current cloud checks are defined in `.github/workflows`; see the corresponding pull request and repository Actions tab for their results.

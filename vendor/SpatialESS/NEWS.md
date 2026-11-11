@@ -9,3 +9,6 @@
   and tests; retain RNA-contribution and dominant-bin communication boundaries.
 - Record real-data server engineering validation with explicit ROI/native32 and
   biological-validation limits. No formal release or new DOI is asserted here.
+- Add a dedicated cloud Visium HD job with pinned original spacexr and explicit
+  H5/Parquet dependencies; require zero skipped HD tests. Keep generic package
+  checks separate from optional backend resolution.
