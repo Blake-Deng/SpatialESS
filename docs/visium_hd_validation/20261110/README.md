@@ -72,7 +72,7 @@ Run `scripts/validate_visium_hd_binning.R` against genuine native targets and
 `scripts/run_visium_hd_rctd.R` with the documented config. The original same-input
 audit and ROI/QC scripts are under `reproduction/`; see its README. The workflow
 and upstream commit are described in [the server guide](../../VISIUM_HD_RCTD.md).
-GitHub Actions have not been run for this local packaging revision.
+Cloud CI results are recorded on the corresponding pull request and in the repository Actions tab; the server measurements above retain their stated scope.
 
 ![Depth and fit retention](plots/01_depth_genes_and_retention.png)
 ![UMI-weighted RNA contributions](plots/02_umi_weighted_rna_contributions.png)

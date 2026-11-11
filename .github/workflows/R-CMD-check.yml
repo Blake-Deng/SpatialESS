@@ -22,9 +22,14 @@ jobs:
 
       - uses: r-lib/actions/setup-r-dependencies@v2
         with:
+          dependencies: 'c("Depends", "Imports", "LinkingTo")'
           extra-packages: |
             any::rcmdcheck
+            any::testthat
             any::lme4
+            any::data.table
+            any::future.apply
+            any::RANN
           needs: check
 
       - uses: r-lib/actions/check-r-package@v2
