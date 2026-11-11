@@ -1,0 +1,4 @@
+"bin_size_um"	"source_bin_size_um"	"n_genes"	"n_bins"	"n_fitted_bins"	"n_annotated_bins"	"total_umi"	"feature_policy"	"matrix_kind"	"doublet_mode"	"min_umi"	"min_genes"	"elapsed_seconds"	"status"	"error"
+"8"	"8"	"18132"	"400"	"400"	"400"	"629442"	"filtered"	"filtered_feature_bc_matrix"	"full"	"100"	"10"	"343.698"	"ok"	""
+"16"	"16"	"18132"	"100"	"100"	"100"	"629442"	"filtered"	"filtered_feature_bc_matrix"	"full"	"100"	"10"	"96.026"	"ok"	""
+"32"	"16"	"18132"	"25"	"25"	"25"	"629442"	"filtered"	"raw_feature_bc_matrix"	"full"	"100"	"10"	"34.73"	"ok"	""

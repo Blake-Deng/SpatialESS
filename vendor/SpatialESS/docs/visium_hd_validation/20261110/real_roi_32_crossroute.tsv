@@ -1,0 +1,2 @@
+"check"	"evidence_scope"	"genes_equal"	"count_barcodes_equal"	"counts_exact"	"max_abs_count_difference"	"position_barcodes_equal"	"tissue_mask_equal"	"status"
+"raw8_to32_vs_native16_to32_ROI"	"REAL_DATA_CROSS_ROUTE_ASSOCIATIVITY_ONLY_NOT_OFFICIAL_NATIVE32"	"TRUE"	"TRUE"	"TRUE"	"0"	"TRUE"	"TRUE"	"pass"

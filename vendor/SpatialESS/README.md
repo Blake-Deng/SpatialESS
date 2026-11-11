@@ -1,9 +1,18 @@
 # SpatialESS
 
-SpatialESS 0.1.4 implements spatial cell-cell communication inference using a
+SpatialESS 0.1.4.9002 implements spatial cell-cell communication inference using a
 CSR radius graph and streamed ligand-receptor scoring and permutation tests.
 It provides patient-aware multi-sample analysis with a random-intercept linear
 mixed model. Numerical validation targets the tested SpatialCellChat V3 workflow.
+
+## Visium HD bin8 / bin16 / bin32 (development)
+
+This development build adds sparse Space Ranger readers, raw-count binning,
+independent RCTD fits and optional dominant-bin communication analysis.
+See [the server guide](docs/VISIUM_HD_RCTD.md). The original dmcable/spacexr
+API is required for deconvolution; H5/Parquet readers use optional hdf5r/arrow.
+
+See [the scientific method audit](docs/VISIUM_HD_METHODS_EVIDENCE_20261110.md) for raw-count and feature-ID requirements, complete tissue masks, and publication validation limits.
 
 ## Installation
 
@@ -16,7 +25,7 @@ Rscript examples/lr_panel_example.R
 ```
 
 Restart R after installation and confirm `packageVersion("SpatialESS")` is
-`0.1.4`. The example uses synthetic data and does not require CellChat.
+`0.1.4.9002`. The example uses synthetic data and does not require CellChat.
 
 ## Single-sample analysis
 
@@ -134,3 +143,5 @@ Numerical agreement is not biological ground truth, and the tested execution
 strategy does not establish compatibility with every communication model.
 
 License: GPL-3.
+
+Real-data engineering checks and their limits are recorded in the [server validation summary](docs/visium_hd_validation/20261110/README.md).

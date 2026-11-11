@@ -7,3 +7,12 @@ __pycache__/
 *.py[cod]
 examples/minimal/output/
 examples/minimal/*.h5ad
+
+# Local compilation and editor files
+.DS_Store
+*.o
+*.so
+*.dll
+*.dylib
+.Rlib/
+.Rproj.user/

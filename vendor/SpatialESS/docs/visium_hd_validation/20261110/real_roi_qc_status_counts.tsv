@@ -1,0 +1,4 @@
+"bin_size_um"	"status"	"filter_reason"	"in_tissue"	"zero_umi"	"has_mixture"	"n"
+"8"	"ok"	"none"	"1"	"FALSE"	"TRUE"	"400"
+"16"	"ok"	"none"	"1"	"FALSE"	"TRUE"	"100"
+"32"	"ok"	"none"	"1"	"FALSE"	"TRUE"	"25"

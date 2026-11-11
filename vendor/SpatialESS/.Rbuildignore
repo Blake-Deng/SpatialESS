@@ -14,3 +14,13 @@
 ^examples$
 ^mini$
 ^LMM_RESULTS_20260907_SHA256SUMS\.txt$
+
+^docs/archive_20261111_checksums$
+^SYMLINKS\.tsv$
+^CHECKSUMS\.md$
+
+^figures$
+^benchmarks$
+^\.zenodo\.json$
+^CITATION\.cff$
+^requirements-reproduce\.txt$

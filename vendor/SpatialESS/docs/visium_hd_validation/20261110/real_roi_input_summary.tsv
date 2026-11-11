@@ -1,0 +1,4 @@
+"bin_size_um"	"count_bins"	"position_bins"	"tissue_count_bins"	"retained_gene_ids"	"total_umi"	"qc_eligible"	"min_umi"	"min_genes"	"UMI_min_sigma"	"sigma_eligible"	"shared_reference_gene_ids"	"reference_cells"	"reference_types"
+"8"	"400"	"400"	"400"	"18132"	"629442"	"400"	"100"	"10"	"300"	"400"	"18021"	"11214"	"16"
+"16"	"100"	"100"	"100"	"18132"	"629442"	"100"	"100"	"10"	"300"	"100"	"18021"	"11214"	"16"
+"32"	"25"	"25"	"25"	"18132"	"629442"	"25"	"100"	"10"	"300"	"25"	"18021"	"11214"	"16"
