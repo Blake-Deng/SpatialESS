@@ -36,6 +36,8 @@ A list with `lr` (retained rows), `excluded` (excluded original rows),
 \description{
 Retains an interaction only when both ligand and receptor resolve to
 non-empty gene sets and every required complex subunit occurs in `genes`.
+As in the reference `computeExpr_LR()`, a measured ligand or receptor row
+name takes precedence over a same-named complex definition.
 This checks measured gene identifiers, not expression abundance, spatial
 variability, overexpression or statistical significance. Zero-expression
 rows are still measured genes. Cofactor genes are reported but are optional,

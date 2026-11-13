@@ -259,9 +259,23 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// spatialess_reference_aggregate_cpp
+List spatialess_reference_aggregate_cpp(const S4& probability, const IntegerVector& group, int group_count, double max_reference_entries);
+RcppExport SEXP _SpatialESS_spatialess_reference_aggregate_cpp(SEXP probabilitySEXP, SEXP groupSEXP, SEXP group_countSEXP, SEXP max_reference_entriesSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< const S4& >::type probability(probabilitySEXP);
+    Rcpp::traits::input_parameter< const IntegerVector& >::type group(groupSEXP);
+    Rcpp::traits::input_parameter< int >::type group_count(group_countSEXP);
+    Rcpp::traits::input_parameter< double >::type max_reference_entries(max_reference_entriesSEXP);
+    rcpp_result_gen = Rcpp::wrap(spatialess_reference_aggregate_cpp(probability, group, group_count, max_reference_entries));
+    return rcpp_result_gen;
+END_RCPP
+}
 // spatialess_stream_cpp
-List spatialess_stream_cpp(const S4& cell_by_gene, const NumericVector& offsets, const IntegerVector& neighbors, const NumericVector& distances, const IntegerVector& group, int group_count, const IntegerMatrix& ligand_indices, const IntegerMatrix& receptor_indices, const IntegerMatrix& co_a_indices, const IntegerMatrix& co_i_indices, const IntegerMatrix& agonist_indices, const IntegerMatrix& antagonist_indices, const LogicalVector& has_agonist, const LogicalVector& has_antagonist, const LogicalVector& contact_lr, const IntegerMatrix& permutations, double Kh, double n_power, double scale_distance, double contact_threshold, double min_percent, int min_cells_sr, bool use_agan, double max_output_records, double max_active_edges_per_lr);
-RcppExport SEXP _SpatialESS_spatialess_stream_cpp(SEXP cell_by_geneSEXP, SEXP offsetsSEXP, SEXP neighborsSEXP, SEXP distancesSEXP, SEXP groupSEXP, SEXP group_countSEXP, SEXP ligand_indicesSEXP, SEXP receptor_indicesSEXP, SEXP co_a_indicesSEXP, SEXP co_i_indicesSEXP, SEXP agonist_indicesSEXP, SEXP antagonist_indicesSEXP, SEXP has_agonistSEXP, SEXP has_antagonistSEXP, SEXP contact_lrSEXP, SEXP permutationsSEXP, SEXP KhSEXP, SEXP n_powerSEXP, SEXP scale_distanceSEXP, SEXP contact_thresholdSEXP, SEXP min_percentSEXP, SEXP min_cells_srSEXP, SEXP use_aganSEXP, SEXP max_output_recordsSEXP, SEXP max_active_edges_per_lrSEXP) {
+List spatialess_stream_cpp(const S4& cell_by_gene, const NumericVector& offsets, const IntegerVector& neighbors, const NumericVector& distances, const IntegerVector& group, int group_count, const IntegerMatrix& ligand_indices, const IntegerMatrix& receptor_indices, const IntegerMatrix& co_a_indices, const IntegerMatrix& co_i_indices, const IntegerMatrix& agonist_indices, const IntegerMatrix& antagonist_indices, const LogicalVector& has_agonist, const LogicalVector& has_antagonist, const LogicalVector& contact_lr, const IntegerMatrix& permutations, double Kh, double n_power, double scale_distance, double contact_threshold, double min_percent, int min_cells_sr, bool use_agan, double max_output_records, double max_active_edges_per_lr, std::string aggregation, double max_reference_entries);
+RcppExport SEXP _SpatialESS_spatialess_stream_cpp(SEXP cell_by_geneSEXP, SEXP offsetsSEXP, SEXP neighborsSEXP, SEXP distancesSEXP, SEXP groupSEXP, SEXP group_countSEXP, SEXP ligand_indicesSEXP, SEXP receptor_indicesSEXP, SEXP co_a_indicesSEXP, SEXP co_i_indicesSEXP, SEXP agonist_indicesSEXP, SEXP antagonist_indicesSEXP, SEXP has_agonistSEXP, SEXP has_antagonistSEXP, SEXP contact_lrSEXP, SEXP permutationsSEXP, SEXP KhSEXP, SEXP n_powerSEXP, SEXP scale_distanceSEXP, SEXP contact_thresholdSEXP, SEXP min_percentSEXP, SEXP min_cells_srSEXP, SEXP use_aganSEXP, SEXP max_output_recordsSEXP, SEXP max_active_edges_per_lrSEXP, SEXP aggregationSEXP, SEXP max_reference_entriesSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -290,7 +304,9 @@ BEGIN_RCPP
     Rcpp::traits::input_parameter< bool >::type use_agan(use_aganSEXP);
     Rcpp::traits::input_parameter< double >::type max_output_records(max_output_recordsSEXP);
     Rcpp::traits::input_parameter< double >::type max_active_edges_per_lr(max_active_edges_per_lrSEXP);
-    rcpp_result_gen = Rcpp::wrap(spatialess_stream_cpp(cell_by_gene, offsets, neighbors, distances, group, group_count, ligand_indices, receptor_indices, co_a_indices, co_i_indices, agonist_indices, antagonist_indices, has_agonist, has_antagonist, contact_lr, permutations, Kh, n_power, scale_distance, contact_threshold, min_percent, min_cells_sr, use_agan, max_output_records, max_active_edges_per_lr));
+    Rcpp::traits::input_parameter< std::string >::type aggregation(aggregationSEXP);
+    Rcpp::traits::input_parameter< double >::type max_reference_entries(max_reference_entriesSEXP);
+    rcpp_result_gen = Rcpp::wrap(spatialess_stream_cpp(cell_by_gene, offsets, neighbors, distances, group, group_count, ligand_indices, receptor_indices, co_a_indices, co_i_indices, agonist_indices, antagonist_indices, has_agonist, has_antagonist, contact_lr, permutations, Kh, n_power, scale_distance, contact_threshold, min_percent, min_cells_sr, use_agan, max_output_records, max_active_edges_per_lr, aggregation, max_reference_entries));
     return rcpp_result_gen;
 END_RCPP
 }
@@ -323,7 +339,8 @@ static const R_CallMethodDef CallEntries[] = {
     {"_SpatialESS_permute_within_strata_cpp", (DL_FUNC) &_SpatialESS_permute_within_strata_cpp, 2},
     {"_SpatialESS_group_tri_mean_dgc_permuted_cpp", (DL_FUNC) &_SpatialESS_group_tri_mean_dgc_permuted_cpp, 4},
     {"_SpatialESS_score_cellchat_group_matrix_cpp", (DL_FUNC) &_SpatialESS_score_cellchat_group_matrix_cpp, 13},
-    {"_SpatialESS_spatialess_stream_cpp", (DL_FUNC) &_SpatialESS_spatialess_stream_cpp, 25},
+    {"_SpatialESS_spatialess_reference_aggregate_cpp", (DL_FUNC) &_SpatialESS_spatialess_reference_aggregate_cpp, 4},
+    {"_SpatialESS_spatialess_stream_cpp", (DL_FUNC) &_SpatialESS_spatialess_stream_cpp, 27},
     {"_SpatialESS_benchmark_sparse_type7_cpp", (DL_FUNC) &_SpatialESS_benchmark_sparse_type7_cpp, 3},
     {NULL, NULL, 0}
 };

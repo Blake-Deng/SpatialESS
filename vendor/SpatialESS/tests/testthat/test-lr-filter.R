@@ -75,3 +75,47 @@ test_that("factor columns and custom component column names retain input order",
   expect_identical(a$lr, lr)
   expect_true(all(a$valid))
 })
+
+test_that("measured LR rows win name collisions without changing cofactor resolution", {
+  genes <- c("L", "R")
+  complex <- data.frame(subunit_1 = c("missing_L", "missing_R"),
+                         row.names = c("L", "R"))
+  cofactor <- data.frame(cofactor1 = "missing_cofactor", row.names = "L")
+  lr <- data.frame(ligand = "L", receptor = "R", agonist = "L")
+
+  audit <- filter_cellchat_lr(lr, genes, complex, cofactor)
+  components <- prepare_cellchat_lr_components(lr, genes, complex, cofactor)
+  expect_identical(audit$valid, TRUE)
+  expect_identical(audit$lr, lr)
+  expect_identical(audit$audit$ligand_genes, "L")
+  expect_identical(audit$audit$receptor_genes, "R")
+  expect_identical(audit$audit$missing_ligand_genes, "")
+  expect_identical(audit$audit$missing_receptor_genes, "")
+  expect_identical(audit$missing_genes$gene, "missing_cofactor")
+  expect_identical(audit$missing_genes$role, "agonist")
+  expect_identical(audit$missing_genes$required, FALSE)
+  expect_identical(components$ligand[[1L]], "L")
+  expect_identical(components$receptor[[1L]], "R")
+  expect_identical(attr(components$ligand, "spatialess_single_gene"), TRUE)
+  expect_identical(attr(components$receptor, "spatialess_single_gene"), TRUE)
+  expect_length(components$agonist[[1L]], 0L)
+})
+
+test_that("in-call LR filtering retains direct genes that collide with incomplete complexes", {
+  expression <- Matrix::Matrix(rbind(L=c(.2,.2,.1,.1),R=c(.5,.5,1,1)),sparse=TRUE,
+    dimnames=list(c("L","R"),paste0("c",1:4)))
+  coordinates <- cbind(x=1:4,y=0);rownames(coordinates)<-colnames(expression)
+  lr <- data.frame(ligand="L",receptor="R",interaction_name="L_R")
+  collision <- data.frame(subunit_1=c("missing_L","missing_R"),row.names=c("L","R"))
+  empty <- data.frame(subunit_1=character(),row.names=character())
+  cofactor <- data.frame(cofactor1=character(),row.names=character())
+  args <- list(expression=expression,coordinates=coordinates,
+    group=factor(c("A","A","B","B")),lr=lr,cofactor=cofactor,
+    tol=0,interaction.range=10,scale.distance=1,min.percent=0,min.cells.sr=1,
+    nboot=7L,seed.use=19L)
+  filtered <- do.call(spatialess,c(args,list(complex=collision,lr_missing="filter")))
+  direct <- do.call(spatialess,c(args,list(complex=empty)))
+  expect_identical(filtered$records,direct$records)
+  expect_identical(filtered$lr_filter$valid,TRUE)
+  expect_equal(nrow(filtered$lr_filter$excluded),0)
+})

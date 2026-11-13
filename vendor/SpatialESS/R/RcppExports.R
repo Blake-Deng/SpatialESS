@@ -57,8 +57,12 @@ score_cellchat_group_matrix_cpp <- function(average, sender_group, receiver_grou
     .Call(`_SpatialESS_score_cellchat_group_matrix_cpp`, average, sender_group, receiver_group, ligand_indices, receptor_indices, co_a_indices, co_i_indices, agonist_indices, antagonist_indices, has_agonist, has_antagonist, Kh, n_power)
 }
 
-spatialess_stream_cpp <- function(cell_by_gene, offsets, neighbors, distances, group, group_count, ligand_indices, receptor_indices, co_a_indices, co_i_indices, agonist_indices, antagonist_indices, has_agonist, has_antagonist, contact_lr, permutations, Kh, n_power, scale_distance, contact_threshold, min_percent, min_cells_sr, use_agan, max_output_records, max_active_edges_per_lr) {
-    .Call(`_SpatialESS_spatialess_stream_cpp`, cell_by_gene, offsets, neighbors, distances, group, group_count, ligand_indices, receptor_indices, co_a_indices, co_i_indices, agonist_indices, antagonist_indices, has_agonist, has_antagonist, contact_lr, permutations, Kh, n_power, scale_distance, contact_threshold, min_percent, min_cells_sr, use_agan, max_output_records, max_active_edges_per_lr)
+spatialess_reference_aggregate_cpp <- function(probability, group, group_count, max_reference_entries = 1e8) {
+    .Call(`_SpatialESS_spatialess_reference_aggregate_cpp`, probability, group, group_count, max_reference_entries)
+}
+
+spatialess_stream_cpp <- function(cell_by_gene, offsets, neighbors, distances, group, group_count, ligand_indices, receptor_indices, co_a_indices, co_i_indices, agonist_indices, antagonist_indices, has_agonist, has_antagonist, contact_lr, permutations, Kh, n_power, scale_distance, contact_threshold, min_percent, min_cells_sr, use_agan, max_output_records, max_active_edges_per_lr, aggregation = "reference", max_reference_entries = 1e8) {
+    .Call(`_SpatialESS_spatialess_stream_cpp`, cell_by_gene, offsets, neighbors, distances, group, group_count, ligand_indices, receptor_indices, co_a_indices, co_i_indices, agonist_indices, antagonist_indices, has_agonist, has_antagonist, contact_lr, permutations, Kh, n_power, scale_distance, contact_threshold, min_percent, min_cells_sr, use_agan, max_output_records, max_active_edges_per_lr, aggregation, max_reference_entries)
 }
 
 benchmark_sparse_type7_cpp <- function(positive_values, total_count, iterations) {
