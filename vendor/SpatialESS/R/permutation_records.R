@@ -1,8 +1,6 @@
 .spatialess_group_score_records <- function(
     average, group_support, components, record_pairs, Kh, n) {
-  indices <- lapply(components[c(
-    "ligand", "receptor", "co_a", "co_i", "agonist", "antagonist"
-  )], .spatialess_index_matrix, genes = rownames(average))
+  indices <- .spatialess_component_index_matrices(components, rownames(average))
   support <- group_support$group_pairs
   support_index <- record_pairs$support_pair_index
   score_cellchat_group_records_cpp(

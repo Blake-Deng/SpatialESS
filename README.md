@@ -1,6 +1,6 @@
 # SpatialESS + SPARKLE
 
-SpatialESSSPARKLE 0.1.4.9002 connects sparse H5AD expression to SpatialESS 0.1.4.9002. The complete engine, including patient-aware GLM/LMM analysis, is bundled in `vendor/SpatialESS`.
+SpatialESSSPARKLE 0.1.4.9003 connects sparse H5AD expression to SpatialESS 0.1.4.9003. The complete engine, including patient-aware GLM/LMM analysis, is bundled in `vendor/SpatialESS`.
 
 SPARKLE is independent upstream RNA-leakage correction software. This repository supplies the bridge and inference workflow; see [attribution](docs/SPARKLE_ATTRIBUTION.md).
 
@@ -33,6 +33,22 @@ Raw spatial data + segmentation/out-of-mask evidence
 The ovarian scFFPE reference and its official barcode annotation used in the
 validation study are tissue-matched benchmark resources. They are not required
 for users whose H5AD already contains cell-type labels.
+
+## Reference-aligned p-values (pre-release)
+
+The bundled engine now defaults to `aggregation = "reference"` to preserve the
+tested SpatialCellChat V3 Matrix/BLAS reduction order at strict permutation
+boundaries. It uses guarded dense cell-by-group/group-by-group workspaces;
+`max_reference_entries` is a per-matrix entry limit, not a total-RAM limit.
+The explicit `aggregation = "stream"` option keeps the previous low-memory
+reduction, with no claim of bitwise equality at last-bit ties.
+
+The statistical rule remains strict `Pboot > Pobs` and `count / nboot`.
+`future.apply` is a runtime dependency of the engine. The H5AD bridge forwards
+`aggregation` and `max_reference_entries` through `...` to `SpatialESS::spatialess()`.
+See [the alignment change notes](vendor/SpatialESS/docs/PVALUE_REFERENCE_ALIGNMENT.md).
+This development pre-release is published from a fixed tag after package checks.
+See the [matched-environment validation summary](vendor/SpatialESS/docs/validation/pvalue_reference_20261113/README.md).
 
 ## Visium HD bin8 / bin16 / bin32 (development)
 

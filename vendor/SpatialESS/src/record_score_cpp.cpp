@@ -1,6 +1,8 @@
 #include <Rcpp.h>
 #include <cmath>
 
+#include "reference_arithmetic.h"
+
 using namespace Rcpp;
 
 namespace {
@@ -8,7 +10,9 @@ namespace {
 double geometric_expression(const NumericMatrix& average,
                             const IntegerMatrix& indices,
                             int lr, int group) {
-  double sum_log = 0.0;
+  std::vector<double> log_values;
+  log_values.reserve(indices.ncol());
+  double single_value = 0.0;
   int count = 0;
   for (int j = 0; j < indices.ncol(); ++j) {
     const int gene = indices(lr, j) - 1;
@@ -16,37 +20,51 @@ double geometric_expression(const NumericMatrix& average,
     const double value = average(gene, group);
     if (!R_finite(value) || value < 0.0) stop("Invalid group expression value.");
     if (value == 0.0) return 0.0;
-    sum_log += std::log(value);
+    single_value = value;
+    log_values.push_back(std::log(value));
     ++count;
   }
   if (count == 0) return NA_REAL;
-  return std::exp(sum_log / static_cast<double>(count));
+  if (count == 1) {
+    bool direct_gene = true;
+    if (indices.hasAttribute("spatialess_single_gene")) {
+      const LogicalVector single_gene = indices.attr("spatialess_single_gene");
+      if (single_gene.size() != indices.nrow() || single_gene[lr] == NA_LOGICAL) {
+        stop("Invalid single-gene component metadata.");
+      }
+      direct_gene = single_gene[lr];
+    }
+    if (direct_gene) return single_value;
+  }
+  return std::exp(spatialess::reference_mean(log_values));
 }
 
 double coreceptor_factor(const NumericMatrix& average,
                          const IntegerMatrix& indices,
                          int lr, int group) {
-  double factor = 1.0;
+  std::vector<double> factors;
+  factors.reserve(indices.ncol());
   for (int j = 0; j < indices.ncol(); ++j) {
     const int gene = indices(lr, j) - 1;
-    if (gene >= 0) factor *= 1.0 + average(gene, group);
+    if (gene >= 0) factors.push_back(1.0 + average(gene, group));
   }
-  return factor;
+  return spatialess::reference_product(factors);
 }
 
 double regulator_factor(const NumericMatrix& average,
                         const IntegerMatrix& indices,
                         int lr, int group, bool agonist,
                         double Kh_n, double n_power) {
-  double factor = 1.0;
+  std::vector<double> factors;
+  factors.reserve(indices.ncol());
   for (int j = 0; j < indices.ncol(); ++j) {
     const int gene = indices(lr, j) - 1;
     if (gene < 0) continue;
-    const double value_n = std::pow(average(gene, group), n_power);
-    factor *= agonist ? 1.0 + value_n / (Kh_n + value_n)
-                      : Kh_n / (Kh_n + value_n);
+    const double value_n = R_pow(average(gene, group), n_power);
+    factors.push_back(agonist ? 1.0 + value_n / (Kh_n + value_n)
+                             : Kh_n / (Kh_n + value_n));
   }
-  return factor;
+  return spatialess::reference_product(factors);
 }
 
 }  // namespace
@@ -82,7 +100,7 @@ NumericVector score_cellchat_group_records_cpp(
     stop("Kh and n_power must be positive and finite.");
   }
   NumericVector output(record_count);
-  const double Kh_n = std::pow(Kh, n_power);
+  const double Kh_n = R_pow(Kh, n_power);
   for (int record = 0; record < record_count; ++record) {
     const int sender = sender_group[record] - 1;
     const int receiver = receiver_group[record] - 1;
@@ -97,27 +115,26 @@ NumericVector score_cellchat_group_records_cpp(
     double receptor = geometric_expression(
       average, receptor_indices, lr, receiver
     );
-    receptor *= coreceptor_factor(average, co_a_indices, lr, receiver) /
+    receptor = (receptor * coreceptor_factor(
+      average, co_a_indices, lr, receiver)) /
       coreceptor_factor(average, co_i_indices, lr, receiver);
     if (!(ligand > 0.0) || !(receptor > 0.0)) continue;
     const double product = ligand * receptor;
-    const double product_n = std::pow(product, n_power);
+    const double product_n = R_pow(product, n_power);
     double score = product_n / (Kh_n + product_n);
     if (has_agonist[lr]) {
-      score *= regulator_factor(
-        average, agonist_indices, lr, sender, true, Kh_n, n_power
-      );
-      score *= regulator_factor(
-        average, agonist_indices, lr, receiver, true, Kh_n, n_power
-      );
+      const double sender_factor = regulator_factor(
+        average, agonist_indices, lr, sender, true, Kh_n, n_power);
+      const double receiver_factor = regulator_factor(
+        average, agonist_indices, lr, receiver, true, Kh_n, n_power);
+      score *= sender_factor * receiver_factor;
     }
     if (has_antagonist[lr]) {
-      score *= regulator_factor(
-        average, antagonist_indices, lr, sender, false, Kh_n, n_power
-      );
-      score *= regulator_factor(
-        average, antagonist_indices, lr, receiver, false, Kh_n, n_power
-      );
+      const double sender_factor = regulator_factor(
+        average, antagonist_indices, lr, sender, false, Kh_n, n_power);
+      const double receiver_factor = regulator_factor(
+        average, antagonist_indices, lr, receiver, false, Kh_n, n_power);
+      score *= sender_factor * receiver_factor;
     }
     output[record] = score;
   }

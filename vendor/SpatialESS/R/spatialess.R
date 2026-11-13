@@ -21,6 +21,15 @@
 #' @param lr_missing How to handle incomplete mandatory LR genes: `"error"`
 #'   (default) preserves strict checking; `"filter"` explicitly excludes
 #'   incomplete LR with a warning and stores the full audit in `$lr_filter`.
+#' @param aggregation Group aggregation arithmetic. `"reference"` (default)
+#'   uses the same full Matrix multiplication and crossproduct as the official
+#'   SpatialCellChat reference, preserving its floating-point reduction order.
+#'   `"stream"` retains the compact native sum but can differ at exact permutation
+#'   boundaries and must not be described as bitwise reference equivalent.
+#' @param max_reference_entries Maximum entries in each dense reference
+#'   workspace matrix (`cells * groups` or `groups * groups`). Several matrices
+#'   are allocated, so this is not a total process-memory limit. The default is
+#'   `1e8`. Exceeding it stops rather than silently changing aggregation.
 #' @return A SpatialESSResult with records, LR table, CSR graph, diagnostics
 #'   and parameters. When `lr_missing = "filter"`, `lr_filter` contains the
 #'   original-order coverage audit, excluded rows and missing-gene table.
@@ -35,8 +44,19 @@ spatialess <- function(
     nboot = 0L, seed.use = 1L,
     max_edges = 5e8, max_output_records = 1e8,
     max_active_edges_per_lr = 5e8,
-    lr_missing = c("error", "filter")) {
+    lr_missing = c("error", "filter"),
+    aggregation = c("reference", "stream"),
+    max_reference_entries = 1e8) {
   lr_missing <- match.arg(lr_missing)
+  aggregation <- match.arg(aggregation)
+  if (!is.numeric(ratio) || length(ratio) != 1L ||
+      !is.finite(ratio) || ratio <= 0) {
+    stop("ratio must be one positive finite number.", call. = FALSE)
+  }
+  if (!is.numeric(max_reference_entries) || length(max_reference_entries) != 1L ||
+      !is.finite(max_reference_entries) || max_reference_entries < 1) {
+    stop("max_reference_entries must be a positive finite entry limit.", call. = FALSE)
+  }
   if (!inherits(expression, "Matrix")) {
     expression <- Matrix::Matrix(expression, sparse = TRUE)
   }
@@ -56,6 +76,14 @@ spatialess <- function(
   info <- .spatialess_group_info(group)
   if (length(info$code) != ncol(expression)) {
     stop("group must provide one label per cell.", call. = FALSE)
+  }
+  reference_cell_group_entries <- as.double(ncol(expression)) * info$count
+  reference_group_entries <- as.double(info$count)^2
+  if (aggregation == "reference" &&
+      max(reference_cell_group_entries, reference_group_entries) > max_reference_entries) {
+    stop(paste0("Reference aggregation exceeds max_reference_entries. Increase ",
+      "the explicit workspace limit, or explicitly choose aggregation='stream' ",
+      "without claiming bitwise reference equivalence."), call. = FALSE)
   }
   nboot <- as.integer(nboot)
   seed.use <- as.integer(seed.use)
@@ -95,12 +123,36 @@ spatialess <- function(
     "ligand", "receptor", "co_a", "co_i", "agonist", "antagonist"
   )], .spatialess_index_matrix, genes = components$genes)
 
-  coordinates_um <- coordinates * ratio
-  rownames(coordinates_um) <- colnames(expression)
+  # The reference computes distances in the original coordinate units and only
+  # then multiplies retained distances by ratio. Pre-scaling the coordinates can
+  # change last-bit rounding and membership at the distance threshold.
+  radius_um <- interaction.range + tol
+  radius_coordinate <- radius_um / ratio
+  if (length(radius_coordinate) != 1L || !is.finite(radius_coordinate) ||
+      radius_coordinate <= 0) {
+    stop("The converted interaction radius must be positive and finite.", call. = FALSE)
+  }
+  rownames(coordinates) <- colnames(expression)
   graph <- build_radius_graph_csr(
-    coordinates_um, radius = interaction.range + tol,
+    coordinates, radius = radius_coordinate,
     weight = "binary", store_distance = TRUE, max_edges = max_edges
   )
+  # The general graph builder admits a numerical candidate tolerance. Match the
+  # reference's strict distance mask here, including exclusion of distinct
+  # cells at identical coordinates. Self interactions are added separately.
+  keep_distance <- graph$distances > 0 & graph$distances <= radius_coordinate
+  if (!all(keep_distance)) {
+    removed_rows <- findInterval(which(!keep_distance) - 1, graph$offsets)
+    graph$degree <- graph$degree - tabulate(removed_rows, nrow(coordinates))
+    graph$weighted_degree <- graph$degree
+    graph$offsets <- c(0, cumsum(graph$degree))
+    graph$neighbors <- graph$neighbors[keep_distance]
+    graph$weights <- graph$weights[keep_distance]
+    graph$distances <- graph$distances[keep_distance]
+  }
+  graph$distances <- graph$distances * ratio
+  graph$parameters$radius <- radius_um
+  graph$parameters$scale <- radius_um / 2
   annotation <- if ("annotation" %in% colnames(lr)) {
     as.character(lr$annotation)
   } else {
@@ -116,9 +168,9 @@ spatialess <- function(
   permutations <- matrix(integer(), nrow = ncol(expression), ncol = 0L)
   if (nboot > 0L) {
     set.seed(seed.use)
-    if (requireNamespace("future.apply", quietly = TRUE)) {
-      invisible(future.apply::future_lapply(1L, identity, future.seed = TRUE))
-    }
+    # Match the reference V3 future RNG advance regardless of optional-package
+    # discovery. future.apply is a declared runtime dependency.
+    invisible(future.apply::future_lapply(1L, identity, future.seed = TRUE))
     permutations <- replicate(
       nboot, sample.int(ncol(expression), size = ncol(expression))
     )
@@ -137,7 +189,8 @@ spatialess <- function(
     contact_lr, permutations, Kh, n, scale.distance,
     contact.range + tol, min.percent, as.integer(min.cells.sr),
     isTRUE(use.AGAN), as.double(max_output_records),
-    as.double(max_active_edges_per_lr)
+    as.double(max_active_edges_per_lr), aggregation,
+    as.double(max_reference_entries)
   )
   records <- as.data.frame(result$records, stringsAsFactors = FALSE)
   if (nrow(records)) {
@@ -161,7 +214,19 @@ spatialess <- function(
       diagnostics = list(
         active_edges_per_lr = result$active_edges_per_lr,
         minimum_nonzero_distance = result$minimum_nonzero_distance,
-        self_spatial_weight = result$self_spatial_weight
+        self_spatial_weight = result$self_spatial_weight,
+        aggregation = aggregation,
+        reference_cell_group_entries = if (aggregation == "reference") {
+          reference_cell_group_entries
+        } else 0,
+        reference_group_matrix_entries = if (aggregation == "reference") {
+          reference_group_entries
+        } else 0,
+        reference_workspace_note = if (aggregation == "reference") {
+          "Full Matrix/BLAS reference order; several dense cell-by-group/group-by-group workspaces, not a cell-by-cell dense matrix."
+        } else {
+          "Native flat sums; exact permutation-boundary agreement with the reference is not guaranteed."
+        }
       ),
       parameters = list(
         engine = "SpatialESS_CSR_stream",
@@ -170,7 +235,8 @@ spatialess <- function(
         scale.distance = scale.distance, contact.range = contact.range,
         Kh = Kh, n = n, use.AGAN = isTRUE(use.AGAN),
         min.percent = min.percent, min.cells.sr = min.cells.sr,
-        nboot = nboot, seed.use = seed.use
+        nboot = nboot, seed.use = seed.use,
+        aggregation = aggregation, max_reference_entries = max_reference_entries
       )
     ),
     class = "SpatialESSResult"

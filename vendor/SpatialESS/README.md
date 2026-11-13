@@ -1,9 +1,26 @@
 # SpatialESS
 
-SpatialESS 0.1.4.9002 implements spatial cell-cell communication inference using a
+SpatialESS 0.1.4.9003 implements spatial cell-cell communication inference using a
 CSR radius graph and streamed ligand-receptor scoring and permutation tests.
 It provides patient-aware multi-sample analysis with a random-intercept linear
 mixed model. Numerical validation targets the tested SpatialCellChat V3 workflow.
+
+## Official-reference p-value alignment
+
+The development version uses `aggregation = "reference"` by default: each LR
+is still processed sparsely, but group aggregation follows the same complete
+Matrix/BLAS operations as the tested SpatialCellChat V3 reference. This mode
+needs dense cell-by-group workspaces and enforces `max_reference_entries` before
+allocating them. It never silently falls back to a different reduction order.
+The explicit `aggregation = "stream"` option retains the previous low-memory
+reduction for engineering workloads; last-bit ties can produce different p-values.
+The statistical rule remains strict `Pboot > Pobs`, with `count / nboot`.
+
+`future.apply` is now a runtime dependency so the reference's RNG advance is
+not conditional on optional-package availability. Exact comparison still requires
+matched input order, reference version, R/RNG settings and numerical libraries.
+See [the alignment change notes](docs/PVALUE_REFERENCE_ALIGNMENT.md) and
+[matched-environment validation](docs/validation/pvalue_reference_20261113/README.md).
 
 ## Visium HD bin8 / bin16 / bin32 (development)
 
@@ -19,13 +36,13 @@ See [the scientific method audit](docs/VISIUM_HD_METHODS_EVIDENCE_20261110.md) f
 Requires R >= 4.1 and a C++17 compiler. From this repository:
 
 ```sh
-Rscript -e 'install.packages(c("Rcpp", "Matrix", "lme4", "testthat"))'
+Rscript -e 'install.packages(c("Rcpp", "Matrix", "future.apply", "lme4", "testthat"))'
 R CMD INSTALL .
 Rscript examples/lr_panel_example.R
 ```
 
 Restart R after installation and confirm `packageVersion("SpatialESS")` is
-`0.1.4.9002`. The example uses synthetic data and does not require CellChat.
+`0.1.4.9003`. The example uses synthetic data and does not require CellChat.
 
 ## Single-sample analysis
 

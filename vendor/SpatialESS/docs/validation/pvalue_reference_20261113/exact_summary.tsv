@@ -1,0 +1,12 @@
+case	ESS_records	official_records	probability_mismatches	pvalue_mismatches	tail_count_mismatches	ESS_elapsed_seconds	all_checks
+VUILD142MA	3386	3386	0	0	0	4.607	PASS
+complex_modifiers	9	9	0	0	0	0.0620000000000001	PASS
+gse306130_23_SCC_1000	908	908	0	0	0	0.67	PASS
+gse306130_35_BCC_1000	845	845	0	0	0	0.557	PASS
+gse306130_4_SCC_1000	995	995	0	0	0	0.655	PASS
+gse306130_6_BCC_1000	787	787	0	0	0	0.468	PASS
+lung_official_TILD049MA	10924	10924	0	0	0	6.247	PASS
+mixed_contact	16	16	0	0	0	0.071	PASS
+nonunit_ratio	4	4	0	0	0	0.073	PASS
+percentage_boundary	2	2	0	0	0	0.071	PASS
+single_gene_ties	4	4	0	0	0	0.129	PASS

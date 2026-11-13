@@ -4,6 +4,7 @@
 #include <vector>
 
 #include "sparse_type7.h"
+#include "reference_arithmetic.h"
 
 using namespace Rcpp;
 
@@ -13,7 +14,9 @@ double permutation_geometric_expression(const NumericMatrix& average,
                                         const IntegerMatrix& indices,
                                         int lr,
                                         int group) {
-  double sum_log = 0.0;
+  std::vector<double> log_values;
+  log_values.reserve(indices.ncol());
+  double single_value = 0.0;
   int count = 0;
   for (int j = 0; j < indices.ncol(); ++j) {
     const int gene = indices(lr, j) - 1;
@@ -21,23 +24,36 @@ double permutation_geometric_expression(const NumericMatrix& average,
     const double value = average(gene, group);
     if (!R_finite(value) || value < 0.0) stop("Invalid group expression value.");
     if (value == 0.0) return 0.0;
-    sum_log += std::log(value);
+    single_value = value;
+    log_values.push_back(std::log(value));
     ++count;
   }
   if (count == 0) return NA_REAL;
-  return std::exp(sum_log / static_cast<double>(count));
+  if (count == 1) {
+    bool direct_gene = true;
+    if (indices.hasAttribute("spatialess_single_gene")) {
+      const LogicalVector single_gene = indices.attr("spatialess_single_gene");
+      if (single_gene.size() != indices.nrow() || single_gene[lr] == NA_LOGICAL) {
+        stop("Invalid single-gene component metadata.");
+      }
+      direct_gene = single_gene[lr];
+    }
+    if (direct_gene) return single_value;
+  }
+  return std::exp(spatialess::reference_mean(log_values));
 }
 
 double permutation_coreceptor_factor(const NumericMatrix& average,
                                      const IntegerMatrix& indices,
                                      int lr,
                                      int group) {
-  double factor = 1.0;
+  std::vector<double> factors;
+  factors.reserve(indices.ncol());
   for (int j = 0; j < indices.ncol(); ++j) {
     const int gene = indices(lr, j) - 1;
-    if (gene >= 0) factor *= 1.0 + average(gene, group);
+    if (gene >= 0) factors.push_back(1.0 + average(gene, group));
   }
-  return factor;
+  return spatialess::reference_product(factors);
 }
 
 double permutation_regulator_factor(const NumericMatrix& average,
@@ -47,15 +63,16 @@ double permutation_regulator_factor(const NumericMatrix& average,
                                     bool agonist,
                                     double Kh_n,
                                     double n_power) {
-  double factor = 1.0;
+  std::vector<double> factors;
+  factors.reserve(indices.ncol());
   for (int j = 0; j < indices.ncol(); ++j) {
     const int gene = indices(lr, j) - 1;
     if (gene < 0) continue;
-    const double value_n = std::pow(average(gene, group), n_power);
-    factor *= agonist ? 1.0 + value_n / (Kh_n + value_n)
-                      : Kh_n / (Kh_n + value_n);
+    const double value_n = R_pow(average(gene, group), n_power);
+    factors.push_back(agonist ? 1.0 + value_n / (Kh_n + value_n)
+                             : Kh_n / (Kh_n + value_n));
   }
-  return factor;
+  return spatialess::reference_product(factors);
 }
 
 }  // namespace
@@ -181,7 +198,7 @@ NumericMatrix score_cellchat_group_matrix_cpp(
   }
 
   NumericMatrix output(pair_count, lr_count);
-  const double Kh_n = std::pow(Kh, n_power);
+  const double Kh_n = R_pow(Kh, n_power);
   std::vector<double> ligand(group_count), receptor(group_count);
   std::vector<double> agonist(group_count), antagonist(group_count);
   for (int lr = 0; lr < lr_count; ++lr) {
@@ -190,8 +207,8 @@ NumericMatrix score_cellchat_group_matrix_cpp(
         average, ligand_indices, lr, group);
       receptor[group] = permutation_geometric_expression(
         average, receptor_indices, lr, group);
-      receptor[group] *= permutation_coreceptor_factor(
-        average, co_a_indices, lr, group) /
+      receptor[group] = (receptor[group] * permutation_coreceptor_factor(
+        average, co_a_indices, lr, group)) /
         permutation_coreceptor_factor(average, co_i_indices, lr, group);
       agonist[group] = has_agonist[lr]
         ? permutation_regulator_factor(
@@ -211,10 +228,11 @@ NumericMatrix score_cellchat_group_matrix_cpp(
       }
       const double product = ligand[sender] * receptor[receiver];
       if (!(product > 0.0)) continue;
-      const double product_n = std::pow(product, n_power);
-      output(pair, lr) = product_n / (Kh_n + product_n) *
-        agonist[sender] * agonist[receiver] *
-        antagonist[sender] * antagonist[receiver];
+      const double product_n = R_pow(product, n_power);
+      double score = product_n / (Kh_n + product_n);
+      score *= agonist[sender] * agonist[receiver];
+      score *= antagonist[sender] * antagonist[receiver];
+      output(pair, lr) = score;
     }
   }
   return output;

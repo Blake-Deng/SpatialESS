@@ -6,6 +6,8 @@
 #include <cmath>
 #include <vector>
 
+#include "reference_arithmetic.h"
+
 namespace spatialess {
 
 struct Type7Spec {
@@ -43,10 +45,22 @@ inline double combine_trimean(const std::array<Type7Spec, 3>& specs,
   std::array<double, 3> quantiles;
   for (int i = 0; i < 3; ++i) {
     const double lower = value_at(specs[i].lower_rank);
-    quantiles[i] = lower + specs[i].fraction *
-      (value_at(specs[i].upper_rank) - lower);
+    const double upper = value_at(specs[i].upper_rank);
+    const double fraction = specs[i].fraction;
+    quantiles[i] = lower;
+    if (fraction > 0.0 && lower != upper) {
+      // stats::quantile(type=7) evaluates these two products separately.
+      // Volatile temporaries prevent contraction into a fused multiply-add,
+      // which would introduce a different last-bit rounding on some CPUs.
+      const volatile double left = (1.0 - fraction) * lower;
+      const volatile double right = fraction * upper;
+      quantiles[i] = left + right;
+    }
   }
-  return (quantiles[0] + 2.0 * quantiles[1] + quantiles[2]) / 4.0;
+  const std::array<double, 4> weighted{{
+    quantiles[0], quantiles[1], quantiles[1], quantiles[2]
+  }};
+  return reference_mean(weighted);
 }
 
 inline int required_positive_indices(const std::array<Type7Spec, 3>& specs,
