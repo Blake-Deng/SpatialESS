@@ -188,9 +188,7 @@ summarize_prepared_trimean <- function(prepared, group,
 
 .spatialess_group_score_matrix <- function(average, group_support, components,
                                             Kh, n) {
-  indices <- lapply(components[c(
-    "ligand", "receptor", "co_a", "co_i", "agonist", "antagonist"
-  )], .spatialess_index_matrix, genes = rownames(average))
+  indices <- .spatialess_component_index_matrices(components, rownames(average))
   support <- group_support$group_pairs
   score_cellchat_group_matrix_cpp(
     average, support$sender_group, support$receiver_group,

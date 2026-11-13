@@ -1,0 +1,56 @@
+name: Release SpatialESS
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  release:
+    runs-on: ubuntu-24.04
+    env:
+      _R_CHECK_FORCE_SUGGESTS_: "false"
+      OMP_NUM_THREADS: "1"
+      OPENBLAS_NUM_THREADS: "1"
+      MKL_NUM_THREADS: "1"
+      RELEASE_TAG: ${{ github.ref_name }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: r-lib/actions/setup-r@v2
+        with:
+          r-version: "4.5"
+          use-public-rspm: true
+      - name: Validate package version and tag
+        id: metadata
+        run: Rscript .github/scripts/release.R main --validate-only
+      - uses: r-lib/actions/setup-r-dependencies@v2
+        with:
+          dependencies: 'c("Depends", "Imports", "LinkingTo")'
+          extra-packages: |
+            any::rcmdcheck
+            any::testthat
+            any::lme4
+            any::data.table
+            any::future.apply
+            any::RANN
+          needs: check
+      - name: Build and check release package
+        env:
+          RELEASE_ASSET_DIR: ${{ runner.temp }}/spatialess-release-assets
+        run: Rscript .github/scripts/release.R main
+      - name: Publish checked source package
+        uses: softprops/action-gh-release@v2
+        with:
+          name: SpatialESS ${{ github.ref_name }}
+          body_path: NEWS.md
+          prerelease: ${{ steps.metadata.outputs.prerelease == 'true' }}
+          make_latest: ${{ steps.metadata.outputs.prerelease == 'true' && 'false' || 'true' }}
+          fail_on_unmatched_files: true
+          files: ${{ runner.temp }}/spatialess-release-assets/SpatialESS_*.tar.gz

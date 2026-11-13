@@ -1,10 +1,12 @@
 #include <Rcpp.h>
+#include "reference_arithmetic.h"
 
 #include <algorithm>
 #include <cmath>
 #include <cstdint>
 #include <limits>
 #include <numeric>
+#include <string>
 #include <unordered_map>
 #include <vector>
 
@@ -75,7 +77,15 @@ void fill_geometric_expression(const DGCView& matrix,
   const std::vector<int> genes = component_genes(indices, row, matrix.genes());
   if (genes.empty()) stop("Ligand/receptor component has no genes.");
   std::fill(output.begin(), output.end(), 0.0);
-  if (genes.size() == 1U) {
+  bool direct_single = true;
+  if (indices.hasAttribute("spatialess_single_gene")) {
+    const LogicalVector flags = indices.attr("spatialess_single_gene");
+    if (flags.size() != indices.nrow() || flags[row] == NA_LOGICAL) {
+      stop("Invalid single-gene component metadata.");
+    }
+    direct_single = flags[row];
+  }
+  if (genes.size() == 1U && direct_single) {
     const int gene = genes.front();
     for (int q = matrix.p[gene]; q < matrix.p[gene + 1]; ++q) {
       const double value = matrix.x[q];
@@ -99,10 +109,25 @@ void fill_geometric_expression(const DGCView& matrix,
     }
   }
   const int required = static_cast<int>(genes.size());
+  std::vector<double> component_logs;
+  component_logs.reserve(genes.size());
   for (int cell = 0; cell < matrix.cells(); ++cell) {
     if (present[static_cast<std::size_t>(cell)] == required) {
-      output[static_cast<std::size_t>(cell)] = std::exp(
-        log_sum[static_cast<std::size_t>(cell)] / static_cast<double>(required));
+      // R's geometricMean evaluates mean(log(values)) with R's corrected
+      // long-double real_mean, not a double sum divided by subunit count.
+      component_logs.clear();
+      for (const int gene : genes) {
+        const int begin = matrix.p[gene];
+        const int end = matrix.p[gene + 1];
+        const auto at = std::lower_bound(matrix.i.begin() + begin,
+                                         matrix.i.begin() + end, cell);
+        if (at == matrix.i.begin() + end || *at != cell) {
+          stop("Inconsistent complex-expression presence.");
+        }
+        component_logs.push_back(std::log(matrix.x[at - matrix.i.begin()]));
+      }
+      output[static_cast<std::size_t>(cell)] =
+        std::exp(spatialess::reference_mean(component_logs));
     }
   }
 }
@@ -118,6 +143,10 @@ void fill_factor(const DGCView& matrix,
                  std::vector<double>& output) {
   std::fill(output.begin(), output.end(), 1.0);
   const std::vector<int> genes = component_genes(indices, row, matrix.genes());
+  if (genes.empty()) return;
+  // R's prod() accumulates in its native long-double type. Retain that
+  // arithmetic while exploiting sparse zero values (whose factor is one).
+  std::vector<long double> products(matrix.cells(), 1.0L);
   for (const int gene : genes) {
     for (int q = matrix.p[gene]; q < matrix.p[gene + 1]; ++q) {
       const int cell = matrix.i[q];
@@ -127,13 +156,17 @@ void fill_factor(const DGCView& matrix,
       if (mode == FactorMode::Coreceptor) {
         factor = 1.0 + value;
       } else {
-        const double value_n = std::pow(value, n_power);
+        const double value_n = R_pow(value, n_power);
         factor = mode == FactorMode::Agonist
           ? 1.0 + value_n / (Kh_n + value_n)
           : Kh_n / (Kh_n + value_n);
       }
-      output[static_cast<std::size_t>(cell)] *= factor;
+      products[static_cast<std::size_t>(cell)] *= factor;
     }
+  }
+  for (int cell = 0; cell < matrix.cells(); ++cell) {
+    output[static_cast<std::size_t>(cell)] =
+      static_cast<double>(products[static_cast<std::size_t>(cell)]);
   }
 }
 
@@ -147,6 +180,100 @@ struct ActiveEdge {
   int receiver;
   double probability;
 };
+
+void check_reference_workspace(int cells, int groups, double max_entries) {
+  if (!R_finite(max_entries) || max_entries < 1.0) {
+    stop("max_reference_entries must be a positive finite entry limit.");
+  }
+  const double cell_group = static_cast<double>(cells) * groups;
+  const double group_group = static_cast<double>(groups) * groups;
+  if (cell_group > max_entries || group_group > max_entries) {
+    stop("Reference aggregation exceeds max_reference_entries. Increase the "
+         "explicit reference workspace limit, or explicitly choose aggregation="
+         "'stream' without claiming bitwise reference equivalence.");
+  }
+}
+
+NumericMatrix reference_onehot(const IntegerVector& groups, int group_count) {
+  NumericMatrix output(groups.size(), group_count);
+  for (R_xlen_t cell = 0; cell < groups.size(); ++cell) {
+    const int group = groups[cell] - 1;
+    if (group < 0 || group >= group_count) stop("Invalid reference group code.");
+    output(cell, group) = 1.0;
+  }
+  return output;
+}
+
+NumericMatrix reference_onehot(const std::vector<int>& groups, int group_count) {
+  NumericMatrix output(groups.size(), group_count);
+  for (std::size_t cell = 0; cell < groups.size(); ++cell) {
+    const int group = groups[cell];
+    if (group < 0 || group >= group_count) stop("Invalid reference group code.");
+    output(cell, group) = 1.0;
+  }
+  return output;
+}
+
+S4 reference_probability_csc(const std::vector<ActiveEdge>& edges, int cells) {
+  if (edges.size() > static_cast<std::size_t>(std::numeric_limits<int>::max())) {
+    stop("Reference sparse probability exceeds dgCMatrix's integer-index limit.");
+  }
+  IntegerVector p(cells + 1), i(edges.size());
+  NumericVector x(edges.size());
+  for (const ActiveEdge& edge : edges) ++p[edge.receiver + 1];
+  for (int cell = 1; cell <= cells; ++cell) p[cell] += p[cell - 1];
+  std::vector<int> cursor(p.begin(), p.end());
+  // The native generation loop is sender-major. Counting scatter into receiver
+  // columns therefore produces exactly the sorted row order of a dgCMatrix.
+  for (const ActiveEdge& edge : edges) {
+    const int at = cursor[static_cast<std::size_t>(edge.receiver)]++;
+    i[at] = edge.sender;
+    x[at] = edge.probability;
+  }
+  S4 output("dgCMatrix");
+  output.slot("Dim") = IntegerVector::create(cells, cells);
+  output.slot("Dimnames") = List::create(R_NilValue, R_NilValue);
+  output.slot("p") = p;
+  output.slot("i") = i;
+  output.slot("x") = x;
+  return output;
+}
+
+struct ReferenceAggregate {
+  NumericMatrix probability;
+  NumericMatrix sum;
+  NumericMatrix count;
+};
+
+ReferenceAggregate reference_aggregate(const S4& probability,
+                                      const NumericMatrix& onehot) {
+  // Preserve the official two Matrix/BLAS operations, including their inner
+  // reduction order. Hand-written sums or BLAS blocks can differ by one ULP.
+  const Function multiply = Environment::base_env()["%*%"];
+  const Function divide = Environment::base_env()["/"];
+  const Function as_matrix = Environment::base_env()["as.matrix"];
+  const Function get_exported = Environment::base_env()["getExportedValue"];
+  const Function crossprod = get_exported("Matrix", "crossprod");
+  const RObject intermediate = multiply(probability, onehot);
+  const RObject sums = crossprod(onehot, intermediate);
+
+  S4 edges("dgCMatrix");
+  edges.slot("Dim") = probability.slot("Dim");
+  edges.slot("Dimnames") = probability.slot("Dimnames");
+  edges.slot("p") = probability.slot("p");
+  edges.slot("i") = probability.slot("i");
+  const NumericVector probability_values = probability.slot("x");
+  edges.slot("x") = NumericVector(probability_values.size(), 1.0);
+  const RObject count_intermediate = multiply(edges, onehot);
+  const RObject counts = crossprod(onehot, count_intermediate);
+  const RObject averages = divide(sums, counts);
+  NumericMatrix result = as_matrix(averages);
+  for (R_xlen_t k = 0; k < result.size(); ++k) {
+    if (R_IsNaN(result[k])) result[k] = 0.0;
+  }
+  return ReferenceAggregate{result, as<NumericMatrix>(as_matrix(sums)),
+                            as<NumericMatrix>(as_matrix(counts))};
+}
 
 void add_edge(std::unordered_map<std::uint64_t, Aggregate>& aggregate,
               int sender_group,
@@ -182,6 +309,24 @@ LogicalMatrix v3_percent_mask(const std::vector<int>& ligand_positive,
 
 }  // namespace
 
+// Internal diagnostic entry point; the stream calls this same aggregation
+// helper on its native per-LR sparse probabilities.
+// [[Rcpp::export]]
+List spatialess_reference_aggregate_cpp(const S4& probability,
+                                       const IntegerVector& group,
+                                       int group_count,
+                                       double max_reference_entries = 1e8) {
+  const DGCView view(probability);
+  if (view.cells() != view.genes() || group.size() != view.cells() || group_count < 1) {
+    stop("Reference probability must be square and align with group labels.");
+  }
+  check_reference_workspace(view.cells(), group_count, max_reference_entries);
+  const ReferenceAggregate result = reference_aggregate(
+    probability, reference_onehot(group, group_count));
+  return List::create(Named("probability") = result.probability,
+                      Named("sum") = result.sum, Named("count") = result.count);
+}
+
 // [[Rcpp::export]]
 List spatialess_stream_cpp(
     const S4& cell_by_gene,
@@ -208,10 +353,17 @@ List spatialess_stream_cpp(
     int min_cells_sr,
     bool use_agan,
     double max_output_records,
-    double max_active_edges_per_lr) {
+    double max_active_edges_per_lr,
+    std::string aggregation = "reference",
+    double max_reference_entries = 1e8) {
   const DGCView expression(cell_by_gene);
   const int cell_count = expression.cells();
   const int lr_count = ligand_indices.nrow();
+  if (aggregation != "reference" && aggregation != "stream") {
+    stop("aggregation must be 'reference' or 'stream'.");
+  }
+  const bool reference = aggregation == "reference";
+  if (reference) check_reference_workspace(cell_count, group_count, max_reference_entries);
   if (group.size() != cell_count || offsets.size() != cell_count + 1 ||
       csr_offset(offsets, cell_count) != neighbors.size() ||
       distances.size() != neighbors.size()) {
@@ -246,7 +398,7 @@ List spatialess_stream_cpp(
   }
   if (!R_finite(minimum_distance)) stop("The spatial graph has no non-self edges.");
   const double self_spatial_weight = 1.0 / (minimum_distance * scale_distance);
-  const double Kh_n = std::pow(Kh, n_power);
+  const double Kh_n = R_pow(Kh, n_power);
   const int nboot = permutations.ncol();
   const Environment package = Environment::namespace_env("SpatialESS");
   const Function percent_filter = package[".spatialess_v3_percent_mask"];
@@ -266,6 +418,8 @@ List spatialess_stream_cpp(
   std::vector<int> boot_group(cell_count), boot_group_sizes(group_count),
     boot_ligand_positive(group_count), boot_receptor_positive(group_count);
   std::vector<double> boot_sender_links(group_count), boot_receiver_links(group_count);
+  const NumericMatrix observed_onehot = reference
+    ? reference_onehot(group, group_count) : NumericMatrix(0, 0);
 
   for (int lr = 0; lr < lr_count; ++lr) {
     if ((lr & 15) == 0) checkUserInterrupt();
@@ -276,8 +430,9 @@ List spatialess_stream_cpp(
     fill_factor(expression, co_i_indices, lr, FactorMode::Coreceptor,
                 Kh_n, n_power, co_i);
     for (int cell = 0; cell < cell_count; ++cell) {
-      receptor[static_cast<std::size_t>(cell)] *=
-        co_a[static_cast<std::size_t>(cell)] / co_i[static_cast<std::size_t>(cell)];
+      receptor[static_cast<std::size_t>(cell)] =
+        (receptor[static_cast<std::size_t>(cell)] *
+         co_a[static_cast<std::size_t>(cell)]) / co_i[static_cast<std::size_t>(cell)];
     }
     if (use_agan && has_agonist[lr]) {
       fill_factor(expression, agonist_indices, lr, FactorMode::Agonist,
@@ -300,7 +455,7 @@ List spatialess_stream_cpp(
     std::unordered_map<std::uint64_t, Aggregate> observed;
     observed.reserve(1024);
     std::vector<ActiveEdge> active_edges;
-    if (nboot > 0) active_edges.reserve(
+    if (nboot > 0 || reference) active_edges.reserve(
       static_cast<std::size_t>(std::min<double>(max_active_edges_per_lr, 65536.0)));
 
     for (int cell = 0; cell < cell_count; ++cell) {
@@ -318,19 +473,19 @@ List spatialess_stream_cpp(
       const double product = ligand[static_cast<std::size_t>(sender)] *
         receptor[static_cast<std::size_t>(receiver)];
       if (!(product > 0.0)) return;
-      const double product_n = std::pow(product, n_power);
+      const double product_n = R_pow(product, n_power);
       double probability = product_n / (Kh_n + product_n) * spatial_weight;
       if (use_agan) {
         probability *= agonist[static_cast<std::size_t>(sender)] *
-          agonist[static_cast<std::size_t>(receiver)] *
-          antagonist[static_cast<std::size_t>(sender)] *
+          agonist[static_cast<std::size_t>(receiver)];
+        probability *= antagonist[static_cast<std::size_t>(sender)] *
           antagonist[static_cast<std::size_t>(receiver)];
       }
       if (!(probability > 0.0) || !R_finite(probability)) return;
       add_edge(observed, group[sender] - 1, group[receiver] - 1, probability);
       sender_links[static_cast<std::size_t>(sender)] += 1.0;
       receiver_links[static_cast<std::size_t>(receiver)] += 1.0;
-      if (nboot > 0) {
+      if (nboot > 0 || reference) {
         active_edges.push_back(ActiveEdge{sender, receiver, probability});
         if (static_cast<double>(active_edges.size()) > max_active_edges_per_lr) {
           stop("Active edge count exceeded max_active_edges_per_lr.");
@@ -351,7 +506,7 @@ List spatialess_stream_cpp(
       }
       process_edge(sender, sender, self_spatial_weight);
     }
-    if (nboot > 0) {
+    if (nboot > 0 || reference) {
       std::sort(active_edges.begin(), active_edges.end(),
         [](const ActiveEdge& left, const ActiveEdge& right) {
           if (left.sender != right.sender) return left.sender < right.sender;
@@ -365,9 +520,17 @@ List spatialess_stream_cpp(
       }
     }
     active_edges_per_lr[static_cast<std::size_t>(lr)] =
-      nboot > 0 ? static_cast<double>(active_edges.size()) :
+      (nboot > 0 || reference) ? static_cast<double>(active_edges.size()) :
       std::accumulate(observed.begin(), observed.end(), 0.0,
         [](double total, const auto& item) { return total + item.second.count; });
+    if (observed.empty()) continue;
+    RObject reference_probability = R_NilValue;
+    NumericMatrix observed_reference(0, 0);
+    if (reference) {
+      reference_probability = reference_probability_csc(active_edges, cell_count);
+      observed_reference = reference_aggregate(as<S4>(reference_probability),
+                                               observed_onehot).probability;
+    }
 
     std::fill(sender_group_links.begin(), sender_group_links.end(), 0.0);
     std::fill(receiver_group_links.begin(), receiver_group_links.end(), 0.0);
@@ -430,6 +593,11 @@ List spatialess_stream_cpp(
                  boot_group[static_cast<std::size_t>(edge.receiver)],
                  edge.probability);
       }
+      NumericMatrix boot_reference(0, 0);
+      if (reference && !keys.empty()) {
+        boot_reference = reference_aggregate(as<S4>(reference_probability),
+          reference_onehot(boot_group, group_count)).probability;
+      }
       LogicalMatrix boot_percent(group_count, 2);
       if (!keys.empty()) {
         boot_percent = v3_percent_mask(boot_ligand_positive, boot_receptor_positive,
@@ -448,10 +616,14 @@ List spatialess_stream_cpp(
         const auto found = boot_aggregate.find(key);
         if (percent_ok && cells_ok && found != boot_aggregate.end() &&
             found->second.count > 0.0) {
-          boot_probability = found->second.sum / found->second.count;
+          boot_probability = reference
+            ? boot_reference(sender_group, receiver_group)
+            : found->second.sum / found->second.count;
         }
         const Aggregate& observed_item = observed.at(key);
-        const double observed_probability = observed_item.sum / observed_item.count;
+        const double observed_probability = reference
+          ? observed_reference(sender_group, receiver_group)
+          : observed_item.sum / observed_item.count;
         if (boot_probability > observed_probability) ++reject[index];
       }
     }
@@ -462,7 +634,9 @@ List spatialess_stream_cpp(
       lr_out.push_back(lr + 1);
       sender_group_out.push_back(key_sender(key) + 1);
       receiver_group_out.push_back(key_receiver(key) + 1);
-      probability_out.push_back(item.sum / item.count);
+      probability_out.push_back(reference
+        ? observed_reference(key_sender(key), key_receiver(key))
+        : item.sum / item.count);
       edge_count_out.push_back(item.count);
       pvalue_out.push_back(nboot > 0
         ? static_cast<double>(reject[index]) / static_cast<double>(nboot)
@@ -484,6 +658,9 @@ List spatialess_stream_cpp(
     ),
     Named("active_edges_per_lr") = wrap(active_edges_per_lr),
     Named("minimum_nonzero_distance") = minimum_distance,
-    Named("self_spatial_weight") = self_spatial_weight
+    Named("self_spatial_weight") = self_spatial_weight,
+    Named("aggregation") = aggregation,
+    Named("reference_cell_group_entries") = reference
+      ? static_cast<double>(cell_count) * group_count : 0.0
   );
 }

@@ -1,3 +1,22 @@
+# SpatialESS 0.1.4.9003 (pre-release)
+
+- Default to reference Matrix/BLAS group aggregation to preserve strict-tail
+  counts at exact floating-point ties. Keep the old stream aggregation only as
+  an explicit option, and guard dense cell-by-group/group-by-group workspaces.
+- Match single-gene, named-complex, R mean/quantile/prod and arithmetic order
+  in the CellChat-compatible scorers; restore unambiguous cached components.
+- Preserve separate double products in Euclidean distances and apply coordinate
+  ratio after raw-distance calculation, matching the reference order.
+- Declare future.apply as a runtime dependency and always reproduce the tested
+  V3 RNG advance before generating label permutations.
+- Keep strict greater-than comparisons and uncorrected count/nboot p-values.
+  No epsilon, p-value replacement or change to the reference equations is used.
+- Add exact regression tests and matched-environment server validation: 17,880
+  active records across six real and five synthetic cases match fresh official
+  probabilities, p-values and permutation sequences exactly.
+- Add tag-triggered source-package releases after package checks; four-component
+  development versions are automatically marked as pre-releases.
+
 # SpatialESS 0.1.4.9002 (development)
 
 - Add Visium HD native sparse readers, raw-UMI grid aggregation, and independent
