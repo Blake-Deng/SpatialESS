@@ -2,6 +2,8 @@
 #'
 #' Retains an interaction only when both ligand and receptor resolve to
 #' non-empty gene sets and every required complex subunit occurs in `genes`.
+#' As in the reference `computeExpr_LR()`, a measured ligand or receptor row
+#' name takes precedence over a same-named complex definition.
 #' This checks measured gene identifiers, not expression abundance, spatial
 #' variability, overexpression or statistical significance. Zero-expression
 #' rows are still measured genes. Cofactor genes are reported but are optional,
@@ -54,17 +56,23 @@ filter_cellchat_lr <- function(lr, genes, complex, cofactor = NULL,
   if (!is.null(cofactor) && (is.null(rownames(cofactor)) || !length(cof_cols))) {
     stop("cofactor requires row names and cofactor columns.", call. = FALSE)
   }
-  resolve <- function(name, table, columns) {
+  resolve <- function(name, table, columns, measured_priority = FALSE) {
     name <- as.character(name)
     if (length(name) != 1L || is.na(name) || !nzchar(name)) return(character())
+    # Molecular LR names follow computeExpr_LR(): a measured row is a direct
+    # gene even when the database also contains a complex with that name.
+    # Cofactors intentionally retain table-based resolution below.
+    if (measured_priority && name %in% genes) return(name)
     values <- if (name %in% rownames(table)) {
       unlist(table[name, columns, drop = FALSE], use.names = FALSE)
     } else name
     values <- as.character(values)
     values[!is.na(values) & nzchar(values)]
   }
-  lig <- lapply(lr[[ligand_col]], resolve, table = complex, columns = subunits)
-  rec <- lapply(lr[[receptor_col]], resolve, table = complex, columns = subunits)
+  lig <- lapply(lr[[ligand_col]], resolve, table = complex, columns = subunits,
+                measured_priority = TRUE)
+  rec <- lapply(lr[[receptor_col]], resolve, table = complex, columns = subunits,
+                measured_priority = TRUE)
   miss_l <- lapply(lig, setdiff, y = genes)
   miss_r <- lapply(rec, setdiff, y = genes)
   valid <- lengths(lig) > 0L & lengths(rec) > 0L &

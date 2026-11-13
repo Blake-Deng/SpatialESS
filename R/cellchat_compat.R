@@ -22,7 +22,50 @@
   for (i in seq_along(indices)) {
     if (length(indices[[i]])) output[i, seq_along(indices[[i]])] <- indices[[i]]
   }
+  # A measured gene and a named, one-subunit complex are different upstream
+  # expressions: computeExpr_LR() returns the former directly, while the latter
+  # still passes through computeExpr_complex()/geometricMean(). Keep that
+  # distinction when the gene sets are reduced to native index matrices.
+  single_gene <- attr(sets, "spatialess_single_gene", exact = TRUE)
+  if (!is.null(single_gene)) {
+    if (!is.logical(single_gene) || length(single_gene) != length(sets) ||
+        anyNA(single_gene)) {
+      stop("Invalid single-gene component metadata.", call. = FALSE)
+    }
+    attr(output, "spatialess_single_gene") <- single_gene
+  }
   output
+}
+
+.spatialess_component_index_matrices <- function(components, genes) {
+  fields <- c("ligand", "receptor", "co_a", "co_i", "agonist", "antagonist")
+  sets <- components[fields]
+  for (field in c("ligand", "receptor")) {
+    single_gene <- attr(sets[[field]], "spatialess_single_gene", exact = TRUE)
+    if (is.null(single_gene)) {
+      # Old serialized components contain resolved genes but not the original
+      # molecular-kind flags. A literal one-gene name is unambiguous. A named
+      # one-subunit complex is not: old preparation may also have discarded a
+      # same-named measured gene in favour of the complex definition.
+      if (is.null(components$lr) || !field %in% names(components$lr) ||
+          nrow(components$lr) != length(sets[[field]])) {
+        stop("Components lack molecular-origin metadata; re-run prepare_cellchat_lr_components() from the original expression and database.", call. = FALSE)
+      }
+      names_lr <- as.character(components$lr[[field]])
+      direct <- lengths(sets[[field]]) == 1L & vapply(
+        seq_along(sets[[field]]), function(i) {
+          identical(as.character(sets[[field]][[i]]), names_lr[[i]])
+        }, logical(1)
+      )
+      ordinary_complex <- lengths(sets[[field]]) > 1L & !names_lr %in% genes
+      if (any(!direct & !ordinary_complex) ||
+          any(!unlist(sets[[field]], use.names = FALSE) %in% genes)) {
+        stop("Old components have ambiguous single-gene/complex origins; re-run prepare_cellchat_lr_components() from the original expression and database.", call. = FALSE)
+      }
+      attr(sets[[field]], "spatialess_single_gene") <- direct
+    }
+  }
+  lapply(sets, .spatialess_index_matrix, genes = genes)
 }
 
 .spatialess_group_info <- function(group, graph = NULL) {
@@ -86,14 +129,25 @@ prepare_cellchat_lr_components <- function(lr, genes, complex, cofactor,
     stop("Cannot identify complex subunit or cofactor columns.", call. = FALSE)
   }
 
-  resolve_complex <- function(x) .spatialess_component_genes(
-    x, complex, complex_columns, genes, require_all = TRUE
-  )
+  resolve_complex <- function(x) {
+    # Match computeExpr_LR(): measured row names take precedence over complex
+    # names, including a rare name present in both the matrix and the database.
+    if (length(x) == 1L && !is.na(x) && as.character(x) %in% genes) {
+      return(as.character(x))
+    }
+    .spatialess_component_genes(
+      x, complex, complex_columns, genes, require_all = TRUE
+    )
+  }
   resolve_cofactor <- function(x) .spatialess_component_genes(
     x, cofactor, cofactor_columns, genes, require_all = FALSE
   )
   ligand <- lapply(lr[[ligand_col]], resolve_complex)
   receptor <- lapply(lr[[receptor_col]], resolve_complex)
+  attr(ligand, "spatialess_single_gene") <-
+    as.character(lr[[ligand_col]]) %in% genes
+  attr(receptor, "spatialess_single_gene") <-
+    as.character(lr[[receptor_col]]) %in% genes
   valid <- lengths(ligand) > 0L & lengths(receptor) > 0L
   if (any(!valid)) {
     .spatialess_lr_error(.spatialess_lr_audit(
@@ -237,9 +291,7 @@ score_cellchat_group_support <- function(group_expression, group_support,
   if (any(!components$genes %in% rownames(average))) {
     stop("Group expression is missing referenced LR genes.", call. = FALSE)
   }
-  indices <- lapply(components[c(
-    "ligand", "receptor", "co_a", "co_i", "agonist", "antagonist"
-  )], .spatialess_index_matrix, genes = rownames(average))
+  indices <- .spatialess_component_index_matrices(components, rownames(average))
   support <- group_support$group_pairs
   result <- score_cellchat_group_support_cpp(
     average, support$sender_group, support$receiver_group,

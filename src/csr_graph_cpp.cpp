@@ -119,7 +119,10 @@ List radius_graph_csr_cpp(const NumericMatrix& coords,
               double distance_sq = 0.0;
               for (int d = 0; d < dims; ++d) {
                 const double delta = coords(i, d) - coords(j, d);
-                distance_sq += delta * delta;
+                // Rfast/Armadillo rounds each squared coordinate difference
+                // before summing. Prevent contraction into a fused multiply-add.
+                volatile double squared = delta * delta;
+                distance_sq += squared;
               }
               if (distance_sq <= radius_sq + numeric_tolerance) {
                 callback(i, j, std::sqrt(std::max(0.0, distance_sq)));

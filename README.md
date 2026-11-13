@@ -16,7 +16,7 @@ Requires **R ≥ 4.1** and a **C++17 compiler**.
 ```sh
 git clone https://github.com/Blake-Deng/SpatialESS.git
 cd SpatialESS
-Rscript -e 'install.packages(c("Rcpp", "Matrix"))'
+Rscript -e 'install.packages(c("Rcpp", "Matrix", "future.apply"))'
 R CMD INSTALL .
 Rscript examples/lr_panel_example.R
 ```
@@ -29,6 +29,23 @@ To analyze your own data, follow the [analysis guide](docs/QUICKSTART.md) and
 coordinates and cell-type labels must follow the same cell order. Required
 ligand and receptor subunits must be measured; excluded interactions are
 reported in an explicit coverage audit.
+
+## Official-reference p-value alignment
+
+The development version uses `aggregation = "reference"` by default: each LR
+is still processed sparsely, but group aggregation follows the same complete
+Matrix/BLAS operations as the tested SpatialCellChat V3 reference. This mode
+needs dense cell-by-group workspaces and enforces `max_reference_entries` before
+allocating them. It never silently falls back to a different reduction order.
+The explicit `aggregation = "stream"` option retains the previous low-memory
+reduction for engineering workloads; last-bit ties can produce different p-values.
+The statistical rule remains strict `Pboot > Pobs`, with `count / nboot`.
+
+`future.apply` is now a runtime dependency so the reference's RNG advance is
+not conditional on optional-package availability. Exact comparison still requires
+matched input order, reference version, R/RNG settings and numerical libraries.
+See [the alignment change notes](docs/PVALUE_REFERENCE_ALIGNMENT.md) and
+[matched-environment validation](docs/validation/pvalue_reference_20261113/README.md).
 
 ## Visium HD: bin8, bin16 and bin32 (development)
 

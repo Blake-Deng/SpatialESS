@@ -28,7 +28,9 @@ spatialess(
   max_edges = 5e+08,
   max_output_records = 1e+08,
   max_active_edges_per_lr = 5e+08,
-  lr_missing = c("error", "filter")
+  lr_missing = c("error", "filter"),
+  aggregation = c("reference", "stream"),
+  max_reference_entries = 1e+08
 )
 }
 \arguments{
@@ -65,6 +67,17 @@ spatialess(
 \item{lr_missing}{How to handle incomplete mandatory LR genes: `"error"`
 (default) preserves strict checking; `"filter"` explicitly excludes
 incomplete LR with a warning and stores the full audit in `$lr_filter`.}
+
+\item{aggregation}{Group aggregation arithmetic. `"reference"` (default)
+uses the same full Matrix multiplication and crossproduct as the official
+SpatialCellChat reference, preserving its floating-point reduction order.
+`"stream"` retains the compact native sum but can differ at exact permutation
+boundaries and must not be described as bitwise reference equivalent.}
+
+\item{max_reference_entries}{Maximum entries in each dense reference
+workspace matrix (`cells * groups` or `groups * groups`). Several matrices
+are allocated, so this is not a total process-memory limit. The default is
+`1e8`. Exceeding it stops rather than silently changing aggregation.}
 }
 \value{
 A SpatialESSResult with records, LR table, CSR graph, diagnostics
