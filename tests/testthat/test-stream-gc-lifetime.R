@@ -9,7 +9,8 @@ test_that("percentage filtering preserves group sizes across R allocations", {
                matrix(1L), matrix(2L), empty, empty, empty, empty,
                FALSE, FALSE, FALSE,
                cbind(seq_len(n_cells), rev(seq_len(n_cells))),
-               .5, 1, 1, 1, .1, 1L, TRUE, 1e8, 5e8)
+               .5, 1, 1, 1, .1, 1L, TRUE, 1e8, 5e8,
+               percent_filter = "spatialcellchat_v3")
   native <- getFromNamespace("spatialess_stream_cpp", "SpatialESS")
   expected <- do.call(native, args)
   old <- gctorture2(0L)

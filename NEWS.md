@@ -1,3 +1,17 @@
+# SpatialESS 0.1.4.9004 (pre-release)
+
+- Group-level expression filtering now compares the unrounded ligand and
+  receptor detection fractions numerically against `min.percent` (inclusive).
+  The same rule applies to observed and permuted groups in both aggregation
+  modes. Previously, formatted percentages in scientific notation could pass
+  the cutoff even for rare genes.
+- For analyses that require the SpatialCellChat 0.1.0 filtering behavior or
+  reproduce earlier SpatialESS results, set `percent_filter = "spatialcellchat_v3"`.
+  New results record the selected rule in `parameters$percent_filter`.
+- Increasing the package version on `main` now triggers the release checks.
+  After they pass, GitHub Actions creates the version tag at the checked
+  commit and publishes the source archive.
+
 # SpatialESS 0.1.4.9003 (pre-release)
 
 - Default to reference Matrix/BLAS group aggregation to preserve strict-tail

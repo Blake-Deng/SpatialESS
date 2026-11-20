@@ -5,7 +5,7 @@
 
 SpatialESS is an R package for spatial cell–cell communication inference. It
 uses sparse radius graphs and streamed ligand–receptor scoring and permutation
-tests, with numerical validation against the tested SpatialCellChat V3 workflow.
+tests. A compatibility mode supports comparisons with SpatialCellChat V3.
 For cohorts with repeated tissue sections, it also provides patient-aware
 mixed-effects analysis.
 
@@ -24,28 +24,35 @@ Rscript examples/lr_panel_example.R
 The example uses synthetic data and needs no external dataset or CellChat
 installation. For cohort modelling, also install `lme4`.
 
+When the package version increases on `main`, GitHub Actions checks the source
+package, tags the checked commit, and publishes the tarball. Four-component
+development versions appear as pre-releases.
+
 To analyze your own data, follow the [analysis guide](docs/QUICKSTART.md) and
 [input requirements](docs/INPUTS.md). Expression matrices are gene-by-cell;
 coordinates and cell-type labels must follow the same cell order. Required
 ligand and receptor subunits must be measured; excluded interactions are
 reported in an explicit coverage audit.
 
-## Official-reference p-value alignment
+## Expression filtering and SpatialCellChat V3 comparisons
 
-The development version uses `aggregation = "reference"` by default: each LR
-is still processed sparsely, but group aggregation follows the same complete
-Matrix/BLAS operations as the tested SpatialCellChat V3 reference. This mode
-needs dense cell-by-group workspaces and enforces `max_reference_entries` before
-allocating them. It never silently falls back to a different reduction order.
-The explicit `aggregation = "stream"` option retains the previous low-memory
-reduction for engineering workloads; last-bit ties can produce different p-values.
-The statistical rule remains strict `Pboot > Pobs`, with `count / nboot`.
+Starting with 0.1.4.9004, `spatialess()` defaults to `percent_filter = "numeric"`.
+At `min.percent = 0.1`, at least 10% of cells in the sender group must express
+the ligand and at least 10% in the receiver group must express the receptor.
+The same inclusive cutoff applies after each label permutation. This change
+can affect which interactions are reported and their permutation p-values.
 
-`future.apply` is now a runtime dependency so the reference's RNG advance is
-not conditional on optional-package availability. Exact comparison still requires
-matched input order, reference version, R/RNG settings and numerical libraries.
-See [the alignment change notes](docs/PVALUE_REFERENCE_ALIGNMENT.md) and
-[matched-environment validation](docs/validation/pvalue_reference_20261113/README.md).
+For comparisons with the tested SpatialCellChat V3 workflow, set both
+`percent_filter = "spatialcellchat_v3"` and `aggregation = "reference"`.
+The first setting restores V3's formatted percentage comparison. The second
+uses the reference Matrix/BLAS summation order and is the default for either
+filter. `aggregation = "stream"` uses less workspace and can change strict
+permutation counts at floating-point ties. Both use `Pboot > Pobs` and report
+`count / nboot`.
+
+The 0.1.4.9003 validation compared 17,880 active records under the V3 filter
+with matched inputs, RNG and numerical libraries. See the [filter and workspace
+settings](docs/INPUTS.md) and [versioned validation report](docs/validation/pvalue_reference_20261113/README.md).
 
 ## Visium HD: bin8, bin16 and bin32 (development)
 

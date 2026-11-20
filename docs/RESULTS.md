@@ -6,23 +6,27 @@ logical paths after mounting, rather than directly browsable GitHub files.
 The self-contained [condition-support analysis](../paper/lung_cohort/condition_support/README.md)
 includes its own inputs, classifications and validation records.
 
-SpatialESS version: **0.1.4**. Inference and resource measurement series: 2026-09-30 through 2026-10-01. Each configuration has its own input checksum, LR table and parameter contract.
+The inference and resource measurements below used **SpatialESS 0.1.4** on
+2026-09-30 through 2026-10-01, with streaming aggregation and the historical
+V3 percentage rule. Each configuration has its own input checksum, LR table
+and parameter contract. The series predates both the default reference
+aggregation in 0.1.4.9003 and the default numeric filter in 0.1.4.9004.
 
 | Table | Contents |
 |---|---|
-| inference_summary.tsv | Current records, cells, genes, LR, permutations, spatial edges and raw-p counts |
+| inference_summary.tsv | Saved records, cells, genes, LR, permutations, spatial edges and raw-p counts |
 | inference_resources.tsv | Each completed single-fixture process, inference time and peak RSS |
 | parameters.tsv / inputs.tsv | Inference settings and prepared-input SHA256 |
 | official_fidelity.tsv | Full-precision comparisons to the identified official references |
-| cosmx_scaling.tsv | Current ESS original-harness medians and source-labeled official measurements |
-| cosmx_resource_repetitions.tsv | Individual current ESS harness measurements |
+| cosmx_scaling.tsv | SpatialESS 0.1.4 original-harness medians and source-labeled official measurements |
+| cosmx_resource_repetitions.tsv | Individual SpatialESS 0.1.4 harness measurements |
 | spatial_sparsity.tsv | Radius-graph edges, degree, density and storage definitions |
 | bridge_results.tsv | RAW/SPARKLE H5AD pipeline measurements |
 | gse306130_sampling.tsv | Fixed-parent cluster provenance and preparation seeds |
 | gse250346_lmm_summary.tsv | Completed primary cohort model summary |
 | lmm_provenance.tsv | Model source, fitting date and cohort input scope |
 
-All table paths below refer to the mounted `results/tables/` directory. `results/records/<case>.rds` stores each current result; `results/contracts/<case>.rds` stores its LR, parameters and diagnostics.
+All table paths below refer to the mounted `results/tables/` directory. `results/records/<case>.rds` stores each saved result. `results/contracts/<case>.rds` stores its LR, parameters and diagnostics.
 
 ## Dataset coverage
 

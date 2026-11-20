@@ -33,11 +33,18 @@ result <- spatialess(
   tol = 5,
   interaction.range = 30,
   contact.range = 10,
+  min.percent = 0.1,
   nboot = 100,
   seed.use = 1
 )
 head(result$records)
+result$parameters[c("percent_filter", "min.percent", "aggregation")]
 ```
+
+With the default numeric filter, both the sender's ligand-positive fraction
+and the receiver's receptor-positive fraction must reach 0.1 in this example.
+For a paired SpatialCellChat V3 comparison, add `percent_filter = "spatialcellchat_v3"`
+and `aggregation = "reference"` to the call. See the [filter definitions](INPUTS.md#group-expression-filtering).
 
 All mandatory ligand/receptor subunits must be measured. Excluded interactions
 produce a warning and an explicit audit; missing genes are not imputed.

@@ -284,16 +284,25 @@ void add_edge(std::unordered_map<std::uint64_t, Aggregate>& aggregate,
   item.count += 1.0;
 }
 
-LogicalMatrix v3_percent_mask(const std::vector<int>& ligand_positive,
-                             const std::vector<int>& receptor_positive,
-                             const std::vector<int>& group_sizes,
-                             double min_percent,
-                             const Function& filter) {
+LogicalMatrix expression_fraction_mask(const std::vector<int>& ligand_positive,
+                                       const std::vector<int>& receptor_positive,
+                                       const std::vector<int>& group_sizes,
+                                       double min_percent,
+                                       bool numeric_filter,
+                                       const Function& legacy_filter) {
   const int groups = static_cast<int>(group_sizes.size());
   LogicalMatrix mask(groups, 2);
-  // All formatted non-negative fractions pass the zero threshold in V3.
+  // Zero disables the percentage filter in both modes.
   if (min_percent == 0.0) {
     std::fill(mask.begin(), mask.end(), true);
+    return mask;
+  }
+  if (numeric_filter) {
+    for (int g = 0; g < groups; ++g) {
+      const double size = group_sizes[g];
+      mask(g, 0) = size > 0 && ligand_positive[g] / size >= min_percent;
+      mask(g, 1) = size > 0 && receptor_positive[g] / size >= min_percent;
+    }
     return mask;
   }
   NumericMatrix positive(groups, 2);
@@ -304,7 +313,7 @@ LogicalMatrix v3_percent_mask(const std::vector<int>& ligand_positive,
   // Format only the small group-level table, never a cell-by-cell matrix.
   // Keep sizes alive while Rcpp allocates the other callback arguments.
   const IntegerVector sizes = wrap(group_sizes);
-  return filter(positive, sizes, min_percent);
+  return legacy_filter(positive, sizes, min_percent);
 }
 
 }  // namespace
@@ -355,7 +364,8 @@ List spatialess_stream_cpp(
     double max_output_records,
     double max_active_edges_per_lr,
     std::string aggregation = "reference",
-    double max_reference_entries = 1e8) {
+    double max_reference_entries = 1e8,
+    std::string percent_filter = "numeric") {
   const DGCView expression(cell_by_gene);
   const int cell_count = expression.cells();
   const int lr_count = ligand_indices.nrow();
@@ -363,6 +373,10 @@ List spatialess_stream_cpp(
     stop("aggregation must be 'reference' or 'stream'.");
   }
   const bool reference = aggregation == "reference";
+  if (percent_filter != "numeric" && percent_filter != "spatialcellchat_v3") {
+    stop("percent_filter must be 'numeric' or 'spatialcellchat_v3'.");
+  }
+  const bool numeric_filter = percent_filter == "numeric";
   if (reference) check_reference_workspace(cell_count, group_count, max_reference_entries);
   if (group.size() != cell_count || offsets.size() != cell_count + 1 ||
       csr_offset(offsets, cell_count) != neighbors.size() ||
@@ -401,7 +415,7 @@ List spatialess_stream_cpp(
   const double Kh_n = R_pow(Kh, n_power);
   const int nboot = permutations.ncol();
   const Environment package = Environment::namespace_env("SpatialESS");
-  const Function percent_filter = package[".spatialess_v3_percent_mask"];
+  const Function legacy_filter = package[".spatialess_v3_percent_mask"];
 
   std::vector<int> lr_out, sender_group_out, receiver_group_out;
   std::vector<double> probability_out, pvalue_out, edge_count_out;
@@ -546,8 +560,8 @@ List spatialess_stream_cpp(
     keys.reserve(observed.size());
     LogicalMatrix observed_percent(group_count, 2);
     if (!observed.empty()) {
-      observed_percent = v3_percent_mask(ligand_positive, receptor_positive,
-                                        group_sizes, min_percent, percent_filter);
+      observed_percent = expression_fraction_mask(ligand_positive, receptor_positive,
+        group_sizes, min_percent, numeric_filter, legacy_filter);
     }
     for (const auto& item : observed) {
       const int sender_group = key_sender(item.first);
@@ -600,8 +614,8 @@ List spatialess_stream_cpp(
       }
       LogicalMatrix boot_percent(group_count, 2);
       if (!keys.empty()) {
-        boot_percent = v3_percent_mask(boot_ligand_positive, boot_receptor_positive,
-                                      boot_group_sizes, min_percent, percent_filter);
+        boot_percent = expression_fraction_mask(boot_ligand_positive, boot_receptor_positive,
+          boot_group_sizes, min_percent, numeric_filter, legacy_filter);
       }
       for (std::size_t index = 0; index < keys.size(); ++index) {
         const std::uint64_t key = keys[index];
