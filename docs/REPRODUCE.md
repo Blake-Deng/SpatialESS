@@ -11,7 +11,7 @@ is self-contained and can be run without that package or expression matrices.
 Requires R ≥ 4.1 and a C++17 compiler. From the repository root:
 
 ```sh
-Rscript -e 'install.packages(c("Rcpp", "Matrix"))'
+Rscript -e 'install.packages(c("Rcpp", "Matrix", "future.apply"))'
 R CMD INSTALL .
 Rscript examples/lr_panel_example.R
 ```
@@ -111,11 +111,30 @@ for definitions and interpretation limits.
 
 ## Rerun inference on prepared data
 
-The included runner accepts an R list of named arguments for `spatialess()`:
+For the recorded 0.1.4 inference series, install the archived 0.1.4 source
+and use its runner with an R list of named arguments for `spatialess()`.
 
 ```sh
 Rscript benchmarks/run_prepared.R /path/to/input.rds /path/to/output
 ```
+
+With the current package, choose the percentage filter and group aggregation
+for the analysis being repeated. For the matched 0.1.4.9003 V3 comparison,
+use the original prepared input and set both arguments explicitly in R.
+
+```r
+args <- readRDS("/path/to/input.rds")
+args$percent_filter <- "spatialcellchat_v3"
+args$aggregation <- "reference"
+result <- do.call(SpatialESS::spatialess, args)
+result$parameters[c("percent_filter", "min.percent", "aggregation")]
+```
+
+The CosMx head-to-head runner uses streaming aggregation to match the 0.1.4
+timing configuration. Its `min.percent = 0` disables percentage filtering.
+For the recorded timings and parity figures, use the original software,
+configuration and numerical environment. See the [0.1.4 measurements](RESULTS.md)
+and [0.1.4.9003 parity validation](validation/pvalue_reference_20261113/README.md).
 
 Prepared expression fixtures must be obtained separately. After mounting,
 `results/tables/inputs.tsv` records their filenames and SHA-256 values, and

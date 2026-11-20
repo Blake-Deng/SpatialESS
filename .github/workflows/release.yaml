@@ -2,6 +2,8 @@ name: Release SpatialESS
 
 on:
   push:
+    branches: [main]
+    paths: [DESCRIPTION]
     tags:
       - "v*"
 
@@ -9,28 +11,79 @@ permissions:
   contents: write
 
 concurrency:
-  group: release-${{ github.ref }}
+  group: release-${{ github.sha }}
   cancel-in-progress: false
 
 jobs:
   release:
+    if: ${{ !github.event.deleted }}
     runs-on: ubuntu-24.04
     env:
       _R_CHECK_FORCE_SUGGESTS_: "false"
       OMP_NUM_THREADS: "1"
       OPENBLAS_NUM_THREADS: "1"
       MKL_NUM_THREADS: "1"
-      RELEASE_TAG: ${{ github.ref_name }}
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          filter: blob:none
       - uses: r-lib/actions/setup-r@v2
         with:
           r-version: "4.5"
           use-public-rspm: true
+      - name: Select explicit tag or increased package version
+        id: target
+        shell: Rscript {0}
+        env:
+          BEFORE: ${{ github.event.before }}
+        run: |
+          if (Sys.getenv("GITHUB_REF_TYPE") == "tag") {
+            tag <- Sys.getenv("GITHUB_REF_NAME")
+          } else {
+            before <- Sys.getenv("BEFORE")
+            if (grepl("^0+$", before)) quit(status = 0L)
+            old <- system2("git", c("show", paste0(before, ":DESCRIPTION")), stdout = TRUE)
+            if (!is.null(attr(old, "status"))) stop("Cannot read previous DESCRIPTION")
+            previous <- read.dcf(textConnection(old))[1L, "Version"]
+            current <- read.dcf("DESCRIPTION")[1L, "Version"]
+            if (package_version(current) <= package_version(previous)) {
+              message("No package version increase: ", previous, " -> ", current)
+              quit(status = 0L)
+            }
+            tag <- paste0("v", current)
+          }
+          cat("tag=", tag, "\n", sep = "", file = Sys.getenv("GITHUB_OUTPUT"), append = TRUE)
+          cat("RELEASE_TAG=", tag, "\n", sep = "", file = Sys.getenv("GITHUB_ENV"), append = TRUE)
       - name: Validate package version and tag
+        if: steps.target.outputs.tag != ''
         id: metadata
         run: Rscript .github/scripts/release.R main --validate-only
+      - name: Check for an existing tag and published asset
+        if: steps.target.outputs.tag != ''
+        id: pending
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RELEASE_VERSION: ${{ steps.metadata.outputs.version }}
+        run: |
+          if git show-ref --verify --quiet "refs/tags/$RELEASE_TAG"; then
+            if [[ "$(git rev-parse "refs/tags/$RELEASE_TAG^{commit}")" != "$(git rev-parse HEAD)" ]]; then
+              echo "::error::Tag $RELEASE_TAG already points to another commit"
+              exit 1
+            fi
+            asset="SpatialESS_${RELEASE_VERSION}.tar.gz"
+            complete=$(gh api --paginate "repos/$GITHUB_REPOSITORY/releases?per_page=100" |
+              jq -s --arg tag "$RELEASE_TAG" --arg asset "$asset" 'any(.[][]; .tag_name == $tag and
+                (.draft | not) and any(.assets[]; .name == $asset and .state == "uploaded" and .size > 0))')
+            if [[ "$complete" == true ]]; then
+              echo "Release $RELEASE_TAG already includes $asset"
+              exit 0
+            fi
+          fi
+          echo 'publish=true' >> "$GITHUB_OUTPUT"
       - uses: r-lib/actions/setup-r-dependencies@v2
+        if: steps.pending.outputs.publish == 'true'
         with:
           dependencies: 'c("Depends", "Imports", "LinkingTo")'
           extra-packages: |
@@ -42,13 +95,33 @@ jobs:
             any::RANN
           needs: check
       - name: Build and check release package
+        if: steps.pending.outputs.publish == 'true'
         env:
           RELEASE_ASSET_DIR: ${{ runner.temp }}/spatialess-release-assets
         run: Rscript .github/scripts/release.R main
+      - name: Create or verify the tag at the checked commit
+        if: steps.pending.outputs.publish == 'true'
+        id: checked
+        run: |
+          commit=$(git rev-parse HEAD)
+          ref="refs/tags/$RELEASE_TAG"
+          remote=$(git ls-remote origin "$ref")
+          if [[ -z "$remote" ]]; then
+            git push origin "$commit:$ref"
+          fi
+          git fetch --no-tags origin "$ref"
+          if [[ "$(git rev-parse 'FETCH_HEAD^{commit}')" != "$commit" ]]; then
+            echo "::error::Remote tag $RELEASE_TAG does not point to the checked commit"
+            exit 1
+          fi
+          echo "sha=$commit" >> "$GITHUB_OUTPUT"
       - name: Publish checked source package
+        if: steps.pending.outputs.publish == 'true'
         uses: softprops/action-gh-release@v2
         with:
-          name: SpatialESS ${{ github.ref_name }}
+          tag_name: ${{ steps.target.outputs.tag }}
+          target_commitish: ${{ steps.checked.outputs.sha }}
+          name: SpatialESS ${{ steps.target.outputs.tag }}
           body_path: NEWS.md
           prerelease: ${{ steps.metadata.outputs.prerelease == 'true' }}
           make_latest: ${{ steps.metadata.outputs.prerelease == 'true' && 'false' || 'true' }}

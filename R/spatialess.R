@@ -15,7 +15,9 @@
 #' @param Kh,n Hill-function parameters.
 #' @param use.AGAN Whether to include agonist and antagonist factors.
 #' @param contact.dependent,contact.dependent.forced Contact-mode controls.
-#' @param min.percent,min.cells.sr Group-average filters.
+#' @param min.percent Minimum fraction of cells expressing the ligand in the
+#'   sender group and the receptor in the receiver group. Both must pass.
+#' @param min.cells.sr Minimum number of active links per sender and receiver group.
 #' @param nboot,seed.use Global label-permutation settings.
 #' @param max_edges,max_output_records,max_active_edges_per_lr Memory guards.
 #' @param lr_missing How to handle incomplete mandatory LR genes: `"error"`
@@ -30,6 +32,10 @@
 #'   workspace matrix (`cells * groups` or `groups * groups`). Several matrices
 #'   are allocated, so this is not a total process-memory limit. The default is
 #'   `1e8`. Exceeding it stops rather than silently changing aggregation.
+#' @param percent_filter How to apply min.percent to observed and permuted
+#'   group labels. "numeric" (default) compares unrounded fractions and
+#'   includes equality. Use "spatialcellchat_v3" to reproduce the formatted
+#'   character comparison in SpatialCellChat 0.1.0 and SpatialESS 0.1.4.9003.
 #' @return A SpatialESSResult with records, LR table, CSR graph, diagnostics
 #'   and parameters. When `lr_missing = "filter"`, `lr_filter` contains the
 #'   original-order coverage audit, excluded rows and missing-gene table.
@@ -46,9 +52,15 @@ spatialess <- function(
     max_active_edges_per_lr = 5e8,
     lr_missing = c("error", "filter"),
     aggregation = c("reference", "stream"),
-    max_reference_entries = 1e8) {
+    max_reference_entries = 1e8,
+    percent_filter = c("numeric", "spatialcellchat_v3")) {
   lr_missing <- match.arg(lr_missing)
   aggregation <- match.arg(aggregation)
+  percent_filter <- match.arg(percent_filter)
+  if (!is.numeric(min.percent) || length(min.percent) != 1L ||
+      !is.finite(min.percent) || min.percent < 0 || min.percent > 1) {
+    stop("min.percent must be a single finite number between 0 and 1.", call. = FALSE)
+  }
   if (!is.numeric(ratio) || length(ratio) != 1L ||
       !is.finite(ratio) || ratio <= 0) {
     stop("ratio must be one positive finite number.", call. = FALSE)
@@ -190,7 +202,7 @@ spatialess <- function(
     contact.range + tol, min.percent, as.integer(min.cells.sr),
     isTRUE(use.AGAN), as.double(max_output_records),
     as.double(max_active_edges_per_lr), aggregation,
-    as.double(max_reference_entries)
+    as.double(max_reference_entries), percent_filter
   )
   records <- as.data.frame(result$records, stringsAsFactors = FALSE)
   if (nrow(records)) {
@@ -230,7 +242,12 @@ spatialess <- function(
       ),
       parameters = list(
         engine = "SpatialESS_CSR_stream",
-        percentage_filter = "SpatialCellChat_V3_format_digits1",
+        percent_filter = percent_filter,
+        percentage_filter = if (percent_filter == "spatialcellchat_v3") {
+          "SpatialCellChat_V3_format_digits1"
+        } else {
+          "numeric"
+        },
         ratio = ratio, tol = tol, interaction.range = interaction.range,
         scale.distance = scale.distance, contact.range = contact.range,
         Kh = Kh, n = n, use.AGAN = isTRUE(use.AGAN),

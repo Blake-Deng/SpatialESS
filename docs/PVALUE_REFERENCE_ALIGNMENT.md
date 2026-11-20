@@ -1,6 +1,13 @@
 # Reference-aligned permutation inference (development 0.1.4.9003)
 
-The main `spatialess()` entry point defaults to `aggregation="reference"`.
+This report describes the 0.1.4.9003 validation, which used the historical
+SpatialCellChat V3 percentage filter. For this comparison on 0.1.4.9004 or
+later, select `percent_filter = "spatialcellchat_v3"` and
+`aggregation = "reference"`. The current default uses numeric expression
+fractions and can yield different records and p-values. See the [filter
+definitions](INPUTS.md#group-expression-filtering).
+
+The 0.1.4.9003 `spatialess()` entry point defaulted to `aggregation="reference"`.
 It forms one sparse cell-probability matrix per LR and reproduces the reference
 `Matrix::crossprod(X, probability %*% X)` numerator and count operations, with
 `X` the dense cell-group one-hot matrix. Observed and permuted scores share

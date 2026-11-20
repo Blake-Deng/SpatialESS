@@ -30,7 +30,8 @@ spatialess(
   max_active_edges_per_lr = 5e+08,
   lr_missing = c("error", "filter"),
   aggregation = c("reference", "stream"),
-  max_reference_entries = 1e+08
+  max_reference_entries = 1e+08,
+  percent_filter = c("numeric", "spatialcellchat_v3")
 )
 }
 \arguments{
@@ -58,7 +59,10 @@ spatialess(
 
 \item{contact.dependent, contact.dependent.forced}{Contact-mode controls.}
 
-\item{min.percent, min.cells.sr}{Group-average filters.}
+\item{min.percent}{Minimum fraction of cells expressing the ligand in the
+sender group and the receptor in the receiver group. Both must pass.}
+
+\item{min.cells.sr}{Minimum number of active links per sender and receiver group.}
 
 \item{nboot, seed.use}{Global label-permutation settings.}
 
@@ -78,6 +82,11 @@ boundaries and must not be described as bitwise reference equivalent.}
 workspace matrix (`cells * groups` or `groups * groups`). Several matrices
 are allocated, so this is not a total process-memory limit. The default is
 `1e8`. Exceeding it stops rather than silently changing aggregation.}
+
+\item{percent_filter}{How to apply min.percent to observed and permuted
+group labels. "numeric" (default) compares unrounded fractions and
+includes equality. Use "spatialcellchat_v3" to reproduce the formatted
+character comparison in SpatialCellChat 0.1.0 and SpatialESS 0.1.4.9003.}
 }
 \value{
 A SpatialESSResult with records, LR table, CSR graph, diagnostics

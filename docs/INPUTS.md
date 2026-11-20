@@ -19,6 +19,33 @@ The strict default rejects unresolved LR. With `lr_missing = "filter"`, any
 exclusion produces a warning and remains in `result$lr_filter`. To filter
 explicitly, pass `coverage$lr` to inference.
 
+## Group expression filtering
+
+`percent_filter = "numeric"` (default since 0.1.4.9004) uses the fraction of
+cells with positive ligand expression in the sender group and positive receptor
+expression in the receiver group. Each denominator is the total number of cells
+in its group. Both fractions must be `>= min.percent` (default `0.1`). For example,
+8 of 82 cells falls below 10%, while 8 of 80 meets it. SpatialESS recomputes
+both fractions using the group labels in each permutation. `min.percent = 0`
+disables this filter. `min.cells.sr` still applies.
+
+`percent_filter = "spatialcellchat_v3"` restores the previous comparison. V3
+formats the ligand and receptor fraction columns with `format(..., digits = 1)`
+and then compares the resulting strings to the threshold. The outcome can
+depend on other fractions in the same column and on R's formatting settings.
+For example, a fraction of `0.00005` can be printed as `"5e-05"` and pass the
+character comparison against `"0.1"`. Record the R version, locale and
+formatting options when reproducing that behavior.
+
+The separate `aggregation` argument controls group score arithmetic. The default
+`"reference"` uses Matrix/BLAS and checks `max_reference_entries` before
+allocating dense cell-by-group or group-by-group workspaces. `"stream"` uses
+native sums and can give different tail counts at floating-point ties. Both
+aggregation methods accept either filter. For a saved run, inspect
+`result$parameters[c("percent_filter", "min.percent", "aggregation")]`.
+Older results can identify the legacy rule by
+`parameters$percentage_filter == "SpatialCellChat_V3_format_digits1"`.
+
 ## Official comparator
 
 The tested SpatialCellChat V3 reference is package version 0.1.0, commit
@@ -28,10 +55,11 @@ The target uses distance constraints, mean group aggregation
 Original and dimensions-only reference builds have distinct method labels.
 Failed official jobs have no inferred numerical-fidelity result.
 
-Percentage filtering uses the pinned V3 group-table formatting
-`format(..., digits=1)` before threshold comparison, in both observed and
-permuted scores. Record R version, formatting options and locale. This is not
-equivalent to applying `round(x, 1)` to unformatted fractions.
+For paired V3 comparisons with the current package, set
+`percent_filter = "spatialcellchat_v3"` and `aggregation = "reference"`.
+Match R/RNG settings and numerical libraries as well as inputs and parameters.
+The [0.1.4.9003 comparison](validation/pvalue_reference_20261113/README.md)
+records the environment and tested inputs.
 
 ALRA and MERINGUE are upstream preparation steps and are not run internally
 by `spatialess()`. A fixed-LR comparison passes the same selected table through

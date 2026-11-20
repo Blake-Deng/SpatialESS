@@ -91,7 +91,7 @@ if (method == "spatialcellchat_v3") {
   suppressPackageStartupMessages(library(SpatialESS))
   preparation_seconds <- 0
   individual_start <- proc.time()[["elapsed"]]
-  result <- spatialess(
+  inference_args <- list(
     expression = expression,
     coordinates = coordinates,
     group = group,
@@ -110,6 +110,14 @@ if (method == "spatialcellchat_v3") {
     max_edges = 5e8, max_output_records = 1e8,
     max_active_edges_per_lr = 5e8
   )
+  # The 0.1.4 timing series used streaming sums and V3 filtering. Preserve
+  # those settings on releases that expose them as independent arguments.
+  supported <- names(formals(spatialess))
+  if ("aggregation" %in% supported) inference_args$aggregation <- "stream"
+  if ("percent_filter" %in% supported) {
+    inference_args$percent_filter <- "spatialcellchat_v3"
+  }
+  result <- do.call(spatialess, inference_args)
   individual_seconds <- proc.time()[["elapsed"]] - individual_start
   group_permutation_seconds <- NA_real_
   records <- result$records
@@ -131,6 +139,11 @@ write.table(records, gzfile(file.path(out_dir, "records.tsv.gz")),
 
 summary <- data.frame(
   method = method,
+  package_version = as.character(packageVersion(
+    if (method == "spatialess") "SpatialESS" else "SpatialCellChat"
+  )),
+  aggregation = if (method == "spatialess") "stream" else "avg",
+  percent_filter = "spatialcellchat_v3",
   dataset = fixture$parameters$dataset,
   cells = cells,
   signaling_genes = nrow(expression),
